@@ -62,7 +62,7 @@
     "value": 4
    },
    "telephone": "+49-234-58545811",
-   "email": "office@nabla-b.engineering",
+   "email": "mailto:office@nabla-b.engineering",
    "address": {
     "@type": "PostalAddress",
     "streetAddress": "Herner Str. 299, Gebäude B29",
@@ -96,7 +96,7 @@
      "contactType": "customer service",
      "name": "Vanessa Wilcken",
      "telephone": "+49-234-58545811",
-     "email": "office@nabla-b.engineering",
+     "email": "mailto:office@nabla-b.engineering",
      "availableLanguage": [
       "de",
       "en",
@@ -126,21 +126,9 @@
    "vatID": "DE338747475",
    "taxID": "DE338747475",
    "brand": {
-    "@type": "Brand",
-    "name": "AI-Gruppe",
-    "url": "https://gruppe.ai/"
-   },
-   "parentOrganization": {
-    "@type": "Organization",
-    "name": "AI-Gruppe",
-    "url": "https://gruppe.ai/"
+    "@id": "https://gruppe.ai/#brand"
    },
    "memberOf": [
-    {
-     "@type": "Organization",
-     "name": "AI-Gruppe",
-     "url": "https://gruppe.ai/"
-    },
     {
      "@type": "Organization",
      "name": "IHK Mittleres Ruhrgebiet",
@@ -230,13 +218,30 @@
    "dateModified": "2026-09-01"
   },
   {
+   "@type": "Brand",
+   "@id": "https://gruppe.ai/#brand",
+   "name": "AI-Gruppe",
+   "url": "https://gruppe.ai/",
+   "description": "Dachmarke (keine juristische Person) für Auto-Intern GmbH, CCD Car Diagnostics, nabla B, nerd_force1, open Skunkforce e.V. und das skAInet-Projekt."
+  },
+  {
    "@type": "Organization",
    "@id": "https://www.auto-intern.de/#organization",
    "name": "Auto-Intern GmbH",
    "url": "https://www.auto-intern.de",
+   "email": "mailto:info@auto-intern.de",
+   "brand": [
+    {
+     "@id": "https://www.skainet.io/#brand"
+    },
+    {
+     "@id": "https://gruppe.ai/#brand"
+    }
+   ],
    "sameAs": [
     "https://www.skainet.io",
-    "https://edge-compute.skainet.io/"
+    "https://edge-compute.skainet.io/",
+    "https://github.com/auto-intern-skainet"
    ]
   },
   {
@@ -245,18 +250,32 @@
    "name": "Stephan Bökelmann",
    "givenName": "Stephan",
    "familyName": "Bökelmann",
-   "jobTitle": "Managing Director",
-   "worksFor": {
-    "@id": "https://nabla-b.engineering/#organization"
-   },
+   "jobTitle": [
+    "Managing Director, nabla B",
+    "Chief Operating Officer, Auto-Intern GmbH",
+    "System Architect, skAInet Edge-Compute"
+   ],
+   "worksFor": [
+    {
+     "@id": "https://nabla-b.engineering/#organization"
+    },
+    {
+     "@id": "https://www.auto-intern.de/#organization"
+    }
+   ],
    "url": "https://maxclerkwell.tech/",
    "description": "2007 年起从业，从机械工与电工，到工学学士、硕士，再到实验强子物理博士研究（PANDA/FAIR）。skAInet Edge-Compute 系统架构师，THGA 与波鸿鲁尔大学讲师，emBO++ 与 KiCon Europe 组织者。",
    "image": "https://nabla-b.engineering/assets/img/stephan-boekelmann.jpg",
    "sameAs": [
-    "https://maxclerkwell.tech/",
     "https://www.linkedin.com/in/accelerator-stephan/",
     "https://github.com/maxclerkwell",
-    "https://orcid.org/0000-0002-2119-0064"
+    "https://orcid.org/0000-0002-2119-0064",
+    "https://x.com/maxclerkwell",
+    "https://instagram.com/_maxclerkwell",
+    "https://www.researchgate.net/profile/Stephan-Boekelmann",
+    "https://inspirehep.net/authors/2177110",
+    "https://www.thga.de/hochschule/personen/profile-wissenschaftliche-mitarbeitende/stephan-boekelmann",
+    "https://edge-compute.skainet.io/team#stephan-boekelmann"
    ],
    "alternateName": [
     "MaxClerkwell",
@@ -271,7 +290,10 @@
     "KiCad",
     "data acquisition",
     "Yocto Linux",
-    "experimental hadron physics"
+    "experimental hadron physics",
+    {
+     "@id": "https://edge-compute.skainet.io/#product"
+    }
    ],
    "hasCredential": [
     {
@@ -308,6 +330,7 @@
     "propertyID": "ORCID",
     "value": "0000-0002-2119-0064"
    },
+   "disambiguatingDescription": "Engineer and physicist in Bochum, Germany (Auto-Intern GmbH / skAInet, nabla B, Ruhr-Universität Bochum), known online as MaxClerkwell. Not the actor Stefan Bockelmann, and not related to the UK agency ClerksWell.",
    "affiliation": [
     {
      "@id": "https://www.auto-intern.de/#organization"
@@ -315,7 +338,25 @@
     {
      "@type": "CollegeOrUniversity",
      "name": "Ruhr-Universität Bochum",
-     "url": "https://www.ruhr-uni-bochum.de/"
+     "url": "https://www.ruhr-uni-bochum.de/",
+     "sameAs": "https://ror.org/04tsk2644"
+    }
+   ],
+   "subjectOf": [
+    {
+     "@type": "WebPage",
+     "url": "https://maxclerkwell.tech/talks/",
+     "name": "Talks & Conference Appearances"
+    },
+    {
+     "@type": "WebPage",
+     "url": "https://maxclerkwell.tech/publications/",
+     "name": "Publications, Patents & Software"
+    },
+    {
+     "@type": "WebPage",
+     "url": "https://edge-compute.skainet.io/team",
+     "name": "skAInet Edge-Compute team"
     }
    ]
   },
@@ -697,5 +738,18 @@
 </div>
 <div class="legal"><span>© 2026 nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)</span><span>Amtsgericht Bochum HRB 18817 · USt-ID DE338747475</span></div>
 </div></footer>
+<dialog id="ref-modal" class="ref-modal" aria-labelledby="ref-modal-title"><form method="dialog"><h2 id="ref-modal-title">欢迎来到 nabla B。</h2><p>您来自 Stephan Bökelmann 的博客 maxclerkwell.tech。nabla B 是他在波鸿的工程事务所，博客中描述的项目均通过该公司承接。这里有服务、团队、案例与联系方式。</p><p class="ref-modal-actions"><a href="https://maxclerkwell.tech/">返回博客</a><button value="ok" autofocus>明白了</button></p></form></dialog><script>
+(function(){
+  try {
+    var p=new URLSearchParams(location.search), d=document.getElementById('ref-modal');
+    if(p.get('ref')!=='maxclerkwell.tech'||!d||!d.showModal||sessionStorage.getItem('ref-mc'))return;
+    sessionStorage.setItem('ref-mc','1');
+    d.showModal();
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+    p.delete('ref'); var q=p.toString();
+    history.replaceState(null,'',location.pathname+(q?'?'+q:'')+location.hash);
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>

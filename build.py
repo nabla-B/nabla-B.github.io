@@ -13,6 +13,7 @@ PERSON_TABEA = "https://edge-compute.skainet.io/team#tabea-boekelmann"
 PERSON_MEIHUI = BASE + "/team/#meihui-huang"
 PERSON_VANESSA = BASE + "/team/#vanessa-wilcken"
 AUTOINTERN_ID = "https://www.auto-intern.de/#organization"
+AIGRUPPE_ID = "https://gruppe.ai/#brand"
 EDGE_PRODUCT_ID = "https://edge-compute.skainet.io/#product"
 TODAY = datetime.date.today().isoformat()
 
@@ -100,17 +101,20 @@ UI = {
    legal=[("impressum","Impressum"),("datenschutz","Datenschutz")], menu="Menü",
    footer_contact="Kontakt", footer_hours="Bürozeiten: Mo – Fr, 9:00 – 13:30 Uhr", footer_office="Ansprechpartnerin: Vanessa Wilcken",
    footer_group="nabla B ist Teil der <a href=\"https://gruppe.ai/\">AI-Gruppe</a>.", footer_blog="Technischer Blog: <a href=\"https://maxclerkwell.tech/\">maxclerkwell.tech</a>",
-   copyright="© {y} nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)", cd="Corporate-Design-Handbuch (PDF)"),
+   copyright="© {y} nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)", cd="Corporate-Design-Handbuch (PDF)",
+   ref_title="Willkommen bei nabla B.", ref_text="Sie kommen von maxclerkwell.tech, dem Blog von Stephan Bökelmann. nabla B ist sein Ingenieurbüro in Bochum; über diese Firma werden die im Blog beschriebenen Projekte beauftragt. Hier finden Sie Leistungen, Team, Referenzen und Kontakt.", ref_ok="Verstanden", ref_back="Zurück zum Blog"),
  "en": dict(nav=[("index","Home"),("leistungen","Services"),("referenzen","References"),("team","Team"),("kontakt","Contact")],
    legal=[("impressum","Imprint"),("datenschutz","Privacy")], menu="Menu",
    footer_contact="Contact", footer_hours="Office hours: Mon – Fri, 9:00 – 13:30 CET", footer_office="Your contact: Vanessa Wilcken",
    footer_group="nabla B is part of the <a href=\"https://gruppe.ai/\">AI-Gruppe</a>.", footer_blog="Technical blog: <a href=\"https://maxclerkwell.tech/\">maxclerkwell.tech</a>",
-   copyright="© {y} nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)", cd="Corporate design manual (PDF, German)"),
+   copyright="© {y} nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)", cd="Corporate design manual (PDF, German)",
+   ref_title="Welcome to nabla B.", ref_text="You came from maxclerkwell.tech, Stephan Bökelmann’s blog. nabla B is his engineering office in Bochum, the company through which the projects described on the blog are contracted. Here you find services, team, references and contact.", ref_ok="Got it", ref_back="Back to the blog"),
  "zh": dict(nav=[("index","首页"),("leistungen","服务"),("referenzen","项目案例"),("team","团队"),("kontakt","联系")],
    legal=[("impressum","法律声明"),("datenschutz","隐私政策")], menu="菜单",
    footer_contact="联系方式", footer_hours="办公时间：周一至周五 9:00 – 13:30（中欧时间）", footer_office="联系人：Vanessa Wilcken",
    footer_group="nabla B 是 <a href=\"https://gruppe.ai/\">AI-Gruppe</a> 集团的成员。", footer_blog="技术博客：<a href=\"https://maxclerkwell.tech/\">maxclerkwell.tech</a>",
-   copyright="© {y} nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)", cd="企业视觉识别手册（PDF，德文）"),
+   copyright="© {y} nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)", cd="企业视觉识别手册（PDF，德文）",
+   ref_title="欢迎来到 nabla B。", ref_text="您来自 Stephan Bökelmann 的博客 maxclerkwell.tech。nabla B 是他在波鸿的工程事务所，博客中描述的项目均通过该公司承接。这里有服务、团队、案例与联系方式。", ref_ok="明白了", ref_back="返回博客"),
 }
 LANGNAME = {"de": ("🇩🇪","DE","Deutsch"), "en": ("🇬🇧","EN","English"), "zh": ("🇨🇳","中文","中文")}
 HTMLLANG = {"de":"de","en":"en","zh":"zh-Hans"}
@@ -240,6 +244,9 @@ def content(lang):
       intro={"de":"Klein, technisch, direkt erreichbar. Sie sprechen mit den Leuten, die Ihr Gerät bauen.",
              "en":"Small, technical, directly reachable. You talk to the people who build your device.",
              "zh":"团队精悍、技术导向、直接可联系。与您沟通的就是为您打造设备的人。"}[L],
+      disambig={"de":"Stephan Bökelmann (auch: Stephan Boekelmann, MaxClerkwell, 施泓杰) — nicht ClerksWell, nicht der Schauspieler Stefan Bockelmann.",
+                "en":"Stephan Bökelmann (also: Stephan Boekelmann, MaxClerkwell, 施泓杰) — not ClerksWell, not the actor Stefan Bockelmann.",
+                "zh":"施泓杰（Stephan Bökelmann，又名 Stephan Boekelmann、MaxClerkwell）——与 ClerksWell 及演员 Stefan Bockelmann 无关。"}[L],
       people=[
         dict(id="stephan-boekelmann", pid=PERSON_STEPHAN, name="Stephan Bökelmann", img="/assets/img/stephan-boekelmann.jpg",
              short={"de":"Ingenieur und Physiker, seit 2007 im Beruf. Systemarchitekt des skAInet Edge-Compute, Promotion in Hadronenphysik (PANDA/FAIR), Dozent an THGA und RUB.",
@@ -254,8 +261,11 @@ def content(lang):
                   "en":["B.Eng. Electrical and Information Technology, THGA Bochum","M.Eng. Information Technology / Computer Engineering, THGA Bochum","PhD (ongoing) Experimental Hadron Physics, Ruhr-Universität Bochum"],
                   "zh":["电气与信息技术工学学士，THGA 波鸿","信息技术/计算机工程工学硕士，THGA 波鸿","实验强子物理博士（在读），波鸿鲁尔大学"]}[L],
              links=[("maxclerkwell.tech","https://maxclerkwell.tech/"),("LinkedIn","https://www.linkedin.com/in/accelerator-stephan/"),("GitHub","https://github.com/maxclerkwell"),("ORCID","https://orcid.org/0000-0002-2119-0064")],
-             jobTitle="Managing Director", alt=["MaxClerkwell","Stephan Boekelmann","施泓杰"],
-             sameAs=["https://maxclerkwell.tech/","https://www.linkedin.com/in/accelerator-stephan/","https://github.com/maxclerkwell","https://orcid.org/0000-0002-2119-0064"],
+             jobTitle=["Managing Director, nabla B","Chief Operating Officer, Auto-Intern GmbH","System Architect, skAInet Edge-Compute"], alt=["MaxClerkwell","Stephan Boekelmann","施泓杰"],
+             sameAs=["https://www.linkedin.com/in/accelerator-stephan/","https://github.com/maxclerkwell","https://orcid.org/0000-0002-2119-0064",
+                     "https://x.com/maxclerkwell","https://instagram.com/_maxclerkwell","https://www.researchgate.net/profile/Stephan-Boekelmann",
+                     "https://inspirehep.net/authors/2177110","https://www.thga.de/hochschule/personen/profile-wissenschaftliche-mitarbeitende/stephan-boekelmann",
+                     "https://edge-compute.skainet.io/team#stephan-boekelmann"],
              knows=["embedded systems","FPGA","Zynq","PCB design","KiCad","data acquisition","Yocto Linux","experimental hadron physics"],
              creds=[("bachelor degree","B.Eng. Electrical and Information Technology"),("master degree","M.Eng. Information Technology / Computer Engineering")],
              alumni=[("THGA Bochum","https://www.thga.de/"),("Ruhr-Universität Bochum","https://www.ruhr-uni-bochum.de/")]),
@@ -462,17 +472,16 @@ def org_node():
       "employee": [{"@id":PERSON_STEPHAN},{"@id":PERSON_TABEA},{"@id":PERSON_MEIHUI},{"@id":PERSON_VANESSA}],
       "numberOfEmployees": {"@type":"QuantitativeValue","value":4},
       "telephone": "+49-234-58545811",
-      "email": MAIL,
+      "email": "mailto:" + MAIL,
       "address": {"@type":"PostalAddress","streetAddress":"Herner Str. 299, Gebäude B29","addressLocality":"Bochum","postalCode":"44809","addressRegion":"NRW","addressCountry":"DE"},
       "areaServed": ["DE","EU","CN"],
       "openingHoursSpecification": [{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"13:30"}],
-      "contactPoint": [{"@type":"ContactPoint","contactType":"customer service","name":"Vanessa Wilcken","telephone":"+49-234-58545811","email":MAIL,"availableLanguage":["de","en","zh"],"hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"13:30"}}],
+      "contactPoint": [{"@type":"ContactPoint","contactType":"customer service","name":"Vanessa Wilcken","telephone":"+49-234-58545811","email":"mailto:" + MAIL,"availableLanguage":["de","en","zh"],"hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"13:30"}}],
       "identifier": [{"@type":"PropertyValue","propertyID":"German Trade Register","value":"Amtsgericht Bochum HRB 18817"}],
       "vatID": "DE338747475",
       "taxID": "DE338747475",
-      "brand": {"@type":"Brand","name":"AI-Gruppe","url":"https://gruppe.ai/"},
-      "parentOrganization": {"@type":"Organization","name":"AI-Gruppe","url":"https://gruppe.ai/"},
-      "memberOf": [{"@type":"Organization","name":"AI-Gruppe","url":"https://gruppe.ai/"},{"@type":"Organization","name":"IHK Mittleres Ruhrgebiet","url":"https://www.bochum.ihk.de/"}],
+      "brand": {"@id": AIGRUPPE_ID},
+      "memberOf": [{"@type":"Organization","name":"IHK Mittleres Ruhrgebiet","url":"https://www.bochum.ihk.de/"}],
       "knowsAbout": ["embedded systems","PCB design","KiCad","FPGA","Zynq","Yocto Linux","microcontroller firmware","EMC certification","data acquisition","decentralised measurement","condition monitoring","observability"],
       "sameAs": ["https://github.com/nabla-B","https://maxclerkwell.tech/imprint/","https://maxclerkwell.tech/about/","https://gruppe.ai/"],
       "priceRange": "Tagessatz ab 80 € netto",
@@ -502,7 +511,13 @@ def person_nodes(lang):
         if p["id"]=="stephan-boekelmann":
             n.update({"url":"https://maxclerkwell.tech/","mainEntityOfPage":"https://maxclerkwell.tech/about/",
                       "identifier":{"@type":"PropertyValue","propertyID":"ORCID","value":"0000-0002-2119-0064"},
-                      "affiliation":[{"@id":AUTOINTERN_ID},{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","url":"https://www.ruhr-uni-bochum.de/"}]})
+                      "disambiguatingDescription":"Engineer and physicist in Bochum, Germany (Auto-Intern GmbH / skAInet, nabla B, Ruhr-Universität Bochum), known online as MaxClerkwell. Not the actor Stefan Bockelmann, and not related to the UK agency ClerksWell.",
+                      "worksFor":[{"@id":ORG_ID},{"@id":AUTOINTERN_ID}],
+                      "affiliation":[{"@id":AUTOINTERN_ID},{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","url":"https://www.ruhr-uni-bochum.de/","sameAs":"https://ror.org/04tsk2644"}],
+                      "subjectOf":[{"@type":"WebPage","url":"https://maxclerkwell.tech/talks/","name":"Talks & Conference Appearances"},
+                                   {"@type":"WebPage","url":"https://maxclerkwell.tech/publications/","name":"Publications, Patents & Software"},
+                                   {"@type":"WebPage","url":"https://edge-compute.skainet.io/team","name":"skAInet Edge-Compute team"}],
+                      "knowsAbout":[*p["knows"], {"@id":EDGE_PRODUCT_ID}]})
         if p["id"]=="tabea-boekelmann": n.update({"affiliation":{"@id":AUTOINTERN_ID},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="meihui-huang": n.update({"affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I – AG Hadronen und Kerne","url":"https://www.ep1.ruhr-uni-bochum.de/"},{"@type":"WebSite","@id":"https://maxclerkwell.tech/#website","name":"MaxClerkwell"}],"homeLocation":{"@type":"Place","name":"Witten, Germany"},"nationality":{"@type":"Country","name":"China"},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="vanessa-wilcken": n.update({"email":MAIL,"telephone":"+49-234-58545811","mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
@@ -516,7 +531,11 @@ def jsonld(lang, page, C):
     webpage={"@type":types[page],"@id":url(lang,page)+"#webpage","url":url(lang,page),"name":P["title"],"description":P["desc"],"inLanguage":HTMLLANG[lang],"isPartOf":{"@id":BASE+"/#website"},"about":{"@id":ORG_ID},"dateModified":TODAY}
     graph=[org_node(),website,webpage]
     # cross-site entities referenced (thin stubs with canonical @ids)
-    graph.append({"@type":"Organization","@id":AUTOINTERN_ID,"name":"Auto-Intern GmbH","url":"https://www.auto-intern.de","sameAs":["https://www.skainet.io","https://edge-compute.skainet.io/"]})
+    graph.append({"@type":"Brand","@id":AIGRUPPE_ID,"name":"AI-Gruppe","url":"https://gruppe.ai/",
+                  "description":"Dachmarke (keine juristische Person) für Auto-Intern GmbH, CCD Car Diagnostics, nabla B, nerd_force1, open Skunkforce e.V. und das skAInet-Projekt."})
+    graph.append({"@type":"Organization","@id":AUTOINTERN_ID,"name":"Auto-Intern GmbH","url":"https://www.auto-intern.de","email":"mailto:info@auto-intern.de",
+                  "brand":[{"@id":"https://www.skainet.io/#brand"},{"@id":AIGRUPPE_ID}],
+                  "sameAs":["https://www.skainet.io","https://edge-compute.skainet.io/","https://github.com/auto-intern-skainet"]})
     if page in ("index","team"): graph += person_nodes(lang)
     if page in ("index","referenzen"):
         items=[]
@@ -534,6 +553,20 @@ def jsonld(lang, page, C):
 # ---------------------------------------------------------------- templates
 def esc(s): return html.escape(s, quote=True)
 
+REF_SCRIPT = """<script>
+(function(){
+  try {
+    var p=new URLSearchParams(location.search), d=document.getElementById('ref-modal');
+    if(p.get('ref')!=='maxclerkwell.tech'||!d||!d.showModal||sessionStorage.getItem('ref-mc'))return;
+    sessionStorage.setItem('ref-mc','1');
+    d.showModal();
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+    p.delete('ref'); var q=p.toString();
+    history.replaceState(null,'',location.pathname+(q?'?'+q:'')+location.hash);
+  } catch(e) {}
+})();
+</script>"""
+
 def layout(lang, page, C, body):
     P=C[page]; U=UI[lang]
     alts="".join(f'<link rel="alternate" hreflang="{HTMLLANG[l]}" href="{url(l,page)}">' for l in LANGS) + f'<link rel="alternate" hreflang="x-default" href="{url("de",page)}">'
@@ -542,6 +575,7 @@ def layout(lang, page, C, body):
     langsw="".join(f'<a href="{path(l,page)}" hreflang="{HTMLLANG[l]}" lang="{HTMLLANG[l]}" title="{LANGNAME[l][2]}"{CURT if l==lang else ""}><span class="f">{LANGNAME[l][0]}</span>{LANGNAME[l][1]}</a>' for l in LANGS)
     legal="".join(f'<li><a href="{path(lang,p)}">{t}</a></li>' for p,t in U["legal"])
     year=datetime.date.today().year
+    modal=f'<dialog id="ref-modal" class="ref-modal" aria-labelledby="ref-modal-title"><form method="dialog"><h2 id="ref-modal-title">{U["ref_title"]}</h2><p>{U["ref_text"]}</p><p class="ref-modal-actions"><a href="https://maxclerkwell.tech/">{U["ref_back"]}</a><button value="ok" autofocus>{U["ref_ok"]}</button></p></form></dialog>'+REF_SCRIPT
     return f"""<!DOCTYPE html>
 <html lang="{HTMLLANG[lang]}">
 <head>
@@ -581,6 +615,7 @@ def layout(lang, page, C, body):
 </div>
 <div class="legal"><span>{U["copyright"].format(y=year)}</span><span>Amtsgericht Bochum HRB 18817 · USt-ID DE338747475</span></div>
 </div></footer>
+{modal}
 </body>
 </html>
 """
@@ -635,7 +670,7 @@ def page_team(lang,C):
         edu=f'<ul class="edu">{"".join(f"<li>{esc(e)}</li>" for e in p["edu_short"])}</ul>' if p["edu_short"] else ""
         cards+=f'<article class="person" id="{p["id"]}">{pic}<div class="ptext"><h3>{esc(p["name"])}</h3><div class="role">{esc(p["role"])}</div><p>{esc(p["short"])}</p>{edu}<div class="links">{links}</div></div></article>'
     return f"""
-<section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{esc(P["intro"])}</p><div class="team" style="margin-top:28px">{cards}</div></div></section>
+<section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{esc(P["intro"])}</p><div class="team" style="margin-top:28px">{cards}</div><p class="disambig">{esc(P["disambig"])}</p></div></section>
 """
 
 def page_kontakt(lang,C):
@@ -688,7 +723,7 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 - Consulting (architecture reviews, toolchain rescue) and training for engineers
 
 ## Team
-- Stephan Bökelmann (alias MaxClerkwell, 施泓杰) — Managing Director, engineer & physicist; B.Eng., M.Eng. (THGA Bochum), PhD candidate RUB. ID {PERSON_STEPHAN}. Profiles: https://maxclerkwell.tech/, https://www.linkedin.com/in/accelerator-stephan/, https://orcid.org/0000-0002-2119-0064
+- Stephan Bökelmann (alias MaxClerkwell, 施泓杰) — Managing Director, engineer & physicist; B.Eng., M.Eng. (THGA Bochum), PhD candidate RUB. ID {PERSON_STEPHAN}. Profiles: https://maxclerkwell.tech/, https://www.linkedin.com/in/accelerator-stephan/, https://orcid.org/0000-0002-2119-0064, https://x.com/maxclerkwell, https://instagram.com/_maxclerkwell, https://www.researchgate.net/profile/Stephan-Boekelmann
 - Tabea Bökelmann (also Tabea Viktoria Bökelmann / Boekelmann / Röthemeyer) — Senior Frontend Consultant, Angular & JavaScript; B.Sc. Physics (particle physics, DAQ), B.Sc. and M.Sc. Applied Computer Science (RISC-V, compilers, "Git with Features"), all Ruhr-Universität Bochum. ID {PERSON_TABEA}. Profiles: https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/, https://www.researchgate.net/profile/Tabea-Roethemeyer
 - Meihui Huang (黄美慧, Huang Mei Hui) — Physicist, working student for research and outreach; B.Sc. Physics Nankai University Tianjin (decay-chain analysis with ROOT), M.Sc. student RUB EP1 Hadrons and Nuclei group; social media executive for maxclerkwell.tech. ID {PERSON_MEIHUI}. Profiles: https://www.linkedin.com/in/meihui-huang/, https://www.researchgate.net/profile/Meihui-Huang
 - Vanessa Wilcken — Executive assistant, first point of contact (office@nabla-b.engineering, +49 234 58545811). ID {PERSON_VANESSA}. Profile: https://www.linkedin.com/in/vanessa-wilcken-1436b320a/

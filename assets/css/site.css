@@ -139,3 +139,13 @@ dl.kv dd{margin:0}
 .site-footer h4{margin:0 0 .5em;color:var(--ink)}
 .site-footer ul{list-style:none;margin:0;padding:0}
 .site-footer li{margin:.25em 0}
+
+/* arrival modal (#4) + disambiguation line (#5) */
+.disambig{margin-top:34px;padding-top:14px;border-top:1px solid var(--ink-20);color:var(--ink-60);font-size:.85rem}
+.ref-modal{border:none;border-top:5px solid var(--ink);border-radius:2px;padding:28px 30px;max-width:520px;width:calc(100vw - 40px);font-family:var(--font);color:var(--ink);box-shadow:0 12px 40px rgba(50,57,66,.35)}
+.ref-modal::backdrop{background:rgba(50,57,66,.55)}
+.ref-modal h2{margin:0 0 .5em;font-size:1.35rem}
+.ref-modal p{margin:0 0 1em;color:var(--ink-80)}
+.ref-modal .ref-modal-actions{display:flex;gap:18px;align-items:center;justify-content:flex-end;margin:0}
+.ref-modal button{background:var(--ink);color:#fff;border:none;border-radius:2px;padding:11px 22px;font:inherit;font-weight:600;cursor:pointer}
+.ref-modal button:hover{background:var(--ink-80)}

@@ -62,7 +62,7 @@
     "value": 4
    },
    "telephone": "+49-234-58545811",
-   "email": "office@nabla-b.engineering",
+   "email": "mailto:office@nabla-b.engineering",
    "address": {
     "@type": "PostalAddress",
     "streetAddress": "Herner Str. 299, Gebäude B29",
@@ -96,7 +96,7 @@
      "contactType": "customer service",
      "name": "Vanessa Wilcken",
      "telephone": "+49-234-58545811",
-     "email": "office@nabla-b.engineering",
+     "email": "mailto:office@nabla-b.engineering",
      "availableLanguage": [
       "de",
       "en",
@@ -126,21 +126,9 @@
    "vatID": "DE338747475",
    "taxID": "DE338747475",
    "brand": {
-    "@type": "Brand",
-    "name": "AI-Gruppe",
-    "url": "https://gruppe.ai/"
-   },
-   "parentOrganization": {
-    "@type": "Organization",
-    "name": "AI-Gruppe",
-    "url": "https://gruppe.ai/"
+    "@id": "https://gruppe.ai/#brand"
    },
    "memberOf": [
-    {
-     "@type": "Organization",
-     "name": "AI-Gruppe",
-     "url": "https://gruppe.ai/"
-    },
     {
      "@type": "Organization",
      "name": "IHK Mittleres Ruhrgebiet",
@@ -230,13 +218,30 @@
    "dateModified": "2026-09-01"
   },
   {
+   "@type": "Brand",
+   "@id": "https://gruppe.ai/#brand",
+   "name": "AI-Gruppe",
+   "url": "https://gruppe.ai/",
+   "description": "Dachmarke (keine juristische Person) für Auto-Intern GmbH, CCD Car Diagnostics, nabla B, nerd_force1, open Skunkforce e.V. und das skAInet-Projekt."
+  },
+  {
    "@type": "Organization",
    "@id": "https://www.auto-intern.de/#organization",
    "name": "Auto-Intern GmbH",
    "url": "https://www.auto-intern.de",
+   "email": "mailto:info@auto-intern.de",
+   "brand": [
+    {
+     "@id": "https://www.skainet.io/#brand"
+    },
+    {
+     "@id": "https://gruppe.ai/#brand"
+    }
+   ],
    "sameAs": [
     "https://www.skainet.io",
-    "https://edge-compute.skainet.io/"
+    "https://edge-compute.skainet.io/",
+    "https://github.com/auto-intern-skainet"
    ]
   },
   {
@@ -293,5 +298,18 @@
 </div>
 <div class="legal"><span>© 2026 nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)</span><span>Amtsgericht Bochum HRB 18817 · USt-ID DE338747475</span></div>
 </div></footer>
+<dialog id="ref-modal" class="ref-modal" aria-labelledby="ref-modal-title"><form method="dialog"><h2 id="ref-modal-title">Welcome to nabla B.</h2><p>You came from maxclerkwell.tech, Stephan Bökelmann’s blog. nabla B is his engineering office in Bochum, the company through which the projects described on the blog are contracted. Here you find services, team, references and contact.</p><p class="ref-modal-actions"><a href="https://maxclerkwell.tech/">Back to the blog</a><button value="ok" autofocus>Got it</button></p></form></dialog><script>
+(function(){
+  try {
+    var p=new URLSearchParams(location.search), d=document.getElementById('ref-modal');
+    if(p.get('ref')!=='maxclerkwell.tech'||!d||!d.showModal||sessionStorage.getItem('ref-mc'))return;
+    sessionStorage.setItem('ref-mc','1');
+    d.showModal();
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+    p.delete('ref'); var q=p.toString();
+    history.replaceState(null,'',location.pathname+(q?'?'+q:'')+location.hash);
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>
