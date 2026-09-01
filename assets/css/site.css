@@ -109,6 +109,8 @@ section.alt{background:var(--paper-2)}
 /* contact */
 .contact-box{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .contact-box .card{border-top-color:var(--ink)}
+@media(min-width:720px){.contact-box.two{grid-template-columns:1fr 1fr}}
+.contact-box .card p:last-child{margin-bottom:0}
 .big{font-size:1.5rem;font-weight:600;word-break:break-word}
 dl.kv{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:0}
 dl.kv dt{color:var(--ink-60)}

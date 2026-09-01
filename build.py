@@ -642,10 +642,11 @@ def page_kontakt(lang,C):
     P=C["kontakt"]
     return f"""
 <section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{P["intro"]}</p>
-<div class="contact-box" style="margin-top:28px">
+<div class="contact-box two" style="margin-top:28px">
 <div class="card"><h3>{P["mail_h"]}</h3><p class="big"><a href="mailto:{MAIL}">{MAIL}</a></p><p><a class="btn dark" href="{cta_link(P["cta_mail_subject"])}">{esc(P["cta"])}</a></p></div>
-<div class="card"><h3>{P["tel_h"]}</h3><p class="big"><a href="{TEL_HREF}">{TEL}</a></p><h3 style="margin-top:14px">{P["hours_h"]}</h3><p>{P["hours"]}</p></div>
-<div class="card"><h3>{P["addr_h"]}</h3><p>{P["addr"]}</p><h3 style="margin-top:14px">{P["map_h"]}</h3><p>{esc(P["map_p"])}</p><p><a href="{P["map_link"]}" rel="noopener">OpenStreetMap →</a></p></div>
+<div class="card"><h3>{P["tel_h"]}</h3><p class="big"><a href="{TEL_HREF}">{TEL}</a></p><p><strong>{P["hours_h"]}:</strong> {P["hours"].replace("<br>", ", ")}</p></div>
+<div class="card"><h3>{P["addr_h"]}</h3><p>{P["addr"]}</p></div>
+<div class="card"><h3>{P["map_h"]}</h3><p>{esc(P["map_p"])}</p><p><a href="{P["map_link"]}" rel="noopener">OpenStreetMap →</a></p></div>
 </div></div></section>
 """
 
