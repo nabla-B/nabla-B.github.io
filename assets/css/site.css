@@ -97,6 +97,9 @@ section.alt{background:var(--paper-2)}
 .person .initials{width:140px;height:140px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;font-size:2.6rem;font-weight:600;margin-bottom:14px}
 .person h3{margin-bottom:.15em}
 .person .role{color:var(--ink-80);margin-bottom:.5em}
+.person .edu{list-style:none;padding:0;margin:0 0 .8em;font-size:.9rem;color:var(--ink-60)}
+.person .edu li{position:relative;padding-left:16px;margin:.2em 0}
+.person .edu li::before{content:"";position:absolute;left:0;top:.5em;border-style:solid;border-width:4px 0 4px 7px;border-color:transparent transparent transparent var(--ink-40)}
 .person .links a{margin-right:10px;font-size:.95rem}
 
 /* contact */

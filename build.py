@@ -241,26 +241,51 @@ def content(lang):
              bio={"de":"Seit 2007 im Beruf, vom Mechaniker und Elektroniker über B.Eng. und M.Eng. bis zur Promotion in experimenteller Hadronenphysik (PANDA/FAIR). Systemarchitekt des skAInet Edge-Compute, Dozent an THGA und RUB, Organisator von emBO++ und KiCon Europe.",
                   "en":"Professionally active since 2007, from mechanic and electrician via B.Eng. and M.Eng. to a PhD in experimental hadron physics (PANDA/FAIR). System architect of the skAInet Edge-Compute, lecturer at THGA and RUB, organiser of emBO++ and KiCon Europe.",
                   "zh":"2007 年起从业，从机械工与电工，到工学学士、硕士，再到实验强子物理博士研究（PANDA/FAIR）。skAInet Edge-Compute 系统架构师，THGA 与波鸿鲁尔大学讲师，emBO++ 与 KiCon Europe 组织者。"}[L],
-             links=[("maxclerkwell.tech","https://maxclerkwell.tech/"),("LinkedIn","https://linkedin.com/in/accelerator-stephan"),("GitHub","https://github.com/maxclerkwell"),("ORCID","https://orcid.org/0000-0002-2119-0064")],
-             jobTitle="Managing Director", sameAs=["https://maxclerkwell.tech/","https://linkedin.com/in/accelerator-stephan","https://github.com/maxclerkwell","https://orcid.org/0000-0002-2119-0064"]),
+             edu={"de":["B.Eng. Elektro- und Informationstechnik, THGA Bochum","M.Eng. Informationstechnik / Technische Informatik, THGA Bochum","Promotion (laufend) Experimentelle Hadronenphysik, Ruhr-Universität Bochum"],
+                  "en":["B.Eng. Electrical and Information Technology, THGA Bochum","M.Eng. Information Technology / Computer Engineering, THGA Bochum","PhD (ongoing) Experimental Hadron Physics, Ruhr-Universität Bochum"],
+                  "zh":["电气与信息技术工学学士，THGA 波鸿","信息技术/计算机工程工学硕士，THGA 波鸿","实验强子物理博士（在读），波鸿鲁尔大学"]}[L],
+             links=[("maxclerkwell.tech","https://maxclerkwell.tech/"),("LinkedIn","https://www.linkedin.com/in/accelerator-stephan/"),("GitHub","https://github.com/maxclerkwell"),("ORCID","https://orcid.org/0000-0002-2119-0064")],
+             jobTitle="Managing Director", alt=["MaxClerkwell","Stephan Boekelmann","施泓杰"],
+             sameAs=["https://maxclerkwell.tech/","https://www.linkedin.com/in/accelerator-stephan/","https://github.com/maxclerkwell","https://orcid.org/0000-0002-2119-0064"],
+             knows=["embedded systems","FPGA","Zynq","PCB design","KiCad","data acquisition","Yocto Linux","experimental hadron physics"],
+             creds=[("bachelor degree","B.Eng. Electrical and Information Technology"),("master degree","M.Eng. Information Technology / Computer Engineering")],
+             alumni=[("THGA Bochum","https://www.thga.de/"),("Ruhr-Universität Bochum","https://www.ruhr-uni-bochum.de/")]),
         dict(id="tabea-boekelmann", pid=PERSON_TABEA, name="Tabea Bökelmann", img="/assets/img/tabea-boekelmann.jpg",
              role={"de":"Senior Frontend Consultant · Angular & JavaScript","en":"Senior Frontend Consultant · Angular & JavaScript","zh":"高级前端顾问 · Angular 与 JavaScript"}[L],
-             bio={"de":"Physikerin und Informatikerin. Verantwortet bei nabla B die Frontends – von Dashboards für Messdaten bis zur Bedienoberfläche eingebetteter Geräte.",
-                  "en":"Physicist and computer scientist. Responsible for nabla B's frontends — from measurement-data dashboards to the user interface of embedded devices.",
-                  "zh":"物理学家与计算机科学家。负责 nabla B 的前端——从测量数据仪表盘到嵌入式设备的用户界面。"}[L],
-             links=[], jobTitle="Senior Frontend Consultant", sameAs=["https://edge-compute.skainet.io/team"]),
+             bio={"de":"Physikerin und Informatikerin. Verantwortet bei nabla B die Frontends – von Dashboards für Messdaten bis zur Bedienoberfläche eingebetteter Geräte. Masterarbeit „Git with Features“ (Software-Engineering); Bachelor in Teilchenphysik (Hadronenphysik, DAQ) und in eingebetteten Systemen (RISC-V, Compilerbau).",
+                  "en":"Physicist and computer scientist. Responsible for nabla B's frontends — from measurement-data dashboards to the user interface of embedded devices. Master's thesis “Git with Features” (software engineering); bachelor's degrees in particle physics (hadron physics, DAQ) and in embedded systems (RISC-V, compiler construction).",
+                  "zh":"物理学家与计算机科学家。负责 nabla B 的前端——从测量数据仪表盘到嵌入式设备的用户界面。硕士论文《Git with Features》（软件工程）；粒子物理（强子物理、数据采集）与嵌入式系统（RISC-V、编译器）双学士。"}[L],
+             edu={"de":["B.Sc. Physik – Teilchenphysik, Hadronenphysik, DAQ, Ruhr-Universität Bochum","B.Sc. Angewandte Informatik – eingebettete Systeme, RISC-V, Compiler, Ruhr-Universität Bochum","M.Sc. Angewandte Informatik – „Git with Features“, Software-Engineering, Ruhr-Universität Bochum"],
+                  "en":["B.Sc. Physics – particle physics, hadron physics, DAQ, Ruhr-Universität Bochum","B.Sc. Applied Computer Science – embedded systems, RISC-V, compilers, Ruhr-Universität Bochum","M.Sc. Applied Computer Science – “Git with Features”, software engineering, Ruhr-Universität Bochum"],
+                  "zh":["物理学学士 – 粒子物理、强子物理、数据采集，波鸿鲁尔大学","应用计算机科学学士 – 嵌入式系统、RISC-V、编译器，波鸿鲁尔大学","应用计算机科学硕士 – 《Git with Features》、软件工程，波鸿鲁尔大学"]}[L],
+             links=[("LinkedIn","https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/"),("ResearchGate","https://www.researchgate.net/profile/Tabea-Roethemeyer"),("YouTube","https://www.youtube.com/watch?v=DgHCycO6ohs")],
+             jobTitle="Senior Frontend Consultant", alt=["Tabea Viktoria Bökelmann","Tabea Boekelmann","Tabea Böckelmann","Tabea Boeckelmann","Tabea Bockelmann","Tabea Röthemeyer"],
+             sameAs=["https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/","https://www.researchgate.net/profile/Tabea-Roethemeyer","https://www.youtube.com/watch?v=DgHCycO6ohs","https://edge-compute.skainet.io/team"],
+             knows=["Angular","JavaScript","TypeScript","frontend architecture","software engineering","Git","embedded systems","RISC-V","compiler construction","particle physics","data acquisition"],
+             creds=[("bachelor degree","B.Sc. Physics"),("bachelor degree","B.Sc. Applied Computer Science"),("master degree","M.Sc. Applied Computer Science")],
+             alumni=[("Ruhr-Universität Bochum","https://www.ruhr-uni-bochum.de/")]),
         dict(id="meihui-huang", pid=PERSON_MEIHUI, name="Meihui Huang", img="/assets/img/meihui-huang.jpg",
-             role={"de":"Werkstudentin · Physikerin","en":"Working student · Physicist","zh":"在读实习生 · 物理学家"}[L],
-             bio={"de":"Physikerin aus Tianjin, lebt in Witten. M.Sc.-Studentin an der Ruhr-Universität Bochum, Institut für Experimentalphysik I, AG Hadronen und Kerne. Unterstützt Messaufbauten, Detektortests und Auswertung.",
-                  "en":"Physicist from Tianjin, based in Witten. M.Sc. student at Ruhr-Universität Bochum, Institute for Experimental Physics I, Hadrons and Nuclei group. Supports measurement setups, detector tests and analysis.",
-                  "zh":"来自天津的物理学家，现居维滕。波鸿鲁尔大学实验物理研究所 I 强子与原子核研究组硕士生。负责测量装置搭建、探测器测试与数据分析。"}[L],
-             links=[], jobTitle="Working Student", sameAs=[]),
+             role={"de":"Werkstudentin · Physikerin · Social Media","en":"Working student · Physicist · Social media","zh":"在读实习生 · 物理学家 · 社交媒体"}[L],
+             bio={"de":"Physikerin aus Tianjin, lebt in Witten. B.Sc. Physik (Teilchenphysik) an der Nankai-Universität mit Zerfallsketten-Analyse in ROOT; M.Sc.-Studentin an der Ruhr-Universität Bochum, Institut für Experimentalphysik I, AG Hadronen und Kerne. Unterstützt Messaufbauten, Detektortests und Auswertung – und betreut als Social Media Executive die Kanäle von maxclerkwell.tech.",
+                  "en":"Physicist from Tianjin, based in Witten. B.Sc. Physics (particle physics) at Nankai University with decay-chain analysis in ROOT; M.Sc. student at Ruhr-Universität Bochum, Institute for Experimental Physics I, Hadrons and Nuclei group. Supports measurement setups, detector tests and analysis — and runs the maxclerkwell.tech channels as social media executive.",
+                  "zh":"来自天津的物理学家，现居维滕。南开大学物理学学士（粒子物理），用 ROOT 进行衰变链分析；波鸿鲁尔大学实验物理研究所 I 强子与原子核研究组硕士生。负责测量装置搭建、探测器测试与数据分析，并作为社交媒体运营负责 maxclerkwell.tech 的各个频道。"}[L],
+             edu={"de":["B.Sc. Physik – Teilchenphysik, Zerfallsketten-Analyse mit ROOT, Nankai-Universität Tianjin","M.Sc. Physik (laufend) – Experimentalphysik I, AG Hadronen und Kerne, Ruhr-Universität Bochum"],
+                  "en":["B.Sc. Physics – particle physics, decay-chain analysis with ROOT, Nankai University, Tianjin","M.Sc. Physics (ongoing) – Experimental Physics I, Hadrons and Nuclei group, Ruhr-Universität Bochum"],
+                  "zh":["物理学学士 – 粒子物理、ROOT 衰变链分析，南开大学（天津）","物理学硕士（在读）– 实验物理 I，强子与原子核研究组，波鸿鲁尔大学"]}[L],
+             links=[("LinkedIn","https://www.linkedin.com/in/meihui-huang/"),("ResearchGate","https://www.researchgate.net/profile/Meihui-Huang")],
+             jobTitle="Working Student", alt=["Huang Meihui","Huang Mei Hui","黄美慧"],
+             sameAs=["https://www.linkedin.com/in/meihui-huang/","https://www.researchgate.net/profile/Meihui-Huang"],
+             knows=["particle physics","ROOT","decay chain analysis","detector testing","social media management"],
+             creds=[("bachelor degree","B.Sc. Physics")],
+             alumni=[("Nankai University","https://www.nankai.edu.cn/"),("Ruhr-Universität Bochum","https://www.ruhr-uni-bochum.de/")]),
         dict(id="vanessa-wilcken", pid=PERSON_VANESSA, name="Vanessa Wilcken", img="/assets/img/vanessa-wilcken.jpg",
              role={"de":"Assistenz der Geschäftsführung · Office","en":"Executive Assistant · Office","zh":"总经理助理 · 办公室"}[L],
              bio={"de":"Ihre erste Ansprechpartnerin: Terminvereinbarung, Angebote, Rechnungen und alles Organisatorische. Erreichbar Mo – Fr 9:00 – 13:30 Uhr.",
                   "en":"Your first point of contact: appointments, quotes, invoices and everything organisational. Available Mon – Fri 9:00 – 13:30 CET.",
                   "zh":"您的首要联系人：预约、报价、发票及所有行政事务。周一至周五 9:00 – 13:30（中欧时间）。"}[L],
-             links=[("office@nabla-b.engineering","mailto:"+MAIL),(TEL,TEL_HREF)], jobTitle="Executive Assistant", sameAs=[]),
+             edu=[],
+             links=[("LinkedIn","https://www.linkedin.com/in/vanessa-wilcken-1436b320a/"),("office@nabla-b.engineering","mailto:"+MAIL),(TEL,TEL_HREF)],
+             jobTitle="Executive Assistant", alt=[], sameAs=["https://www.linkedin.com/in/vanessa-wilcken-1436b320a/"], knows=[], creds=[], alumni=[]),
       ],
     )
     # ---- kontakt
@@ -442,16 +467,21 @@ def person_nodes(lang):
     T = content(lang)["team"]["people"]
     out=[]
     for p in T:
-        n={"@type":"Person","@id":p["pid"],"name":p["name"],"jobTitle":p["jobTitle"],"worksFor":{"@id":ORG_ID},"url": url(lang,"team")+"#"+p["id"]}
+        n={"@type":"Person","@id":p["pid"],"name":p["name"],"givenName":p["name"].split()[0],"familyName":p["name"].split()[-1],
+           "jobTitle":p["jobTitle"],"worksFor":{"@id":ORG_ID},"url": url(lang,"team")+"#"+p["id"],"description":p["bio"]}
         if p["img"]: n["image"]=BASE+p["img"]
         if p["sameAs"]: n["sameAs"]=p["sameAs"]
+        if p["alt"]: n["alternateName"]=p["alt"]
+        if p["knows"]: n["knowsAbout"]=p["knows"]
+        if p["creds"]: n["hasCredential"]=[{"@type":"EducationalOccupationalCredential","credentialCategory":c,"name":t} for c,t in p["creds"]]
+        if p["alumni"]: n["alumniOf"]=[{"@type":"CollegeOrUniversity","name":a,"url":u} for a,u in p["alumni"]]
         if p["id"]=="stephan-boekelmann":
-            n.update({"givenName":"Stephan","familyName":"Bökelmann","url":"https://maxclerkwell.tech/","mainEntityOfPage":"https://maxclerkwell.tech/about/",
+            n.update({"url":"https://maxclerkwell.tech/","mainEntityOfPage":"https://maxclerkwell.tech/about/",
                       "identifier":{"@type":"PropertyValue","propertyID":"ORCID","value":"0000-0002-2119-0064"},
                       "affiliation":[{"@id":AUTOINTERN_ID},{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","url":"https://www.ruhr-uni-bochum.de/"}]})
-        if p["id"]=="tabea-boekelmann": n.update({"givenName":"Tabea","familyName":"Bökelmann","affiliation":{"@id":AUTOINTERN_ID}})
-        if p["id"]=="meihui-huang": n.update({"givenName":"Meihui","familyName":"Huang","affiliation":{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I","url":"https://www.ep1.ruhr-uni-bochum.de/"},"homeLocation":{"@type":"Place","name":"Witten, Germany"}})
-        if p["id"]=="vanessa-wilcken": n.update({"givenName":"Vanessa","familyName":"Wilcken","email":MAIL,"telephone":"+49-234-58545811"})
+        if p["id"]=="tabea-boekelmann": n.update({"affiliation":{"@id":AUTOINTERN_ID},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
+        if p["id"]=="meihui-huang": n.update({"affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I – AG Hadronen und Kerne","url":"https://www.ep1.ruhr-uni-bochum.de/"},{"@type":"WebSite","@id":"https://maxclerkwell.tech/#website","name":"MaxClerkwell"}],"homeLocation":{"@type":"Place","name":"Witten, Germany"},"nationality":{"@type":"Country","name":"China"},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
+        if p["id"]=="vanessa-wilcken": n.update({"email":MAIL,"telephone":"+49-234-58545811","mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         out.append(n)
     return out
 
@@ -578,7 +608,8 @@ def page_team(lang,C):
     for p in P["people"]:
         pic=f'<img class="pic" src="{p["img"]}" alt="{esc(p["name"])}" width="140" height="140" loading="lazy">' if p["img"] else f'<div class="initials" aria-hidden="true">{"".join(w[0] for w in p["name"].split()[:2])}</div>'
         links="".join(f'<a href="{u}" rel="noopener">{esc(t)}</a>' for t,u in p["links"])
-        cards+=f'<article class="person" id="{p["id"]}">{pic}<h3>{esc(p["name"])}</h3><div class="role">{esc(p["role"])}</div><p>{esc(p["bio"])}</p><div class="links">{links}</div></article>'
+        edu=f'<ul class="edu">{"".join(f"<li>{esc(e)}</li>" for e in p["edu"])}</ul>' if p["edu"] else ""
+        cards+=f'<article class="person" id="{p["id"]}">{pic}<h3>{esc(p["name"])}</h3><div class="role">{esc(p["role"])}</div><p>{esc(p["bio"])}</p>{edu}<div class="links">{links}</div></article>'
     return f"""
 <section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{esc(P["intro"])}</p><div class="team" style="margin-top:28px">{cards}</div></div></section>
 """
@@ -632,10 +663,10 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 - Consulting (architecture reviews, toolchain rescue) and training for engineers
 
 ## Team
-- Stephan Bökelmann — Managing Director, engineer & physicist ({PERSON_STEPHAN})
-- Tabea Bökelmann — Senior Frontend Consultant, Angular & JavaScript ({PERSON_TABEA})
-- Meihui Huang — Working student, physicist; M.Sc. student at Ruhr-Universität Bochum, EP1 Hadrons and Nuclei group ({PERSON_MEIHUI})
-- Vanessa Wilcken — Executive assistant, first point of contact ({PERSON_VANESSA})
+- Stephan Bökelmann (alias MaxClerkwell, 施泓杰) — Managing Director, engineer & physicist; B.Eng., M.Eng. (THGA Bochum), PhD candidate RUB. ID {PERSON_STEPHAN}. Profiles: https://maxclerkwell.tech/, https://www.linkedin.com/in/accelerator-stephan/, https://orcid.org/0000-0002-2119-0064
+- Tabea Bökelmann (also Tabea Viktoria Bökelmann / Boekelmann / Röthemeyer) — Senior Frontend Consultant, Angular & JavaScript; B.Sc. Physics (particle physics, DAQ), B.Sc. and M.Sc. Applied Computer Science (RISC-V, compilers, "Git with Features"), all Ruhr-Universität Bochum. ID {PERSON_TABEA}. Profiles: https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/, https://www.researchgate.net/profile/Tabea-Roethemeyer
+- Meihui Huang (黄美慧, Huang Mei Hui) — Working student, physicist; B.Sc. Physics Nankai University Tianjin (decay-chain analysis with ROOT), M.Sc. student RUB EP1 Hadrons and Nuclei group; social media executive for maxclerkwell.tech. ID {PERSON_MEIHUI}. Profiles: https://www.linkedin.com/in/meihui-huang/, https://www.researchgate.net/profile/Meihui-Huang
+- Vanessa Wilcken — Executive assistant, first point of contact (office@nabla-b.engineering, +49 234 58545811). ID {PERSON_VANESSA}. Profile: https://www.linkedin.com/in/vanessa-wilcken-1436b320a/
 
 ## References (selection; many customer projects are under NDA)
 {refs}
