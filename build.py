@@ -277,7 +277,7 @@ def content(lang):
                     "en":"Physicist from Tianjin. Supports measurement setups, detector tests and analysis; runs the maxclerkwell.tech social media channels.",
                     "zh":"来自天津的物理学家。负责测量装置、探测器测试与数据分析；运营 maxclerkwell.tech 的社交媒体。"}[L],
              edu_short={"de":["B.Sc. Physik, Nankai-Universität Tianjin","M.Sc. Physik, RUB EP1 – AG Hadronen und Kerne (laufend)"],"en":["B.Sc. Physics, Nankai University Tianjin","M.Sc. Physics, RUB EP1 – Hadrons and Nuclei (ongoing)"],"zh":["物理学学士，南开大学（天津）","物理学硕士，RUB EP1 强子与原子核组（在读）"]}[L],
-             role={"de":"Werkstudentin · Physikerin · Social Media","en":"Working student · Physicist · Social media","zh":"在读实习生 · 物理学家 · 社交媒体"}[L],
+             role={"de":"Physikerin · Werkstudentin · Research und Outreach","en":"Physicist · Working student · Research and Outreach","zh":"物理学家 · 在读实习生 · 科研与推广"}[L],
              bio={"de":"Physikerin aus Tianjin, lebt in Witten. B.Sc. Physik (Teilchenphysik) an der Nankai-Universität mit Zerfallsketten-Analyse in ROOT; M.Sc.-Studentin an der Ruhr-Universität Bochum, Institut für Experimentalphysik I, AG Hadronen und Kerne. Unterstützt Messaufbauten, Detektortests und Auswertung – und betreut als Social Media Executive die Kanäle von maxclerkwell.tech.",
                   "en":"Physicist from Tianjin, based in Witten. B.Sc. Physics (particle physics) at Nankai University with decay-chain analysis in ROOT; M.Sc. student at Ruhr-Universität Bochum, Institute for Experimental Physics I, Hadrons and Nuclei group. Supports measurement setups, detector tests and analysis — and runs the maxclerkwell.tech channels as social media executive.",
                   "zh":"来自天津的物理学家，现居维滕。南开大学物理学学士（粒子物理），用 ROOT 进行衰变链分析；波鸿鲁尔大学实验物理研究所 I 强子与原子核研究组硕士生。负责测量装置搭建、探测器测试与数据分析，并作为社交媒体运营负责 maxclerkwell.tech 的各个频道。"}[L],
@@ -285,7 +285,7 @@ def content(lang):
                   "en":["B.Sc. Physics – particle physics, decay-chain analysis with ROOT, Nankai University, Tianjin","M.Sc. Physics (ongoing) – Experimental Physics I, Hadrons and Nuclei group, Ruhr-Universität Bochum"],
                   "zh":["物理学学士 – 粒子物理、ROOT 衰变链分析，南开大学（天津）","物理学硕士（在读）– 实验物理 I，强子与原子核研究组，波鸿鲁尔大学"]}[L],
              links=[("LinkedIn","https://www.linkedin.com/in/meihui-huang/"),("ResearchGate","https://www.researchgate.net/profile/Meihui-Huang")],
-             jobTitle="Working Student", alt=["Huang Meihui","Huang Mei Hui","黄美慧"],
+             jobTitle=["Physicist","Working Student – Research and Outreach"], alt=["Huang Meihui","Huang Mei Hui","黄美慧"],
              sameAs=["https://www.linkedin.com/in/meihui-huang/","https://www.researchgate.net/profile/Meihui-Huang"],
              knows=["particle physics","ROOT","decay chain analysis","detector testing","social media management"],
              creds=[("bachelor degree","B.Sc. Physics")],
@@ -684,7 +684,7 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 ## Team
 - Stephan Bökelmann (alias MaxClerkwell, 施泓杰) — Managing Director, engineer & physicist; B.Eng., M.Eng. (THGA Bochum), PhD candidate RUB. ID {PERSON_STEPHAN}. Profiles: https://maxclerkwell.tech/, https://www.linkedin.com/in/accelerator-stephan/, https://orcid.org/0000-0002-2119-0064
 - Tabea Bökelmann (also Tabea Viktoria Bökelmann / Boekelmann / Röthemeyer) — Senior Frontend Consultant, Angular & JavaScript; B.Sc. Physics (particle physics, DAQ), B.Sc. and M.Sc. Applied Computer Science (RISC-V, compilers, "Git with Features"), all Ruhr-Universität Bochum. ID {PERSON_TABEA}. Profiles: https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/, https://www.researchgate.net/profile/Tabea-Roethemeyer
-- Meihui Huang (黄美慧, Huang Mei Hui) — Working student, physicist; B.Sc. Physics Nankai University Tianjin (decay-chain analysis with ROOT), M.Sc. student RUB EP1 Hadrons and Nuclei group; social media executive for maxclerkwell.tech. ID {PERSON_MEIHUI}. Profiles: https://www.linkedin.com/in/meihui-huang/, https://www.researchgate.net/profile/Meihui-Huang
+- Meihui Huang (黄美慧, Huang Mei Hui) — Physicist, working student for research and outreach; B.Sc. Physics Nankai University Tianjin (decay-chain analysis with ROOT), M.Sc. student RUB EP1 Hadrons and Nuclei group; social media executive for maxclerkwell.tech. ID {PERSON_MEIHUI}. Profiles: https://www.linkedin.com/in/meihui-huang/, https://www.researchgate.net/profile/Meihui-Huang
 - Vanessa Wilcken — Executive assistant, first point of contact (office@nabla-b.engineering, +49 234 58545811). ID {PERSON_VANESSA}. Profile: https://www.linkedin.com/in/vanessa-wilcken-1436b320a/
 
 ## References (selection; many customer projects are under NDA)
