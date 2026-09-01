@@ -1,0 +1,61 @@
+# nabla B
+
+> nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt) is an engineering office in Bochum, Germany, founded 2020-07-20 by Stephan Bökelmann. It designs and develops embedded devices — from architecture via PCB design and certification to software bring-up for MCU, FPGA and Zynq, all the way to firmware — and builds decentralised measurement and data-acquisition (DAQ) systems for mid-sized industry. It also offers consulting and training in digital measurement technology. nabla B is part of the AI-Gruppe umbrella brand (https://gruppe.ai/) together with Auto-Intern GmbH / skAInet.
+
+Canonical entity IDs (JSON-LD): organisation `https://nabla-b.engineering/#organization`; founder/managing director `https://maxclerkwell.tech/#person` (Stephan Bökelmann, ORCID 0000-0002-2119-0064, personal site https://maxclerkwell.tech/). The same organisation is described on https://maxclerkwell.tech/imprint/ and https://maxclerkwell.tech/about/; the skAInet Edge-Compute product nabla B architected is `https://edge-compute.skainet.io/#product` (https://edge-compute.skainet.io/, manufacturer Auto-Intern GmbH).
+
+Languages: German (default, https://nabla-b.engineering/), English (https://nabla-b.engineering/en/), Simplified Chinese (https://nabla-b.engineering/zh/).
+
+## Contact
+- Contact person: Vanessa Wilcken (executive assistant / office)
+- E-mail: office@nabla-b.engineering
+- Phone: +49 234 58545811
+- Office hours: Monday–Friday 09:00–13:30 CET
+- Address: Herner Str. 299, Gebäude B29, 44809 Bochum, Germany
+- Commercial register: Amtsgericht Bochum HRB 18817 · VAT ID DE338747475
+- Managing director: Stephan Bökelmann
+- Day rate from € 80 net; initial consultation free. Call to action: book an appointment with Stephan Bökelmann via office@nabla-b.engineering.
+
+## Services
+- Architecture & system design for embedded devices
+- PCB design (KiCad), design for manufacturing, supply chain incl. China
+- EMC / CE certification preparation and support (Germany and China)
+- Software bring-up for microcontrollers, FPGAs (VHDL/Verilog) and Zynq SoCs (U-Boot, device tree, Yocto Linux with SBOM)
+- Firmware: drivers, protocols, OTA updates, telemetry
+- Decentralised measurement & DAQ, monitoring/observability infrastructure
+- Consulting (architecture reviews, toolchain rescue) and training for engineers
+
+## Team
+- Stephan Bökelmann — Managing Director, engineer & physicist (https://maxclerkwell.tech/#person)
+- Tabea Bökelmann — Senior Frontend Consultant, Angular & JavaScript (https://edge-compute.skainet.io/team#tabea-boekelmann)
+- Meihui Huang — Working student, physicist; M.Sc. student at Ruhr-Universität Bochum, EP1 Hadrons and Nuclei group (https://nabla-b.engineering/team/#meihui-huang)
+- Vanessa Wilcken — Executive assistant, first point of contact (https://nabla-b.engineering/team/#vanessa-wilcken)
+
+## References (selection; many customer projects are under NDA)
+- skAInet Edge-Compute (2016 – 2026, Auto-Intern GmbH / skAInet): Programmable M12-PoE switch, router and Linux compute node for industrial edge data acquisition: 7 sealed PoE ports, 8-core ARM, Yocto Linux with documented SBOM. System architecture, PoE-first concept, M12 cabling specification and EMC certification. Links: [edge-compute.skainet.io](https://edge-compute.skainet.io/), [Blog](https://maxclerkwell.tech/posts/skainet-edge-compute-september-2026/)
+- Reflow oven monitoring (2022 – 2026, Kurtz Ersa): Integrated monitoring system for predictive assessment of solder-quality factors on reflow machines, built on the Edge-Compute. Including EMC certification in China. Links: [EMV-Story](https://maxclerkwell.tech/posts/dongguan-emc-march-2026/)
+- HORUS Monitoring & Profiling (laufend, Kurtz Ersa / GlobalPoint): Production-grade observability and telemetry infrastructure plus a performance-profiling stack for embedded and distributed systems.
+- OmnAIScope (2020 – 2024, autowerkstatt4null (BMWK)): Simplified digital oscilloscope that makes waveform diagnostics usable in everyday automotive workshop practice. Grown out of the aw4null research programme, patent pending. Links: [Blog](https://maxclerkwell.tech/posts/omnaiscope-august-2025/)
+- Resonance spectroscope for biofilm monitoring (2023 – 2026, Montana State University): Embedded instrumentation for electrochemical impedance spectroscopy in the field — detecting biofilms in river systems across the continental US. Links: [Feldbericht](https://maxclerkwell.tech/posts/msu-eis-2024/)
+- HV-MAPS test stands & wire-bonding line (2020 – 2026, Ruhr-Universität Bochum / PANDA @ FAIR): Multiple test stands for characterising HV-MAPS silicon sensors for minimum-ionizing particles, plus building up a wire-bonding production line. Links: [Geant4-Simulation](https://maxclerkwell.tech/posts/hv-maps-energy-loss-simulation-may-2026/), [KiCon Asia Talk](https://maxclerkwell.tech/posts/kicon-asia-2025/)
+- Zynq bitstream pipeline (ALINX AX7020) (seit 2026, Open Source): Open path from JTAG bring-up without FSBL via mainline U-Boot to a Yocto Linux in QSPI flash that fetches its own updates — deploying hardware like software. Links: [Konzept](https://maxclerkwell.tech/posts/zynq-bitstream-deployment-concept-august-2026/), [Bring-up](https://maxclerkwell.tech/posts/alinx-bring-up-jtag-detected-without-power-august-2026/), [Yocto/QSPI](https://maxclerkwell.tech/posts/alinx-ax7020-yocto-linux-qspi-august-2026/)
+- PowerSense — critical infrastructure monitoring (2020 – 2025, skAInet / DB Netz AG): Current sensing and analytics for railway-switch diagnostics and condition monitoring, e.g. in Deutsche Bahn's DIANA system. Links: [10 Jahre PowerSense](https://maxclerkwell.tech/posts/skainet-powersense-jan-2026/)
+- Embedded vision system with AI acceleration (2026, NDA): PCB design for an embedded vision system with an AI accelerator. Customer under NDA.
+- Enclosureless housings (2022, Patent angemeldet): Enclosureless design for PCB cavities — mechanics, EMC and manufacturing in one concept. Links: [Funktionsweise](https://maxclerkwell.tech/posts/enclosureless-cases-april-2026/)
+- MineBerry-LoRa — geomonitoring (2023 – 2025, RAG / Forschungszentrum Nachbergbau): Structural-stability assessment of mine-shaft closures with LoRa sensors and multi-sensor data fusion.
+- Heavy-rain sensor network (2021, 25square): PoE-based measurement and analysis system for observing and predicting heavy-rain cells. Patent pending.
+
+## Pages
+- [Home (DE)](https://nabla-b.engineering/) · [EN](https://nabla-b.engineering/en/) · [ZH](https://nabla-b.engineering/zh/)
+- [Services](https://nabla-b.engineering/leistungen/) · [EN](https://nabla-b.engineering/en/services/) · [ZH](https://nabla-b.engineering/zh/services/)
+- [References](https://nabla-b.engineering/referenzen/) · [EN](https://nabla-b.engineering/en/references/) · [ZH](https://nabla-b.engineering/zh/references/)
+- [Team](https://nabla-b.engineering/team/) · [EN](https://nabla-b.engineering/en/team/) · [ZH](https://nabla-b.engineering/zh/team/)
+- [Contact](https://nabla-b.engineering/kontakt/) · [EN](https://nabla-b.engineering/en/contact/) · [ZH](https://nabla-b.engineering/zh/contact/)
+- [Imprint](https://nabla-b.engineering/impressum/) · [Privacy](https://nabla-b.engineering/datenschutz/)
+
+## Related sites
+- https://maxclerkwell.tech/ — Stephan Bökelmann's technical blog (hobby and research projects; customer work mostly under NDA)
+- https://edge-compute.skainet.io/ — skAInet Edge-Compute product page (Auto-Intern GmbH)
+- https://skainet.io/ — skAInet brand
+- https://gruppe.ai/ — AI-Gruppe umbrella brand
+- https://github.com/nabla-B — GitHub organisation
