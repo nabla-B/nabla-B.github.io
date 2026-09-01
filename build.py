@@ -185,24 +185,30 @@ def content(lang):
         ("3. Zertifizierung",["EMV-Vorbereitung und Begleitung im Prüflabor","CE-Konformität, Dokumentation","Erfahrung mit Prüfläufen in Deutschland und China"]),
         ("4. Software-Bring-up",["Mikrocontroller: bare-metal, RTOS, Bootloader","FPGA: VHDL/Verilog, Bitstream-Pipelines","Zynq: FSBL/U-Boot, Devicetree, Yocto Linux mit SBOM","Versionierte, reproduzierbare Toolchains"]),
         ("5. Firmware",["Treiber, Protokolle, Messdatenpfade","Over-the-air-Updates, Telemetrie, Logging","Tests auf Hardware-in-the-Loop-Ständen"]),
-        ("6. Dezentrale Messtechnik & DAQ",["Messknoten statt Messrechner: Zeitstempel an der Quelle","Monitoring- und Observability-Infrastruktur","Von Excel-Inseln zu einer gemeinsamen Zeitbasis"]),
-        ("7. Beratung & Schulung",["Architektur-Reviews, Second Opinion, Toolchain-Rettung","Schulung von Ingenieuren in digitaler Messtechnik und DAQ","Inhouse-Workshops oder online"]),
+        ("6. Dezentrale Messtechnik & DAQ",["Messknoten statt Messrechner: Zeitstempel an der Quelle","Analog-Frontends, Sensorik, PoE-Messnetze","Von Excel-Inseln zu einer gemeinsamen Zeitbasis"]),
+        ("7. Monitoring & Observability",["Telemetrie-Pipelines vom Gerät bis ins Dashboard","Condition Monitoring, Predictive Maintenance","Betrieb, Alarmierung, Langzeitarchivierung"]),
+        ("8. Beratung",["Machbarkeitsstudien und Second Opinion","Architektur-Reviews bestehender Geräte","Toolchain-Rettung: reproduzierbar statt fragil"]),
+        ("9. Schulung",["Digitale Messtechnik und Datenerfassung für Ingenieure","Embedded-Linux, FPGA und KiCad in der Praxis","Inhouse-Workshops oder online"]),
       ],"en":[
         ("1. Architecture & system design",["Requirements, feasibility, block diagram","Selection of SoC, MCU, FPGA, sensors and interfaces","Bus and network concepts: Ethernet/PoE, CAN, RS-485, LoRaWAN, USB","Security and update concept from day one"]),
         ("2. PCB design",["Schematic and layout in KiCad","Mixed-signal, analog front-ends, power","Design for manufacturing, supply chain (incl. China)","Mechanical integration, enclosureless designs"]),
         ("3. Certification",["EMC preparation and support in the test lab","CE conformity, documentation","Experience with test runs in Germany and China"]),
         ("4. Software bring-up",["Microcontrollers: bare-metal, RTOS, bootloaders","FPGA: VHDL/Verilog, bitstream pipelines","Zynq: FSBL/U-Boot, device tree, Yocto Linux with SBOM","Versioned, reproducible toolchains"]),
         ("5. Firmware",["Drivers, protocols, measurement data paths","Over-the-air updates, telemetry, logging","Testing on hardware-in-the-loop rigs"]),
-        ("6. Decentralised measurement & DAQ",["Measurement nodes instead of measurement PCs: timestamps at the source","Monitoring and observability infrastructure","From Excel islands to a shared time base"]),
-        ("7. Consulting & training",["Architecture reviews, second opinion, toolchain rescue","Training engineers in digital measurement technology and DAQ","In-house workshops or online"]),
+        ("6. Decentralised measurement & DAQ",["Measurement nodes instead of measurement PCs: timestamps at the source","Analog front-ends, sensors, PoE measurement networks","From Excel islands to a shared time base"]),
+        ("7. Monitoring & observability",["Telemetry pipelines from device to dashboard","Condition monitoring, predictive maintenance","Operations, alerting, long-term archiving"]),
+        ("8. Consulting",["Feasibility studies and second opinion","Architecture reviews of existing devices","Toolchain rescue: reproducible instead of fragile"]),
+        ("9. Training",["Digital measurement technology and DAQ for engineers","Embedded Linux, FPGA and KiCad in practice","In-house workshops or online"]),
       ],"zh":[
         ("1. 架构与系统设计",["需求分析、可行性、框图","SoC、MCU、FPGA、传感器与接口选型","总线与网络方案：Ethernet/PoE、CAN、RS-485、LoRaWAN、USB","从第一天起的安全与更新方案"]),
         ("2. PCB 设计",["KiCad 原理图与布局","混合信号、模拟前端、电源","可制造性设计、供应链（含中国）","机械集成、无外壳结构"]),
         ("3. 认证",["EMC 预处理及实验室测试陪同","CE 符合性、文档","在德国与中国进行测试的经验"]),
         ("4. 软件启动调试",["微控制器：裸机、RTOS、引导加载程序","FPGA：VHDL/Verilog、比特流流水线","Zynq：FSBL/U-Boot、设备树、带 SBOM 的 Yocto Linux","版本化、可复现的工具链"]),
         ("5. 固件",["驱动、协议、测量数据通路","OTA 更新、遥测、日志","硬件在环测试台上的测试"]),
-        ("6. 分布式测量与数据采集",["用测量节点取代测量电脑：在数据源打时间戳","监测与可观测性基础设施","从 Excel 孤岛到统一时基"]),
-        ("7. 咨询与培训",["架构评审、第二意见、工具链救援","面向工程师的数字测量技术与数据采集培训","企业内训或在线"]),
+        ("6. 分布式测量与数据采集",["用测量节点取代测量电脑：在数据源打时间戳","模拟前端、传感器、PoE 测量网络","从 Excel 孤岛到统一时基"]),
+        ("7. 监测与可观测性",["从设备到仪表盘的遥测管线","状态监测、预测性维护","运维、告警、长期归档"]),
+        ("8. 咨询",["可行性研究与第二意见","现有设备的架构评审","工具链救援：可复现而非脆弱"]),
+        ("9. 培训",["面向工程师的数字测量技术与数据采集","嵌入式 Linux、FPGA 与 KiCad 实践","企业内训或在线"]),
       ]}[L],
       pricing_h={"de":"Konditionen","en":"Terms","zh":"合作条款"}[L],
       pricing={"de":"Tagessatz ab 80 € netto, abhängig von Aufgabe und Laufzeit. Festpreise für klar umrissene Pakete (z. B. Machbarkeitsstudie, PCB-Layout, Schulungstag) auf Anfrage. Vertragspartner ist die nabla B UG; bei Bedarf holen wir Kapazität aus der AI-Gruppe dazu – Vertrag und Verantwortung bleiben bei nabla B.",
@@ -561,7 +567,7 @@ def page_leistungen(lang,C):
     P=C["leistungen"]
     blocks="".join(f'<div class="card"><h3>{esc(h)}</h3><ul class="tri">{"".join(f"<li>{esc(i)}</li>" for i in items)}</ul></div>' for h,items in P["blocks"])
     return f"""
-<section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{esc(P["intro"])}</p><div class="grid" style="margin-top:28px">{blocks}</div></div></section>
+<section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{esc(P["intro"])}</p><div class="grid grid-3" style="margin-top:28px">{blocks}</div></div></section>
 <section class="alt"><div class="wrap"><div class="sec-title"><h2>{esc(P["pricing_h"])}</h2></div><p class="sec-intro">{esc(P["pricing"])}</p><p><a class="btn dark" href="{cta_link(C["index"]["cta_mail_subject"])}">{esc(P["cta"])}</a></p></div></section>
 """
 
