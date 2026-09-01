@@ -82,6 +82,11 @@ REFS = [
   en=("MineBerry-LoRa — geomonitoring", "Structural-stability assessment of mine-shaft closures with LoRa sensors and multi-sensor data fusion."),
   zh=("MineBerry-LoRa 地质监测", "利用 LoRa 传感器与多传感器数据融合评估矿井封闭结构的稳定性。"),
   links=[]),
+ dict(key="kelvion", years="2023", client="Kelvion",
+  de=("Infrarot-Interferometriekamera für Luftkühler", "Kamerasystem zur Fern-Bewertung der Verschmutzung (Fouling) von Air-Fin-Coolern – Optik, Embedded-Elektronik und Auswertung für den Einsatz an Industrieanlagen."),
+  en=("Infrared interferometry camera for air-fin coolers", "Camera system for remote assessment of fouling on air-fin coolers — optics, embedded electronics and analysis for use on industrial plants."),
+  zh=("空冷器红外干涉相机", "用于远程评估空冷器（air-fin cooler）污垢程度的相机系统——光学、嵌入式电子与分析，面向工业装置现场应用。"),
+  links=[]),
  dict(key="rain", years="2021", client="25square",
   de=("Starkregen-Messnetz", "PoE-basiertes Mess- und Analysesystem zur Beobachtung und Vorhersage von Starkregenzellen. Patent angemeldet."),
   en=("Heavy-rain sensor network", "PoE-based measurement and analysis system for observing and predicting heavy-rain cells. Patent pending."),
@@ -618,7 +623,7 @@ def page_leistungen(lang,C):
 def page_referenzen(lang,C):
     P=C["referenzen"]
     return f"""
-<section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{esc(P["intro"])}</p><div class="note">{P["note"]}</div><div class="refs" style="margin-top:28px">{"".join(ref_card(lang,r) for r in REFS)}</div></div></section>
+<section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{esc(P["intro"])}</p><div class="refs" style="margin-top:28px">{"".join(ref_card(lang,r) for r in REFS)}</div></div></section>
 """
 
 def page_team(lang,C):

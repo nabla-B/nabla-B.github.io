@@ -42,6 +42,7 @@ Languages: German (default, https://nabla-b.engineering/), English (https://nabl
 - Embedded vision system with AI acceleration (2026, NDA): PCB design for an embedded vision system with an AI accelerator. Customer under NDA.
 - Enclosureless housings (2022, Patent angemeldet): Enclosureless design for PCB cavities — mechanics, EMC and manufacturing in one concept. Links: [Funktionsweise](https://maxclerkwell.tech/posts/enclosureless-cases-april-2026/)
 - MineBerry-LoRa — geomonitoring (2023 – 2025, RAG / Forschungszentrum Nachbergbau): Structural-stability assessment of mine-shaft closures with LoRa sensors and multi-sensor data fusion.
+- Infrared interferometry camera for air-fin coolers (2023, Kelvion): Camera system for remote assessment of fouling on air-fin coolers — optics, embedded electronics and analysis for use on industrial plants.
 - Heavy-rain sensor network (2021, 25square): PoE-based measurement and analysis system for observing and predicting heavy-rain cells. Patent pending.
 
 ## Pages
