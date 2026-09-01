@@ -237,6 +237,10 @@ def content(lang):
              "zh":"团队精悍、技术导向、直接可联系。与您沟通的就是为您打造设备的人。"}[L],
       people=[
         dict(id="stephan-boekelmann", pid=PERSON_STEPHAN, name="Stephan Bökelmann", img="/assets/img/stephan-boekelmann.jpg",
+             short={"de":"Ingenieur und Physiker, seit 2007 im Beruf. Systemarchitekt des skAInet Edge-Compute, Promotion in Hadronenphysik (PANDA/FAIR), Dozent an THGA und RUB.",
+                    "en":"Engineer and physicist, professionally active since 2007. System architect of the skAInet Edge-Compute, PhD in hadron physics (PANDA/FAIR), lecturer at THGA and RUB.",
+                    "zh":"工程师与物理学家，2007 年起从业。skAInet Edge-Compute 系统架构师，强子物理博士研究（PANDA/FAIR），THGA 与波鸿鲁尔大学讲师。"}[L],
+             edu_short={"de":["B.Eng. Elektrotechnik · M.Eng. Technische Informatik (THGA)","Promotion Hadronenphysik (RUB, laufend)"],"en":["B.Eng. EE · M.Eng. Computer Engineering (THGA)","PhD hadron physics (RUB, ongoing)"],"zh":["电气工学学士 · 计算机工程硕士（THGA）","强子物理博士（RUB，在读）"]}[L],
              role={"de":"Geschäftsführender Gesellschafter · Ingenieur & Physiker","en":"Managing Director · Engineer & Physicist","zh":"执行合伙人 · 工程师与物理学家"}[L],
              bio={"de":"Seit 2007 im Beruf, vom Mechaniker und Elektroniker über B.Eng. und M.Eng. bis zur Promotion in experimenteller Hadronenphysik (PANDA/FAIR). Systemarchitekt des skAInet Edge-Compute, Dozent an THGA und RUB, Organisator von emBO++ und KiCon Europe.",
                   "en":"Professionally active since 2007, from mechanic and electrician via B.Eng. and M.Eng. to a PhD in experimental hadron physics (PANDA/FAIR). System architect of the skAInet Edge-Compute, lecturer at THGA and RUB, organiser of emBO++ and KiCon Europe.",
@@ -251,6 +255,10 @@ def content(lang):
              creds=[("bachelor degree","B.Eng. Electrical and Information Technology"),("master degree","M.Eng. Information Technology / Computer Engineering")],
              alumni=[("THGA Bochum","https://www.thga.de/"),("Ruhr-Universität Bochum","https://www.ruhr-uni-bochum.de/")]),
         dict(id="tabea-boekelmann", pid=PERSON_TABEA, name="Tabea Bökelmann", img="/assets/img/tabea-boekelmann.jpg",
+             short={"de":"Physikerin und Informatikerin. Baut die Frontends von nabla B – von Messdaten-Dashboards bis zur Bedienoberfläche eingebetteter Geräte.",
+                    "en":"Physicist and computer scientist. Builds nabla B's frontends — from measurement-data dashboards to embedded device UIs.",
+                    "zh":"物理学家与计算机科学家。负责 nabla B 的前端——从测量数据仪表盘到嵌入式设备界面。"}[L],
+             edu_short={"de":["B.Sc. Physik · B.Sc. Angewandte Informatik (RUB)","M.Sc. Angewandte Informatik – „Git with Features“ (RUB)"],"en":["B.Sc. Physics · B.Sc. Applied CS (RUB)","M.Sc. Applied CS – “Git with Features” (RUB)"],"zh":["物理学学士 · 应用计算机科学学士（RUB）","应用计算机科学硕士 –《Git with Features》（RUB）"]}[L],
              role={"de":"Senior Frontend Consultant · Angular & JavaScript","en":"Senior Frontend Consultant · Angular & JavaScript","zh":"高级前端顾问 · Angular 与 JavaScript"}[L],
              bio={"de":"Physikerin und Informatikerin. Verantwortet bei nabla B die Frontends – von Dashboards für Messdaten bis zur Bedienoberfläche eingebetteter Geräte. Masterarbeit „Git with Features“ (Software-Engineering); Bachelor in Teilchenphysik (Hadronenphysik, DAQ) und in eingebetteten Systemen (RISC-V, Compilerbau).",
                   "en":"Physicist and computer scientist. Responsible for nabla B's frontends — from measurement-data dashboards to the user interface of embedded devices. Master's thesis “Git with Features” (software engineering); bachelor's degrees in particle physics (hadron physics, DAQ) and in embedded systems (RISC-V, compiler construction).",
@@ -265,6 +273,10 @@ def content(lang):
              creds=[("bachelor degree","B.Sc. Physics"),("bachelor degree","B.Sc. Applied Computer Science"),("master degree","M.Sc. Applied Computer Science")],
              alumni=[("Ruhr-Universität Bochum","https://www.ruhr-uni-bochum.de/")]),
         dict(id="meihui-huang", pid=PERSON_MEIHUI, name="Meihui Huang", img="/assets/img/meihui-huang.jpg",
+             short={"de":"Physikerin aus Tianjin. Unterstützt Messaufbauten, Detektortests und Auswertung; betreut die Social-Media-Kanäle von maxclerkwell.tech.",
+                    "en":"Physicist from Tianjin. Supports measurement setups, detector tests and analysis; runs the maxclerkwell.tech social media channels.",
+                    "zh":"来自天津的物理学家。负责测量装置、探测器测试与数据分析；运营 maxclerkwell.tech 的社交媒体。"}[L],
+             edu_short={"de":["B.Sc. Physik, Nankai-Universität Tianjin","M.Sc. Physik, RUB EP1 – AG Hadronen und Kerne (laufend)"],"en":["B.Sc. Physics, Nankai University Tianjin","M.Sc. Physics, RUB EP1 – Hadrons and Nuclei (ongoing)"],"zh":["物理学学士，南开大学（天津）","物理学硕士，RUB EP1 强子与原子核组（在读）"]}[L],
              role={"de":"Werkstudentin · Physikerin · Social Media","en":"Working student · Physicist · Social media","zh":"在读实习生 · 物理学家 · 社交媒体"}[L],
              bio={"de":"Physikerin aus Tianjin, lebt in Witten. B.Sc. Physik (Teilchenphysik) an der Nankai-Universität mit Zerfallsketten-Analyse in ROOT; M.Sc.-Studentin an der Ruhr-Universität Bochum, Institut für Experimentalphysik I, AG Hadronen und Kerne. Unterstützt Messaufbauten, Detektortests und Auswertung – und betreut als Social Media Executive die Kanäle von maxclerkwell.tech.",
                   "en":"Physicist from Tianjin, based in Witten. B.Sc. Physics (particle physics) at Nankai University with decay-chain analysis in ROOT; M.Sc. student at Ruhr-Universität Bochum, Institute for Experimental Physics I, Hadrons and Nuclei group. Supports measurement setups, detector tests and analysis — and runs the maxclerkwell.tech channels as social media executive.",
@@ -279,6 +291,10 @@ def content(lang):
              creds=[("bachelor degree","B.Sc. Physics")],
              alumni=[("Nankai University","https://www.nankai.edu.cn/"),("Ruhr-Universität Bochum","https://www.ruhr-uni-bochum.de/")]),
         dict(id="vanessa-wilcken", pid=PERSON_VANESSA, name="Vanessa Wilcken", img="/assets/img/vanessa-wilcken.jpg",
+             short={"de":"Ihre erste Ansprechpartnerin: Termine, Angebote, Rechnungen. Mo – Fr 9:00 – 13:30 Uhr.",
+                    "en":"Your first point of contact: appointments, quotes, invoices. Mon – Fri 9:00 – 13:30 CET.",
+                    "zh":"您的首要联系人：预约、报价、发票。周一至周五 9:00 – 13:30。"}[L],
+             edu_short=[],
              role={"de":"Assistenz der Geschäftsführung · Office","en":"Executive Assistant · Office","zh":"总经理助理 · 办公室"}[L],
              bio={"de":"Ihre erste Ansprechpartnerin: Terminvereinbarung, Angebote, Rechnungen und alles Organisatorische. Erreichbar Mo – Fr 9:00 – 13:30 Uhr.",
                   "en":"Your first point of contact: appointments, quotes, invoices and everything organisational. Available Mon – Fri 9:00 – 13:30 CET.",
@@ -473,7 +489,10 @@ def person_nodes(lang):
         if p["sameAs"]: n["sameAs"]=p["sameAs"]
         if p["alt"]: n["alternateName"]=p["alt"]
         if p["knows"]: n["knowsAbout"]=p["knows"]
-        if p["creds"]: n["hasCredential"]=[{"@type":"EducationalOccupationalCredential","credentialCategory":c,"name":t} for c,t in p["creds"]]
+        def cat(e):
+            e2=e.lower()
+            return "doctoral degree" if ("promotion" in e2 or "phd" in e2 or "博士" in e) else "master degree" if (e2.startswith("m.") or "硕士" in e) else "bachelor degree"
+        if p["edu"]: n["hasCredential"]=[{"@type":"EducationalOccupationalCredential","credentialCategory":cat(e),"name":e} for e in p["edu"]]
         if p["alumni"]: n["alumniOf"]=[{"@type":"CollegeOrUniversity","name":a,"url":u} for a,u in p["alumni"]]
         if p["id"]=="stephan-boekelmann":
             n.update({"url":"https://maxclerkwell.tech/","mainEntityOfPage":"https://maxclerkwell.tech/about/",
@@ -608,8 +627,8 @@ def page_team(lang,C):
     for p in P["people"]:
         pic=f'<img class="pic" src="{p["img"]}" alt="{esc(p["name"])}" width="140" height="140" loading="lazy">' if p["img"] else f'<div class="initials" aria-hidden="true">{"".join(w[0] for w in p["name"].split()[:2])}</div>'
         links="".join(f'<a href="{u}" rel="noopener">{esc(t)}</a>' for t,u in p["links"])
-        edu=f'<ul class="edu">{"".join(f"<li>{esc(e)}</li>" for e in p["edu"])}</ul>' if p["edu"] else ""
-        cards+=f'<article class="person" id="{p["id"]}">{pic}<h3>{esc(p["name"])}</h3><div class="role">{esc(p["role"])}</div><p>{esc(p["bio"])}</p>{edu}<div class="links">{links}</div></article>'
+        edu=f'<ul class="edu">{"".join(f"<li>{esc(e)}</li>" for e in p["edu_short"])}</ul>' if p["edu_short"] else ""
+        cards+=f'<article class="person" id="{p["id"]}">{pic}<div class="ptext"><h3>{esc(p["name"])}</h3><div class="role">{esc(p["role"])}</div><p>{esc(p["short"])}</p>{edu}<div class="links">{links}</div></div></article>'
     return f"""
 <section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{esc(P["intro"])}</p><div class="team" style="margin-top:28px">{cards}</div></div></section>
 """
