@@ -327,9 +327,9 @@ def content(lang):
       cta={"de":"Terminanfrage per E-Mail","en":"Request an appointment by e-mail","zh":"通过电子邮件预约"}[L],
       cta_mail_subject={"de":"Terminanfrage","en":"Appointment request","zh":"预约咨询"}[L],
       map_h={"de":"Anfahrt","en":"Directions","zh":"路线"}[L],
-      map_p={"de":"Gebäude B29 auf dem Gelände Herner Str. 299 (ehemalige Zeche Constantin), Bochum-Riemke. Parkplätze vor Ort; ÖPNV: Haltestelle „Riemke Markt“ (Straßenbahn 308/318).",
-             "en":"Building B29 on the Herner Str. 299 site (former Constantin colliery), Bochum-Riemke. Parking on site; public transport: stop “Riemke Markt” (tram 308/318).",
-             "zh":"位于 Herner Str. 299 园区（原 Constantin 煤矿）B29 楼，波鸿 Riemke 区。园区内可停车；公共交通：Riemke Markt 站（有轨电车 308/318）。"}[L],
+      map_p={"de":"Gebäude B29 auf dem Gelände Herner Str. 299 (ehemalige Zeche Constantin), Bochum-Riemke. Parkplätze vor Ort; ÖPNV: Stadtbahn U35, Haltestelle „Zeche Constantin“.",
+             "en":"Building B29 on the Herner Str. 299 site (former Constantin colliery), Bochum-Riemke. Parking on site; public transport: light rail U35, stop “Zeche Constantin”.",
+             "zh":"位于 Herner Str. 299 园区（原 Constantin 煤矿）B29 楼，波鸿 Riemke 区。园区内可停车；公共交通：轻轨 U35，Zeche Constantin 站。"}[L],
       map_link="https://www.openstreetmap.org/search?query=Herner%20Str.%20299%2C%2044809%20Bochum",
     )
     # ---- impressum
