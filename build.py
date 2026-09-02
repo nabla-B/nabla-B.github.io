@@ -12,6 +12,8 @@ PERSON_STEPHAN = "https://maxclerkwell.tech/#person"
 PERSON_TABEA = "https://edge-compute.skainet.io/team#tabea-boekelmann"
 PERSON_MEIHUI = BASE + "/team/#meihui-huang"
 PERSON_VANESSA = BASE + "/team/#vanessa-wilcken"
+PERSON_ATIYEH = BASE + "/team/#atiyeh-chatrsefid"
+MAIL_ATIYEH = "atiyeh.chatrsefid@nabla-b.engineering"
 AUTOINTERN_ID = "https://www.auto-intern.de/#organization"
 AIGRUPPE_ID = "https://gruppe.ai/#brand"
 EDGE_PRODUCT_ID = "https://edge-compute.skainet.io/#product"
@@ -237,9 +239,9 @@ def content(lang):
     # ---- team
     C["team"] = dict(
       title={"de":"Team – nabla B","en":"Team – nabla B","zh":"团队 – nabla B"}[L],
-      desc={"de":"Das Team von nabla B in Bochum: Stephan Bökelmann, Tabea Bökelmann, Meihui Huang, Vanessa Wilcken.",
-            "en":"The nabla B team in Bochum: Stephan Bökelmann, Tabea Bökelmann, Meihui Huang, Vanessa Wilcken.",
-            "zh":"nabla B 波鸿团队：Stephan Bökelmann、Tabea Bökelmann、Meihui Huang、Vanessa Wilcken。"}[L],
+      desc={"de":"Das Team von nabla B in Bochum: Stephan Bökelmann, Tabea Bökelmann, Meihui Huang, Vanessa Wilcken, Atiyeh Chatrsefid.",
+            "en":"The nabla B team in Bochum: Stephan Bökelmann, Tabea Bökelmann, Meihui Huang, Vanessa Wilcken, Atiyeh Chatrsefid.",
+            "zh":"nabla B 波鸿团队：Stephan Bökelmann、Tabea Bökelmann、Meihui Huang、Vanessa Wilcken、Atiyeh Chatrsefid。"}[L],
       h1={"de":"Team","en":"Team","zh":"团队"}[L],
       intro={"de":"Klein, technisch, direkt erreichbar. Sie sprechen mit den Leuten, die Ihr Gerät bauen.",
              "en":"Small, technical, directly reachable. You talk to the people who build your device.",
@@ -317,6 +319,23 @@ def content(lang):
              edu=[],
              links=[("LinkedIn","https://www.linkedin.com/in/vanessa-wilcken-1436b320a/"),("office@nabla-b.engineering","mailto:"+MAIL),(TEL,TEL_HREF)],
              jobTitle="Executive Assistant", alt=[], sameAs=["https://www.linkedin.com/in/vanessa-wilcken-1436b320a/"], knows=[], creds=[], alumni=[]),
+        dict(id="atiyeh-chatrsefid", pid=PERSON_ATIYEH, name="Atiyeh Chatrsefid", img="/assets/img/atiyeh-chatrsefid.jpg",
+             short={"de":"Verantwortlich für Business Development: neue Kunden, Partnerschaften und Angebote. MBA in Artificial Intelligence, Informatik an der RUB.",
+                    "en":"Responsible for business development: new customers, partnerships and proposals. MBA in Artificial Intelligence, computer science at RUB.",
+                    "zh":"负责业务拓展：新客户、合作伙伴与报价。人工智能 MBA，波鸿鲁尔大学计算机科学。"}[L],
+             edu_short={"de":["MBA Artificial Intelligence, Brand University of Applied Sciences","Informatik, Ruhr-Universität Bochum"],"en":["MBA Artificial Intelligence, Brand University of Applied Sciences","Computer Science, Ruhr-Universität Bochum"],"zh":["人工智能 MBA，Brand University of Applied Sciences","计算机科学，波鸿鲁尔大学"]}[L],
+             role={"de":"Business Development · MBA in AI","en":"Business Development · MBA in AI","zh":"业务拓展 · 人工智能 MBA"}[L],
+             bio={"de":"Verantwortet bei nabla B das Business Development – Kundenakquise, Partnerschaften und Angebotsentwicklung. MBA in Artificial Intelligence (Brand University of Applied Sciences), Informatikstudium an der Ruhr-Universität Bochum. Zuvor Commercial Lead beim KI-Start-up Wisdom Bridge AI, KI-Strategieberaterin für den Mittelstand und Praktikantin im Projektmanagement bei Deloitte. Registered Product Owner (Scrum Inc.).",
+                  "en":"Responsible for business development at nabla B — customer acquisition, partnerships and proposal development. MBA in Artificial Intelligence (Brand University of Applied Sciences), computer science studies at Ruhr-Universität Bochum. Previously commercial lead at the AI start-up Wisdom Bridge AI, AI strategy consultant for mid-sized companies and project management intern at Deloitte. Registered Product Owner (Scrum Inc.).",
+                  "zh":"负责 nabla B 的业务拓展——客户开发、合作伙伴关系与方案报价。人工智能 MBA（Brand University of Applied Sciences），波鸿鲁尔大学计算机科学。此前任 AI 初创公司 Wisdom Bridge AI 商务负责人、中小企业 AI 战略顾问，并在德勤从事项目管理实习。Registered Product Owner（Scrum Inc.）。"}[L],
+             edu={"de":["MBA – Artificial Intelligence, Brand University of Applied Sciences, Hamburg","Informatik, Ruhr-Universität Bochum"],
+                  "en":["MBA – Artificial Intelligence, Brand University of Applied Sciences, Hamburg","Computer Science, Ruhr-Universität Bochum"],
+                  "zh":["MBA – 人工智能，Brand University of Applied Sciences（汉堡）","计算机科学，波鸿鲁尔大学"]}[L],
+             links=[("LinkedIn","https://www.linkedin.com/in/atiyeh-chatrsefid-/"),(MAIL_ATIYEH,"mailto:"+MAIL_ATIYEH)],
+             jobTitle="Business Development", alt=[], sameAs=["https://www.linkedin.com/in/atiyeh-chatrsefid-/"],
+             knows=["business development","AI strategy","startup strategy","product ownership","IT consulting"],
+             creds=[("master degree","MBA Artificial Intelligence")],
+             alumni=[("Brand University of Applied Sciences","https://www.brand-university.de/"),("Ruhr-Universität Bochum","https://www.ruhr-uni-bochum.de/")]),
       ],
     )
     # ---- kontakt
@@ -469,7 +488,7 @@ def org_node():
       "description": "Engineering office in Bochum, Germany: design and development of embedded devices — architecture, PCB design, certification, software bring-up for MCU, FPGA and Zynq, firmware. Decentralised measurement & data acquisition, consulting and training. Part of the AI-Gruppe.",
       "foundingDate": "2020-07-20",
       "founder": {"@id": PERSON_STEPHAN},
-      "employee": [{"@id":PERSON_STEPHAN},{"@id":PERSON_TABEA},{"@id":PERSON_MEIHUI},{"@id":PERSON_VANESSA}],
+      "employee": [{"@id":PERSON_STEPHAN},{"@id":PERSON_TABEA},{"@id":PERSON_MEIHUI},{"@id":PERSON_VANESSA},{"@id":PERSON_ATIYEH}],
       "numberOfEmployees": {"@type":"QuantitativeValue","value":4},
       "telephone": "+49-234-58545811",
       "email": "mailto:" + MAIL,
@@ -505,7 +524,7 @@ def person_nodes(lang):
         if p["knows"]: n["knowsAbout"]=p["knows"]
         def cat(e):
             e2=e.lower()
-            return "doctoral degree" if ("promotion" in e2 or "phd" in e2 or "博士" in e) else "master degree" if (e2.startswith("m.") or "硕士" in e) else "bachelor degree"
+            return "doctoral degree" if ("promotion" in e2 or "phd" in e2 or "博士" in e) else "master degree" if (e2.startswith("m.") or e2.startswith("mba") or "硕士" in e or "mba" in e2) else "bachelor degree"
         if p["edu"]: n["hasCredential"]=[{"@type":"EducationalOccupationalCredential","credentialCategory":cat(e),"name":e} for e in p["edu"]]
         if p["alumni"]: n["alumniOf"]=[{"@type":"CollegeOrUniversity","name":a,"url":u} for a,u in p["alumni"]]
         if p["id"]=="stephan-boekelmann":
@@ -521,6 +540,7 @@ def person_nodes(lang):
         if p["id"]=="tabea-boekelmann": n.update({"affiliation":{"@id":AUTOINTERN_ID},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="meihui-huang": n.update({"affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I – AG Hadronen und Kerne","url":"https://www.ep1.ruhr-uni-bochum.de/"},{"@type":"WebSite","@id":"https://maxclerkwell.tech/#website","name":"MaxClerkwell"}],"homeLocation":{"@type":"Place","name":"Witten, Germany"},"nationality":{"@type":"Country","name":"China"},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="vanessa-wilcken": n.update({"email":MAIL,"telephone":"+49-234-58545811","mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
+        if p["id"]=="atiyeh-chatrsefid": n.update({"email":MAIL_ATIYEH,"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         out.append(n)
     return out
 
@@ -727,6 +747,7 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 - Tabea Bökelmann (also Tabea Viktoria Bökelmann / Boekelmann / Röthemeyer) — Senior Frontend Consultant, Angular & JavaScript; B.Sc. Physics (particle physics, DAQ), B.Sc. and M.Sc. Applied Computer Science (RISC-V, compilers, "Git with Features"), all Ruhr-Universität Bochum. ID {PERSON_TABEA}. Profiles: https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/, https://www.researchgate.net/profile/Tabea-Roethemeyer
 - Meihui Huang (黄美慧, Huang Mei Hui) — Physicist, working student for research and outreach; B.Sc. Physics Nankai University Tianjin (decay-chain analysis with ROOT), M.Sc. student RUB EP1 Hadrons and Nuclei group; social media executive for maxclerkwell.tech. ID {PERSON_MEIHUI}. Profiles: https://www.linkedin.com/in/meihui-huang/, https://www.researchgate.net/profile/Meihui-Huang
 - Vanessa Wilcken — Executive assistant, first point of contact (office@nabla-b.engineering, +49 234 58545811). ID {PERSON_VANESSA}. Profile: https://www.linkedin.com/in/vanessa-wilcken-1436b320a/
+- Atiyeh Chatrsefid — Business development (customer acquisition, partnerships, proposals); MBA Artificial Intelligence (Brand University of Applied Sciences), Computer Science (Ruhr-Universität Bochum); previously commercial lead at Wisdom Bridge AI, AI strategy consultant, Deloitte project management intern. Contact: {MAIL_ATIYEH}. ID {PERSON_ATIYEH}. Profile: https://www.linkedin.com/in/atiyeh-chatrsefid-/
 
 ## References (selection; many customer projects are under NDA)
 {refs}
