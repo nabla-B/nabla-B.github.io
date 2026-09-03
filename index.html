@@ -64,7 +64,10 @@
     "@type": "QuantitativeValue",
     "value": 4
    },
-   "telephone": "+49-234-58545811",
+   "telephone": [
+    "+49-234-58545811",
+    "+49-176-87850428"
+   ],
    "email": "mailto:office@nabla-b.engineering",
    "address": {
     "@type": "PostalAddress",
@@ -98,7 +101,10 @@
      "@type": "ContactPoint",
      "contactType": "customer service",
      "name": "Vanessa Wilcken",
-     "telephone": "+49-234-58545811",
+     "telephone": [
+      "+49-234-58545811",
+      "+49-176-87850428"
+     ],
      "email": "mailto:office@nabla-b.engineering",
      "availableLanguage": [
       "de",
@@ -528,7 +534,10 @@
     "https://www.linkedin.com/in/vanessa-wilcken-1436b320a/"
    ],
    "email": "office@nabla-b.engineering",
-   "telephone": "+49-234-58545811",
+   "telephone": [
+    "+49-234-58545811",
+    "+49-176-87850428"
+   ],
    "mainEntityOfPage": "https://nabla-b.engineering/team/#vanessa-wilcken"
   },
   {
@@ -763,7 +772,7 @@
 <header class="site-header"><div class="wrap">
 <a class="brand" href="/" aria-label="nabla B – Start"><img src="/assets/img/logo.svg" alt="nabla B Ingenieurbüro & Dienstleistung-UG (haftungsbeschränkt)" width="228" height="86"></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">Menü</button>
-<nav class="nav" id="nav"><a href="/" aria-current="page">Start</a><a href="/leistungen/">Leistungen</a><a href="/referenzen/">Referenzen</a><a href="/team/">Team</a><a href="/kontakt/">Kontakt</a></nav>
+<nav class="nav" id="nav"><a href="/" aria-current="page">Start</a><a href="/leistungen/">Leistungen</a><a href="/referenzen/">Referenzen</a><a href="/blog/">Blog</a><a href="/team/">Team</a><a href="/kontakt/">Kontakt</a></nav>
 <div class="lang" aria-label="Language"><a href="/" hreflang="de" lang="de" title="Deutsch" aria-current="true"><span class="f">🇩🇪</span>DE</a><a href="/en/" hreflang="en" lang="en" title="English"><span class="f">🇬🇧</span>EN</a><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans" title="中文"><span class="f">🇨🇳</span>中文</a></div>
 </div></header>
 <main id="main">
@@ -776,18 +785,18 @@
 </div></div></section>
 <section><div class="wrap"><div class="sec-title"><h2>Was wir tun</h2></div><p class="sec-intro">Ein Gerät ist erst fertig, wenn es zertifiziert ist, bootet und im Feld Daten liefert. Wir übernehmen den ganzen Weg oder genau den Abschnitt, der Ihnen fehlt.</p><div class="grid"><div class="card"><h3>Embedded-Hardware</h3><p>Architektur, Schaltplan und Layout in KiCad, Bring-up, EMV-Vorbereitung und Zertifizierung, Übergabe an die Fertigung – inklusive Lieferketten-Erfahrung mit Leiterplatten- und Kabelherstellern in China.</p></div><div class="card"><h3>Firmware &amp; Bring-up</h3><p>Software-Bring-up und Firmware für Mikrocontroller (bare-metal, RTOS), FPGA (VHDL/Verilog) und Zynq-SoCs – bis zum Yocto Linux mit dokumentierter SBOM und Update-Pfad.</p></div><div class="card"><h3>Dezentrale Messtechnik &amp; DAQ</h3><p>Messintelligenz dorthin, wo die Daten entstehen: Analog-Frontends, Sensorik, PoE-Netze, Zeitbasis, Telemetrie und Monitoring-Infrastruktur.</p></div><div class="card"><h3>Beratung &amp; Schulung</h3><p>Feasibility, Architektur-Reviews, Toolchain-Rettung. Schulungen für Ingenieure in digitaler Messtechnik und Datenerfassung – in Ihrem Haus oder online.</p></div></div><p style="margin-top:22px"><a href="/leistungen/">Leistungen →</a></p></div></section>
 <section class="alt"><div class="wrap"><div class="sec-title"><h2>Referenzen</h2></div><p class="sec-intro">Eine Auswahl – die vollständige Liste steht auf der Referenzseite. Vieles, was wir bauen, dürfen wir wegen NDAs nicht zeigen.</p><div class="refs"><article class="ref"><h3>skAInet Edge-Compute</h3><div class="meta">2016 – 2026 · Auto-Intern GmbH / skAInet</div><p>Programmierbarer M12-PoE-Switch, Router und Linux-Rechenknoten für industrielle Edge-Datenerfassung: 7 gedichtete PoE-Ports, 8-Kern-ARM, Yocto Linux mit dokumentierter SBOM. Systemarchitektur, PoE-first-Konzept, M12-Verkabelungsspezifikation und EMV-Zertifizierung.</p><div class="links"><a href="https://edge-compute.skainet.io/" rel="noopener">edge-compute.skainet.io →</a><a href="https://maxclerkwell.tech/posts/skainet-edge-compute-september-2026/" rel="noopener">Blog →</a></div></article><article class="ref"><h3>globalPoint horus® – Reflow-Profiling &amp; Monitoring</h3><div class="meta">2022 – laufend · Kurtz Ersa / globalPoint ICS</div><p>Messelektronik und Monitoring-Infrastruktur für die Lötprofil-Erstellung und die kontinuierliche Prozessüberwachung an Reflow-Öfen (Productronica Innovation Award 2023): batteriebetriebene Temperaturprofil-Elektronik mit WLAN, Telemetrie- und Observability-Stack für die prädiktive Bewertung von Lötqualitätsfaktoren, Cloud-Anbindung. Inklusive EMV-Zertifizierung in China.</p><div class="links"><a href="https://gp-ics.com/products/horus-software/" rel="noopener">horus® Software →</a><a href="https://gp-ics.com/products/horus-shuttle/" rel="noopener">horus® Shuttle →</a><a href="https://gp-ics.com/news/globalpoint-horus-profiling-state-of-the-art-measuring-electronics-for-fastest-profiling/" rel="noopener">Award-News →</a><a href="https://maxclerkwell.tech/posts/dongguan-emc-march-2026/" rel="noopener">EMV-Story →</a></div></article><article class="ref"><h3>OmnAIScope</h3><div class="meta">2020 – 2024 · autowerkstatt4null (BMWK)</div><p>Vereinfachtes digitales Oszilloskop, das Signaldiagnose für die Kfz-Werkstatt alltagstauglich macht. Entstanden im Forschungsprojekt aw4null, Patent angemeldet.</p><div class="links"><a href="https://maxclerkwell.tech/posts/omnaiscope-august-2025/" rel="noopener">Blog →</a></div></article><article class="ref"><h3>Resonanzspektroskop für Biofilm-Monitoring</h3><div class="meta">2023 – 2026 · Montana State University</div><p>Embedded-Instrumentierung für elektrochemische Impedanzspektroskopie im Feld – erfasst Biofilme in Flusssystemen quer durch die USA.</p><div class="links"><a href="https://maxclerkwell.tech/posts/msu-eis-2024/" rel="noopener">Feldbericht →</a></div></article><article class="ref"><h3>HV-MAPS-Teststände &amp; Drahtbond-Linie</h3><div class="meta">2020 – 2026 · Ruhr-Universität Bochum / PANDA @ FAIR</div><p>Mehrere Teststände zur Charakterisierung von HV-MAPS-Siliziumsensoren für minimal ionisierende Teilchen sowie Aufbau einer Drahtbond-Produktionslinie.</p><div class="links"><a href="https://maxclerkwell.tech/posts/hv-maps-energy-loss-simulation-may-2026/" rel="noopener">Geant4-Simulation →</a><a href="https://maxclerkwell.tech/posts/kicon-asia-2025/" rel="noopener">KiCon Asia Talk →</a></div></article><article class="ref"><h3>Zynq-Bitstream-Pipeline (ALINX AX7020)</h3><div class="meta">seit 2026 · Open Source</div><p>Offener Weg vom JTAG-Bring-up ohne FSBL über mainline U-Boot bis zu einem Yocto Linux im QSPI-Flash, das seine eigenen Updates holt – Hardware deployen wie Software.</p><div class="links"><a href="https://maxclerkwell.tech/posts/zynq-bitstream-deployment-concept-august-2026/" rel="noopener">Konzept →</a><a href="https://maxclerkwell.tech/posts/alinx-bring-up-jtag-detected-without-power-august-2026/" rel="noopener">Bring-up →</a><a href="https://maxclerkwell.tech/posts/alinx-ax7020-yocto-linux-qspi-august-2026/" rel="noopener">Yocto/QSPI →</a></div></article></div><p style="margin-top:22px"><a class="btn dark" href="/referenzen/">Alle Referenzen</a></p></div></section>
-<section><div class="wrap"><div class="sec-title"><h2>Aus dem Labor</h2></div><p class="sec-intro">Auf <a href="https://maxclerkwell.tech/">maxclerkwell.tech</a> schreibt Stephan Bökelmann über seine Hobby- und Forschungsprojekte: FPGA-Bring-ups, Yocto, KiCad, Teilchendetektoren. Die Kundenprojekte von nabla B tauchen dort meist nicht auf – die meisten stehen unter NDA. Der Blog zeigt aber gut, wie wir arbeiten.</p></div></section>
+<section><div class="wrap"><div class="sec-title"><h2>Aus dem Labor</h2></div><p class="sec-intro">Auf <a href="https://maxclerkwell.tech/">maxclerkwell.tech</a> schreibt Stephan Bökelmann über seine Hobby- und Forschungsprojekte: FPGA-Bring-ups, Yocto, KiCad, Teilchendetektoren. Die Kundenprojekte von nabla B tauchen dort meist nicht auf – die meisten stehen unter NDA. Der Blog zeigt aber gut, wie wir arbeiten.</p><div class="posts" style="margin-top:22px"><article class="post"><h3><a href="/blog/25square-regensensor/">Starkregen messen, wo er fällt: der 25square-Sensor</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Ein kapazitiver Regensensor pro Viertelquadratkilometer. Wir haben Hardware, Firmware und Datenpfad für das mFUND-Projekt 25square gebaut.</p><div class="tags"><span>DAQ</span><span>STM32</span><span>PoE</span><span>LoRa</span></div><div class="links"><a href="/blog/25square-regensensor/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/skainet-edge-compute/">skAInet Edge-Compute: Das Herzstück unserer Monitoring-Systeme ist jetzt ein Produkt</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Zehn Jahre lang haben wir dieselbe Linux-Box mit PoE-Ports immer wieder neu gebaut. Jetzt hat sie Namen, Version und Produktseite: skAInet Edge-Compute v1.5.</p><div class="tags"><span>Edge-Compute</span><span>PoE</span><span>M12</span><span>Yocto</span></div><div class="links"><a href="/blog/skainet-edge-compute/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/zynq-bitstream-pipeline/">Hardware deployen wie Software: unsere offene Zynq-Pipeline</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Ein REST-Endpunkt auf dem Board, ein POST mit dem Bitstream, und das FPGA daneben führt das Design aus. So bringen wir Zynq-SoCs in Betrieb.</p><div class="tags"><span>Zynq</span><span>FPGA</span><span>U-Boot</span><span>Yocto</span></div><div class="links"><a href="/blog/zynq-bitstream-pipeline/">Weiterlesen →</a></div></article></div><p style="margin-top:22px"><a class="btn dark" href="/blog/">Alle Beiträge</a></p></div></section>
 <section class="alt"><div class="wrap"><div class="sec-title"><h2>Sprechen wir über Ihr Gerät</h2></div>
-<div class="contact-box"><div class="card"><h3>E-Mail</h3><p class="big"><a href="mailto:office@nabla-b.engineering">office@nabla-b.engineering</a></p><p>Ihre Ansprechpartnerin ist <strong>Vanessa Wilcken</strong>. Sie vereinbart den Termin mit Stephan Bökelmann und kümmert sich um alles Organisatorische.</p></div><div class="card"><h3>Telefon</h3><p class="big"><a href="tel:+4923458545811">+49 234 58545811</a></p><p>Montag – Freitag<br>9:00 – 13:30 Uhr</p></div></div>
+<div class="contact-box"><div class="card"><h3>E-Mail</h3><p class="big"><a href="mailto:office@nabla-b.engineering">office@nabla-b.engineering</a></p><p>Vanessa Wilcken nimmt Ihre Anfrage entgegen, vereinbart den Termin mit Stephan Bökelmann und kümmert sich um alles Organisatorische.</p></div><div class="card"><h3>Telefon</h3><p class="big"><a href="tel:+4923458545811">+49 234 58545811</a></p><p>Montag – Freitag<br>9:00 – 13:30 Uhr</p></div></div>
 </div></section>
 
 </main>
 <footer class="site-footer"><div class="wrap">
 <div class="cols">
 <div><img class="flogo" src="/assets/img/logo.svg" alt="nabla B" width="170" height="64"><p>Herner Str. 299, Gebäude B29<br>44809 Bochum, Germany</p><p>nabla B ist Teil der <a href="https://gruppe.ai/">AI-Gruppe</a>.</p></div>
-<div><h4>Kontakt</h4><ul><li><a href="mailto:office@nabla-b.engineering">office@nabla-b.engineering</a></li><li><a href="tel:+4923458545811">+49 234 58545811</a></li><li>Ansprechpartnerin: Vanessa Wilcken</li><li>Bürozeiten: Mo – Fr, 9:00 – 13:30 Uhr</li></ul></div>
-<div><h4>nabla B</h4><ul><li><a href="/leistungen/">Leistungen</a></li><li><a href="/referenzen/">Referenzen</a></li><li><a href="/team/">Team</a></li><li><a href="/kontakt/">Kontakt</a></li><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li></ul></div>
-<div><h4>Links</h4><ul><li>Technischer Blog: <a href="https://maxclerkwell.tech/">maxclerkwell.tech</a></li><li><a href="https://edge-compute.skainet.io/">skAInet Edge-Compute</a></li><li><a href="https://github.com/nabla-B">GitHub</a></li><li><a href="/assets/nablaB-corporate-design.pdf">Corporate-Design-Handbuch (PDF)</a></li></ul></div>
+<div><h4>Kontakt</h4><ul><li><a href="mailto:office@nabla-b.engineering">office@nabla-b.engineering</a></li><li><a href="tel:+4923458545811">+49 234 58545811</a></li><li><a href="tel:+4917687850428">+49 176 87850428</a></li><li>Ansprechpartnerin: Vanessa Wilcken</li><li>Bürozeiten: Mo – Fr, 9:00 – 13:30 Uhr</li></ul></div>
+<div><h4>nabla B</h4><ul><li><a href="/leistungen/">Leistungen</a></li><li><a href="/referenzen/">Referenzen</a></li><li><a href="/blog/">Blog</a></li><li><a href="/team/">Team</a></li><li><a href="/kontakt/">Kontakt</a></li><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li></ul></div>
+<div><h4>Links</h4><ul><li>Technischer Blog: <a href="https://maxclerkwell.tech/">maxclerkwell.tech</a></li><li><a href="https://edge-compute.skainet.io/">skAInet Edge-Compute</a></li><li><a href="https://github.com/nabla-B">GitHub</a></li></ul></div>
 </div>
 <div class="legal"><span>© 2026 nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)</span><span>Amtsgericht Bochum HRB 18817 · USt-ID DE338747475</span></div>
 </div></footer>

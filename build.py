@@ -21,6 +21,8 @@ TODAY = datetime.date.today().isoformat()
 
 TEL = "+49 234 58545811"
 TEL_HREF = "tel:+4923458545811"
+MOBILE = "+49 176 87850428"
+MOBILE_HREF = "tel:+4917687850428"
 MAIL = "office@nabla-b.engineering"
 
 LANGS = {"de": "", "en": "en/", "zh": "zh/"}
@@ -98,20 +100,279 @@ REFS = [
 ]
 
 # ---------------------------------------------------------------- ui strings
+# ---------------------------------------------------------------- blog
+# Short company-perspective summaries (< 400 words each) of selected articles from
+# maxclerkwell.tech. Written independently, not copied: the original stays the long read.
+BLOG_URL = "https://maxclerkwell.tech/posts/"
+POSTS = [
+ dict(slug="25square-regensensor", orig=BLOG_URL+"25square-capacitive-rain-sensing-september-2026/", orig_date="2026-09-02", pub="2026-09-03",
+  tags=["DAQ","STM32","PoE","LoRa","MQTT","Sensorik"], service="leistungen",
+  de=dict(t="Starkregen messen, wo er fällt: der 25square-Sensor",
+   teaser="Ein kapazitiver Regensensor pro Viertelquadratkilometer. Wir haben Hardware, Firmware und Datenpfad für das mFUND-Projekt 25square gebaut.",
+   body=["Wettermodelle sind nur so gut wie ihre Bodenwahrheit. Für Starkregen-Nowcasting auf Straßenniveau gab es die 2020 nicht: Radar sieht Wolken von oben, ein oder zwei städtische Messstationen sehen eine Regenzelle über sechs Häuserblocks gar nicht. Das Forschungsprojekt 25square (mFUND, Bundesministerium für Verkehr) wollte das mit einem Sensor pro Viertelquadratkilometer ändern, für Bochum rund 580 Stück.",
+    "Unser Anteil im Konsortium mit Okeanos und dem Bochumer Institut für Technologie war der Sensor selbst: Systemarchitektur, Hardware, Bare-Metal-Firmware und der Weg der Daten ins Backend. Statt Kippwaage oder Piezo messen wir kapazitiv. Eine frei schwingende Prallplatte über einer festen Grundplatte bildet einen Kondensator, jeder Tropfen verstimmt einen Oszillator, und ein STM32 zählt die Frequenzverschiebung mit seinen Timern. Frequenzen sind robust zu messen, Mikrovolt nicht.",
+    "Die Sensoren hängen an PoE oder LoRa, sprechen MQTT und liefern Ereignisse statt integrierter Summen. Das Messprinzip ist zum Patent angemeldet. Was wir daraus mitgenommen haben, steckt heute in jedem unserer DAQ-Projekte: so nah an der Quelle digitalisieren wie möglich, und die Elektronik so bauen, dass 580 Stück ohne Wartungsplan überleben.",
+    "Den vollständigen Bericht mit Schaltungsdetails, Firmware-Stack (lwIP, MQTT) und Feldergebnissen gibt es im Blog von Stephan Bökelmann."]),
+  en=dict(t="Measuring heavy rain where it falls: the 25square sensor",
+   teaser="One capacitive rain sensor per quarter square kilometre. We built hardware, firmware and the data path for the mFUND project 25square.",
+   body=["Weather models are only as good as their ground truth. For street-level heavy-rain nowcasting that ground truth did not exist in 2020: radar sees clouds from above, and one or two municipal gauges miss a rain cell that hits six blocks entirely. The research project 25square (mFUND, German federal ministry of transport) set out to change that with one sensor per quarter square kilometre, roughly 580 units for Bochum.",
+    "Our part in the consortium with Okeanos and the Bochumer Institut für Technologie was the sensor itself: system architecture, hardware, bare-metal firmware and the path from sensor to backend. Instead of a tipping bucket or a piezo disc we measure capacitively. A freely oscillating impact plate above a fixed base plate forms a capacitor, every drop detunes an oscillator, and an STM32 tracks the frequency shift with nothing more than its timers. Frequencies are robust to measure. Microvolts are not.",
+    "The sensors run on PoE or LoRa, speak MQTT and deliver events rather than integrated sums. The measurement principle is patent pending. What we took away from it is in every DAQ project we build today: digitise as close to the source as possible, and design the electronics so that 580 units survive without a maintenance schedule.",
+    "The full write-up with circuit details, firmware stack (lwIP, MQTT) and field results is on Stephan Bökelmann's blog."]),
+  zh=dict(t="在雨落下的地方测量暴雨：25square 传感器",
+   teaser="每四分之一平方公里一个电容式雨量传感器。我们为 mFUND 研究项目 25square 打造了硬件、固件与数据链路。",
+   body=["气象模型的好坏取决于地面真值。2020 年，街区级暴雨临近预报所需的地面真值并不存在：雷达自上而下看云，一两个市政雨量站则完全看不到只覆盖六个街区的对流雨团。研究项目 25square（德国联邦交通部 mFUND 计划）希望以每四分之一平方公里一个传感器来改变这一点，波鸿全市约需 580 个。",
+    "在与 Okeanos 和波鸿技术研究所（BO-I-T）组成的联合体中，我们负责传感器本身：系统架构、硬件、裸机固件以及从传感器到后端的数据链路。我们没有采用翻斗式或压电式方案，而是电容式测量：一块可自由振动的冲击板悬于固定底板之上构成电容，每一滴雨都会使振荡器失谐，STM32 仅用自身定时器即可跟踪频率偏移。频率易于稳健测量，微伏信号则不然。",
+    "传感器通过 PoE 或 LoRa 接入，使用 MQTT 通信，输出事件而非累计值。该测量原理已申请专利。我们从中总结的经验如今贯穿所有数据采集项目：尽可能靠近信号源数字化，并把电子设计做到 580 台设备无需维护计划也能长期运行。",
+    "包含电路细节、固件栈（lwIP、MQTT）与现场结果的完整报告，请见 Stephan Bökelmann 的博客。"])),
+ dict(slug="skainet-edge-compute", orig=BLOG_URL+"skainet-edge-compute-september-2026/", orig_date="2026-09-01", pub="2026-09-03",
+  tags=["Edge-Compute","PoE","M12","Yocto","SBOM","Monitoring"], service="referenzen",
+  de=dict(t="skAInet Edge-Compute: Das Herzstück unserer Monitoring-Systeme ist jetzt ein Produkt",
+   teaser="Zehn Jahre lang haben wir dieselbe Linux-Box mit PoE-Ports immer wieder neu gebaut. Jetzt hat sie Namen, Version und Produktseite: skAInet Edge-Compute v1.5.",
+   body=["In jedem Monitoring-System, das wir in den letzten zehn Jahren mit Auto-Intern gebaut haben, saß in der Mitte dieselbe Komponente: eine kleine Linux-Box mit einem Uplink, ein paar PoE-Ports und genug Rechenleistung, um die angeschlossenen Sensoren auszuwerten. Das Produkt war immer etwas anderes, PowerSense oder der Reflow-Ofen-Monitor. Die Box haben wir jedes Mal neu gebaut.",
+    "Seit September 2026 hat sie einen Namen, eine Versionsnummer und eine eigene Website: skAInet Edge-Compute v1.5, gefertigt von Auto-Intern GmbH in Deutschland. nabla B hat Systemarchitektur, PoE-first-Konzept, M12-Verkabelungsspezifikation und EMV-Zertifizierung verantwortet.",
+    "Die Eckdaten: ein M12-WAN-Port, sieben M12-LAN-Ports mit PoE Class 3 in einem eigenen DHCP-Netz, 8-Kern-ARM mit 8 GB RAM, austauschbares Compute-Modul auf eigenem Carrier, 48 bis 72 V DC über M12 für Modul und alle Sensoren, eloxiertes Aluminiumgehäuse dicht bis 1 bar. Darauf ein Yocto Linux mit dokumentierter SBOM, weil der EU Cyber Resilience Act danach fragen wird, und Schnittstellen von MQTT über OPC UA bis Prometheus.",
+    "Warum ein Produkt statt Einzelanfertigung? Weil wir dieselben Fehler nicht ein elftes Mal machen wollten. Die Geschichte dahinter, mit Verweisen auf PowerSense und die EMV-Kampagne in Dongguan, erzählt Stephan Bökelmann im Blog."]),
+  en=dict(t="skAInet Edge-Compute: the core of our monitoring systems is now a product",
+   teaser="For ten years we rebuilt the same Linux box with PoE ports for every project. Now it has a name, a version and a product page: skAInet Edge-Compute v1.5.",
+   body=["Every monitoring system we built with Auto-Intern over the past ten years had the same component in the middle: a small Linux box with one uplink, a handful of PoE ports and enough compute to make sense of the sensors hanging off it. The product was always something else, PowerSense or the reflow oven monitor. The box was rebuilt each time.",
+    "Since September 2026 it has a name, a version number and its own website: skAInet Edge-Compute v1.5, manufactured by Auto-Intern GmbH in Germany. nabla B was responsible for the system architecture, the PoE-first concept, the M12 cabling specification and the EMC certification.",
+    "The essentials: one M12 WAN port, seven M12 LAN ports with PoE Class 3 on their own DHCP network, an 8-core ARM with 8 GB RAM, a swappable compute module on a custom carrier, 48 to 72 V DC over M12 powering the module and every attached sensor, an anodised aluminium enclosure sealed to 1 bar. On top, a Yocto Linux with a documented SBOM, because the EU Cyber Resilience Act will ask for it, and interfaces from MQTT via OPC UA to Prometheus.",
+    "Why a product instead of another one-off? Because we did not want to make the same mistakes an eleventh time. The story behind it, with pointers to PowerSense and the EMC campaign in Dongguan, is on Stephan Bökelmann's blog."]),
+  zh=dict(t="skAInet Edge-Compute：我们监测系统的核心如今成为产品",
+   teaser="十年间，我们为每个项目反复重建同一台带 PoE 端口的 Linux 盒子。现在它有了名字、版本号和产品页：skAInet Edge-Compute v1.5。",
+   body=["过去十年我们与 Auto-Intern 一起构建的每一套监测系统，中间都有同一个部件：一台小型 Linux 盒子，一个上行口，几个 PoE 端口，以及足以处理所接传感器数据的算力。产品始终是别的东西，PowerSense 或回流焊炉监测系统。这台盒子每次都被重新做一遍。",
+    "自 2026 年 9 月起，它有了名字、版本号和自己的网站：skAInet Edge-Compute v1.5，由德国 Auto-Intern GmbH 制造。nabla B 负责系统架构、PoE 优先设计、M12 布线规范和 EMC 认证。",
+    "核心参数：一个 M12 WAN 口，七个带 PoE Class 3 的 M12 LAN 口并自成 DHCP 网络，8 核 ARM 与 8 GB 内存，可更换的计算模块置于自研载板上，48 至 72 V 直流经 M12 为模块和所有传感器供电，阳极氧化铝外壳密封至 1 bar。其上运行带完整 SBOM 的 Yocto Linux——欧盟《网络弹性法案》将要求这一点——并提供从 MQTT、OPC UA 到 Prometheus 的接口。",
+    "为什么做成产品而不是继续定制？因为我们不想第十一次犯同样的错误。背后的故事，以及与 PowerSense 和东莞 EMC 认证的关联，请见 Stephan Bökelmann 的博客。"])),
+ dict(slug="zynq-bitstream-pipeline", orig=BLOG_URL+"zynq-bitstream-deployment-concept-august-2026/", orig_date="2026-08-23", pub="2026-09-03",
+  tags=["Zynq","FPGA","U-Boot","Yocto","JTAG","Bring-up"], service="leistungen",
+  de=dict(t="Hardware deployen wie Software: unsere offene Zynq-Pipeline",
+   teaser="Ein REST-Endpunkt auf dem Board, ein POST mit dem Bitstream, und das FPGA daneben führt das Design aus. So bringen wir Zynq-SoCs in Betrieb.",
+   body=["Ein Zynq-7020 ist ein halber Computer und ein halbes FPGA auf einem Die. Der ARM-Teil kann Linux, der FPGA-Teil lässt sich zur Laufzeit in unter einer Sekunde umkonfigurieren. Die meisten Teams programmieren ihn trotzdem wie einen Mikrocontroller aus den Neunzigern: Kabel, Herstellertool, Ritual.",
+    "Wir gehen einen anderen Weg und dokumentieren ihn öffentlich an einem ALINX AX7020. Ziel ist eine REST-API auf dem Board, an die man einen Bitstream schickt, als letzter Schritt einer Hardware-CI-Pipeline. Der Weg dahin hat fünf Stufen: mainline U-Boot über JTAG ohne FSBL und ohne serielles Kabel, ein selbstgebautes Yocto Linux im QSPI-Flash, das seine Updates selbst holt, dann FPGA-Manager, API und Pipeline.",
+    "Die Stufen eins bis drei sind fertig und beschrieben, inklusive der Stellen, an denen es unbequem wurde, etwa ein JTAG, das das Board ohne Strom erkennt. Genau diese Arbeit bieten wir als Leistung an: Software-Bring-up für Zynq-SoCs mit U-Boot, Device Tree und Yocto mit SBOM, ohne Abhängigkeit vom Vendor-Workflow.",
+    "Konzept und die einzelnen Stufen stehen im Blog. Wer ein eigenes Zynq-Design in Betrieb nehmen will, spart sich mit dieser Reihe einige Wochen."]),
+  en=dict(t="Deploying hardware like software: our open Zynq pipeline",
+   teaser="A REST endpoint on the board, one POST with a bitstream, and the FPGA next to the processor runs the design. This is how we bring up Zynq SoCs.",
+   body=["A Zynq-7020 is half a computer and half an FPGA on one die. The ARM side runs Linux, the FPGA side can be reconfigured at runtime in well under a second. Most teams still program it like a microcontroller from the nineties: a cable, a vendor tool, a ritual.",
+    "We take a different route and document it publicly on an ALINX AX7020. The goal is a REST API on the board that accepts a bitstream, as the last step of a hardware CI pipeline. Five stages lead there: mainline U-Boot over JTAG without FSBL and without a serial cable, a self-built Yocto Linux in QSPI flash that fetches its own updates, then FPGA manager, API and pipeline.",
+    "Stages one to three are done and written up, including the uncomfortable parts, such as a JTAG probe that detects the board without power. This is exactly the work we offer as a service: software bring-up for Zynq SoCs with U-Boot, device tree and Yocto with SBOM, independent of the vendor workflow.",
+    "The concept and each stage are on the blog. Anyone bringing up their own Zynq design will save a few weeks with this series."]),
+  zh=dict(t="像部署软件一样部署硬件：我们的开源 Zynq 流水线",
+   teaser="板上一个 REST 接口，一次 POST 上传比特流，处理器旁的 FPGA 即刻运行设计。这就是我们对 Zynq SoC 的启动调试方式。",
+   body=["Zynq-7020 是同一颗芯片上的半台计算机加半块 FPGA。ARM 部分运行 Linux，FPGA 部分可在运行时于一秒内重新配置。但大多数团队仍像对待九十年代的微控制器那样编程：一根线缆、一套厂商工具、一套固定仪式。",
+    "我们选择另一条路，并在 ALINX AX7020 上公开记录全过程。目标是板上运行一个接收比特流的 REST API，作为硬件 CI 流水线的最后一步。通往目标共五个阶段：无 FSBL、无串口线，仅通过 JTAG 加载主线 U-Boot；自行构建、驻留于 QSPI 闪存并能自行拉取更新的 Yocto Linux；然后是 FPGA 管理器、API 与流水线。",
+    "前三个阶段已经完成并写成文章，包括那些不顺利的地方，例如 JTAG 在板子未上电时也能“检测到”设备。这正是我们提供的服务：基于 U-Boot、设备树和带 SBOM 的 Yocto 为 Zynq SoC 做软件启动调试，不依赖厂商工作流。",
+    "概念与各阶段详情见博客。要为自己的 Zynq 设计做启动调试的人，可借这一系列节省数周时间。"])),
+ dict(slug="fpga-schulung-open-source", orig=BLOG_URL+"fpga-blinky-vhdl-icestick-may-2026/", orig_date="2026-05-14", pub="2026-09-03",
+  tags=["FPGA","VHDL","GHDL","Yosys","Schulung"], service="leistungen",
+  de=dict(t="FPGA-Einstieg mit offenen Werkzeugen: unser Schulungsformat",
+   teaser="Vom leeren Editor bis zur blinkenden LED auf einem iCEstick, mit GHDL, Yosys und nextpnr. So sieht der erste Tag unserer FPGA-Schulung aus.",
+   body=["Wer FPGAs lernt, kämpft meist zuerst mit einer 30-GB-Vendor-Installation und dann mit dem Chip. Wir drehen das um. Unsere Einstiegsschulung nutzt einen Lattice iCEstick für rund 25 Euro und eine komplett quelloffene Toolchain, die sich unter Debian mit einem apt-Befehl installiert.",
+    "Der Ablauf des ersten Tages: Was ein FPGA von einem Mikrocontroller unterscheidet, warum VHDL streng ist und warum das hilft. Dann ein 1-Hz-Blinker: VHDL schreiben, mit GHDL simulieren, Wellenform in GTKWave prüfen, mit Yosys synthetisieren, mit nextpnr platzieren und routen, Bitstream flashen. Jeder Schritt wird erklärt, kein Schritt versteckt. Wer eine for-Schleife kennt, kann mitmachen.",
+    "Das Format stammt aus der Zero-to-One-Reihe von Stephan Bökelmann, die wir als Basis für Inhouse-Schulungen bei Kunden verwenden. Fortgeschrittene Module bauen darauf auf: Testbenches, Zeitanalyse, Zynq-Bring-up mit U-Boot und Yocto.",
+    "Die vollständige Anleitung zum Selbstdurcharbeiten steht im Blog. Für eine Schulung im eigenen Haus oder online sprechen Sie uns an."]),
+  en=dict(t="Getting started with FPGAs on open tools: our training format",
+   teaser="From an empty editor to a blinking LED on an iCEstick, with GHDL, Yosys and nextpnr. This is day one of our FPGA training.",
+   body=["People learning FPGAs usually fight a 30 GB vendor installation first and the chip second. We turn that around. Our introductory training uses a Lattice iCEstick for about 25 euros and a fully open-source toolchain that installs on Debian with one apt command.",
+    "Day one goes like this: what separates an FPGA from a microcontroller, why VHDL is strict and why that helps. Then a 1 Hz blinker: write VHDL, simulate with GHDL, inspect the waveform in GTKWave, synthesise with Yosys, place and route with nextpnr, flash the bitstream. Every step is explained, none is hidden. If you know what a for loop is, you can follow.",
+    "The format comes from Stephan Bökelmann's Zero-to-One series, which we use as the base for in-house training at customers. Advanced modules build on it: testbenches, timing analysis, Zynq bring-up with U-Boot and Yocto.",
+    "The complete walkthrough for self-study is on the blog. For training on your premises or online, get in touch."]),
+  zh=dict(t="用开源工具入门 FPGA：我们的培训形式",
+   teaser="从空白编辑器到 iCEstick 上闪烁的 LED，使用 GHDL、Yosys 和 nextpnr。这是我们 FPGA 培训的第一天。",
+   body=["学习 FPGA 的人通常先与 30 GB 的厂商软件搏斗，然后才轮到芯片本身。我们反过来做。入门培训使用约 25 欧元的 Lattice iCEstick 和一套完全开源的工具链，在 Debian 上一条 apt 命令即可安装。",
+    "第一天的流程：FPGA 与微控制器的本质区别，VHDL 为何严格以及这为何有益。随后完成一个 1 Hz 闪烁器：编写 VHDL，用 GHDL 仿真，在 GTKWave 中检查波形，用 Yosys 综合，用 nextpnr 布局布线，烧写比特流。每一步都讲清楚，没有任何隐藏环节。只要知道 for 循环是什么，就能跟上。",
+    "这一形式源自 Stephan Bökelmann 的 Zero-to-One 系列，也是我们在客户现场开展内训的基础。进阶模块在此之上展开：测试平台、时序分析、基于 U-Boot 与 Yocto 的 Zynq 启动调试。",
+    "完整的自学教程见博客。如需在贵司现场或线上开展培训，欢迎联系我们。"])),
+ dict(slug="gehaeuselose-gehaeuse", orig=BLOG_URL+"enclosureless-cases-april-2026/", orig_date="2026-04-29", pub="2026-09-03",
+  tags=["PCB","Gehäuse","EMV","Gebrauchsmuster","Sensorik"], service="referenzen",
+  de=dict(t="Gehäuselose Gehäuse: wenn der PCB-Stapel das Gehäuse ist",
+   teaser="Drei Leiterplatten, eine umlaufende Lötnaht, kein Spritzguss. Unser Gebrauchsmuster DE202020106111U1 für dichte, EMV-geschirmte Sensorgehäuse.",
+   body=["Ein Sensorknoten kostet fünf Euro an Bauteilen. Ein Kunststoffgehäuse dazu kostet Werkzeug, eine zweite Lieferkette, Montageschritte und Platz. Bei kleinen Stückzahlen amortisiert sich nichts davon, bei vielen Messpunkten summiert es sich.",
+    "Unsere Antwort, 2020 mit Odin Holmes als Gebrauchsmuster angemeldet: kein separates Gehäuse. Eine Bodenplatine mit Montagelaschen, ein oder mehrere Rahmen-PCBs mit Ausschnitt, die die Kavität definieren, und eine Deckelplatine mit der Elektronik. Die Lagen werden durch eine durchgehende Lötnaht am Umfang verbunden. Die Naht dichtet gegen Feuchte und Staub und bildet als geschlossene Metallschleife zugleich die EMV-Schirmung.",
+    "Der Vorteil liegt in der Lieferkette: Leiterplatten sind heute in Tagen für wenige Euro zu haben, ein Spritzgusswerkzeug nicht. Höhe und Volumen skalieren über die Rahmen, die Bestückung bleibt ein normaler Reflow-Prozess.",
+    "Das Prinzip setzen wir in Sensorprojekten ein und beraten dazu im PCB-Design. Wie die Lötnaht im Reflow zuverlässig wird und wo die Grenzen liegen, beschreibt der Blogartikel."]),
+  en=dict(t="Enclosureless cases: when the PCB stack is the enclosure",
+   teaser="Three PCBs, one perimeter solder joint, no injection moulding. Our utility model DE202020106111U1 for sealed, EMC-shielded sensor housings.",
+   body=["A sensor node costs five euros in components. A plastic enclosure for it costs tooling, a second supply chain, assembly steps and space. At low volumes none of that amortises. With many measurement points it adds up.",
+    "Our answer, filed as a utility model with Odin Holmes in 2020: no separate enclosure. A bottom PCB with mounting tabs, one or more frame PCBs with a cutout that define the cavity, and a top PCB carrying the electronics. The layers are joined by a continuous solder joint around the perimeter. That joint seals against moisture and dust and, as a closed metallic loop, doubles as the EMC shield.",
+    "The advantage is in the supply chain: PCBs arrive in days for a few euros each, an injection mould does not. Height and volume scale with the frames, and assembly stays an ordinary reflow process.",
+    "We use the principle in sensor projects and advise on it as part of PCB design. How the solder joint becomes reliable in reflow, and where the limits are, is described in the blog article."]),
+  zh=dict(t="无壳外壳：当 PCB 叠层本身就是外壳",
+   teaser="三块电路板，一圈周边焊缝，无需注塑。我们的实用新型 DE202020106111U1，用于密封且带 EMC 屏蔽的传感器外壳。",
+   body=["一个传感器节点的元器件成本约五欧元。为它配一个塑料外壳则意味着模具、第二条供应链、额外装配工序和占用空间。小批量时这些都摊不掉，测点多时则会累加成可观的费用。",
+    "我们的答案，2020 年与 Odin Holmes 一起申请为实用新型：不要独立外壳。一块带安装耳的底板，一块或多块带开口、用于定义腔体的框架板，以及一块承载电子元件的顶板。各层由一圈连续的周边焊缝连接。焊缝既能阻隔湿气与灰尘，又作为闭合金属环兼作 EMC 屏蔽。",
+    "优势在供应链：如今电路板几天内即可到货、每块仅几欧元，注塑模具则做不到。高度与容积通过框架层扩展，装配仍是普通的回流焊工艺。",
+    "我们在传感器项目中应用这一原理，并在 PCB 设计咨询中提供相关建议。焊缝如何在回流焊中保持可靠、其边界在哪里，博客文章有详细说明。"])),
+ dict(slug="ata-carnet-china", orig=BLOG_URL+"ata-carnet-china-travel/", orig_date="2026-04-09", pub="2026-09-03",
+  tags=["Zertifizierung","China","ATA-Carnet","Zoll","Logistik"], service="leistungen",
+  de=dict(t="Mit einem Peli-Case voller Elektronik nach China: ATA-Carnet in der Praxis",
+   teaser="Wer Prüfmuster nach China bringt, verschickt sie besser nicht. Unser Ablauf mit IHK, Zollamt Bochum und Frankfurt Terminal 2.",
+   body=["Elektronik zur Prüfung nach China zu verschicken heißt Einfuhrzoll, Mehrwertsteuer, Wochen Wartezeit und im schlimmsten Fall Beschlagnahme. Für die EMV-Kampagne in Dongguan haben wir die Geräte deshalb als Reisegepäck mitgenommen, mit ATA-Carnet: einem Zollpass für vorübergehend ausgeführte Ware.",
+    "In Deutschland stellt die IHK das Carnet aus, bei uns in rund vier Werktagen. Vanessa Wilcken aus unserem Büro hat die Liste vorbereitet: jede Position mit Beschreibung, Wert und Seriennummer. Die Seriennummern sind der entscheidende Punkt. Wir haben nachträglich alles gelabelt, was keine hatte. Das Zollamt Bochum prüft die Liste gegen den gepackten Koffer und stempelt, etwa eine Stunde ohne Termin.",
+    "In Frankfurt fliegen die meisten China-Routen ab Terminal 2. Am Schalter das Gepäck taggen lassen, wieder zurückverlangen, zum Zoll tragen, alles auspacken, zählen, stempeln, dann zur Gepäckabgabe. Drei Stunden vor Abflug einplanen. In China und auf dem Rückweg lief es dank der Liste ohne Diskussion.",
+    "Diesen Weg gehen wir für Kunden mit, wenn ein Gerät in China oder den USA zertifiziert wird. Die vollständige Checkliste inklusive Apps und Zollstellen steht im Blog."]),
+  en=dict(t="To China with a Peli case full of electronics: the ATA Carnet in practice",
+   teaser="If you take test samples to China, do not ship them. Our routine with the chamber of commerce, Bochum customs and Frankfurt Terminal 2.",
+   body=["Shipping electronics to China for testing means import duty, VAT, weeks of waiting and, at worst, seizure. For the EMC campaign in Dongguan we therefore took the devices as luggage, on an ATA Carnet: a customs passport for goods exported temporarily.",
+    "In Germany the IHK issues the carnet, in our case within about four working days. Vanessa Wilcken from our office prepared the list: every item with description, value and serial number. The serial numbers are the decisive point. We labelled everything that did not have one. Bochum customs checks the list against the packed case and stamps it, roughly an hour without appointment.",
+    "In Frankfurt most China routes leave from Terminal 2. Get the bag tagged at check-in, ask for it back, carry it to customs, unpack everything, count, stamp, then to bag drop. Plan three hours before departure. In China and on the way back the list made every checkpoint a formality.",
+    "We walk this path with customers whenever a device is certified in China or the USA. The complete checklist including apps and customs offices is on the blog."]),
+  zh=dict(t="带着装满电子设备的 Peli 箱去中国：ATA 单证册实战",
+   teaser="要把测试样机带去中国，最好别用寄的。我们与工商会、波鸿海关和法兰克福 2 号航站楼打交道的流程。",
+   body=["把电子设备寄到中国做测试，意味着进口关税、增值税、数周等待，最坏的情况是被扣押。因此在东莞 EMC 认证时，我们把设备作为随身行李携带，并使用 ATA 单证册：一种用于货物暂时出口的“海关护照”。",
+    "在德国由工商会（IHK）签发单证册，我们这次约需四个工作日。办公室的 Vanessa Wilcken 准备了清单：每一项都附有描述、价值和序列号。序列号是关键。凡是没有序列号的部件，我们都补贴了标签。波鸿海关将清单与已打包的箱子逐项核对后盖章，无需预约，约一小时。",
+    "在法兰克福，大多数飞往中国的航线从 2 号航站楼出发。先在柜台给行李挂牌，再要回来，自己提到海关，全部取出、清点、盖章，然后送到行李托运处。请预留起飞前三小时。在中国和返程时，凭这份清单，每个关口都成了走过场。",
+    "每当客户的设备需要在中国或美国认证，我们都会陪同走完这条路。包含应用软件和海关地点的完整清单见博客。"])),
+ dict(slug="emv-dongguan-ce-fcc-ccc", orig=BLOG_URL+"dongguan-emc-march-2026/", orig_date="2026-04-01", pub="2026-09-03",
+  tags=["EMV","CE","FCC","CCC","Zertifizierung","PoE"], service="referenzen",
+  de=dict(t="Vier Tage Prüfkammer: CE, FCC und CCC für ein Reflow-Ofen-Monitoring",
+   teaser="Nach zweieinhalb Jahren Entwicklung haben wir das horus-Monitoring in Dongguan gegen drei Regelwerke getestet. Bestanden, mit einer Lehre über eloxiertes Aluminium.",
+   body=["Im März 2026 stand das Monitoring-System für Reflow-Öfen von globalPoint, heute Teil von Kurtz Ersa, vor seinem letzten Meilenstein: der EMV-Zertifizierung. Vier Tage im Labor NTC in Dongguan, drei Regelwerke auf einmal: CE für Europa, FCC für die USA, CCC für China.",
+    "Das System: ein zentrales Linux-Rechenmodul mit WAN-Uplink und sieben PoE-Ports, daran ein Temperaturmessmodul mit bis zu 36 Messstellen direkt im Ofen und ein Digital-I/O-Modul für IO-Link-Sensoren. nabla B war für die Systemarchitektur verantwortlich, Odin Holmes für Firmware und Layout, Tabea Bökelmann für das Frontend.",
+    "Das Prüfprogramm: Burst, Surge, Spannungsunterbrechung, gestrahlte und leitungsgeführte Emission und Immunität, Magnetfeld, ESD. Vorab hatten wir in Deutschland vorgeprüft, alle Gehäuse sind Aluminium, die Kabel M12 Cat5e SF/UTP. Bestanden haben wir trotzdem nur, weil wir vor Ort nachbessern konnten: Die Eloxalschicht hätte beinahe den Schirmpfad an den M12-Steckern unterbrochen.",
+    "Zertifizierungsvorbereitung und Begleitung im Labor in Deutschland, China und den USA gehören zu unseren Leistungen. Den vollständigen Prüfbericht in Erzählform gibt es im Blog."]),
+  en=dict(t="Four days in the test chamber: CE, FCC and CCC for a reflow oven monitor",
+   teaser="After two and a half years of development we tested the horus monitoring system in Dongguan against three regulatory frameworks. Passed, with a lesson about anodised aluminium.",
+   body=["In March 2026 the reflow oven monitoring system for globalPoint, now part of Kurtz Ersa, faced its last milestone: EMC certification. Four days at the NTC lab in Dongguan, three frameworks at once: CE for Europe, FCC for the USA, CCC for China.",
+    "The system: a central Linux compute module with a WAN uplink and seven PoE ports, a temperature measurement module with up to 36 points directly inside the oven, and a digital I/O module for IO-Link sensors. nabla B was responsible for the system architecture, Odin Holmes for firmware and layout, Tabea Bökelmann for the frontend.",
+    "The test programme: burst, surge, power interruption, radiated and conducted emissions and immunity, magnetic field, ESD. We had pre-tested in Germany, all housings are aluminium, the cables M12 Cat5e SF/UTP. We still passed only because we could rework on site: the anodised layer nearly broke the shield path at the M12 connectors.",
+    "Certification preparation and lab support in Germany, China and the USA are part of our services. The full test report in narrative form is on the blog."]),
+  zh=dict(t="测试暗室里的四天：回流焊炉监测系统的 CE、FCC 与 CCC 认证",
+   teaser="经过两年半开发，我们在东莞对 horus 监测系统进行了三套法规的测试。全部通过，并学到一课：关于阳极氧化铝。",
+   body=["2026 年 3 月，为 globalPoint（现属 Kurtz Ersa）开发的回流焊炉监测系统迎来最后一个里程碑：EMC 认证。在东莞 NTC 实验室的四天里，同时测试三套法规：欧洲 CE、美国 FCC、中国 CCC。",
+    "系统构成：一个带 WAN 上行口和七个 PoE 端口的中央 Linux 计算模块，一个可在炉内直接测量多达 36 个点的温度测量模块，以及一个用于 IO-Link 传感器的数字 I/O 模块。nabla B 负责系统架构，Odin Holmes 负责固件与布板，Tabea Bökelmann 负责前端。",
+    "测试项目：脉冲群、浪涌、电源中断、辐射与传导发射及抗扰度、磁场、静电放电。我们此前已在德国预测试，所有外壳均为铝制，线缆为 M12 Cat5e SF/UTP。但最终能够通过，是因为我们能在现场返工：阳极氧化层差点在 M12 连接器处切断了屏蔽通路。",
+    "在德国、中国和美国的认证准备与实验室陪同，是我们的服务之一。叙事版的完整测试报告见博客。"])),
+ dict(slug="dual-uplink-failover", orig=BLOG_URL+"dual-uplink-feb-2026/", orig_date="2026-02-27", pub="2026-09-03",
+  tags=["Netzwerk","Linux","Routing","Starlink","Monitoring"], service="leistungen",
+  de=dict(t="Zwei Uplinks für 15 Leute: Failover mit Linux-Routing",
+   teaser="DSL plus Starlink, ein Debian-Router dazwischen, zwei Default-Routen mit Metrik. So bleibt unser Büro online, wenn ein Anbieter ausfällt.",
+   body=["Bei 15 gleichzeitig arbeitenden Menschen reichte ein Uplink nicht mehr: Videocalls, Git-Pushes und Fernzugriffe teilten sich eine Leitung, und an schlechten Tagen des Providers stand alles. Im Februar 2026 haben Philipp Lehmann, unser Serveradministrator, und Stephan Bökelmann einen zweiten Uplink über Starlink ergänzt.",
+    "Zwischen beide Uplinks und die Backbone-Switches kam ein Debian-Rack-PC. Die Lösung ist bewusst einfach: zwei Default-Routen in der Haupttabelle, DSL mit niedriger Metrik bevorzugt, Starlink daneben. Fällt das DSL-Gateway aus, übernimmt Starlink ohne Eingriff und ohne sichtbaren Ausfall. Für späteres Policy-Routing sind die Tabellen bereits angelegt.",
+    "Ein kleines Python-Dashboard zeigt in Echtzeit, welcher Link wie viel trägt. Es war zugleich die Kontrolle, dass die Konfiguration tut, was sie soll. Teil zwei der Reihe beschreibt den Schritt zum gewichteten Load-Balancing und zwei Bugs, die es zunächst brachen.",
+    "Warum das auf einer Ingenieurbüro-Website steht: Monitoring-Infrastruktur ist eine unserer Leistungen, und wir betreiben sie selbst, mit Kubernetes, Ceph und Keycloak. Die Konfiguration im Detail steht im Blog."]),
+  en=dict(t="Two uplinks for 15 people: failover with Linux routing",
+   teaser="DSL plus Starlink, a Debian router in between, two default routes with metrics. This is how our office stays online when a provider fails.",
+   body=["With 15 people working at once, one uplink was no longer enough: video calls, git pushes and remote access shared a single line, and on a provider's bad day everything stalled. In February 2026 Philipp Lehmann, our server administrator, and Stephan Bökelmann added a second uplink via Starlink.",
+    "A Debian rack PC went between the two uplinks and the backbone switches. The solution is deliberately simple: two default routes in the main table, DSL preferred with the lower metric, Starlink beside it. If the DSL gateway drops, Starlink takes over without intervention and without a visible outage. The tables for later policy routing are already in place.",
+    "A small Python dashboard shows in real time how much each link carries. It doubled as the check that the configuration does what it should. Part two of the series covers the step to weighted load balancing and the two bugs that initially broke it.",
+    "Why this is on an engineering office website: monitoring infrastructure is one of our services, and we run our own, with Kubernetes, Ceph and Keycloak. The configuration in detail is on the blog."]),
+  zh=dict(t="15 个人的双上行链路：基于 Linux 路由的故障切换",
+   teaser="DSL 加 Starlink，中间一台 Debian 路由器，两条带度量值的默认路由。这样当一家运营商故障时，我们的办公室依然在线。",
+   body=["15 个人同时工作时，一条上行链路已不够用：视频会议、git 推送和远程访问共用一条线路，运营商状态不佳的日子里一切都会停摆。2026 年 2 月，我们的服务器管理员 Philipp Lehmann 与 Stephan Bökelmann 通过 Starlink 增加了第二条上行链路。",
+    "两条上行链路与骨干交换机之间加入了一台 Debian 机架式电脑。方案刻意保持简单：主路由表中两条默认路由，DSL 度量值更低而优先，Starlink 并列其后。DSL 网关一旦失效，Starlink 自动接管，无需人工干预，也没有可见的中断。为日后策略路由准备的路由表已经建好。",
+    "一个小型 Python 仪表盘实时显示每条链路的负载，同时也用来验证配置是否按预期工作。系列第二篇介绍了迈向加权负载均衡的步骤，以及最初导致它失效的两个 bug。",
+    "为什么这会出现在一家工程事务所的网站上：监测基础设施是我们的服务之一，而我们自己也在运营，使用 Kubernetes、Ceph 和 Keycloak。详细配置见博客。"])),
+ dict(slug="powersense-zehn-jahre", orig=BLOG_URL+"skainet-powersense-jan-2026/", orig_date="2026-01-15", pub="2026-09-03",
+  tags=["PoE","Bahn","E-Feld","Monitoring","DAQ"], service="referenzen",
+  de=dict(t="Zehn Jahre PowerSense: berührungslose Stromüberwachung für Weichenantriebe",
+   teaser="2016 rief DB Netz an. Daraus wurde ein PoE-Sensor, der Spannung ohne galvanischen Kontakt misst, und unsere Regel „PoE zuerst“.",
+   body=["Im Januar 2016 suchte die DB Netz AG einen besseren Weg, die Stromversorgung von Weichenantrieben zu überwachen: dreiphasig, 16 A, nachrüstbar per Clip-on, ohne Umverdrahtung und ohne Betriebsunterbrechung. Vorgeschlagen war ein RS-485-Sensor. Wir haben abgelehnt und Power over Ethernet vorgeschlagen, zum ersten Mal in kritischer Infrastruktur.",
+    "Vier Anforderungen prägten die folgenden Jahre: unter 2 W Gesamtleistung, EMV nach Bahnnormen mit hohen Anforderungen an Spannungsfestigkeit, Installation in Sekunden ohne Werkzeug, und Spannungsmessung ohne galvanische Verbindung. Letzteres lösen wir über Patch-Antennen auf Ober- und Unterseite einer dicken Leiterplatte: Die Differenz der E-Felder skaliert mit 1/r², daraus rekonstruieren wir den Spannungsverlauf. Eingebettete Ferritkerne übernehmen den Strom.",
+    "PowerSense läuft heute unter anderem im DIANA-System der Deutschen Bahn. Aus dem Projekt stammen zwei Regeln, die in jedem unserer DAQ-Systeme stecken: PoE zuerst, und so nah an der Quelle digitalisieren wie möglich.",
+    "Blut, Schweiß und Ferritkerne: Die ganze Geschichte über zehn Jahre erzählt Stephan Bökelmann im Blog."]),
+  en=dict(t="Ten years of PowerSense: non-contact power monitoring for railway switches",
+   teaser="In 2016 DB Netz called. The result was a PoE sensor that measures voltage without galvanic contact, and our rule 'PoE first'.",
+   body=["In January 2016 DB Netz AG was looking for a better way to monitor the power supply of railway switch drives: three-phase, 16 A, retrofit by clip-on, no rewiring, no outages. The proposal on the table was an RS-485 sensor. We declined and proposed Power over Ethernet, for the first time in critical infrastructure.",
+    "Four requirements shaped the following years: under 2 W total, EMC to railway standards with high demands on dielectric strength, installation in seconds without tools, and voltage measurement without a galvanic connection. The last one we solve with patch antennas on the top and bottom of a thick PCB: the difference between the two E-fields scales with 1/r², and from it we reconstruct the voltage waveform. Embedded ferrite cores take care of the current.",
+    "PowerSense runs today in Deutsche Bahn's DIANA system, among others. Two rules from the project are in every DAQ system we build: PoE first, and digitise as close to the source as possible.",
+    "Blood, sweat and ferrite cores: the whole ten-year story is on Stephan Bökelmann's blog."]),
+  zh=dict(t="PowerSense 十年：道岔驱动的非接触式电力监测",
+   teaser="2016 年，德铁路网公司来电。由此诞生了一款无需电气接触即可测量电压的 PoE 传感器，以及我们的“PoE 优先”原则。",
+   body=["2016 年 1 月，DB Netz AG 在寻找一种更好的方式来监测道岔驱动的供电：三相、16 A、卡扣式加装，不改线，不停运。桌上的方案是一款 RS-485 传感器。我们拒绝了，转而提出以太网供电（PoE），这是它首次进入关键基础设施领域。",
+    "四项要求塑造了随后几年：总功耗低于 2 W，满足铁路标准的 EMC 并对耐压有很高要求，数秒内免工具安装，以及无电气连接的电压测量。最后一项我们用厚电路板上下两面的贴片天线解决：两个电场之差按 1/r² 变化，由此重建电压波形。嵌入式铁氧体磁芯负责电流测量。",
+    "PowerSense 如今运行于德国铁路的 DIANA 系统等场景。这个项目留下的两条原则贯穿我们所有数据采集系统：PoE 优先，尽可能靠近信号源数字化。",
+    "血汗与铁氧体磁芯：这十年的完整故事，请见 Stephan Bökelmann 的博客。"])),
+ dict(slug="pcb-design-beginnt-mit-readme", orig=BLOG_URL+"pcb-block-diagrams-december-2025/", orig_date="2025-12-10", pub="2026-09-03",
+  tags=["PCB","KiCad","Architektur","PlantUML","LLM"], service="leistungen",
+  de=dict(t="PCB-Design beginnt mit einer README",
+   teaser="Bevor wir KiCad öffnen, schreiben wir auf, was die Platine tun soll, und lassen ein LLM daraus ein Blockdiagramm erzeugen. So starten alle unsere Boards.",
+   body=["Der teuerste Fehler im PCB-Design ist die falsche Platine. Der zweitteuerste ist eine Platine, deren Zweck im Team niemand gleich versteht, weil er nie aufgeschrieben wurde. Beides verhindern wir mit demselben Werkzeug: einer Textdatei im Git-Repository, geschrieben vor dem ersten Schaltplansymbol.",
+    "Der Ablauf: neues Repository, eine strukturierte README mit Funktion, Schnittstellen, Versorgung und offenen Entscheidungen. Dann die README in ein LLM und die Bitte um ein PlantUML-Komponentendiagramm. Die .puml-Datei wird eingecheckt, nicht das Bild, und lokal mit dem PlantUML-CLI gerendert. Was das Modell falsch versteht, korrigieren wir von Hand; das Format ist an einem Nachmittag gelernt.",
+    "Der Punkt ist nicht Dokumentation, sondern Denken. Wer die Anforderung nicht aufschreiben will, wird die Platine auch nicht sauber bauen. Und ein Blockdiagramm auf einem Bildschirm beantwortet in dreißig Sekunden, was das Ding ist, bevor ein Review überhaupt beginnt.",
+    "Wir verwenden dieses Vorgehen bei jedem Board und bei Architektur-Reviews für Kunden. Ein vollständiges Beispiel mit README-Vorlage und GitHub-Action findet sich im Blog."]),
+  en=dict(t="PCB design starts with a README",
+   teaser="Before we open KiCad we write down what the board should do and let an LLM turn it into a block diagram. Every one of our boards starts this way.",
+   body=["The most expensive mistake in PCB design is the wrong board. The second most expensive is a board whose purpose the team does not agree on, because nobody wrote it down. We prevent both with the same tool: a text file in a git repository, written before the first schematic symbol.",
+    "The routine: a new repository, a structured README covering function, interfaces, power and open decisions. Then the README goes into an LLM with a request for a PlantUML component diagram. The .puml file is committed, not the image, and rendered locally with the PlantUML CLI. Whatever the model misunderstands we fix by hand; the format takes an afternoon to learn.",
+    "The point is not documentation. It is thinking. Whoever will not write down the requirement will not build the board cleanly either. And a block diagram that fits on one screen answers in thirty seconds what the thing is, before a review even starts.",
+    "We use this approach for every board and in architecture reviews for customers. A complete example with README template and GitHub Action is on the blog."]),
+  zh=dict(t="PCB 设计从一份 README 开始",
+   teaser="打开 KiCad 之前，我们先写下这块板子要做什么，再让大语言模型据此生成框图。我们的每一块板子都这样开始。",
+   body=["PCB 设计中代价最高的错误是做错了板子。代价第二高的，是团队对板子的用途各有理解，因为从来没人把它写下来。这两者我们用同一个工具避免：git 仓库里的一份文本文件，在画第一个原理图符号之前写好。",
+    "流程如下：新建仓库，写一份结构化的 README，涵盖功能、接口、供电和尚未决定的事项。然后把 README 交给大语言模型，请它生成 PlantUML 组件图。提交的是 .puml 源文件而非图片，并用 PlantUML 命令行在本地渲染。模型理解错的地方手工修正；这种格式一个下午就能学会。",
+    "重点不在文档，而在思考。不愿把需求写下来的人，也不会把板子做干净。而一张能放进一屏的框图，能在三十秒内回答“这是什么”，在评审开始之前。",
+    "我们对每一块板子都采用这种方法，也用于为客户做架构评审。包含 README 模板与 GitHub Action 的完整示例见博客。"])),
+ dict(slug="eis-biofilm-montana", orig=BLOG_URL+"msu-eis-2024/", orig_date="2025-11-28", pub="2026-09-03",
+  tags=["EIS","DAQ","Feldmessung","Instrumentierung","Montana"], service="referenzen",
+  de=dict(t="Ein Impedanzspektrometer für den Fluss: Biofilm-Monitoring in Montana",
+   teaser="Für die Montana State University haben wir einen tragbaren EIS-Datenlogger gebaut und im September 2024 am Clark Fork River ausgesetzt.",
+   body=["Elektrochemische Impedanzspektroskopie erkennt Biofilme an ihrer Wirkung auf die Grenzfläche zwischen Elektrode und Wasser: ein kleines Wechselsignal über einen Frequenzbereich, die Impedanzantwort verrät den Zustand. Im Labor braucht das einen Impedanzanalysator, netzgebunden, groß, teuer. Prof. Stephan Warnat an der Montana State University wollte die Messung in den Fluss bringen.",
+    "Über ein Jahr haben wir dafür einen Datenlogger mit integriertem Spektrumanalysator entwickelt: batterie- oder solarbetrieben, robust gegen Temperatur und Feuchte, wochenlang autonom, mit Teilausfällen umgehend, ohne Messdaten zu verlieren. Hardware, Firmware und Gehäuse gingen durch mehrere Iterationen. Tabea Bökelmann hat einen großen Teil der praktischen Umsetzung getragen.",
+    "Am 4. September 2024 haben wir das System am Clark Fork River nördlich von Butte installiert, einem Fluss mit Bergbau-Altlasten und laufender Sanierung, also genau der Umgebung, in der empfindliches Biofilm-Monitoring wissenschaftlich interessant ist.",
+    "Instrumentierung für den Feldeinsatz ist ein Kern unserer DAQ-Arbeit. Wie es zu dem Projekt kam und was am Fluss geschah, erzählt der Feldbericht im Blog."]),
+  en=dict(t="An impedance spectrometer for the river: biofilm monitoring in Montana",
+   teaser="For Montana State University we built a portable EIS datalogger and deployed it on the Clark Fork River in September 2024.",
+   body=["Electrochemical impedance spectroscopy detects biofilms by their effect on the interface between electrode and water: a small AC signal swept across a frequency range, and the impedance response reveals the state. In the lab this needs an impedance analyser, mains-powered, bulky, expensive. Prof. Stephan Warnat at Montana State University wanted to take the measurement into the river.",
+    "Over a year we developed a datalogger with an integrated spectrum analyser for exactly that: battery or solar powered, robust against temperature and humidity, autonomous for weeks, tolerating partial failures without losing the measurement record. Hardware, firmware and enclosure went through several iterations. Tabea Bökelmann carried much of the practical engineering.",
+    "On 4 September 2024 we installed the system on the Clark Fork River north of Butte, a river with a mining legacy and ongoing remediation, exactly the environment where sensitive biofilm monitoring is scientifically interesting.",
+    "Field-ready instrumentation is at the core of our DAQ work. How the project came about and what happened at the river is told in the field report on the blog."]),
+  zh=dict(t="送进河里的阻抗谱仪：蒙大拿的生物膜监测",
+   teaser="我们为蒙大拿州立大学打造了便携式 EIS 数据记录仪，并于 2024 年 9 月部署在克拉克福克河。",
+   body=["电化学阻抗谱通过生物膜对电极与水之间界面的影响来检测它：施加一个小幅交流信号并扫频，阻抗响应即可揭示状态。在实验室里这需要一台阻抗分析仪，市电供电、体积大、价格高。蒙大拿州立大学的 Stephan Warnat 教授希望把测量带进河流。",
+    "为此我们用一年多时间开发了一台内置频谱分析仪的数据记录仪：电池或太阳能供电，耐受温度与湿度变化，可自主运行数周，在部分故障时不丢失测量记录。硬件、固件和外壳经历了多轮迭代。Tabea Bökelmann 承担了大部分工程实现工作。",
+    "2024 年 9 月 4 日，我们将系统安装在比尤特以北的克拉克福克河上。这条河有采矿遗留污染并在持续修复，正是灵敏的生物膜监测最具科学价值的环境。",
+    "面向野外部署的仪器是我们数据采集工作的核心。项目的缘起与河边发生的事，请见博客上的现场报告。"])),
+ dict(slug="omnaiscope-usb-oszilloskop", orig=BLOG_URL+"omnaiscope-august-2025/", orig_date="2025-08-28", pub="2026-09-03",
+  tags=["Oszilloskop","RP2040","USB","KiCad","Automotive"], service="referenzen",
+  de=dict(t="OmnAIScope: ein USB-Oszilloskop für die Kfz-Werkstatt",
+   teaser="Ein Kanal, 500 kSa/s, wasserdichtes Alugehäuse, und beliebig viele Geräte synchron über USB-Frames. Entstanden im Forschungsprojekt autowerkstatt4null.",
+   body=["Werkstattelektronik wird fallen gelassen, getreten und nass. Das OmnAIScope ist deshalb bewusst schlicht: ein RP2040, ein Kanal mit 500 kSa/s, BNC auf der einen und USB-C auf der anderen Seite, eloxiertes Aluminium, nach der Montage mit Epoxid vergossen. Keine Tasten, kein Display. Alles, was kaputtgehen kann, sitzt in Firmware oder auf dem Rechner.",
+    "Der Trick steckt in der Synchronisation. USB sendet jede Millisekunde ein Start-of-Frame-Paket. Jedes Scope speichert diesen Zeitstempel neben seinen ADC-Werten, und ein Server auf dem PC richtet beliebig viele Geräte auf einer gemeinsamen Zeitachse aus, auf eine halbe USB-Frame genau. Kein Triggerkabel, keine Taktverteilung. Der Server stellt die Daten über REST und WebSocket bereit, das Frontend spricht nie direkt mit der Hardware.",
+    "Das Gerät entstand im dreijährigen, bundesgeförderten Projekt autowerkstatt4null, alle Platinen in KiCad. Es ist als Beta-Hardware bei Auto-Intern erhältlich, das Verfahren ist zum Patent angemeldet.",
+    "Von der Idee über PCB und Firmware bis zum verkaufsfähigen Gerät: Das ist der Weg, den wir anbieten. Messbeispiele und Roadmap im Blog."]),
+  en=dict(t="OmnAIScope: a USB oscilloscope for the car workshop",
+   teaser="One channel, 500 kSa/s, a waterproof aluminium housing, and any number of units synchronised over USB frames. Born in the research project autowerkstatt4null.",
+   body=["Workshop electronics get dropped, kicked and splashed. The OmnAIScope is therefore deliberately plain: an RP2040, one channel at 500 kSa/s, BNC on one end and USB-C on the other, anodised aluminium, epoxy-sealed after assembly. No buttons, no display. Everything that can break lives in firmware or on the host computer.",
+    "The trick is the synchronisation. USB sends a start-of-frame packet every millisecond. Each scope stores that timestamp next to its ADC samples, and a server on the PC aligns any number of units on a common time axis, to within half a USB frame. No trigger cable, no clock distribution. The server exposes the data via REST and WebSocket. The frontend never talks to the hardware directly.",
+    "The device came out of the three-year, federally funded project autowerkstatt4null, all boards in KiCad. It is available as beta hardware from Auto-Intern, and the method is patent pending.",
+    "From idea through PCB and firmware to a sellable device: that is the path we offer. Measurement examples and roadmap are on the blog."]),
+  zh=dict(t="OmnAIScope：面向汽修车间的 USB 示波器",
+   teaser="单通道、500 kSa/s、防水铝壳，任意数量的设备通过 USB 帧同步。诞生于研究项目 autowerkstatt4null。",
+   body=["车间里的电子设备会被摔、被踢、被溅湿。因此 OmnAIScope 刻意做得简单：一颗 RP2040，单通道 500 kSa/s，一端 BNC、另一端 USB-C，阳极氧化铝外壳，装配后环氧灌封。没有按键，没有屏幕。所有可能损坏的部分都放在固件或主机软件里。",
+    "诀窍在于同步。USB 每毫秒发送一个帧起始（SOF）包。每台示波器把该时间戳与 ADC 采样一起存储，PC 上的服务器将任意数量的设备对齐到同一时间轴，精度达半个 USB 帧。无需触发线，无需时钟分配。服务器通过 REST 和 WebSocket 提供数据，前端从不直接与硬件通信。",
+    "该设备源自为期三年、联邦资助的项目 autowerkstatt4null，全部电路板以 KiCad 设计。目前作为 beta 硬件在 Auto-Intern 有售，该方法已申请专利。",
+    "从想法到 PCB 与固件，再到可销售的产品：这就是我们提供的路径。测量示例与路线图见博客。"])),
+]
+for _p in POSTS:
+    for _l in ("de","en","zh"):
+        _b=_p[_l]; _txt=" ".join(_b["body"])
+        _n=len(_txt.split()) if _l!="zh" else len(_txt)//2
+        assert _n<400, f"post {_p['slug']} [{_l}] too long: {_n} words"
+def post_key(p): return "post:"+p["slug"]
+def post_url(lang,p): return BASE+"/"+LANGS[lang]+"blog/"+p["slug"]+"/"
+def post_path(lang,p): return "/"+LANGS[lang]+"blog/"+p["slug"]+"/"
+for _l in LANGS:
+    SLUGS[_l]["blog"]="blog/"
+    for _p in POSTS: SLUGS[_l][post_key(_p)]="blog/"+_p["slug"]+"/"
+PAGES.append("blog")
+
 UI = {
- "de": dict(nav=[("index","Start"),("leistungen","Leistungen"),("referenzen","Referenzen"),("team","Team"),("kontakt","Kontakt")],
+ "de": dict(nav=[("index","Start"),("leistungen","Leistungen"),("referenzen","Referenzen"),("blog","Blog"),("team","Team"),("kontakt","Kontakt")],
    legal=[("impressum","Impressum"),("datenschutz","Datenschutz")], menu="Menü",
    footer_contact="Kontakt", footer_hours="Bürozeiten: Mo – Fr, 9:00 – 13:30 Uhr", footer_office="Ansprechpartnerin: Vanessa Wilcken",
    footer_group="nabla B ist Teil der <a href=\"https://gruppe.ai/\">AI-Gruppe</a>.", footer_blog="Technischer Blog: <a href=\"https://maxclerkwell.tech/\">maxclerkwell.tech</a>",
    copyright="© {y} nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)", cd="Corporate-Design-Handbuch (PDF)",
    ref_title="Willkommen bei nabla B.", ref_text="Sie kommen von maxclerkwell.tech, dem Blog von Stephan Bökelmann. nabla B ist sein Ingenieurbüro in Bochum; über diese Firma werden die im Blog beschriebenen Projekte beauftragt. Hier finden Sie Leistungen, Team, Referenzen und Kontakt.", ref_ok="Verstanden", ref_back="Zurück zum Blog"),
- "en": dict(nav=[("index","Home"),("leistungen","Services"),("referenzen","References"),("team","Team"),("kontakt","Contact")],
+ "en": dict(nav=[("index","Home"),("leistungen","Services"),("referenzen","References"),("blog","Blog"),("team","Team"),("kontakt","Contact")],
    legal=[("impressum","Imprint"),("datenschutz","Privacy")], menu="Menu",
    footer_contact="Contact", footer_hours="Office hours: Mon – Fri, 9:00 – 13:30 CET", footer_office="Your contact: Vanessa Wilcken",
    footer_group="nabla B is part of the <a href=\"https://gruppe.ai/\">AI-Gruppe</a>.", footer_blog="Technical blog: <a href=\"https://maxclerkwell.tech/\">maxclerkwell.tech</a>",
    copyright="© {y} nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)", cd="Corporate design manual (PDF, German)",
    ref_title="Welcome to nabla B.", ref_text="You came from maxclerkwell.tech, Stephan Bökelmann’s blog. nabla B is his engineering office in Bochum, the company through which the projects described on the blog are contracted. Here you find services, team, references and contact.", ref_ok="Got it", ref_back="Back to the blog"),
- "zh": dict(nav=[("index","首页"),("leistungen","服务"),("referenzen","项目案例"),("team","团队"),("kontakt","联系")],
+ "zh": dict(nav=[("index","首页"),("leistungen","服务"),("referenzen","项目案例"),("blog","博客"),("team","团队"),("kontakt","联系")],
    legal=[("impressum","法律声明"),("datenschutz","隐私政策")], menu="菜单",
    footer_contact="联系方式", footer_hours="办公时间：周一至周五 9:00 – 13:30（中欧时间）", footer_office="联系人：Vanessa Wilcken",
    footer_group="nabla B 是 <a href=\"https://gruppe.ai/\">AI-Gruppe</a> 集团的成员。", footer_blog="技术博客：<a href=\"https://maxclerkwell.tech/\">maxclerkwell.tech</a>",
@@ -317,7 +578,7 @@ def content(lang):
                   "en":"Your first point of contact: appointments, quotes, invoices and everything organisational. Available Mon – Fri 9:00 – 13:30 CET.",
                   "zh":"您的首要联系人：预约、报价、发票及所有行政事务。周一至周五 9:00 – 13:30（中欧时间）。"}[L],
              edu=[],
-             links=[("LinkedIn","https://www.linkedin.com/in/vanessa-wilcken-1436b320a/"),("office@nabla-b.engineering","mailto:"+MAIL),(TEL,TEL_HREF)],
+             links=[("LinkedIn","https://www.linkedin.com/in/vanessa-wilcken-1436b320a/"),("office@nabla-b.engineering","mailto:"+MAIL),(TEL,TEL_HREF),(MOBILE,MOBILE_HREF)],
              jobTitle="Executive Assistant", alt=[], sameAs=["https://www.linkedin.com/in/vanessa-wilcken-1436b320a/"], knows=[], creds=[], alumni=[]),
         dict(id="atiyeh-chatrsefid", pid=PERSON_ATIYEH, name="Atiyeh Chatrsefid", img="/assets/img/atiyeh-chatrsefid.jpg",
              short={"de":"Verantwortlich für Business Development: neue Kunden, Partnerschaften und Angebote. MBA in Artificial Intelligence, Informatik an der RUB.",
@@ -345,10 +606,12 @@ def content(lang):
             "en":"nabla B engineering office, Herner Str. 299, Building B29, 44809 Bochum, Germany. Phone +49 234 58545811, office@nabla-b.engineering. Mon – Fri 9:00 – 13:30 CET.",
             "zh":"nabla B 工程事务所，Herner Str. 299, Gebäude B29, 44809 Bochum，德国。电话 +49 234 58545811，office@nabla-b.engineering。周一至周五 9:00 – 13:30。"}[L],
       h1={"de":"Kontakt","en":"Contact","zh":"联系我们"}[L],
-      intro={"de":"Ihre Ansprechpartnerin ist <strong>Vanessa Wilcken</strong>. Sie vereinbart den Termin mit Stephan Bökelmann und kümmert sich um alles Organisatorische.",
-             "en":"Your contact is <strong>Vanessa Wilcken</strong>. She arranges your appointment with Stephan Bökelmann and takes care of everything organisational.",
-             "zh":"您的联系人是 <strong>Vanessa Wilcken</strong>。她将为您安排与 Stephan Bökelmann 的会谈，并处理所有行政事务。"}[L],
+      intro={"de":"Vanessa Wilcken nimmt Ihre Anfrage entgegen, vereinbart den Termin mit Stephan Bökelmann und kümmert sich um alles Organisatorische.",
+             "en":"Vanessa Wilcken takes your enquiry, arranges your appointment with Stephan Bökelmann and takes care of everything organisational.",
+             "zh":"Vanessa Wilcken 负责接收您的咨询，为您安排与 Stephan Bökelmann 的会谈，并处理所有行政事务。"}[L],
+      role={"de":"Assistenz der Geschäftsführung · Ihre Ansprechpartnerin","en":"Executive assistant · your contact","zh":"管理层助理 · 您的联系人"}[L],
       mail_h={"de":"E-Mail","en":"E-mail","zh":"电子邮件"}[L], tel_h={"de":"Telefon","en":"Phone","zh":"电话"}[L],
+      mobile_h={"de":"Mobil (Vanessa Wilcken)","en":"Mobile (Vanessa Wilcken)","zh":"手机（Vanessa Wilcken）"}[L],
       hours_h={"de":"Bürozeiten","en":"Office hours","zh":"办公时间"}[L],
       hours={"de":"Montag – Freitag<br>9:00 – 13:30 Uhr","en":"Monday – Friday<br>9:00 – 13:30 CET","zh":"周一至周五<br>9:00 – 13:30（中欧时间）"}[L],
       addr_h={"de":"Anschrift","en":"Address","zh":"地址"}[L],
@@ -373,7 +636,7 @@ def content(lang):
 <p>nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)<br>Herner Str. 299, Gebäude B29<br>44809 Bochum<br>Deutschland</p>
 <p><strong>Vertreten durch:</strong> Stephan Bökelmann, Geschäftsführer</p>
 <h2>Kontakt</h2>
-<p>Telefon: <a href="{TEL_HREF}">{TEL}</a><br>E-Mail: <a href="mailto:{MAIL}">{MAIL}</a></p>
+<p>Telefon: <a href="{TEL_HREF}">{TEL}</a><br>Mobil: <a href="{MOBILE_HREF}">{MOBILE}</a><br>E-Mail: <a href="mailto:{MAIL}">{MAIL}</a></p>
 <h2>Registereintrag</h2>
 <p>Eintragung im Handelsregister.<br>Registergericht: Amtsgericht Bochum<br>Registernummer: HRB 18817</p>
 <h2>Umsatzsteuer-ID</h2>
@@ -391,7 +654,7 @@ def content(lang):
 <p>nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)<br>Herner Str. 299, Building B29<br>44809 Bochum<br>Germany</p>
 <p><strong>Represented by:</strong> Stephan Bökelmann, Managing Director</p>
 <h2>Contact</h2>
-<p>Phone: <a href="{TEL_HREF}">{TEL}</a><br>E-mail: <a href="mailto:{MAIL}">{MAIL}</a></p>
+<p>Phone: <a href="{TEL_HREF}">{TEL}</a><br>Mobile: <a href="{MOBILE_HREF}">{MOBILE}</a><br>E-mail: <a href="mailto:{MAIL}">{MAIL}</a></p>
 <h2>Commercial register</h2>
 <p>Register court: Amtsgericht Bochum (local court)<br>Registration number: HRB 18817</p>
 <h2>VAT ID</h2>
@@ -410,7 +673,7 @@ def content(lang):
 <p>nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)<br>Herner Str. 299, Gebäude B29<br>44809 Bochum<br>德国</p>
 <p><strong>法定代表：</strong>Stephan Bökelmann，总经理</p>
 <h2>联系方式</h2>
-<p>电话：<a href="{TEL_HREF}">{TEL}</a><br>电子邮件：<a href="mailto:{MAIL}">{MAIL}</a></p>
+<p>电话：<a href="{TEL_HREF}">{TEL}</a><br>手机：<a href="{MOBILE_HREF}">{MOBILE}</a><br>电子邮件：<a href="mailto:{MAIL}">{MAIL}</a></p>
 <h2>商业登记</h2>
 <p>登记法院：波鸿地方法院（Amtsgericht Bochum）<br>登记号：HRB 18817</p>
 <h2>增值税识别号</h2>
@@ -472,6 +735,31 @@ def content(lang):
 <p>更新日期：{TODAY}。以德文版本为准。</p>
 """}[L],
     )
+    C["blog"] = dict(
+      title={"de":"Blog – nabla B: Projekte, Zertifizierung, Bring-up und Messtechnik aus Bochum",
+             "en":"Blog – nabla B: projects, certification, bring-up and measurement from Bochum",
+             "zh":"博客 – nabla B：来自波鸿的项目、认证、启动调试与测量技术"}[L],
+      desc={"de":"Kurze Einblicke aus der Firmenperspektive in unsere Projekte: EMV-Zertifizierung in China, Zynq-Bring-up, PCB-Design, dezentrale Messtechnik. Die Langfassungen stehen im Blog von Stephan Bökelmann.",
+            "en":"Short company-perspective looks at our projects: EMC certification in China, Zynq bring-up, PCB design, decentralised measurement. The long reads are on Stephan Bökelmann's blog.",
+            "zh":"从公司视角简要介绍我们的项目：中国 EMC 认证、Zynq 启动调试、PCB 设计、分布式测量。完整长文见 Stephan Bökelmann 的博客。"}[L],
+      h1={"de":"Blog","en":"Blog","zh":"博客"}[L],
+      intro={"de":"Was wir gebaut haben, in wenigen Absätzen. Jeder Beitrag verweist auf die ausführliche Fassung auf maxclerkwell.tech, dem technischen Blog von Stephan Bökelmann.",
+             "en":"What we built, in a few paragraphs. Every post points to the full version on maxclerkwell.tech, Stephan Bökelmann's technical blog.",
+             "zh":"我们做了什么，用几段话说清。每篇文章都指向 Stephan Bökelmann 技术博客 maxclerkwell.tech 上的完整版本。"}[L],
+      orig_h={"de":"Ausführlich im Blog","en":"The long read","zh":"完整长文"}[L],
+      orig_p={"de":"Dieser Beitrag ist eine Kurzfassung aus Firmenperspektive. Details, Schaltungen, Code und die ganze Geschichte:",
+              "en":"This post is a short company-perspective summary. Details, circuits, code and the whole story:",
+              "zh":"本文是公司视角的简要版本。细节、电路、代码与完整故事："}[L],
+      orig_link={"de":"Original auf maxclerkwell.tech lesen","en":"Read the original on maxclerkwell.tech","zh":"在 maxclerkwell.tech 阅读原文"}[L],
+      orig_date={"de":"Original vom","en":"Original from","zh":"原文发布于"}[L],
+      more={"de":"Weiterlesen","en":"Read more","zh":"阅读更多"}[L],
+      all={"de":"Alle Beiträge","en":"All posts","zh":"全部文章"}[L],
+      service={"de":{"leistungen":"Zur Leistung","referenzen":"Zur Referenz"},"en":{"leistungen":"Related service","referenzen":"Related reference"},"zh":{"leistungen":"相关服务","referenzen":"相关案例"}}[L],
+      by={"de":"nabla B, Bochum","en":"nabla B, Bochum","zh":"nabla B，波鸿"}[L],
+    )
+    for p in POSTS:
+        B=p[L]
+        C[post_key(p)] = dict(title=B["t"]+" – nabla B", desc=B["teaser"], h1=B["t"], og="article")
     return C
 
 # ---------------------------------------------------------------- JSON-LD
@@ -490,12 +778,12 @@ def org_node():
       "founder": {"@id": PERSON_STEPHAN},
       "employee": [{"@id":PERSON_STEPHAN},{"@id":PERSON_TABEA},{"@id":PERSON_MEIHUI},{"@id":PERSON_VANESSA},{"@id":PERSON_ATIYEH}],
       "numberOfEmployees": {"@type":"QuantitativeValue","value":4},
-      "telephone": "+49-234-58545811",
+      "telephone": ["+49-234-58545811","+49-176-87850428"],
       "email": "mailto:" + MAIL,
       "address": {"@type":"PostalAddress","streetAddress":"Herner Str. 299, Gebäude B29","addressLocality":"Bochum","postalCode":"44809","addressRegion":"NRW","addressCountry":"DE"},
       "areaServed": ["DE","EU","CN"],
       "openingHoursSpecification": [{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"13:30"}],
-      "contactPoint": [{"@type":"ContactPoint","contactType":"customer service","name":"Vanessa Wilcken","telephone":"+49-234-58545811","email":"mailto:" + MAIL,"availableLanguage":["de","en","zh"],"hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"13:30"}}],
+      "contactPoint": [{"@type":"ContactPoint","contactType":"customer service","name":"Vanessa Wilcken","telephone":["+49-234-58545811","+49-176-87850428"],"email":"mailto:" + MAIL,"availableLanguage":["de","en","zh"],"hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"13:30"}}],
       "identifier": [{"@type":"PropertyValue","propertyID":"German Trade Register","value":"Amtsgericht Bochum HRB 18817"}],
       "vatID": "DE338747475",
       "taxID": "DE338747475",
@@ -539,7 +827,7 @@ def person_nodes(lang):
                       "knowsAbout":[*p["knows"], {"@id":EDGE_PRODUCT_ID}]})
         if p["id"]=="tabea-boekelmann": n.update({"affiliation":{"@id":AUTOINTERN_ID},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="meihui-huang": n.update({"affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I – AG Hadronen und Kerne","url":"https://www.ep1.ruhr-uni-bochum.de/"},{"@type":"WebSite","@id":"https://maxclerkwell.tech/#website","name":"MaxClerkwell"}],"homeLocation":{"@type":"Place","name":"Witten, Germany"},"nationality":{"@type":"Country","name":"China"},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
-        if p["id"]=="vanessa-wilcken": n.update({"email":MAIL,"telephone":"+49-234-58545811","mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
+        if p["id"]=="vanessa-wilcken": n.update({"email":MAIL,"telephone":["+49-234-58545811","+49-176-87850428"],"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="atiyeh-chatrsefid": n.update({"email":MAIL_ATIYEH,"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         out.append(n)
     return out
@@ -547,8 +835,8 @@ def person_nodes(lang):
 def jsonld(lang, page, C):
     P=C[page]
     website={"@type":"WebSite","@id":BASE+"/#website","url":BASE+"/","name":"nabla B","publisher":{"@id":ORG_ID},"inLanguage":["de","en","zh-Hans"]}
-    types={"index":"WebPage","leistungen":"CollectionPage","referenzen":"CollectionPage","team":"AboutPage","kontakt":"ContactPage","impressum":"WebPage","datenschutz":"WebPage"}
-    webpage={"@type":types[page],"@id":url(lang,page)+"#webpage","url":url(lang,page),"name":P["title"],"description":P["desc"],"inLanguage":HTMLLANG[lang],"isPartOf":{"@id":BASE+"/#website"},"about":{"@id":ORG_ID},"dateModified":TODAY}
+    types={"index":"WebPage","leistungen":"CollectionPage","referenzen":"CollectionPage","blog":"CollectionPage","team":"AboutPage","kontakt":"ContactPage","impressum":"WebPage","datenschutz":"WebPage"}
+    webpage={"@type":types.get(page,"WebPage"),"@id":url(lang,page)+"#webpage","url":url(lang,page),"name":P["title"],"description":P["desc"],"inLanguage":HTMLLANG[lang],"isPartOf":{"@id":BASE+"/#website"},"about":{"@id":ORG_ID},"dateModified":TODAY}
     graph=[org_node(),website,webpage]
     # cross-site entities referenced (thin stubs with canonical @ids)
     graph.append({"@type":"Brand","@id":AIGRUPPE_ID,"name":"AI-Gruppe","url":"https://gruppe.ai/",
@@ -556,7 +844,25 @@ def jsonld(lang, page, C):
     graph.append({"@type":"Organization","@id":AUTOINTERN_ID,"name":"Auto-Intern GmbH","url":"https://www.auto-intern.de","email":"mailto:info@auto-intern.de",
                   "brand":[{"@id":"https://www.skainet.io/#brand"},{"@id":AIGRUPPE_ID}],
                   "sameAs":["https://www.skainet.io","https://edge-compute.skainet.io/","https://github.com/auto-intern-skainet"]})
-    if page in ("index","team"): graph += person_nodes(lang)
+    if page in ("index","team") or page.startswith("post:"): graph += person_nodes(lang)
+    blog_id=url(lang,"blog")+"#blog"
+    if page=="blog":
+        graph.append({"@type":"Blog","@id":blog_id,"url":url(lang,"blog"),"name":"nabla B Blog","description":C["blog"]["desc"],"inLanguage":HTMLLANG[lang],"publisher":{"@id":ORG_ID},"author":{"@id":PERSON_STEPHAN},
+                      "blogPost":[{"@type":"BlogPosting","@id":post_url(lang,p)+"#post","headline":p[lang]["t"],"url":post_url(lang,p),"datePublished":p["pub"],"isBasedOn":p["orig"]} for p in POSTS]})
+        webpage["mainEntity"]={"@id":blog_id}
+    if page.startswith("post:"):
+        p=next(x for x in POSTS if post_key(x)==page); B=p[lang]
+        words=len(" ".join(B["body"]).split()) if lang!="zh" else len(" ".join(B["body"]))
+        graph.append({"@type":"BlogPosting","@id":post_url(lang,p)+"#post","headline":B["t"],"description":B["teaser"],"url":post_url(lang,p),
+                      "mainEntityOfPage":{"@id":post_url(lang,p)+"#webpage"},"isPartOf":{"@id":blog_id},
+                      "datePublished":p["pub"],"dateModified":p["pub"],"inLanguage":HTMLLANG[lang],"wordCount":words,
+                      "author":{"@id":PERSON_STEPHAN},"publisher":{"@id":ORG_ID},"copyrightHolder":{"@id":ORG_ID},
+                      "keywords":", ".join(p["tags"]),"articleSection":"Blog",
+                      "isBasedOn":{"@type":"BlogPosting","url":p["orig"],"datePublished":p["orig_date"],"author":{"@id":PERSON_STEPHAN}},
+                      "about":{"@id":ORG_ID},"image":BASE+"/assets/img/og-image.png"})
+        webpage["mainEntity"]={"@id":post_url(lang,p)+"#post"}
+        graph.append({"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"nabla B","item":url(lang,"index")},{"@type":"ListItem","position":2,"name":C["blog"]["h1"],"item":url(lang,"blog")},{"@type":"ListItem","position":3,"name":B["t"],"item":post_url(lang,p)}]})
+        return json.dumps({"@context":"https://schema.org","@graph":graph},ensure_ascii=False,indent=1)
     if page in ("index","referenzen"):
         items=[]
         for i,r in enumerate(REFS):
@@ -591,7 +897,7 @@ def layout(lang, page, C, body):
     P=C[page]; U=UI[lang]
     alts="".join(f'<link rel="alternate" hreflang="{HTMLLANG[l]}" href="{url(l,page)}">' for l in LANGS) + f'<link rel="alternate" hreflang="x-default" href="{url("de",page)}">'
     CUR=' aria-current="page"'; CURT=' aria-current="true"'
-    nav="".join(f'<a href="{path(lang,p)}"{CUR if p==page else ""}>{t}</a>' for p,t in U["nav"])
+    nav="".join(f'<a href="{path(lang,p)}"{CUR if p==page or (p=="blog" and page.startswith("post:")) else ""}>{t}</a>' for p,t in U["nav"])
     langsw="".join(f'<a href="{path(l,page)}" hreflang="{HTMLLANG[l]}" lang="{HTMLLANG[l]}" title="{LANGNAME[l][2]}"{CURT if l==lang else ""}><span class="f">{LANGNAME[l][0]}</span>{LANGNAME[l][1]}</a>' for l in LANGS)
     legal="".join(f'<li><a href="{path(lang,p)}">{t}</a></li>' for p,t in U["legal"])
     year=datetime.date.today().year
@@ -605,7 +911,7 @@ def layout(lang, page, C, body):
 <meta name="description" content="{esc(P["desc"])}">
 <link rel="canonical" href="{url(lang,page)}">
 {alts}
-<meta property="og:type" content="website"><meta property="og:site_name" content="nabla B"><meta property="og:title" content="{esc(P["title"])}"><meta property="og:description" content="{esc(P["desc"])}"><meta property="og:url" content="{url(lang,page)}"><meta property="og:image" content="{BASE}/assets/img/og-image.png"><meta property="og:locale" content="{ {"de":"de_DE","en":"en_GB","zh":"zh_CN"}[lang] }">
+<meta property="og:type" content="{P.get("og","website")}"><meta property="og:site_name" content="nabla B"><meta property="og:title" content="{esc(P["title"])}"><meta property="og:description" content="{esc(P["desc"])}"><meta property="og:url" content="{url(lang,page)}"><meta property="og:image" content="{BASE}/assets/img/og-image.png"><meta property="og:locale" content="{ {"de":"de_DE","en":"en_GB","zh":"zh_CN"}[lang] }">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#323942">
 <link rel="icon" href="/assets/img/logo-mark.svg" type="image/svg+xml"><link rel="icon" href="/assets/img/favicon-64.png" sizes="64x64" type="image/png"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -629,9 +935,9 @@ def layout(lang, page, C, body):
 <footer class="site-footer"><div class="wrap">
 <div class="cols">
 <div><img class="flogo" src="/assets/img/logo.svg" alt="nabla B" width="170" height="64"><p>Herner Str. 299, Gebäude B29<br>44809 Bochum, Germany</p><p>{U["footer_group"]}</p></div>
-<div><h4>{U["footer_contact"]}</h4><ul><li><a href="mailto:{MAIL}">{MAIL}</a></li><li><a href="{TEL_HREF}">{TEL}</a></li><li>{U["footer_office"]}</li><li>{U["footer_hours"]}</li></ul></div>
+<div><h4>{U["footer_contact"]}</h4><ul><li><a href="mailto:{MAIL}">{MAIL}</a></li><li><a href="{TEL_HREF}">{TEL}</a></li><li><a href="{MOBILE_HREF}">{MOBILE}</a></li><li>{U["footer_office"]}</li><li>{U["footer_hours"]}</li></ul></div>
 <div><h4>nabla B</h4><ul>{"".join(f'<li><a href="{path(lang,p)}">{t}</a></li>' for p,t in U["nav"][1:])}{legal}</ul></div>
-<div><h4>Links</h4><ul><li>{U["footer_blog"]}</li><li><a href="https://edge-compute.skainet.io/">skAInet Edge-Compute</a></li><li><a href="https://github.com/nabla-B">GitHub</a></li><li><a href="/assets/nablaB-corporate-design.pdf">{U["cd"]}</a></li></ul></div>
+<div><h4>Links</h4><ul><li>{U["footer_blog"]}</li><li><a href="https://edge-compute.skainet.io/">skAInet Edge-Compute</a></li><li><a href="https://github.com/nabla-B">GitHub</a></li></ul></div>
 </div>
 <div class="legal"><span>{U["copyright"].format(y=year)}</span><span>Amtsgericht Bochum HRB 18817 · USt-ID DE338747475</span></div>
 </div></footer>
@@ -661,7 +967,7 @@ def page_index(lang,C):
 </div></div></section>
 <section><div class="wrap"><div class="sec-title"><h2>{esc(P["what_h"])}</h2></div><p class="sec-intro">{esc(P["what_intro"])}</p><div class="grid">{cards}</div><p style="margin-top:22px"><a href="{path(lang,"leistungen")}">{UI[lang]["nav"][1][1]} →</a></p></div></section>
 <section class="alt"><div class="wrap"><div class="sec-title"><h2>{esc(P["refs_h"])}</h2></div><p class="sec-intro">{esc(P["refs_intro"])}</p><div class="refs">{refs}</div><p style="margin-top:22px"><a class="btn dark" href="{path(lang,"referenzen")}">{esc(P["refs_more"])}</a></p></div></section>
-<section><div class="wrap"><div class="sec-title"><h2>{esc(P["blog_h"])}</h2></div><p class="sec-intro">{P["blog_p"]}</p></div></section>
+<section><div class="wrap"><div class="sec-title"><h2>{esc(P["blog_h"])}</h2></div><p class="sec-intro">{P["blog_p"]}</p><div class="posts" style="margin-top:22px">{"".join(post_card(lang,C,p) for p in POSTS[:3])}</div><p style="margin-top:22px"><a class="btn dark" href="{path(lang,"blog")}">{esc(C["blog"]["all"])}</a></p></div></section>
 <section class="alt"><div class="wrap"><div class="sec-title"><h2>{esc(P["contact_h"])}</h2></div>
 <div class="contact-box"><div class="card"><h3>{C["kontakt"]["mail_h"]}</h3><p class="big"><a href="mailto:{MAIL}">{MAIL}</a></p><p>{C["kontakt"]["intro"]}</p></div><div class="card"><h3>{C["kontakt"]["tel_h"]}</h3><p class="big"><a href="{TEL_HREF}">{TEL}</a></p><p>{C["kontakt"]["hours"]}</p></div></div>
 </div></section>
@@ -696,25 +1002,59 @@ def page_team(lang,C):
 def page_kontakt(lang,C):
     P=C["kontakt"]
     return f"""
-<section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{P["intro"]}</p>
+<section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div>
+<article class="person contact-person"><a href="{path(lang,"team")}#vanessa-wilcken"><img class="pic" src="/assets/img/vanessa-wilcken.jpg" alt="Vanessa Wilcken" width="120" height="120"></a><div class="ptext"><h3>Vanessa Wilcken</h3><div class="role">{esc(P["role"])}</div><p>{P["intro"]}</p></div></article>
 <div class="contact-box two" style="margin-top:28px">
 <div class="card"><h3>{P["mail_h"]}</h3><p class="big"><a href="mailto:{MAIL}">{MAIL}</a></p><p><a class="btn dark" href="{cta_link(P["cta_mail_subject"])}">{esc(P["cta"])}</a></p></div>
-<div class="card"><h3>{P["tel_h"]}</h3><p class="big"><a href="{TEL_HREF}">{TEL}</a></p><p><strong>{P["hours_h"]}:</strong> {P["hours"].replace("<br>", ", ")}</p></div>
+<div class="card"><h3>{P["tel_h"]}</h3><p class="big"><a href="{TEL_HREF}">{TEL}</a></p><p><strong>{P["mobile_h"]}:</strong> <a href="{MOBILE_HREF}">{MOBILE}</a></p><p><strong>{P["hours_h"]}:</strong> {P["hours"].replace("<br>", ", ")}</p></div>
 <div class="card"><h3>{P["addr_h"]}</h3><p>{P["addr"]}</p></div>
 <div class="card"><h3>{P["map_h"]}</h3><p>{esc(P["map_p"])}</p><p><a href="{P["map_link"]}" rel="noopener">OpenStreetMap →</a></p></div>
 </div></div></section>
+"""
+
+def fmt_date(lang,iso):
+    y,m,d=iso.split("-")
+    if lang=="zh": return f"{y}年{int(m)}月{int(d)}日"
+    if lang=="en": return f"{int(d)} {datetime.date(int(y),int(m),int(d)).strftime('%B')} {y}"
+    return f"{int(d)}.{int(m)}.{y}"
+
+def post_card(lang,C,p):
+    B=p[lang]; T=C["blog"]
+    tags="".join(f'<span>{esc(t)}</span>' for t in p["tags"][:4])
+    return f'<article class="post"><h3><a href="{post_path(lang,p)}">{esc(B["t"])}</a></h3><div class="meta"><time datetime="{p["pub"]}">{fmt_date(lang,p["pub"])}</time> · {esc(T["by"])}</div><p>{esc(B["teaser"])}</p><div class="tags">{tags}</div><div class="links"><a href="{post_path(lang,p)}">{esc(T["more"])} →</a></div></article>'
+
+def page_blog(lang,C):
+    P=C["blog"]
+    return f"""
+<section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{esc(P["intro"])}</p><div class="posts" style="margin-top:28px">{"".join(post_card(lang,C,p) for p in POSTS)}</div></div></section>
+"""
+
+def page_post(lang,C,p):
+    B=p[lang]; T=C["blog"]
+    body="".join(f"<p>{esc(x)}</p>" for x in B["body"])
+    tags="".join(f'<span>{esc(t)}</span>' for t in p["tags"])
+    svc=f'<p><a href="{path(lang,p["service"])}">{esc(T["service"][p["service"]])} →</a></p>' if p.get("service") else ""
+    return f"""
+<section><div class="wrap article"><p class="crumbs"><a href="{path(lang,"blog")}">← {esc(T["all"])}</a></p><div class="sec-title"><h1>{esc(B["t"])}</h1></div>
+<div class="meta"><time datetime="{p["pub"]}">{fmt_date(lang,p["pub"])}</time> · {esc(T["by"])} · {esc(T["orig_date"])} <time datetime="{p["orig_date"]}">{fmt_date(lang,p["orig_date"])}</time></div>
+<p class="lead">{esc(B["teaser"])}</p>
+{body}
+<div class="tags">{tags}</div>
+<aside class="orig"><h2>{esc(T["orig_h"])}</h2><p>{esc(T["orig_p"])}</p><p><a href="{p["orig"]}" rel="noopener">{esc(T["orig_link"])} →</a></p>{svc}</aside>
+</div></section>
 """
 
 def page_prose(lang,C,page):
     P=C[page]
     return f"""<section><div class="wrap prose"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div>{P["body"]}</div></section>"""
 
-RENDER={"index":page_index,"leistungen":page_leistungen,"referenzen":page_referenzen,"team":page_team,"kontakt":page_kontakt,
+RENDER={"index":page_index,"leistungen":page_leistungen,"referenzen":page_referenzen,"blog":page_blog,"team":page_team,"kontakt":page_kontakt,
         "impressum":lambda l,C:page_prose(l,C,"impressum"),"datenschutz":lambda l,C:page_prose(l,C,"datenschutz")}
 
 # ---------------------------------------------------------------- aux files
 def llms_txt():
     refs="\n".join(f"- {r['en'][0]} ({r['years']}, {r['client']}): {r['en'][1]}" + (" Links: "+", ".join(f"[{t}]({u})" for t,u in r['links']) if r['links'] else "") for r in REFS)
+    posts="\n".join(f"- [{p['en']['t']}]({post_url('en',p)}) ({p['pub']}; DE {post_url('de',p)}, ZH {post_url('zh',p)}): {p['en']['teaser']} Based on the original article {p['orig']} ({p['orig_date']}). Keywords: {', '.join(p['tags'])}." for p in POSTS)
     return f"""# nabla B
 
 > nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt) is an engineering office in Bochum, Germany, founded 2020-07-20 by Stephan Bökelmann. It designs and develops embedded devices — from architecture via PCB design and certification to software bring-up for MCU, FPGA and Zynq, all the way to firmware — and builds decentralised measurement and data-acquisition (DAQ) systems for mid-sized industry. It also offers consulting and training in digital measurement technology. nabla B is part of the AI-Gruppe umbrella brand (https://gruppe.ai/) together with Auto-Intern GmbH / skAInet.
@@ -727,6 +1067,7 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 - Contact person: Vanessa Wilcken (executive assistant / office)
 - E-mail: {MAIL}
 - Phone: {TEL}
+- Mobile (Vanessa Wilcken): {MOBILE}
 - Office hours: Monday–Friday 09:00–13:30 CET
 - Address: Herner Str. 299, Gebäude B29, 44809 Bochum, Germany
 - Commercial register: Amtsgericht Bochum HRB 18817 · VAT ID DE338747475
@@ -752,8 +1093,12 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 ## References (selection; many customer projects are under NDA)
 {refs}
 
+## Blog (short company-perspective summaries, < 400 words each, in DE/EN/ZH; each links to the full original on maxclerkwell.tech — the originals are the long reads, these pages are not copies)
+{posts}
+
 ## Pages
 - [Home (DE)]({BASE}/) · [EN]({BASE}/en/) · [ZH]({BASE}/zh/)
+- [Blog]({BASE}/blog/) · [EN]({BASE}/en/blog/) · [ZH]({BASE}/zh/blog/)
 - [Services]({BASE}/leistungen/) · [EN]({BASE}/en/services/) · [ZH]({BASE}/zh/services/)
 - [References]({BASE}/referenzen/) · [EN]({BASE}/en/references/) · [ZH]({BASE}/zh/references/)
 - [Team]({BASE}/team/) · [EN]({BASE}/en/team/) · [ZH]({BASE}/zh/team/)
@@ -770,7 +1115,7 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 
 def sitemap():
     urls=""
-    for p in PAGES:
+    for p in PAGES+[post_key(x) for x in POSTS]:
         for l in LANGS:
             alts="".join(f'<xhtml:link rel="alternate" hreflang="{HTMLLANG[a]}" href="{url(a,p)}"/>' for a in LANGS)
             urls+=f'<url><loc>{url(l,p)}</loc><lastmod>{TODAY}</lastmod>{alts}</url>\n'
@@ -793,11 +1138,14 @@ def main():
             body=RENDER[page](lang,C)
             out=os.path.join(root, LANGS[lang], SLUGS[lang][page], "index.html")
             write(out, layout(lang,page,C,body))
+        for p in POSTS:
+            out=os.path.join(root, LANGS[lang], "blog", p["slug"], "index.html")
+            write(out, layout(lang,post_key(p),C,page_post(lang,C,p)))
     write(os.path.join(root,"llms.txt"), llms_txt())
     write(os.path.join(root,"sitemap.xml"), sitemap())
     write(os.path.join(root,"robots.txt"), f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
     write(os.path.join(root,"404.html"), page404())
     write(os.path.join(root,".nojekyll"), "")
-    print("built", len(LANGS)*len(PAGES), "pages")
+    print("built", len(LANGS)*(len(PAGES)+len(POSTS)), "pages")
 
 if __name__=="__main__": main()

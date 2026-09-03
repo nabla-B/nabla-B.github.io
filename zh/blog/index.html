@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>博客 – nabla B：来自波鸿的项目、认证、启动调试与测量技术</title>
+<meta name="description" content="从公司视角简要介绍我们的项目：中国 EMC 认证、Zynq 启动调试、PCB 设计、分布式测量。完整长文见 Stephan Bökelmann 的博客。">
+<link rel="canonical" href="https://nabla-b.engineering/zh/blog/">
+<link rel="alternate" hreflang="de" href="https://nabla-b.engineering/blog/"><link rel="alternate" hreflang="en" href="https://nabla-b.engineering/en/blog/"><link rel="alternate" hreflang="zh-Hans" href="https://nabla-b.engineering/zh/blog/"><link rel="alternate" hreflang="x-default" href="https://nabla-b.engineering/blog/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="nabla B"><meta property="og:title" content="博客 – nabla B：来自波鸿的项目、认证、启动调试与测量技术"><meta property="og:description" content="从公司视角简要介绍我们的项目：中国 EMC 认证、Zynq 启动调试、PCB 设计、分布式测量。完整长文见 Stephan Bökelmann 的博客。"><meta property="og:url" content="https://nabla-b.engineering/zh/blog/"><meta property="og:image" content="https://nabla-b.engineering/assets/img/og-image.png"><meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#323942">
+<link rel="icon" href="/assets/img/logo-mark.svg" type="image/svg+xml"><link rel="icon" href="/assets/img/favicon-64.png" sizes="64x64" type="image/png"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/cmunbmr.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/cmunbsr.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": [
+    "Organization",
+    "ProfessionalService"
+   ],
+   "@id": "https://nabla-b.engineering/#organization",
+   "name": "nabla B",
+   "alternateName": [
+    "∇B",
+    "nabla-B",
+    "nabla B engineering"
+   ],
+   "legalName": "nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)",
+   "url": "https://nabla-b.engineering/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://nabla-b.engineering/assets/img/og-image.png",
+    "width": 1200,
+    "height": 630
+   },
+   "image": "https://nabla-b.engineering/assets/img/og-image.png",
+   "description": "Engineering office in Bochum, Germany: design and development of embedded devices — architecture, PCB design, certification, software bring-up for MCU, FPGA and Zynq, firmware. Decentralised measurement & data acquisition, consulting and training. Part of the AI-Gruppe.",
+   "foundingDate": "2020-07-20",
+   "founder": {
+    "@id": "https://maxclerkwell.tech/#person"
+   },
+   "employee": [
+    {
+     "@id": "https://maxclerkwell.tech/#person"
+    },
+    {
+     "@id": "https://edge-compute.skainet.io/team#tabea-boekelmann"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#meihui-huang"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#vanessa-wilcken"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#atiyeh-chatrsefid"
+    }
+   ],
+   "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "value": 4
+   },
+   "telephone": [
+    "+49-234-58545811",
+    "+49-176-87850428"
+   ],
+   "email": "mailto:office@nabla-b.engineering",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Herner Str. 299, Gebäude B29",
+    "addressLocality": "Bochum",
+    "postalCode": "44809",
+    "addressRegion": "NRW",
+    "addressCountry": "DE"
+   },
+   "areaServed": [
+    "DE",
+    "EU",
+    "CN"
+   ],
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+     ],
+     "opens": "09:00",
+     "closes": "13:30"
+    }
+   ],
+   "contactPoint": [
+    {
+     "@type": "ContactPoint",
+     "contactType": "customer service",
+     "name": "Vanessa Wilcken",
+     "telephone": [
+      "+49-234-58545811",
+      "+49-176-87850428"
+     ],
+     "email": "mailto:office@nabla-b.engineering",
+     "availableLanguage": [
+      "de",
+      "en",
+      "zh"
+     ],
+     "hoursAvailable": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+       "Monday",
+       "Tuesday",
+       "Wednesday",
+       "Thursday",
+       "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "13:30"
+     }
+    }
+   ],
+   "identifier": [
+    {
+     "@type": "PropertyValue",
+     "propertyID": "German Trade Register",
+     "value": "Amtsgericht Bochum HRB 18817"
+    }
+   ],
+   "vatID": "DE338747475",
+   "taxID": "DE338747475",
+   "brand": {
+    "@id": "https://gruppe.ai/#brand"
+   },
+   "memberOf": [
+    {
+     "@type": "Organization",
+     "name": "IHK Mittleres Ruhrgebiet",
+     "url": "https://www.bochum.ihk.de/"
+    }
+   ],
+   "knowsAbout": [
+    "embedded systems",
+    "PCB design",
+    "KiCad",
+    "FPGA",
+    "Zynq",
+    "Yocto Linux",
+    "microcontroller firmware",
+    "EMC certification",
+    "data acquisition",
+    "decentralised measurement",
+    "condition monitoring",
+    "observability"
+   ],
+   "sameAs": [
+    "https://github.com/nabla-B",
+    "https://maxclerkwell.tech/imprint/",
+    "https://maxclerkwell.tech/about/",
+    "https://gruppe.ai/"
+   ],
+   "priceRange": "Tagessatz ab 80 € netto",
+   "makesOffer": [
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Embedded hardware development",
+      "serviceType": "PCB design, certification, bring-up"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Embedded firmware for MCU, FPGA and Zynq"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Decentralised measurement and data acquisition"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Consulting and training in digital measurement technology"
+     }
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://nabla-b.engineering/#website",
+   "url": "https://nabla-b.engineering/",
+   "name": "nabla B",
+   "publisher": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "inLanguage": [
+    "de",
+    "en",
+    "zh-Hans"
+   ]
+  },
+  {
+   "@type": "CollectionPage",
+   "@id": "https://nabla-b.engineering/zh/blog/#webpage",
+   "url": "https://nabla-b.engineering/zh/blog/",
+   "name": "博客 – nabla B：来自波鸿的项目、认证、启动调试与测量技术",
+   "description": "从公司视角简要介绍我们的项目：中国 EMC 认证、Zynq 启动调试、PCB 设计、分布式测量。完整长文见 Stephan Bökelmann 的博客。",
+   "inLanguage": "zh-Hans",
+   "isPartOf": {
+    "@id": "https://nabla-b.engineering/#website"
+   },
+   "about": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "dateModified": "2026-09-03",
+   "mainEntity": {
+    "@id": "https://nabla-b.engineering/zh/blog/#blog"
+   }
+  },
+  {
+   "@type": "Brand",
+   "@id": "https://gruppe.ai/#brand",
+   "name": "AI-Gruppe",
+   "url": "https://gruppe.ai/",
+   "description": "Dachmarke (keine juristische Person) für Auto-Intern GmbH, CCD Car Diagnostics, nabla B, nerd_force1, open Skunkforce e.V. und das skAInet-Projekt."
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://www.auto-intern.de/#organization",
+   "name": "Auto-Intern GmbH",
+   "url": "https://www.auto-intern.de",
+   "email": "mailto:info@auto-intern.de",
+   "brand": [
+    {
+     "@id": "https://www.skainet.io/#brand"
+    },
+    {
+     "@id": "https://gruppe.ai/#brand"
+    }
+   ],
+   "sameAs": [
+    "https://www.skainet.io",
+    "https://edge-compute.skainet.io/",
+    "https://github.com/auto-intern-skainet"
+   ]
+  },
+  {
+   "@type": "Blog",
+   "@id": "https://nabla-b.engineering/zh/blog/#blog",
+   "url": "https://nabla-b.engineering/zh/blog/",
+   "name": "nabla B Blog",
+   "description": "从公司视角简要介绍我们的项目：中国 EMC 认证、Zynq 启动调试、PCB 设计、分布式测量。完整长文见 Stephan Bökelmann 的博客。",
+   "inLanguage": "zh-Hans",
+   "publisher": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "author": {
+    "@id": "https://maxclerkwell.tech/#person"
+   },
+   "blogPost": [
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/25square-regensensor/#post",
+     "headline": "在雨落下的地方测量暴雨：25square 传感器",
+     "url": "https://nabla-b.engineering/zh/blog/25square-regensensor/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/25square-capacitive-rain-sensing-september-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/skainet-edge-compute/#post",
+     "headline": "skAInet Edge-Compute：我们监测系统的核心如今成为产品",
+     "url": "https://nabla-b.engineering/zh/blog/skainet-edge-compute/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/skainet-edge-compute-september-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/zynq-bitstream-pipeline/#post",
+     "headline": "像部署软件一样部署硬件：我们的开源 Zynq 流水线",
+     "url": "https://nabla-b.engineering/zh/blog/zynq-bitstream-pipeline/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/zynq-bitstream-deployment-concept-august-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/fpga-schulung-open-source/#post",
+     "headline": "用开源工具入门 FPGA：我们的培训形式",
+     "url": "https://nabla-b.engineering/zh/blog/fpga-schulung-open-source/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/fpga-blinky-vhdl-icestick-may-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/#post",
+     "headline": "无壳外壳：当 PCB 叠层本身就是外壳",
+     "url": "https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/enclosureless-cases-april-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/ata-carnet-china/#post",
+     "headline": "带着装满电子设备的 Peli 箱去中国：ATA 单证册实战",
+     "url": "https://nabla-b.engineering/zh/blog/ata-carnet-china/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/ata-carnet-china-travel/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/emv-dongguan-ce-fcc-ccc/#post",
+     "headline": "测试暗室里的四天：回流焊炉监测系统的 CE、FCC 与 CCC 认证",
+     "url": "https://nabla-b.engineering/zh/blog/emv-dongguan-ce-fcc-ccc/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/dongguan-emc-march-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/dual-uplink-failover/#post",
+     "headline": "15 个人的双上行链路：基于 Linux 路由的故障切换",
+     "url": "https://nabla-b.engineering/zh/blog/dual-uplink-failover/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/dual-uplink-feb-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/powersense-zehn-jahre/#post",
+     "headline": "PowerSense 十年：道岔驱动的非接触式电力监测",
+     "url": "https://nabla-b.engineering/zh/blog/powersense-zehn-jahre/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/skainet-powersense-jan-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/pcb-design-beginnt-mit-readme/#post",
+     "headline": "PCB 设计从一份 README 开始",
+     "url": "https://nabla-b.engineering/zh/blog/pcb-design-beginnt-mit-readme/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/pcb-block-diagrams-december-2025/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/eis-biofilm-montana/#post",
+     "headline": "送进河里的阻抗谱仪：蒙大拿的生物膜监测",
+     "url": "https://nabla-b.engineering/zh/blog/eis-biofilm-montana/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/msu-eis-2024/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/zh/blog/omnaiscope-usb-oszilloskop/#post",
+     "headline": "OmnAIScope：面向汽修车间的 USB 示波器",
+     "url": "https://nabla-b.engineering/zh/blog/omnaiscope-usb-oszilloskop/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/omnaiscope-august-2025/"
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "nabla B",
+     "item": "https://nabla-b.engineering/zh/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "博客",
+     "item": "https://nabla-b.engineering/zh/blog/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/zh/" aria-label="nabla B – 首页"><img src="/assets/img/logo.svg" alt="nabla B Ingenieurbüro & Dienstleistung-UG (haftungsbeschränkt)" width="228" height="86"></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">菜单</button>
+<nav class="nav" id="nav"><a href="/zh/">首页</a><a href="/zh/services/">服务</a><a href="/zh/references/">项目案例</a><a href="/zh/blog/" aria-current="page">博客</a><a href="/zh/team/">团队</a><a href="/zh/contact/">联系</a></nav>
+<div class="lang" aria-label="Language"><a href="/blog/" hreflang="de" lang="de" title="Deutsch"><span class="f">🇩🇪</span>DE</a><a href="/en/blog/" hreflang="en" lang="en" title="English"><span class="f">🇬🇧</span>EN</a><a href="/zh/blog/" hreflang="zh-Hans" lang="zh-Hans" title="中文" aria-current="true"><span class="f">🇨🇳</span>中文</a></div>
+</div></header>
+<main id="main">
+
+<section><div class="wrap"><div class="sec-title"><h1>博客</h1></div><p class="sec-intro">我们做了什么，用几段话说清。每篇文章都指向 Stephan Bökelmann 技术博客 maxclerkwell.tech 上的完整版本。</p><div class="posts" style="margin-top:28px"><article class="post"><h3><a href="/zh/blog/25square-regensensor/">在雨落下的地方测量暴雨：25square 传感器</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>每四分之一平方公里一个电容式雨量传感器。我们为 mFUND 研究项目 25square 打造了硬件、固件与数据链路。</p><div class="tags"><span>DAQ</span><span>STM32</span><span>PoE</span><span>LoRa</span></div><div class="links"><a href="/zh/blog/25square-regensensor/">阅读更多 →</a></div></article><article class="post"><h3><a href="/zh/blog/skainet-edge-compute/">skAInet Edge-Compute：我们监测系统的核心如今成为产品</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>十年间，我们为每个项目反复重建同一台带 PoE 端口的 Linux 盒子。现在它有了名字、版本号和产品页：skAInet Edge-Compute v1.5。</p><div class="tags"><span>Edge-Compute</span><span>PoE</span><span>M12</span><span>Yocto</span></div><div class="links"><a href="/zh/blog/skainet-edge-compute/">阅读更多 →</a></div></article><article class="post"><h3><a href="/zh/blog/zynq-bitstream-pipeline/">像部署软件一样部署硬件：我们的开源 Zynq 流水线</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>板上一个 REST 接口，一次 POST 上传比特流，处理器旁的 FPGA 即刻运行设计。这就是我们对 Zynq SoC 的启动调试方式。</p><div class="tags"><span>Zynq</span><span>FPGA</span><span>U-Boot</span><span>Yocto</span></div><div class="links"><a href="/zh/blog/zynq-bitstream-pipeline/">阅读更多 →</a></div></article><article class="post"><h3><a href="/zh/blog/fpga-schulung-open-source/">用开源工具入门 FPGA：我们的培训形式</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>从空白编辑器到 iCEstick 上闪烁的 LED，使用 GHDL、Yosys 和 nextpnr。这是我们 FPGA 培训的第一天。</p><div class="tags"><span>FPGA</span><span>VHDL</span><span>GHDL</span><span>Yosys</span></div><div class="links"><a href="/zh/blog/fpga-schulung-open-source/">阅读更多 →</a></div></article><article class="post"><h3><a href="/zh/blog/gehaeuselose-gehaeuse/">无壳外壳：当 PCB 叠层本身就是外壳</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>三块电路板，一圈周边焊缝，无需注塑。我们的实用新型 DE202020106111U1，用于密封且带 EMC 屏蔽的传感器外壳。</p><div class="tags"><span>PCB</span><span>Gehäuse</span><span>EMV</span><span>Gebrauchsmuster</span></div><div class="links"><a href="/zh/blog/gehaeuselose-gehaeuse/">阅读更多 →</a></div></article><article class="post"><h3><a href="/zh/blog/ata-carnet-china/">带着装满电子设备的 Peli 箱去中国：ATA 单证册实战</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>要把测试样机带去中国，最好别用寄的。我们与工商会、波鸿海关和法兰克福 2 号航站楼打交道的流程。</p><div class="tags"><span>Zertifizierung</span><span>China</span><span>ATA-Carnet</span><span>Zoll</span></div><div class="links"><a href="/zh/blog/ata-carnet-china/">阅读更多 →</a></div></article><article class="post"><h3><a href="/zh/blog/emv-dongguan-ce-fcc-ccc/">测试暗室里的四天：回流焊炉监测系统的 CE、FCC 与 CCC 认证</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>经过两年半开发，我们在东莞对 horus 监测系统进行了三套法规的测试。全部通过，并学到一课：关于阳极氧化铝。</p><div class="tags"><span>EMV</span><span>CE</span><span>FCC</span><span>CCC</span></div><div class="links"><a href="/zh/blog/emv-dongguan-ce-fcc-ccc/">阅读更多 →</a></div></article><article class="post"><h3><a href="/zh/blog/dual-uplink-failover/">15 个人的双上行链路：基于 Linux 路由的故障切换</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>DSL 加 Starlink，中间一台 Debian 路由器，两条带度量值的默认路由。这样当一家运营商故障时，我们的办公室依然在线。</p><div class="tags"><span>Netzwerk</span><span>Linux</span><span>Routing</span><span>Starlink</span></div><div class="links"><a href="/zh/blog/dual-uplink-failover/">阅读更多 →</a></div></article><article class="post"><h3><a href="/zh/blog/powersense-zehn-jahre/">PowerSense 十年：道岔驱动的非接触式电力监测</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>2016 年，德铁路网公司来电。由此诞生了一款无需电气接触即可测量电压的 PoE 传感器，以及我们的“PoE 优先”原则。</p><div class="tags"><span>PoE</span><span>Bahn</span><span>E-Feld</span><span>Monitoring</span></div><div class="links"><a href="/zh/blog/powersense-zehn-jahre/">阅读更多 →</a></div></article><article class="post"><h3><a href="/zh/blog/pcb-design-beginnt-mit-readme/">PCB 设计从一份 README 开始</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>打开 KiCad 之前，我们先写下这块板子要做什么，再让大语言模型据此生成框图。我们的每一块板子都这样开始。</p><div class="tags"><span>PCB</span><span>KiCad</span><span>Architektur</span><span>PlantUML</span></div><div class="links"><a href="/zh/blog/pcb-design-beginnt-mit-readme/">阅读更多 →</a></div></article><article class="post"><h3><a href="/zh/blog/eis-biofilm-montana/">送进河里的阻抗谱仪：蒙大拿的生物膜监测</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>我们为蒙大拿州立大学打造了便携式 EIS 数据记录仪，并于 2024 年 9 月部署在克拉克福克河。</p><div class="tags"><span>EIS</span><span>DAQ</span><span>Feldmessung</span><span>Instrumentierung</span></div><div class="links"><a href="/zh/blog/eis-biofilm-montana/">阅读更多 →</a></div></article><article class="post"><h3><a href="/zh/blog/omnaiscope-usb-oszilloskop/">OmnAIScope：面向汽修车间的 USB 示波器</a></h3><div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿</div><p>单通道、500 kSa/s、防水铝壳，任意数量的设备通过 USB 帧同步。诞生于研究项目 autowerkstatt4null。</p><div class="tags"><span>Oszilloskop</span><span>RP2040</span><span>USB</span><span>KiCad</span></div><div class="links"><a href="/zh/blog/omnaiscope-usb-oszilloskop/">阅读更多 →</a></div></article></div></div></section>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><img class="flogo" src="/assets/img/logo.svg" alt="nabla B" width="170" height="64"><p>Herner Str. 299, Gebäude B29<br>44809 Bochum, Germany</p><p>nabla B 是 <a href="https://gruppe.ai/">AI-Gruppe</a> 集团的成员。</p></div>
+<div><h4>联系方式</h4><ul><li><a href="mailto:office@nabla-b.engineering">office@nabla-b.engineering</a></li><li><a href="tel:+4923458545811">+49 234 58545811</a></li><li><a href="tel:+4917687850428">+49 176 87850428</a></li><li>联系人：Vanessa Wilcken</li><li>办公时间：周一至周五 9:00 – 13:30（中欧时间）</li></ul></div>
+<div><h4>nabla B</h4><ul><li><a href="/zh/services/">服务</a></li><li><a href="/zh/references/">项目案例</a></li><li><a href="/zh/blog/">博客</a></li><li><a href="/zh/team/">团队</a></li><li><a href="/zh/contact/">联系</a></li><li><a href="/zh/imprint/">法律声明</a></li><li><a href="/zh/privacy/">隐私政策</a></li></ul></div>
+<div><h4>Links</h4><ul><li>技术博客：<a href="https://maxclerkwell.tech/">maxclerkwell.tech</a></li><li><a href="https://edge-compute.skainet.io/">skAInet Edge-Compute</a></li><li><a href="https://github.com/nabla-B">GitHub</a></li></ul></div>
+</div>
+<div class="legal"><span>© 2026 nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)</span><span>Amtsgericht Bochum HRB 18817 · USt-ID DE338747475</span></div>
+</div></footer>
+<dialog id="ref-modal" class="ref-modal" aria-labelledby="ref-modal-title"><form method="dialog"><h2 id="ref-modal-title">欢迎来到 nabla B。</h2><p>您来自 Stephan Bökelmann 的博客 maxclerkwell.tech。nabla B 是他在波鸿的工程事务所，博客中描述的项目均通过该公司承接。这里有服务、团队、案例与联系方式。</p><p class="ref-modal-actions"><a href="https://maxclerkwell.tech/">返回博客</a><button value="ok" autofocus>明白了</button></p></form></dialog><script>
+(function(){
+  try {
+    var p=new URLSearchParams(location.search), d=document.getElementById('ref-modal');
+    if(p.get('ref')!=='maxclerkwell.tech'||!d||!d.showModal||sessionStorage.getItem('ref-mc'))return;
+    sessionStorage.setItem('ref-mc','1');
+    d.showModal();
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+    p.delete('ref'); var q=p.toString();
+    history.replaceState(null,'',location.pathname+(q?'?'+q:'')+location.hash);
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>

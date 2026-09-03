@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>无壳外壳：当 PCB 叠层本身就是外壳 – nabla B</title>
+<meta name="description" content="三块电路板，一圈周边焊缝，无需注塑。我们的实用新型 DE202020106111U1，用于密封且带 EMC 屏蔽的传感器外壳。">
+<link rel="canonical" href="https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/">
+<link rel="alternate" hreflang="de" href="https://nabla-b.engineering/blog/gehaeuselose-gehaeuse/"><link rel="alternate" hreflang="en" href="https://nabla-b.engineering/en/blog/gehaeuselose-gehaeuse/"><link rel="alternate" hreflang="zh-Hans" href="https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/"><link rel="alternate" hreflang="x-default" href="https://nabla-b.engineering/blog/gehaeuselose-gehaeuse/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="nabla B"><meta property="og:title" content="无壳外壳：当 PCB 叠层本身就是外壳 – nabla B"><meta property="og:description" content="三块电路板，一圈周边焊缝，无需注塑。我们的实用新型 DE202020106111U1，用于密封且带 EMC 屏蔽的传感器外壳。"><meta property="og:url" content="https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/"><meta property="og:image" content="https://nabla-b.engineering/assets/img/og-image.png"><meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#323942">
+<link rel="icon" href="/assets/img/logo-mark.svg" type="image/svg+xml"><link rel="icon" href="/assets/img/favicon-64.png" sizes="64x64" type="image/png"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/cmunbmr.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/cmunbsr.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": [
+    "Organization",
+    "ProfessionalService"
+   ],
+   "@id": "https://nabla-b.engineering/#organization",
+   "name": "nabla B",
+   "alternateName": [
+    "∇B",
+    "nabla-B",
+    "nabla B engineering"
+   ],
+   "legalName": "nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)",
+   "url": "https://nabla-b.engineering/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://nabla-b.engineering/assets/img/og-image.png",
+    "width": 1200,
+    "height": 630
+   },
+   "image": "https://nabla-b.engineering/assets/img/og-image.png",
+   "description": "Engineering office in Bochum, Germany: design and development of embedded devices — architecture, PCB design, certification, software bring-up for MCU, FPGA and Zynq, firmware. Decentralised measurement & data acquisition, consulting and training. Part of the AI-Gruppe.",
+   "foundingDate": "2020-07-20",
+   "founder": {
+    "@id": "https://maxclerkwell.tech/#person"
+   },
+   "employee": [
+    {
+     "@id": "https://maxclerkwell.tech/#person"
+    },
+    {
+     "@id": "https://edge-compute.skainet.io/team#tabea-boekelmann"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#meihui-huang"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#vanessa-wilcken"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#atiyeh-chatrsefid"
+    }
+   ],
+   "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "value": 4
+   },
+   "telephone": [
+    "+49-234-58545811",
+    "+49-176-87850428"
+   ],
+   "email": "mailto:office@nabla-b.engineering",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Herner Str. 299, Gebäude B29",
+    "addressLocality": "Bochum",
+    "postalCode": "44809",
+    "addressRegion": "NRW",
+    "addressCountry": "DE"
+   },
+   "areaServed": [
+    "DE",
+    "EU",
+    "CN"
+   ],
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+     ],
+     "opens": "09:00",
+     "closes": "13:30"
+    }
+   ],
+   "contactPoint": [
+    {
+     "@type": "ContactPoint",
+     "contactType": "customer service",
+     "name": "Vanessa Wilcken",
+     "telephone": [
+      "+49-234-58545811",
+      "+49-176-87850428"
+     ],
+     "email": "mailto:office@nabla-b.engineering",
+     "availableLanguage": [
+      "de",
+      "en",
+      "zh"
+     ],
+     "hoursAvailable": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+       "Monday",
+       "Tuesday",
+       "Wednesday",
+       "Thursday",
+       "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "13:30"
+     }
+    }
+   ],
+   "identifier": [
+    {
+     "@type": "PropertyValue",
+     "propertyID": "German Trade Register",
+     "value": "Amtsgericht Bochum HRB 18817"
+    }
+   ],
+   "vatID": "DE338747475",
+   "taxID": "DE338747475",
+   "brand": {
+    "@id": "https://gruppe.ai/#brand"
+   },
+   "memberOf": [
+    {
+     "@type": "Organization",
+     "name": "IHK Mittleres Ruhrgebiet",
+     "url": "https://www.bochum.ihk.de/"
+    }
+   ],
+   "knowsAbout": [
+    "embedded systems",
+    "PCB design",
+    "KiCad",
+    "FPGA",
+    "Zynq",
+    "Yocto Linux",
+    "microcontroller firmware",
+    "EMC certification",
+    "data acquisition",
+    "decentralised measurement",
+    "condition monitoring",
+    "observability"
+   ],
+   "sameAs": [
+    "https://github.com/nabla-B",
+    "https://maxclerkwell.tech/imprint/",
+    "https://maxclerkwell.tech/about/",
+    "https://gruppe.ai/"
+   ],
+   "priceRange": "Tagessatz ab 80 € netto",
+   "makesOffer": [
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Embedded hardware development",
+      "serviceType": "PCB design, certification, bring-up"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Embedded firmware for MCU, FPGA and Zynq"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Decentralised measurement and data acquisition"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Consulting and training in digital measurement technology"
+     }
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://nabla-b.engineering/#website",
+   "url": "https://nabla-b.engineering/",
+   "name": "nabla B",
+   "publisher": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "inLanguage": [
+    "de",
+    "en",
+    "zh-Hans"
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/#webpage",
+   "url": "https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/",
+   "name": "无壳外壳：当 PCB 叠层本身就是外壳 – nabla B",
+   "description": "三块电路板，一圈周边焊缝，无需注塑。我们的实用新型 DE202020106111U1，用于密封且带 EMC 屏蔽的传感器外壳。",
+   "inLanguage": "zh-Hans",
+   "isPartOf": {
+    "@id": "https://nabla-b.engineering/#website"
+   },
+   "about": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "dateModified": "2026-09-03",
+   "mainEntity": {
+    "@id": "https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/#post"
+   }
+  },
+  {
+   "@type": "Brand",
+   "@id": "https://gruppe.ai/#brand",
+   "name": "AI-Gruppe",
+   "url": "https://gruppe.ai/",
+   "description": "Dachmarke (keine juristische Person) für Auto-Intern GmbH, CCD Car Diagnostics, nabla B, nerd_force1, open Skunkforce e.V. und das skAInet-Projekt."
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://www.auto-intern.de/#organization",
+   "name": "Auto-Intern GmbH",
+   "url": "https://www.auto-intern.de",
+   "email": "mailto:info@auto-intern.de",
+   "brand": [
+    {
+     "@id": "https://www.skainet.io/#brand"
+    },
+    {
+     "@id": "https://gruppe.ai/#brand"
+    }
+   ],
+   "sameAs": [
+    "https://www.skainet.io",
+    "https://edge-compute.skainet.io/",
+    "https://github.com/auto-intern-skainet"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://maxclerkwell.tech/#person",
+   "name": "Stephan Bökelmann",
+   "givenName": "Stephan",
+   "familyName": "Bökelmann",
+   "jobTitle": [
+    "Managing Director, nabla B",
+    "Chief Operating Officer, Auto-Intern GmbH",
+    "System Architect, skAInet Edge-Compute"
+   ],
+   "worksFor": [
+    {
+     "@id": "https://nabla-b.engineering/#organization"
+    },
+    {
+     "@id": "https://www.auto-intern.de/#organization"
+    }
+   ],
+   "url": "https://maxclerkwell.tech/",
+   "description": "2007 年起从业，从机械工与电工，到工学学士、硕士，再到实验强子物理博士研究（PANDA/FAIR）。skAInet Edge-Compute 系统架构师，THGA 与波鸿鲁尔大学讲师，emBO++ 与 KiCon Europe 组织者。",
+   "image": "https://nabla-b.engineering/assets/img/stephan-boekelmann.jpg",
+   "sameAs": [
+    "https://www.linkedin.com/in/accelerator-stephan/",
+    "https://github.com/maxclerkwell",
+    "https://orcid.org/0000-0002-2119-0064",
+    "https://x.com/maxclerkwell",
+    "https://instagram.com/_maxclerkwell",
+    "https://www.researchgate.net/profile/Stephan-Boekelmann",
+    "https://inspirehep.net/authors/2177110",
+    "https://www.thga.de/hochschule/personen/profile-wissenschaftliche-mitarbeitende/stephan-boekelmann",
+    "https://edge-compute.skainet.io/team#stephan-boekelmann"
+   ],
+   "alternateName": [
+    "MaxClerkwell",
+    "Stephan Boekelmann",
+    "施泓杰"
+   ],
+   "knowsAbout": [
+    "embedded systems",
+    "FPGA",
+    "Zynq",
+    "PCB design",
+    "KiCad",
+    "data acquisition",
+    "Yocto Linux",
+    "experimental hadron physics",
+    {
+     "@id": "https://edge-compute.skainet.io/#product"
+    }
+   ],
+   "hasCredential": [
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "bachelor degree",
+     "name": "电气与信息技术工学学士，THGA 波鸿"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "master degree",
+     "name": "信息技术/计算机工程工学硕士，THGA 波鸿"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "doctoral degree",
+     "name": "实验强子物理博士（在读），波鸿鲁尔大学"
+    }
+   ],
+   "alumniOf": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "THGA Bochum",
+     "url": "https://www.thga.de/"
+    },
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "url": "https://www.ruhr-uni-bochum.de/"
+    }
+   ],
+   "mainEntityOfPage": "https://maxclerkwell.tech/about/",
+   "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "ORCID",
+    "value": "0000-0002-2119-0064"
+   },
+   "disambiguatingDescription": "Engineer and physicist in Bochum, Germany (Auto-Intern GmbH / skAInet, nabla B, Ruhr-Universität Bochum), known online as MaxClerkwell. Not the actor Stefan Bockelmann, and not related to the UK agency ClerksWell.",
+   "affiliation": [
+    {
+     "@id": "https://www.auto-intern.de/#organization"
+    },
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "url": "https://www.ruhr-uni-bochum.de/",
+     "sameAs": "https://ror.org/04tsk2644"
+    }
+   ],
+   "subjectOf": [
+    {
+     "@type": "WebPage",
+     "url": "https://maxclerkwell.tech/talks/",
+     "name": "Talks & Conference Appearances"
+    },
+    {
+     "@type": "WebPage",
+     "url": "https://maxclerkwell.tech/publications/",
+     "name": "Publications, Patents & Software"
+    },
+    {
+     "@type": "WebPage",
+     "url": "https://edge-compute.skainet.io/team",
+     "name": "skAInet Edge-Compute team"
+    }
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://edge-compute.skainet.io/team#tabea-boekelmann",
+   "name": "Tabea Bökelmann",
+   "givenName": "Tabea",
+   "familyName": "Bökelmann",
+   "jobTitle": "Senior Frontend Consultant",
+   "worksFor": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "url": "https://nabla-b.engineering/zh/team/#tabea-boekelmann",
+   "description": "物理学家与计算机科学家。负责 nabla B 的前端——从测量数据仪表盘到嵌入式设备的用户界面。硕士论文《Git with Features》（软件工程）；粒子物理（强子物理、数据采集）与嵌入式系统（RISC-V、编译器）双学士。",
+   "image": "https://nabla-b.engineering/assets/img/tabea-boekelmann.jpg",
+   "sameAs": [
+    "https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/",
+    "https://www.researchgate.net/profile/Tabea-Roethemeyer",
+    "https://www.youtube.com/watch?v=DgHCycO6ohs",
+    "https://edge-compute.skainet.io/team"
+   ],
+   "alternateName": [
+    "Tabea Viktoria Bökelmann",
+    "Tabea Boekelmann",
+    "Tabea Böckelmann",
+    "Tabea Boeckelmann",
+    "Tabea Bockelmann",
+    "Tabea Röthemeyer"
+   ],
+   "knowsAbout": [
+    "Angular",
+    "JavaScript",
+    "TypeScript",
+    "frontend architecture",
+    "software engineering",
+    "Git",
+    "embedded systems",
+    "RISC-V",
+    "compiler construction",
+    "particle physics",
+    "data acquisition"
+   ],
+   "hasCredential": [
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "bachelor degree",
+     "name": "物理学学士 – 粒子物理、强子物理、数据采集，波鸿鲁尔大学"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "bachelor degree",
+     "name": "应用计算机科学学士 – 嵌入式系统、RISC-V、编译器，波鸿鲁尔大学"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "master degree",
+     "name": "应用计算机科学硕士 – 《Git with Features》、软件工程，波鸿鲁尔大学"
+    }
+   ],
+   "alumniOf": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "url": "https://www.ruhr-uni-bochum.de/"
+    }
+   ],
+   "affiliation": {
+    "@id": "https://www.auto-intern.de/#organization"
+   },
+   "mainEntityOfPage": "https://nabla-b.engineering/zh/team/#tabea-boekelmann"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://nabla-b.engineering/team/#meihui-huang",
+   "name": "Meihui Huang",
+   "givenName": "Meihui",
+   "familyName": "Huang",
+   "jobTitle": [
+    "Physicist",
+    "Working Student – Research and Outreach"
+   ],
+   "worksFor": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "url": "https://nabla-b.engineering/zh/team/#meihui-huang",
+   "description": "来自天津的物理学家，现居维滕。南开大学物理学学士（粒子物理），用 ROOT 进行衰变链分析；波鸿鲁尔大学实验物理研究所 I 强子与原子核研究组硕士生。负责测量装置搭建、探测器测试与数据分析，并作为社交媒体运营负责 maxclerkwell.tech 的各个频道。",
+   "image": "https://nabla-b.engineering/assets/img/meihui-huang.jpg",
+   "sameAs": [
+    "https://www.linkedin.com/in/meihui-huang/",
+    "https://www.researchgate.net/profile/Meihui-Huang"
+   ],
+   "alternateName": [
+    "Huang Meihui",
+    "Huang Mei Hui",
+    "黄美慧"
+   ],
+   "knowsAbout": [
+    "particle physics",
+    "ROOT",
+    "decay chain analysis",
+    "detector testing",
+    "social media management"
+   ],
+   "hasCredential": [
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "bachelor degree",
+     "name": "物理学学士 – 粒子物理、ROOT 衰变链分析，南开大学（天津）"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "master degree",
+     "name": "物理学硕士（在读）– 实验物理 I，强子与原子核研究组，波鸿鲁尔大学"
+    }
+   ],
+   "alumniOf": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Nankai University",
+     "url": "https://www.nankai.edu.cn/"
+    },
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "url": "https://www.ruhr-uni-bochum.de/"
+    }
+   ],
+   "affiliation": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "department": "Institut für Experimentalphysik I – AG Hadronen und Kerne",
+     "url": "https://www.ep1.ruhr-uni-bochum.de/"
+    },
+    {
+     "@type": "WebSite",
+     "@id": "https://maxclerkwell.tech/#website",
+     "name": "MaxClerkwell"
+    }
+   ],
+   "homeLocation": {
+    "@type": "Place",
+    "name": "Witten, Germany"
+   },
+   "nationality": {
+    "@type": "Country",
+    "name": "China"
+   },
+   "mainEntityOfPage": "https://nabla-b.engineering/zh/team/#meihui-huang"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://nabla-b.engineering/team/#vanessa-wilcken",
+   "name": "Vanessa Wilcken",
+   "givenName": "Vanessa",
+   "familyName": "Wilcken",
+   "jobTitle": "Executive Assistant",
+   "worksFor": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "url": "https://nabla-b.engineering/zh/team/#vanessa-wilcken",
+   "description": "您的首要联系人：预约、报价、发票及所有行政事务。周一至周五 9:00 – 13:30（中欧时间）。",
+   "image": "https://nabla-b.engineering/assets/img/vanessa-wilcken.jpg",
+   "sameAs": [
+    "https://www.linkedin.com/in/vanessa-wilcken-1436b320a/"
+   ],
+   "email": "office@nabla-b.engineering",
+   "telephone": [
+    "+49-234-58545811",
+    "+49-176-87850428"
+   ],
+   "mainEntityOfPage": "https://nabla-b.engineering/zh/team/#vanessa-wilcken"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://nabla-b.engineering/team/#atiyeh-chatrsefid",
+   "name": "Atiyeh Chatrsefid",
+   "givenName": "Atiyeh",
+   "familyName": "Chatrsefid",
+   "jobTitle": "Business Development",
+   "worksFor": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "url": "https://nabla-b.engineering/zh/team/#atiyeh-chatrsefid",
+   "description": "负责 nabla B 的业务拓展——客户开发、合作伙伴关系与方案报价。人工智能 MBA（Brand University of Applied Sciences），波鸿鲁尔大学计算机科学。此前任 AI 初创公司 Wisdom Bridge AI 商务负责人、中小企业 AI 战略顾问，并在德勤从事项目管理实习。Registered Product Owner（Scrum Inc.）。",
+   "image": "https://nabla-b.engineering/assets/img/atiyeh-chatrsefid.jpg",
+   "sameAs": [
+    "https://www.linkedin.com/in/atiyeh-chatrsefid-/"
+   ],
+   "knowsAbout": [
+    "business development",
+    "AI strategy",
+    "startup strategy",
+    "product ownership",
+    "IT consulting"
+   ],
+   "hasCredential": [
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "master degree",
+     "name": "MBA – 人工智能，Brand University of Applied Sciences（汉堡）"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "bachelor degree",
+     "name": "计算机科学，波鸿鲁尔大学"
+    }
+   ],
+   "alumniOf": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Brand University of Applied Sciences",
+     "url": "https://www.brand-university.de/"
+    },
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "url": "https://www.ruhr-uni-bochum.de/"
+    }
+   ],
+   "email": "atiyeh.chatrsefid@nabla-b.engineering",
+   "mainEntityOfPage": "https://nabla-b.engineering/zh/team/#atiyeh-chatrsefid"
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/#post",
+   "headline": "无壳外壳：当 PCB 叠层本身就是外壳",
+   "description": "三块电路板，一圈周边焊缝，无需注塑。我们的实用新型 DE202020106111U1，用于密封且带 EMC 屏蔽的传感器外壳。",
+   "url": "https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/",
+   "mainEntityOfPage": {
+    "@id": "https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/#webpage"
+   },
+   "isPartOf": {
+    "@id": "https://nabla-b.engineering/zh/blog/#blog"
+   },
+   "datePublished": "2026-09-03",
+   "dateModified": "2026-09-03",
+   "inLanguage": "zh-Hans",
+   "wordCount": 342,
+   "author": {
+    "@id": "https://maxclerkwell.tech/#person"
+   },
+   "publisher": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "copyrightHolder": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "keywords": "PCB, Gehäuse, EMV, Gebrauchsmuster, Sensorik",
+   "articleSection": "Blog",
+   "isBasedOn": {
+    "@type": "BlogPosting",
+    "url": "https://maxclerkwell.tech/posts/enclosureless-cases-april-2026/",
+    "datePublished": "2026-04-29",
+    "author": {
+     "@id": "https://maxclerkwell.tech/#person"
+    }
+   },
+   "about": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "image": "https://nabla-b.engineering/assets/img/og-image.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "nabla B",
+     "item": "https://nabla-b.engineering/zh/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "博客",
+     "item": "https://nabla-b.engineering/zh/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "无壳外壳：当 PCB 叠层本身就是外壳",
+     "item": "https://nabla-b.engineering/zh/blog/gehaeuselose-gehaeuse/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/zh/" aria-label="nabla B – 首页"><img src="/assets/img/logo.svg" alt="nabla B Ingenieurbüro & Dienstleistung-UG (haftungsbeschränkt)" width="228" height="86"></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">菜单</button>
+<nav class="nav" id="nav"><a href="/zh/">首页</a><a href="/zh/services/">服务</a><a href="/zh/references/">项目案例</a><a href="/zh/blog/" aria-current="page">博客</a><a href="/zh/team/">团队</a><a href="/zh/contact/">联系</a></nav>
+<div class="lang" aria-label="Language"><a href="/blog/gehaeuselose-gehaeuse/" hreflang="de" lang="de" title="Deutsch"><span class="f">🇩🇪</span>DE</a><a href="/en/blog/gehaeuselose-gehaeuse/" hreflang="en" lang="en" title="English"><span class="f">🇬🇧</span>EN</a><a href="/zh/blog/gehaeuselose-gehaeuse/" hreflang="zh-Hans" lang="zh-Hans" title="中文" aria-current="true"><span class="f">🇨🇳</span>中文</a></div>
+</div></header>
+<main id="main">
+
+<section><div class="wrap article"><p class="crumbs"><a href="/zh/blog/">← 全部文章</a></p><div class="sec-title"><h1>无壳外壳：当 PCB 叠层本身就是外壳</h1></div>
+<div class="meta"><time datetime="2026-09-03">2026年9月3日</time> · nabla B，波鸿 · 原文发布于 <time datetime="2026-04-29">2026年4月29日</time></div>
+<p class="lead">三块电路板，一圈周边焊缝，无需注塑。我们的实用新型 DE202020106111U1，用于密封且带 EMC 屏蔽的传感器外壳。</p>
+<p>一个传感器节点的元器件成本约五欧元。为它配一个塑料外壳则意味着模具、第二条供应链、额外装配工序和占用空间。小批量时这些都摊不掉，测点多时则会累加成可观的费用。</p><p>我们的答案，2020 年与 Odin Holmes 一起申请为实用新型：不要独立外壳。一块带安装耳的底板，一块或多块带开口、用于定义腔体的框架板，以及一块承载电子元件的顶板。各层由一圈连续的周边焊缝连接。焊缝既能阻隔湿气与灰尘，又作为闭合金属环兼作 EMC 屏蔽。</p><p>优势在供应链：如今电路板几天内即可到货、每块仅几欧元，注塑模具则做不到。高度与容积通过框架层扩展，装配仍是普通的回流焊工艺。</p><p>我们在传感器项目中应用这一原理，并在 PCB 设计咨询中提供相关建议。焊缝如何在回流焊中保持可靠、其边界在哪里，博客文章有详细说明。</p>
+<div class="tags"><span>PCB</span><span>Gehäuse</span><span>EMV</span><span>Gebrauchsmuster</span><span>Sensorik</span></div>
+<aside class="orig"><h2>完整长文</h2><p>本文是公司视角的简要版本。细节、电路、代码与完整故事：</p><p><a href="https://maxclerkwell.tech/posts/enclosureless-cases-april-2026/" rel="noopener">在 maxclerkwell.tech 阅读原文 →</a></p><p><a href="/zh/references/">相关案例 →</a></p></aside>
+</div></section>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><img class="flogo" src="/assets/img/logo.svg" alt="nabla B" width="170" height="64"><p>Herner Str. 299, Gebäude B29<br>44809 Bochum, Germany</p><p>nabla B 是 <a href="https://gruppe.ai/">AI-Gruppe</a> 集团的成员。</p></div>
+<div><h4>联系方式</h4><ul><li><a href="mailto:office@nabla-b.engineering">office@nabla-b.engineering</a></li><li><a href="tel:+4923458545811">+49 234 58545811</a></li><li><a href="tel:+4917687850428">+49 176 87850428</a></li><li>联系人：Vanessa Wilcken</li><li>办公时间：周一至周五 9:00 – 13:30（中欧时间）</li></ul></div>
+<div><h4>nabla B</h4><ul><li><a href="/zh/services/">服务</a></li><li><a href="/zh/references/">项目案例</a></li><li><a href="/zh/blog/">博客</a></li><li><a href="/zh/team/">团队</a></li><li><a href="/zh/contact/">联系</a></li><li><a href="/zh/imprint/">法律声明</a></li><li><a href="/zh/privacy/">隐私政策</a></li></ul></div>
+<div><h4>Links</h4><ul><li>技术博客：<a href="https://maxclerkwell.tech/">maxclerkwell.tech</a></li><li><a href="https://edge-compute.skainet.io/">skAInet Edge-Compute</a></li><li><a href="https://github.com/nabla-B">GitHub</a></li></ul></div>
+</div>
+<div class="legal"><span>© 2026 nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)</span><span>Amtsgericht Bochum HRB 18817 · USt-ID DE338747475</span></div>
+</div></footer>
+<dialog id="ref-modal" class="ref-modal" aria-labelledby="ref-modal-title"><form method="dialog"><h2 id="ref-modal-title">欢迎来到 nabla B。</h2><p>您来自 Stephan Bökelmann 的博客 maxclerkwell.tech。nabla B 是他在波鸿的工程事务所，博客中描述的项目均通过该公司承接。这里有服务、团队、案例与联系方式。</p><p class="ref-modal-actions"><a href="https://maxclerkwell.tech/">返回博客</a><button value="ok" autofocus>明白了</button></p></form></dialog><script>
+(function(){
+  try {
+    var p=new URLSearchParams(location.search), d=document.getElementById('ref-modal');
+    if(p.get('ref')!=='maxclerkwell.tech'||!d||!d.showModal||sessionStorage.getItem('ref-mc'))return;
+    sessionStorage.setItem('ref-mc','1');
+    d.showModal();
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+    p.delete('ref'); var q=p.toString();
+    history.replaceState(null,'',location.pathname+(q?'?'+q:'')+location.hash);
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog – nabla B: Projekte, Zertifizierung, Bring-up und Messtechnik aus Bochum</title>
+<meta name="description" content="Kurze Einblicke aus der Firmenperspektive in unsere Projekte: EMV-Zertifizierung in China, Zynq-Bring-up, PCB-Design, dezentrale Messtechnik. Die Langfassungen stehen im Blog von Stephan Bökelmann.">
+<link rel="canonical" href="https://nabla-b.engineering/blog/">
+<link rel="alternate" hreflang="de" href="https://nabla-b.engineering/blog/"><link rel="alternate" hreflang="en" href="https://nabla-b.engineering/en/blog/"><link rel="alternate" hreflang="zh-Hans" href="https://nabla-b.engineering/zh/blog/"><link rel="alternate" hreflang="x-default" href="https://nabla-b.engineering/blog/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="nabla B"><meta property="og:title" content="Blog – nabla B: Projekte, Zertifizierung, Bring-up und Messtechnik aus Bochum"><meta property="og:description" content="Kurze Einblicke aus der Firmenperspektive in unsere Projekte: EMV-Zertifizierung in China, Zynq-Bring-up, PCB-Design, dezentrale Messtechnik. Die Langfassungen stehen im Blog von Stephan Bökelmann."><meta property="og:url" content="https://nabla-b.engineering/blog/"><meta property="og:image" content="https://nabla-b.engineering/assets/img/og-image.png"><meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#323942">
+<link rel="icon" href="/assets/img/logo-mark.svg" type="image/svg+xml"><link rel="icon" href="/assets/img/favicon-64.png" sizes="64x64" type="image/png"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/cmunbmr.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/cmunbsr.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": [
+    "Organization",
+    "ProfessionalService"
+   ],
+   "@id": "https://nabla-b.engineering/#organization",
+   "name": "nabla B",
+   "alternateName": [
+    "∇B",
+    "nabla-B",
+    "nabla B engineering"
+   ],
+   "legalName": "nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)",
+   "url": "https://nabla-b.engineering/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://nabla-b.engineering/assets/img/og-image.png",
+    "width": 1200,
+    "height": 630
+   },
+   "image": "https://nabla-b.engineering/assets/img/og-image.png",
+   "description": "Engineering office in Bochum, Germany: design and development of embedded devices — architecture, PCB design, certification, software bring-up for MCU, FPGA and Zynq, firmware. Decentralised measurement & data acquisition, consulting and training. Part of the AI-Gruppe.",
+   "foundingDate": "2020-07-20",
+   "founder": {
+    "@id": "https://maxclerkwell.tech/#person"
+   },
+   "employee": [
+    {
+     "@id": "https://maxclerkwell.tech/#person"
+    },
+    {
+     "@id": "https://edge-compute.skainet.io/team#tabea-boekelmann"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#meihui-huang"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#vanessa-wilcken"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#atiyeh-chatrsefid"
+    }
+   ],
+   "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "value": 4
+   },
+   "telephone": [
+    "+49-234-58545811",
+    "+49-176-87850428"
+   ],
+   "email": "mailto:office@nabla-b.engineering",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Herner Str. 299, Gebäude B29",
+    "addressLocality": "Bochum",
+    "postalCode": "44809",
+    "addressRegion": "NRW",
+    "addressCountry": "DE"
+   },
+   "areaServed": [
+    "DE",
+    "EU",
+    "CN"
+   ],
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+     ],
+     "opens": "09:00",
+     "closes": "13:30"
+    }
+   ],
+   "contactPoint": [
+    {
+     "@type": "ContactPoint",
+     "contactType": "customer service",
+     "name": "Vanessa Wilcken",
+     "telephone": [
+      "+49-234-58545811",
+      "+49-176-87850428"
+     ],
+     "email": "mailto:office@nabla-b.engineering",
+     "availableLanguage": [
+      "de",
+      "en",
+      "zh"
+     ],
+     "hoursAvailable": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+       "Monday",
+       "Tuesday",
+       "Wednesday",
+       "Thursday",
+       "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "13:30"
+     }
+    }
+   ],
+   "identifier": [
+    {
+     "@type": "PropertyValue",
+     "propertyID": "German Trade Register",
+     "value": "Amtsgericht Bochum HRB 18817"
+    }
+   ],
+   "vatID": "DE338747475",
+   "taxID": "DE338747475",
+   "brand": {
+    "@id": "https://gruppe.ai/#brand"
+   },
+   "memberOf": [
+    {
+     "@type": "Organization",
+     "name": "IHK Mittleres Ruhrgebiet",
+     "url": "https://www.bochum.ihk.de/"
+    }
+   ],
+   "knowsAbout": [
+    "embedded systems",
+    "PCB design",
+    "KiCad",
+    "FPGA",
+    "Zynq",
+    "Yocto Linux",
+    "microcontroller firmware",
+    "EMC certification",
+    "data acquisition",
+    "decentralised measurement",
+    "condition monitoring",
+    "observability"
+   ],
+   "sameAs": [
+    "https://github.com/nabla-B",
+    "https://maxclerkwell.tech/imprint/",
+    "https://maxclerkwell.tech/about/",
+    "https://gruppe.ai/"
+   ],
+   "priceRange": "Tagessatz ab 80 € netto",
+   "makesOffer": [
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Embedded hardware development",
+      "serviceType": "PCB design, certification, bring-up"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Embedded firmware for MCU, FPGA and Zynq"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Decentralised measurement and data acquisition"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Consulting and training in digital measurement technology"
+     }
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://nabla-b.engineering/#website",
+   "url": "https://nabla-b.engineering/",
+   "name": "nabla B",
+   "publisher": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "inLanguage": [
+    "de",
+    "en",
+    "zh-Hans"
+   ]
+  },
+  {
+   "@type": "CollectionPage",
+   "@id": "https://nabla-b.engineering/blog/#webpage",
+   "url": "https://nabla-b.engineering/blog/",
+   "name": "Blog – nabla B: Projekte, Zertifizierung, Bring-up und Messtechnik aus Bochum",
+   "description": "Kurze Einblicke aus der Firmenperspektive in unsere Projekte: EMV-Zertifizierung in China, Zynq-Bring-up, PCB-Design, dezentrale Messtechnik. Die Langfassungen stehen im Blog von Stephan Bökelmann.",
+   "inLanguage": "de",
+   "isPartOf": {
+    "@id": "https://nabla-b.engineering/#website"
+   },
+   "about": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "dateModified": "2026-09-03",
+   "mainEntity": {
+    "@id": "https://nabla-b.engineering/blog/#blog"
+   }
+  },
+  {
+   "@type": "Brand",
+   "@id": "https://gruppe.ai/#brand",
+   "name": "AI-Gruppe",
+   "url": "https://gruppe.ai/",
+   "description": "Dachmarke (keine juristische Person) für Auto-Intern GmbH, CCD Car Diagnostics, nabla B, nerd_force1, open Skunkforce e.V. und das skAInet-Projekt."
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://www.auto-intern.de/#organization",
+   "name": "Auto-Intern GmbH",
+   "url": "https://www.auto-intern.de",
+   "email": "mailto:info@auto-intern.de",
+   "brand": [
+    {
+     "@id": "https://www.skainet.io/#brand"
+    },
+    {
+     "@id": "https://gruppe.ai/#brand"
+    }
+   ],
+   "sameAs": [
+    "https://www.skainet.io",
+    "https://edge-compute.skainet.io/",
+    "https://github.com/auto-intern-skainet"
+   ]
+  },
+  {
+   "@type": "Blog",
+   "@id": "https://nabla-b.engineering/blog/#blog",
+   "url": "https://nabla-b.engineering/blog/",
+   "name": "nabla B Blog",
+   "description": "Kurze Einblicke aus der Firmenperspektive in unsere Projekte: EMV-Zertifizierung in China, Zynq-Bring-up, PCB-Design, dezentrale Messtechnik. Die Langfassungen stehen im Blog von Stephan Bökelmann.",
+   "inLanguage": "de",
+   "publisher": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "author": {
+    "@id": "https://maxclerkwell.tech/#person"
+   },
+   "blogPost": [
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/25square-regensensor/#post",
+     "headline": "Starkregen messen, wo er fällt: der 25square-Sensor",
+     "url": "https://nabla-b.engineering/blog/25square-regensensor/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/25square-capacitive-rain-sensing-september-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/skainet-edge-compute/#post",
+     "headline": "skAInet Edge-Compute: Das Herzstück unserer Monitoring-Systeme ist jetzt ein Produkt",
+     "url": "https://nabla-b.engineering/blog/skainet-edge-compute/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/skainet-edge-compute-september-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/zynq-bitstream-pipeline/#post",
+     "headline": "Hardware deployen wie Software: unsere offene Zynq-Pipeline",
+     "url": "https://nabla-b.engineering/blog/zynq-bitstream-pipeline/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/zynq-bitstream-deployment-concept-august-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/fpga-schulung-open-source/#post",
+     "headline": "FPGA-Einstieg mit offenen Werkzeugen: unser Schulungsformat",
+     "url": "https://nabla-b.engineering/blog/fpga-schulung-open-source/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/fpga-blinky-vhdl-icestick-may-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/gehaeuselose-gehaeuse/#post",
+     "headline": "Gehäuselose Gehäuse: wenn der PCB-Stapel das Gehäuse ist",
+     "url": "https://nabla-b.engineering/blog/gehaeuselose-gehaeuse/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/enclosureless-cases-april-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/ata-carnet-china/#post",
+     "headline": "Mit einem Peli-Case voller Elektronik nach China: ATA-Carnet in der Praxis",
+     "url": "https://nabla-b.engineering/blog/ata-carnet-china/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/ata-carnet-china-travel/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/emv-dongguan-ce-fcc-ccc/#post",
+     "headline": "Vier Tage Prüfkammer: CE, FCC und CCC für ein Reflow-Ofen-Monitoring",
+     "url": "https://nabla-b.engineering/blog/emv-dongguan-ce-fcc-ccc/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/dongguan-emc-march-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/dual-uplink-failover/#post",
+     "headline": "Zwei Uplinks für 15 Leute: Failover mit Linux-Routing",
+     "url": "https://nabla-b.engineering/blog/dual-uplink-failover/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/dual-uplink-feb-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/powersense-zehn-jahre/#post",
+     "headline": "Zehn Jahre PowerSense: berührungslose Stromüberwachung für Weichenantriebe",
+     "url": "https://nabla-b.engineering/blog/powersense-zehn-jahre/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/skainet-powersense-jan-2026/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/pcb-design-beginnt-mit-readme/#post",
+     "headline": "PCB-Design beginnt mit einer README",
+     "url": "https://nabla-b.engineering/blog/pcb-design-beginnt-mit-readme/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/pcb-block-diagrams-december-2025/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/eis-biofilm-montana/#post",
+     "headline": "Ein Impedanzspektrometer für den Fluss: Biofilm-Monitoring in Montana",
+     "url": "https://nabla-b.engineering/blog/eis-biofilm-montana/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/msu-eis-2024/"
+    },
+    {
+     "@type": "BlogPosting",
+     "@id": "https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/#post",
+     "headline": "OmnAIScope: ein USB-Oszilloskop für die Kfz-Werkstatt",
+     "url": "https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/",
+     "datePublished": "2026-09-03",
+     "isBasedOn": "https://maxclerkwell.tech/posts/omnaiscope-august-2025/"
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "nabla B",
+     "item": "https://nabla-b.engineering/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Blog",
+     "item": "https://nabla-b.engineering/blog/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/" aria-label="nabla B – Start"><img src="/assets/img/logo.svg" alt="nabla B Ingenieurbüro & Dienstleistung-UG (haftungsbeschränkt)" width="228" height="86"></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">Menü</button>
+<nav class="nav" id="nav"><a href="/">Start</a><a href="/leistungen/">Leistungen</a><a href="/referenzen/">Referenzen</a><a href="/blog/" aria-current="page">Blog</a><a href="/team/">Team</a><a href="/kontakt/">Kontakt</a></nav>
+<div class="lang" aria-label="Language"><a href="/blog/" hreflang="de" lang="de" title="Deutsch" aria-current="true"><span class="f">🇩🇪</span>DE</a><a href="/en/blog/" hreflang="en" lang="en" title="English"><span class="f">🇬🇧</span>EN</a><a href="/zh/blog/" hreflang="zh-Hans" lang="zh-Hans" title="中文"><span class="f">🇨🇳</span>中文</a></div>
+</div></header>
+<main id="main">
+
+<section><div class="wrap"><div class="sec-title"><h1>Blog</h1></div><p class="sec-intro">Was wir gebaut haben, in wenigen Absätzen. Jeder Beitrag verweist auf die ausführliche Fassung auf maxclerkwell.tech, dem technischen Blog von Stephan Bökelmann.</p><div class="posts" style="margin-top:28px"><article class="post"><h3><a href="/blog/25square-regensensor/">Starkregen messen, wo er fällt: der 25square-Sensor</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Ein kapazitiver Regensensor pro Viertelquadratkilometer. Wir haben Hardware, Firmware und Datenpfad für das mFUND-Projekt 25square gebaut.</p><div class="tags"><span>DAQ</span><span>STM32</span><span>PoE</span><span>LoRa</span></div><div class="links"><a href="/blog/25square-regensensor/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/skainet-edge-compute/">skAInet Edge-Compute: Das Herzstück unserer Monitoring-Systeme ist jetzt ein Produkt</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Zehn Jahre lang haben wir dieselbe Linux-Box mit PoE-Ports immer wieder neu gebaut. Jetzt hat sie Namen, Version und Produktseite: skAInet Edge-Compute v1.5.</p><div class="tags"><span>Edge-Compute</span><span>PoE</span><span>M12</span><span>Yocto</span></div><div class="links"><a href="/blog/skainet-edge-compute/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/zynq-bitstream-pipeline/">Hardware deployen wie Software: unsere offene Zynq-Pipeline</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Ein REST-Endpunkt auf dem Board, ein POST mit dem Bitstream, und das FPGA daneben führt das Design aus. So bringen wir Zynq-SoCs in Betrieb.</p><div class="tags"><span>Zynq</span><span>FPGA</span><span>U-Boot</span><span>Yocto</span></div><div class="links"><a href="/blog/zynq-bitstream-pipeline/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/fpga-schulung-open-source/">FPGA-Einstieg mit offenen Werkzeugen: unser Schulungsformat</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Vom leeren Editor bis zur blinkenden LED auf einem iCEstick, mit GHDL, Yosys und nextpnr. So sieht der erste Tag unserer FPGA-Schulung aus.</p><div class="tags"><span>FPGA</span><span>VHDL</span><span>GHDL</span><span>Yosys</span></div><div class="links"><a href="/blog/fpga-schulung-open-source/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/gehaeuselose-gehaeuse/">Gehäuselose Gehäuse: wenn der PCB-Stapel das Gehäuse ist</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Drei Leiterplatten, eine umlaufende Lötnaht, kein Spritzguss. Unser Gebrauchsmuster DE202020106111U1 für dichte, EMV-geschirmte Sensorgehäuse.</p><div class="tags"><span>PCB</span><span>Gehäuse</span><span>EMV</span><span>Gebrauchsmuster</span></div><div class="links"><a href="/blog/gehaeuselose-gehaeuse/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/ata-carnet-china/">Mit einem Peli-Case voller Elektronik nach China: ATA-Carnet in der Praxis</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Wer Prüfmuster nach China bringt, verschickt sie besser nicht. Unser Ablauf mit IHK, Zollamt Bochum und Frankfurt Terminal 2.</p><div class="tags"><span>Zertifizierung</span><span>China</span><span>ATA-Carnet</span><span>Zoll</span></div><div class="links"><a href="/blog/ata-carnet-china/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/emv-dongguan-ce-fcc-ccc/">Vier Tage Prüfkammer: CE, FCC und CCC für ein Reflow-Ofen-Monitoring</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Nach zweieinhalb Jahren Entwicklung haben wir das horus-Monitoring in Dongguan gegen drei Regelwerke getestet. Bestanden, mit einer Lehre über eloxiertes Aluminium.</p><div class="tags"><span>EMV</span><span>CE</span><span>FCC</span><span>CCC</span></div><div class="links"><a href="/blog/emv-dongguan-ce-fcc-ccc/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/dual-uplink-failover/">Zwei Uplinks für 15 Leute: Failover mit Linux-Routing</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>DSL plus Starlink, ein Debian-Router dazwischen, zwei Default-Routen mit Metrik. So bleibt unser Büro online, wenn ein Anbieter ausfällt.</p><div class="tags"><span>Netzwerk</span><span>Linux</span><span>Routing</span><span>Starlink</span></div><div class="links"><a href="/blog/dual-uplink-failover/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/powersense-zehn-jahre/">Zehn Jahre PowerSense: berührungslose Stromüberwachung für Weichenantriebe</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>2016 rief DB Netz an. Daraus wurde ein PoE-Sensor, der Spannung ohne galvanischen Kontakt misst, und unsere Regel „PoE zuerst“.</p><div class="tags"><span>PoE</span><span>Bahn</span><span>E-Feld</span><span>Monitoring</span></div><div class="links"><a href="/blog/powersense-zehn-jahre/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/pcb-design-beginnt-mit-readme/">PCB-Design beginnt mit einer README</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Bevor wir KiCad öffnen, schreiben wir auf, was die Platine tun soll, und lassen ein LLM daraus ein Blockdiagramm erzeugen. So starten alle unsere Boards.</p><div class="tags"><span>PCB</span><span>KiCad</span><span>Architektur</span><span>PlantUML</span></div><div class="links"><a href="/blog/pcb-design-beginnt-mit-readme/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/eis-biofilm-montana/">Ein Impedanzspektrometer für den Fluss: Biofilm-Monitoring in Montana</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Für die Montana State University haben wir einen tragbaren EIS-Datenlogger gebaut und im September 2024 am Clark Fork River ausgesetzt.</p><div class="tags"><span>EIS</span><span>DAQ</span><span>Feldmessung</span><span>Instrumentierung</span></div><div class="links"><a href="/blog/eis-biofilm-montana/">Weiterlesen →</a></div></article><article class="post"><h3><a href="/blog/omnaiscope-usb-oszilloskop/">OmnAIScope: ein USB-Oszilloskop für die Kfz-Werkstatt</a></h3><div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum</div><p>Ein Kanal, 500 kSa/s, wasserdichtes Alugehäuse, und beliebig viele Geräte synchron über USB-Frames. Entstanden im Forschungsprojekt autowerkstatt4null.</p><div class="tags"><span>Oszilloskop</span><span>RP2040</span><span>USB</span><span>KiCad</span></div><div class="links"><a href="/blog/omnaiscope-usb-oszilloskop/">Weiterlesen →</a></div></article></div></div></section>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><img class="flogo" src="/assets/img/logo.svg" alt="nabla B" width="170" height="64"><p>Herner Str. 299, Gebäude B29<br>44809 Bochum, Germany</p><p>nabla B ist Teil der <a href="https://gruppe.ai/">AI-Gruppe</a>.</p></div>
+<div><h4>Kontakt</h4><ul><li><a href="mailto:office@nabla-b.engineering">office@nabla-b.engineering</a></li><li><a href="tel:+4923458545811">+49 234 58545811</a></li><li><a href="tel:+4917687850428">+49 176 87850428</a></li><li>Ansprechpartnerin: Vanessa Wilcken</li><li>Bürozeiten: Mo – Fr, 9:00 – 13:30 Uhr</li></ul></div>
+<div><h4>nabla B</h4><ul><li><a href="/leistungen/">Leistungen</a></li><li><a href="/referenzen/">Referenzen</a></li><li><a href="/blog/">Blog</a></li><li><a href="/team/">Team</a></li><li><a href="/kontakt/">Kontakt</a></li><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li></ul></div>
+<div><h4>Links</h4><ul><li>Technischer Blog: <a href="https://maxclerkwell.tech/">maxclerkwell.tech</a></li><li><a href="https://edge-compute.skainet.io/">skAInet Edge-Compute</a></li><li><a href="https://github.com/nabla-B">GitHub</a></li></ul></div>
+</div>
+<div class="legal"><span>© 2026 nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)</span><span>Amtsgericht Bochum HRB 18817 · USt-ID DE338747475</span></div>
+</div></footer>
+<dialog id="ref-modal" class="ref-modal" aria-labelledby="ref-modal-title"><form method="dialog"><h2 id="ref-modal-title">Willkommen bei nabla B.</h2><p>Sie kommen von maxclerkwell.tech, dem Blog von Stephan Bökelmann. nabla B ist sein Ingenieurbüro in Bochum; über diese Firma werden die im Blog beschriebenen Projekte beauftragt. Hier finden Sie Leistungen, Team, Referenzen und Kontakt.</p><p class="ref-modal-actions"><a href="https://maxclerkwell.tech/">Zurück zum Blog</a><button value="ok" autofocus>Verstanden</button></p></form></dialog><script>
+(function(){
+  try {
+    var p=new URLSearchParams(location.search), d=document.getElementById('ref-modal');
+    if(p.get('ref')!=='maxclerkwell.tech'||!d||!d.showModal||sessionStorage.getItem('ref-mc'))return;
+    sessionStorage.setItem('ref-mc','1');
+    d.showModal();
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+    p.delete('ref'); var q=p.toString();
+    history.replaceState(null,'',location.pathname+(q?'?'+q:'')+location.hash);
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>

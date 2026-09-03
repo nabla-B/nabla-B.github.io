@@ -5,7 +5,8 @@ Static, hosted on GitHub Pages, custom domain `nabla-b.engineering` (see `CNAME`
 
 ## Editing
 
-All content (DE/EN/ZH), the reference list and the JSON-LD live in **`build.py`**.
+All content (DE/EN/ZH), the reference list, the blog posts (`POSTS`) and the JSON-LD live in **`build.py`**.
+Blog posts are short company-perspective summaries (< 400 words per language, enforced by an assert) of articles on maxclerkwell.tech; each links to its original via `orig` and JSON-LD `isBasedOn`.
 After changing it, regenerate the HTML and commit everything:
 
 ```sh
@@ -21,7 +22,7 @@ Do not edit those by hand.
 - Colour: `#323942` (nabla B grey) and tints 80/60/40/20 % — nothing else besides black/white.
 - Font: CMU Bright Roman (body) / CMU Bright SemiBold (emphasis), self-hosted as woff2 in `assets/fonts/`.
 - Logo: `assets/img/logo.svg` (word-picture mark, from `NablaB_logo.ai`). Never invert, rotate or put on coloured background.
-- Manual: `assets/nablaB-corporate-design.pdf`.
+- Manual: `assets/nablaB-corporate-design.pdf` (internal; not linked from the site).
 
 ## Structure
 
@@ -30,6 +31,7 @@ Do not edit those by hand.
 | `/` | `/en/` | `/zh/` |
 | `/leistungen/` | `/en/services/` | `/zh/services/` |
 | `/referenzen/` | `/en/references/` | `/zh/references/` |
+| `/blog/`, `/blog/<slug>/` | `/en/blog/…` | `/zh/blog/…` |
 | `/team/` | `/en/team/` | `/zh/team/` |
 | `/kontakt/` | `/en/contact/` | `/zh/contact/` |
 | `/impressum/` | `/en/imprint/` | `/zh/imprint/` |

@@ -148,3 +148,24 @@ dl.kv dd{margin:0}
 .ref-modal .ref-modal-actions{display:flex;gap:18px;align-items:center;justify-content:flex-end;margin:0}
 .ref-modal button{background:var(--ink);color:#fff;border:none;border-radius:2px;padding:11px 22px;font:inherit;font-weight:600;cursor:pointer}
 .ref-modal button:hover{background:var(--ink-80)}
+.contact-person{max-width:760px;margin-top:8px}
+
+/* ---- blog */
+.posts{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.post{border:1px solid var(--ink-20);border-top:4px solid var(--ink);padding:18px 20px;border-radius:2px;background:#fff;display:flex;flex-direction:column}
+.post h3{font-size:1.1rem;margin:0 0 .3em}
+.post h3 a{text-decoration:none;color:var(--ink)}
+.post h3 a:hover{text-decoration:underline}
+.post .meta,.article .meta{color:var(--ink-60);font-size:.9rem;margin-bottom:.5em}
+.post p{color:var(--ink-80);font-size:1rem;margin-bottom:.6em;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:.4em 0 .8em}
+.tags span{font-size:.8rem;color:var(--ink-60);border:1px solid var(--ink-20);padding:1px 8px;border-radius:2px}
+.post .links a{font-size:.95rem}
+.article{max-width:780px}
+.article .crumbs{font-size:.95rem;margin-bottom:1em}
+.article .lead{font-size:1.15rem;color:var(--ink-80);margin-bottom:1.2em}
+.article p{color:var(--ink);margin-bottom:1em;line-height:1.6}
+.article .orig{border-left:4px solid var(--ink);background:var(--paper-2);padding:16px 20px;margin-top:28px;border-radius:2px}
+.article .orig h2{font-size:1.15rem;margin:0 0 .4em}
+.article .orig p{margin-bottom:.5em;color:var(--ink-80)}
+.article .orig p:last-child{margin-bottom:0}

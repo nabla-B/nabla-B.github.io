@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OmnAIScope: ein USB-Oszilloskop für die Kfz-Werkstatt – nabla B</title>
+<meta name="description" content="Ein Kanal, 500 kSa/s, wasserdichtes Alugehäuse, und beliebig viele Geräte synchron über USB-Frames. Entstanden im Forschungsprojekt autowerkstatt4null.">
+<link rel="canonical" href="https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/">
+<link rel="alternate" hreflang="de" href="https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/"><link rel="alternate" hreflang="en" href="https://nabla-b.engineering/en/blog/omnaiscope-usb-oszilloskop/"><link rel="alternate" hreflang="zh-Hans" href="https://nabla-b.engineering/zh/blog/omnaiscope-usb-oszilloskop/"><link rel="alternate" hreflang="x-default" href="https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="nabla B"><meta property="og:title" content="OmnAIScope: ein USB-Oszilloskop für die Kfz-Werkstatt – nabla B"><meta property="og:description" content="Ein Kanal, 500 kSa/s, wasserdichtes Alugehäuse, und beliebig viele Geräte synchron über USB-Frames. Entstanden im Forschungsprojekt autowerkstatt4null."><meta property="og:url" content="https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/"><meta property="og:image" content="https://nabla-b.engineering/assets/img/og-image.png"><meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#323942">
+<link rel="icon" href="/assets/img/logo-mark.svg" type="image/svg+xml"><link rel="icon" href="/assets/img/favicon-64.png" sizes="64x64" type="image/png"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/cmunbmr.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/cmunbsr.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": [
+    "Organization",
+    "ProfessionalService"
+   ],
+   "@id": "https://nabla-b.engineering/#organization",
+   "name": "nabla B",
+   "alternateName": [
+    "∇B",
+    "nabla-B",
+    "nabla B engineering"
+   ],
+   "legalName": "nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)",
+   "url": "https://nabla-b.engineering/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://nabla-b.engineering/assets/img/og-image.png",
+    "width": 1200,
+    "height": 630
+   },
+   "image": "https://nabla-b.engineering/assets/img/og-image.png",
+   "description": "Engineering office in Bochum, Germany: design and development of embedded devices — architecture, PCB design, certification, software bring-up for MCU, FPGA and Zynq, firmware. Decentralised measurement & data acquisition, consulting and training. Part of the AI-Gruppe.",
+   "foundingDate": "2020-07-20",
+   "founder": {
+    "@id": "https://maxclerkwell.tech/#person"
+   },
+   "employee": [
+    {
+     "@id": "https://maxclerkwell.tech/#person"
+    },
+    {
+     "@id": "https://edge-compute.skainet.io/team#tabea-boekelmann"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#meihui-huang"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#vanessa-wilcken"
+    },
+    {
+     "@id": "https://nabla-b.engineering/team/#atiyeh-chatrsefid"
+    }
+   ],
+   "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "value": 4
+   },
+   "telephone": [
+    "+49-234-58545811",
+    "+49-176-87850428"
+   ],
+   "email": "mailto:office@nabla-b.engineering",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Herner Str. 299, Gebäude B29",
+    "addressLocality": "Bochum",
+    "postalCode": "44809",
+    "addressRegion": "NRW",
+    "addressCountry": "DE"
+   },
+   "areaServed": [
+    "DE",
+    "EU",
+    "CN"
+   ],
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+     ],
+     "opens": "09:00",
+     "closes": "13:30"
+    }
+   ],
+   "contactPoint": [
+    {
+     "@type": "ContactPoint",
+     "contactType": "customer service",
+     "name": "Vanessa Wilcken",
+     "telephone": [
+      "+49-234-58545811",
+      "+49-176-87850428"
+     ],
+     "email": "mailto:office@nabla-b.engineering",
+     "availableLanguage": [
+      "de",
+      "en",
+      "zh"
+     ],
+     "hoursAvailable": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+       "Monday",
+       "Tuesday",
+       "Wednesday",
+       "Thursday",
+       "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "13:30"
+     }
+    }
+   ],
+   "identifier": [
+    {
+     "@type": "PropertyValue",
+     "propertyID": "German Trade Register",
+     "value": "Amtsgericht Bochum HRB 18817"
+    }
+   ],
+   "vatID": "DE338747475",
+   "taxID": "DE338747475",
+   "brand": {
+    "@id": "https://gruppe.ai/#brand"
+   },
+   "memberOf": [
+    {
+     "@type": "Organization",
+     "name": "IHK Mittleres Ruhrgebiet",
+     "url": "https://www.bochum.ihk.de/"
+    }
+   ],
+   "knowsAbout": [
+    "embedded systems",
+    "PCB design",
+    "KiCad",
+    "FPGA",
+    "Zynq",
+    "Yocto Linux",
+    "microcontroller firmware",
+    "EMC certification",
+    "data acquisition",
+    "decentralised measurement",
+    "condition monitoring",
+    "observability"
+   ],
+   "sameAs": [
+    "https://github.com/nabla-B",
+    "https://maxclerkwell.tech/imprint/",
+    "https://maxclerkwell.tech/about/",
+    "https://gruppe.ai/"
+   ],
+   "priceRange": "Tagessatz ab 80 € netto",
+   "makesOffer": [
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Embedded hardware development",
+      "serviceType": "PCB design, certification, bring-up"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Embedded firmware for MCU, FPGA and Zynq"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Decentralised measurement and data acquisition"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Consulting and training in digital measurement technology"
+     }
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://nabla-b.engineering/#website",
+   "url": "https://nabla-b.engineering/",
+   "name": "nabla B",
+   "publisher": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "inLanguage": [
+    "de",
+    "en",
+    "zh-Hans"
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/#webpage",
+   "url": "https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/",
+   "name": "OmnAIScope: ein USB-Oszilloskop für die Kfz-Werkstatt – nabla B",
+   "description": "Ein Kanal, 500 kSa/s, wasserdichtes Alugehäuse, und beliebig viele Geräte synchron über USB-Frames. Entstanden im Forschungsprojekt autowerkstatt4null.",
+   "inLanguage": "de",
+   "isPartOf": {
+    "@id": "https://nabla-b.engineering/#website"
+   },
+   "about": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "dateModified": "2026-09-03",
+   "mainEntity": {
+    "@id": "https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/#post"
+   }
+  },
+  {
+   "@type": "Brand",
+   "@id": "https://gruppe.ai/#brand",
+   "name": "AI-Gruppe",
+   "url": "https://gruppe.ai/",
+   "description": "Dachmarke (keine juristische Person) für Auto-Intern GmbH, CCD Car Diagnostics, nabla B, nerd_force1, open Skunkforce e.V. und das skAInet-Projekt."
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://www.auto-intern.de/#organization",
+   "name": "Auto-Intern GmbH",
+   "url": "https://www.auto-intern.de",
+   "email": "mailto:info@auto-intern.de",
+   "brand": [
+    {
+     "@id": "https://www.skainet.io/#brand"
+    },
+    {
+     "@id": "https://gruppe.ai/#brand"
+    }
+   ],
+   "sameAs": [
+    "https://www.skainet.io",
+    "https://edge-compute.skainet.io/",
+    "https://github.com/auto-intern-skainet"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://maxclerkwell.tech/#person",
+   "name": "Stephan Bökelmann",
+   "givenName": "Stephan",
+   "familyName": "Bökelmann",
+   "jobTitle": [
+    "Managing Director, nabla B",
+    "Chief Operating Officer, Auto-Intern GmbH",
+    "System Architect, skAInet Edge-Compute"
+   ],
+   "worksFor": [
+    {
+     "@id": "https://nabla-b.engineering/#organization"
+    },
+    {
+     "@id": "https://www.auto-intern.de/#organization"
+    }
+   ],
+   "url": "https://maxclerkwell.tech/",
+   "description": "Seit 2007 im Beruf, vom Mechaniker und Elektroniker über B.Eng. und M.Eng. bis zur Promotion in experimenteller Hadronenphysik (PANDA/FAIR). Systemarchitekt des skAInet Edge-Compute, Dozent an THGA und RUB, Organisator von emBO++ und KiCon Europe.",
+   "image": "https://nabla-b.engineering/assets/img/stephan-boekelmann.jpg",
+   "sameAs": [
+    "https://www.linkedin.com/in/accelerator-stephan/",
+    "https://github.com/maxclerkwell",
+    "https://orcid.org/0000-0002-2119-0064",
+    "https://x.com/maxclerkwell",
+    "https://instagram.com/_maxclerkwell",
+    "https://www.researchgate.net/profile/Stephan-Boekelmann",
+    "https://inspirehep.net/authors/2177110",
+    "https://www.thga.de/hochschule/personen/profile-wissenschaftliche-mitarbeitende/stephan-boekelmann",
+    "https://edge-compute.skainet.io/team#stephan-boekelmann"
+   ],
+   "alternateName": [
+    "MaxClerkwell",
+    "Stephan Boekelmann",
+    "施泓杰"
+   ],
+   "knowsAbout": [
+    "embedded systems",
+    "FPGA",
+    "Zynq",
+    "PCB design",
+    "KiCad",
+    "data acquisition",
+    "Yocto Linux",
+    "experimental hadron physics",
+    {
+     "@id": "https://edge-compute.skainet.io/#product"
+    }
+   ],
+   "hasCredential": [
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "bachelor degree",
+     "name": "B.Eng. Elektro- und Informationstechnik, THGA Bochum"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "master degree",
+     "name": "M.Eng. Informationstechnik / Technische Informatik, THGA Bochum"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "doctoral degree",
+     "name": "Promotion (laufend) Experimentelle Hadronenphysik, Ruhr-Universität Bochum"
+    }
+   ],
+   "alumniOf": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "THGA Bochum",
+     "url": "https://www.thga.de/"
+    },
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "url": "https://www.ruhr-uni-bochum.de/"
+    }
+   ],
+   "mainEntityOfPage": "https://maxclerkwell.tech/about/",
+   "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "ORCID",
+    "value": "0000-0002-2119-0064"
+   },
+   "disambiguatingDescription": "Engineer and physicist in Bochum, Germany (Auto-Intern GmbH / skAInet, nabla B, Ruhr-Universität Bochum), known online as MaxClerkwell. Not the actor Stefan Bockelmann, and not related to the UK agency ClerksWell.",
+   "affiliation": [
+    {
+     "@id": "https://www.auto-intern.de/#organization"
+    },
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "url": "https://www.ruhr-uni-bochum.de/",
+     "sameAs": "https://ror.org/04tsk2644"
+    }
+   ],
+   "subjectOf": [
+    {
+     "@type": "WebPage",
+     "url": "https://maxclerkwell.tech/talks/",
+     "name": "Talks & Conference Appearances"
+    },
+    {
+     "@type": "WebPage",
+     "url": "https://maxclerkwell.tech/publications/",
+     "name": "Publications, Patents & Software"
+    },
+    {
+     "@type": "WebPage",
+     "url": "https://edge-compute.skainet.io/team",
+     "name": "skAInet Edge-Compute team"
+    }
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://edge-compute.skainet.io/team#tabea-boekelmann",
+   "name": "Tabea Bökelmann",
+   "givenName": "Tabea",
+   "familyName": "Bökelmann",
+   "jobTitle": "Senior Frontend Consultant",
+   "worksFor": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "url": "https://nabla-b.engineering/team/#tabea-boekelmann",
+   "description": "Physikerin und Informatikerin. Verantwortet bei nabla B die Frontends – von Dashboards für Messdaten bis zur Bedienoberfläche eingebetteter Geräte. Masterarbeit „Git with Features“ (Software-Engineering); Bachelor in Teilchenphysik (Hadronenphysik, DAQ) und in eingebetteten Systemen (RISC-V, Compilerbau).",
+   "image": "https://nabla-b.engineering/assets/img/tabea-boekelmann.jpg",
+   "sameAs": [
+    "https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/",
+    "https://www.researchgate.net/profile/Tabea-Roethemeyer",
+    "https://www.youtube.com/watch?v=DgHCycO6ohs",
+    "https://edge-compute.skainet.io/team"
+   ],
+   "alternateName": [
+    "Tabea Viktoria Bökelmann",
+    "Tabea Boekelmann",
+    "Tabea Böckelmann",
+    "Tabea Boeckelmann",
+    "Tabea Bockelmann",
+    "Tabea Röthemeyer"
+   ],
+   "knowsAbout": [
+    "Angular",
+    "JavaScript",
+    "TypeScript",
+    "frontend architecture",
+    "software engineering",
+    "Git",
+    "embedded systems",
+    "RISC-V",
+    "compiler construction",
+    "particle physics",
+    "data acquisition"
+   ],
+   "hasCredential": [
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "bachelor degree",
+     "name": "B.Sc. Physik – Teilchenphysik, Hadronenphysik, DAQ, Ruhr-Universität Bochum"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "bachelor degree",
+     "name": "B.Sc. Angewandte Informatik – eingebettete Systeme, RISC-V, Compiler, Ruhr-Universität Bochum"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "master degree",
+     "name": "M.Sc. Angewandte Informatik – „Git with Features“, Software-Engineering, Ruhr-Universität Bochum"
+    }
+   ],
+   "alumniOf": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "url": "https://www.ruhr-uni-bochum.de/"
+    }
+   ],
+   "affiliation": {
+    "@id": "https://www.auto-intern.de/#organization"
+   },
+   "mainEntityOfPage": "https://nabla-b.engineering/team/#tabea-boekelmann"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://nabla-b.engineering/team/#meihui-huang",
+   "name": "Meihui Huang",
+   "givenName": "Meihui",
+   "familyName": "Huang",
+   "jobTitle": [
+    "Physicist",
+    "Working Student – Research and Outreach"
+   ],
+   "worksFor": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "url": "https://nabla-b.engineering/team/#meihui-huang",
+   "description": "Physikerin aus Tianjin, lebt in Witten. B.Sc. Physik (Teilchenphysik) an der Nankai-Universität mit Zerfallsketten-Analyse in ROOT; M.Sc.-Studentin an der Ruhr-Universität Bochum, Institut für Experimentalphysik I, AG Hadronen und Kerne. Unterstützt Messaufbauten, Detektortests und Auswertung – und betreut als Social Media Executive die Kanäle von maxclerkwell.tech.",
+   "image": "https://nabla-b.engineering/assets/img/meihui-huang.jpg",
+   "sameAs": [
+    "https://www.linkedin.com/in/meihui-huang/",
+    "https://www.researchgate.net/profile/Meihui-Huang"
+   ],
+   "alternateName": [
+    "Huang Meihui",
+    "Huang Mei Hui",
+    "黄美慧"
+   ],
+   "knowsAbout": [
+    "particle physics",
+    "ROOT",
+    "decay chain analysis",
+    "detector testing",
+    "social media management"
+   ],
+   "hasCredential": [
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "bachelor degree",
+     "name": "B.Sc. Physik – Teilchenphysik, Zerfallsketten-Analyse mit ROOT, Nankai-Universität Tianjin"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "master degree",
+     "name": "M.Sc. Physik (laufend) – Experimentalphysik I, AG Hadronen und Kerne, Ruhr-Universität Bochum"
+    }
+   ],
+   "alumniOf": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Nankai University",
+     "url": "https://www.nankai.edu.cn/"
+    },
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "url": "https://www.ruhr-uni-bochum.de/"
+    }
+   ],
+   "affiliation": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "department": "Institut für Experimentalphysik I – AG Hadronen und Kerne",
+     "url": "https://www.ep1.ruhr-uni-bochum.de/"
+    },
+    {
+     "@type": "WebSite",
+     "@id": "https://maxclerkwell.tech/#website",
+     "name": "MaxClerkwell"
+    }
+   ],
+   "homeLocation": {
+    "@type": "Place",
+    "name": "Witten, Germany"
+   },
+   "nationality": {
+    "@type": "Country",
+    "name": "China"
+   },
+   "mainEntityOfPage": "https://nabla-b.engineering/team/#meihui-huang"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://nabla-b.engineering/team/#vanessa-wilcken",
+   "name": "Vanessa Wilcken",
+   "givenName": "Vanessa",
+   "familyName": "Wilcken",
+   "jobTitle": "Executive Assistant",
+   "worksFor": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "url": "https://nabla-b.engineering/team/#vanessa-wilcken",
+   "description": "Ihre erste Ansprechpartnerin: Terminvereinbarung, Angebote, Rechnungen und alles Organisatorische. Erreichbar Mo – Fr 9:00 – 13:30 Uhr.",
+   "image": "https://nabla-b.engineering/assets/img/vanessa-wilcken.jpg",
+   "sameAs": [
+    "https://www.linkedin.com/in/vanessa-wilcken-1436b320a/"
+   ],
+   "email": "office@nabla-b.engineering",
+   "telephone": [
+    "+49-234-58545811",
+    "+49-176-87850428"
+   ],
+   "mainEntityOfPage": "https://nabla-b.engineering/team/#vanessa-wilcken"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://nabla-b.engineering/team/#atiyeh-chatrsefid",
+   "name": "Atiyeh Chatrsefid",
+   "givenName": "Atiyeh",
+   "familyName": "Chatrsefid",
+   "jobTitle": "Business Development",
+   "worksFor": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "url": "https://nabla-b.engineering/team/#atiyeh-chatrsefid",
+   "description": "Verantwortet bei nabla B das Business Development – Kundenakquise, Partnerschaften und Angebotsentwicklung. MBA in Artificial Intelligence (Brand University of Applied Sciences), Informatikstudium an der Ruhr-Universität Bochum. Zuvor Commercial Lead beim KI-Start-up Wisdom Bridge AI, KI-Strategieberaterin für den Mittelstand und Praktikantin im Projektmanagement bei Deloitte. Registered Product Owner (Scrum Inc.).",
+   "image": "https://nabla-b.engineering/assets/img/atiyeh-chatrsefid.jpg",
+   "sameAs": [
+    "https://www.linkedin.com/in/atiyeh-chatrsefid-/"
+   ],
+   "knowsAbout": [
+    "business development",
+    "AI strategy",
+    "startup strategy",
+    "product ownership",
+    "IT consulting"
+   ],
+   "hasCredential": [
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "master degree",
+     "name": "MBA – Artificial Intelligence, Brand University of Applied Sciences, Hamburg"
+    },
+    {
+     "@type": "EducationalOccupationalCredential",
+     "credentialCategory": "bachelor degree",
+     "name": "Informatik, Ruhr-Universität Bochum"
+    }
+   ],
+   "alumniOf": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Brand University of Applied Sciences",
+     "url": "https://www.brand-university.de/"
+    },
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Ruhr-Universität Bochum",
+     "url": "https://www.ruhr-uni-bochum.de/"
+    }
+   ],
+   "email": "atiyeh.chatrsefid@nabla-b.engineering",
+   "mainEntityOfPage": "https://nabla-b.engineering/team/#atiyeh-chatrsefid"
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/#post",
+   "headline": "OmnAIScope: ein USB-Oszilloskop für die Kfz-Werkstatt",
+   "description": "Ein Kanal, 500 kSa/s, wasserdichtes Alugehäuse, und beliebig viele Geräte synchron über USB-Frames. Entstanden im Forschungsprojekt autowerkstatt4null.",
+   "url": "https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/",
+   "mainEntityOfPage": {
+    "@id": "https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/#webpage"
+   },
+   "isPartOf": {
+    "@id": "https://nabla-b.engineering/blog/#blog"
+   },
+   "datePublished": "2026-09-03",
+   "dateModified": "2026-09-03",
+   "inLanguage": "de",
+   "wordCount": 163,
+   "author": {
+    "@id": "https://maxclerkwell.tech/#person"
+   },
+   "publisher": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "copyrightHolder": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "keywords": "Oszilloskop, RP2040, USB, KiCad, Automotive",
+   "articleSection": "Blog",
+   "isBasedOn": {
+    "@type": "BlogPosting",
+    "url": "https://maxclerkwell.tech/posts/omnaiscope-august-2025/",
+    "datePublished": "2025-08-28",
+    "author": {
+     "@id": "https://maxclerkwell.tech/#person"
+    }
+   },
+   "about": {
+    "@id": "https://nabla-b.engineering/#organization"
+   },
+   "image": "https://nabla-b.engineering/assets/img/og-image.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "nabla B",
+     "item": "https://nabla-b.engineering/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Blog",
+     "item": "https://nabla-b.engineering/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "OmnAIScope: ein USB-Oszilloskop für die Kfz-Werkstatt",
+     "item": "https://nabla-b.engineering/blog/omnaiscope-usb-oszilloskop/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/" aria-label="nabla B – Start"><img src="/assets/img/logo.svg" alt="nabla B Ingenieurbüro & Dienstleistung-UG (haftungsbeschränkt)" width="228" height="86"></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">Menü</button>
+<nav class="nav" id="nav"><a href="/">Start</a><a href="/leistungen/">Leistungen</a><a href="/referenzen/">Referenzen</a><a href="/blog/" aria-current="page">Blog</a><a href="/team/">Team</a><a href="/kontakt/">Kontakt</a></nav>
+<div class="lang" aria-label="Language"><a href="/blog/omnaiscope-usb-oszilloskop/" hreflang="de" lang="de" title="Deutsch" aria-current="true"><span class="f">🇩🇪</span>DE</a><a href="/en/blog/omnaiscope-usb-oszilloskop/" hreflang="en" lang="en" title="English"><span class="f">🇬🇧</span>EN</a><a href="/zh/blog/omnaiscope-usb-oszilloskop/" hreflang="zh-Hans" lang="zh-Hans" title="中文"><span class="f">🇨🇳</span>中文</a></div>
+</div></header>
+<main id="main">
+
+<section><div class="wrap article"><p class="crumbs"><a href="/blog/">← Alle Beiträge</a></p><div class="sec-title"><h1>OmnAIScope: ein USB-Oszilloskop für die Kfz-Werkstatt</h1></div>
+<div class="meta"><time datetime="2026-09-03">3.9.2026</time> · nabla B, Bochum · Original vom <time datetime="2025-08-28">28.8.2025</time></div>
+<p class="lead">Ein Kanal, 500 kSa/s, wasserdichtes Alugehäuse, und beliebig viele Geräte synchron über USB-Frames. Entstanden im Forschungsprojekt autowerkstatt4null.</p>
+<p>Werkstattelektronik wird fallen gelassen, getreten und nass. Das OmnAIScope ist deshalb bewusst schlicht: ein RP2040, ein Kanal mit 500 kSa/s, BNC auf der einen und USB-C auf der anderen Seite, eloxiertes Aluminium, nach der Montage mit Epoxid vergossen. Keine Tasten, kein Display. Alles, was kaputtgehen kann, sitzt in Firmware oder auf dem Rechner.</p><p>Der Trick steckt in der Synchronisation. USB sendet jede Millisekunde ein Start-of-Frame-Paket. Jedes Scope speichert diesen Zeitstempel neben seinen ADC-Werten, und ein Server auf dem PC richtet beliebig viele Geräte auf einer gemeinsamen Zeitachse aus, auf eine halbe USB-Frame genau. Kein Triggerkabel, keine Taktverteilung. Der Server stellt die Daten über REST und WebSocket bereit, das Frontend spricht nie direkt mit der Hardware.</p><p>Das Gerät entstand im dreijährigen, bundesgeförderten Projekt autowerkstatt4null, alle Platinen in KiCad. Es ist als Beta-Hardware bei Auto-Intern erhältlich, das Verfahren ist zum Patent angemeldet.</p><p>Von der Idee über PCB und Firmware bis zum verkaufsfähigen Gerät: Das ist der Weg, den wir anbieten. Messbeispiele und Roadmap im Blog.</p>
+<div class="tags"><span>Oszilloskop</span><span>RP2040</span><span>USB</span><span>KiCad</span><span>Automotive</span></div>
+<aside class="orig"><h2>Ausführlich im Blog</h2><p>Dieser Beitrag ist eine Kurzfassung aus Firmenperspektive. Details, Schaltungen, Code und die ganze Geschichte:</p><p><a href="https://maxclerkwell.tech/posts/omnaiscope-august-2025/" rel="noopener">Original auf maxclerkwell.tech lesen →</a></p><p><a href="/referenzen/">Zur Referenz →</a></p></aside>
+</div></section>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><img class="flogo" src="/assets/img/logo.svg" alt="nabla B" width="170" height="64"><p>Herner Str. 299, Gebäude B29<br>44809 Bochum, Germany</p><p>nabla B ist Teil der <a href="https://gruppe.ai/">AI-Gruppe</a>.</p></div>
+<div><h4>Kontakt</h4><ul><li><a href="mailto:office@nabla-b.engineering">office@nabla-b.engineering</a></li><li><a href="tel:+4923458545811">+49 234 58545811</a></li><li><a href="tel:+4917687850428">+49 176 87850428</a></li><li>Ansprechpartnerin: Vanessa Wilcken</li><li>Bürozeiten: Mo – Fr, 9:00 – 13:30 Uhr</li></ul></div>
+<div><h4>nabla B</h4><ul><li><a href="/leistungen/">Leistungen</a></li><li><a href="/referenzen/">Referenzen</a></li><li><a href="/blog/">Blog</a></li><li><a href="/team/">Team</a></li><li><a href="/kontakt/">Kontakt</a></li><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li></ul></div>
+<div><h4>Links</h4><ul><li>Technischer Blog: <a href="https://maxclerkwell.tech/">maxclerkwell.tech</a></li><li><a href="https://edge-compute.skainet.io/">skAInet Edge-Compute</a></li><li><a href="https://github.com/nabla-B">GitHub</a></li></ul></div>
+</div>
+<div class="legal"><span>© 2026 nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)</span><span>Amtsgericht Bochum HRB 18817 · USt-ID DE338747475</span></div>
+</div></footer>
+<dialog id="ref-modal" class="ref-modal" aria-labelledby="ref-modal-title"><form method="dialog"><h2 id="ref-modal-title">Willkommen bei nabla B.</h2><p>Sie kommen von maxclerkwell.tech, dem Blog von Stephan Bökelmann. nabla B ist sein Ingenieurbüro in Bochum; über diese Firma werden die im Blog beschriebenen Projekte beauftragt. Hier finden Sie Leistungen, Team, Referenzen und Kontakt.</p><p class="ref-modal-actions"><a href="https://maxclerkwell.tech/">Zurück zum Blog</a><button value="ok" autofocus>Verstanden</button></p></form></dialog><script>
+(function(){
+  try {
+    var p=new URLSearchParams(location.search), d=document.getElementById('ref-modal');
+    if(p.get('ref')!=='maxclerkwell.tech'||!d||!d.showModal||sessionStorage.getItem('ref-mc'))return;
+    sessionStorage.setItem('ref-mc','1');
+    d.showModal();
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+    p.delete('ref'); var q=p.toString();
+    history.replaceState(null,'',location.pathname+(q?'?'+q:'')+location.hash);
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>
