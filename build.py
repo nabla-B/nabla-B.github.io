@@ -137,9 +137,9 @@ def content(lang):
       hero_h1={"de":"Embedded-Geräte.<br>Von der Architektur bis zur Firmware.",
                "en":"Embedded devices.<br>From architecture to firmware.",
                "zh":"嵌入式设备。<br>从架构到固件。"}[L],
-      hero_lead={"de":"nabla B ist ein Ingenieurbüro in Bochum. Wir entwickeln Embedded-Geräte und dezentrale Messtechnik für den Mittelstand – und bringen sie in Serie.",
-                 "en":"nabla B is an engineering office in Bochum, Germany. We develop embedded devices and decentralised measurement systems for mid-sized industry — and take them to production.",
-                 "zh":"nabla B 是位于德国波鸿的工程事务所。我们为中型企业开发嵌入式设备与分布式测量系统——并将其推向量产。"}[L],
+      hero_lead={"de":"Sie bringen die Anforderung mit. Wir machen daraus Leiterplatte und Firmware. Wir zertifizieren für Deutschland, China und die USA und finden mit Ihnen den passenden Fertiger.",
+                 "en":"You bring the requirement. We turn it into a PCB and firmware. We certify for Germany, China and the USA and find the right manufacturer with you.",
+                 "zh":"您带来需求。我们将其变成电路板与固件。我们负责德国、中国与美国的认证，并与您一起找到合适的制造商。"}[L],
       pillars={"de":["Architektur & Systemdesign","PCB-Design & Zertifizierung","Bring-up für µC, FPGA & Zynq","Firmware & Yocto Linux","Dezentrale Messtechnik & DAQ","Beratung & Schulung"],
                "en":["Architecture & system design","PCB design & certification","Bring-up for MCU, FPGA & Zynq","Firmware & Yocto Linux","Decentralised measurement & DAQ","Consulting & training"],
                "zh":["架构与系统设计","PCB 设计与认证","MCU / FPGA / Zynq 启动调试","固件与 Yocto Linux","分布式测量与数据采集","咨询与培训"]}[L],
@@ -188,7 +188,7 @@ def content(lang):
       blocks={"de":[
         ("1. Architektur & Systemdesign",["Anforderungsanalyse, Machbarkeit, Blockdiagramm","Auswahl von SoC, µC, FPGA, Sensorik und Schnittstellen","Bus- und Netzwerkkonzepte: Ethernet/PoE, CAN, RS-485, LoRaWAN, USB","Sicherheits- und Update-Konzept von Anfang an"]),
         ("2. PCB-Design",["Schaltplan und Layout in KiCad","Mixed-Signal, Analog-Frontends, Power","Design for Manufacturing, Lieferkette (auch China)","Mechanik-Integration, gehäuselose Bauformen"]),
-        ("3. Zertifizierung",["EMV-Vorbereitung und Begleitung im Prüflabor","CE-Konformität, Dokumentation","Erfahrung mit Prüfläufen in Deutschland und China"]),
+        ("3. Zertifizierung",["EMV-Vorbereitung und Begleitung im Prüflabor","CE-, FCC- und CCC-Konformität, Dokumentation","Erfahrung mit Prüfläufen in Deutschland und China"]),
         ("4. Software-Bring-up",["Mikrocontroller: bare-metal, RTOS, Bootloader","FPGA: VHDL/Verilog, Bitstream-Pipelines","Zynq: FSBL/U-Boot, Devicetree, Yocto Linux mit SBOM","Versionierte, reproduzierbare Toolchains"]),
         ("5. Firmware",["Treiber, Protokolle, Messdatenpfade","Over-the-air-Updates, Telemetrie, Logging","Tests auf Hardware-in-the-Loop-Ständen"]),
         ("6. Dezentrale Messtechnik & DAQ",["Messknoten statt Messrechner: Zeitstempel an der Quelle","Analog-Frontends, Sensorik, PoE-Messnetze","Von Excel-Inseln zu einer gemeinsamen Zeitbasis"]),
@@ -198,7 +198,7 @@ def content(lang):
       ],"en":[
         ("1. Architecture & system design",["Requirements, feasibility, block diagram","Selection of SoC, MCU, FPGA, sensors and interfaces","Bus and network concepts: Ethernet/PoE, CAN, RS-485, LoRaWAN, USB","Security and update concept from day one"]),
         ("2. PCB design",["Schematic and layout in KiCad","Mixed-signal, analog front-ends, power","Design for manufacturing, supply chain (incl. China)","Mechanical integration, enclosureless designs"]),
-        ("3. Certification",["EMC preparation and support in the test lab","CE conformity, documentation","Experience with test runs in Germany and China"]),
+        ("3. Certification",["EMC preparation and support in the test lab","CE, FCC and CCC conformity, documentation","Experience with test runs in Germany and China"]),
         ("4. Software bring-up",["Microcontrollers: bare-metal, RTOS, bootloaders","FPGA: VHDL/Verilog, bitstream pipelines","Zynq: FSBL/U-Boot, device tree, Yocto Linux with SBOM","Versioned, reproducible toolchains"]),
         ("5. Firmware",["Drivers, protocols, measurement data paths","Over-the-air updates, telemetry, logging","Testing on hardware-in-the-loop rigs"]),
         ("6. Decentralised measurement & DAQ",["Measurement nodes instead of measurement PCs: timestamps at the source","Analog front-ends, sensors, PoE measurement networks","From Excel islands to a shared time base"]),
@@ -208,7 +208,7 @@ def content(lang):
       ],"zh":[
         ("1. 架构与系统设计",["需求分析、可行性、框图","SoC、MCU、FPGA、传感器与接口选型","总线与网络方案：Ethernet/PoE、CAN、RS-485、LoRaWAN、USB","从第一天起的安全与更新方案"]),
         ("2. PCB 设计",["KiCad 原理图与布局","混合信号、模拟前端、电源","可制造性设计、供应链（含中国）","机械集成、无外壳结构"]),
-        ("3. 认证",["EMC 预处理及实验室测试陪同","CE 符合性、文档","在德国与中国进行测试的经验"]),
+        ("3. 认证",["EMC 预处理及实验室测试陪同","CE、FCC、CCC 符合性、文档","在德国与中国进行测试的经验"]),
         ("4. 软件启动调试",["微控制器：裸机、RTOS、引导加载程序","FPGA：VHDL/Verilog、比特流流水线","Zynq：FSBL/U-Boot、设备树、带 SBOM 的 Yocto Linux","版本化、可复现的工具链"]),
         ("5. 固件",["驱动、协议、测量数据通路","OTA 更新、遥测、日志","硬件在环测试台上的测试"]),
         ("6. 分布式测量与数据采集",["用测量节点取代测量电脑：在数据源打时间戳","模拟前端、传感器、PoE 测量网络","从 Excel 孤岛到统一时基"]),
@@ -736,7 +736,7 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 ## Services
 - Architecture & system design for embedded devices
 - PCB design (KiCad), design for manufacturing, supply chain incl. China
-- EMC / CE certification preparation and support (Germany and China)
+- EMC / CE, FCC and CCC certification preparation and support (Germany, China, USA)
 - Software bring-up for microcontrollers, FPGAs (VHDL/Verilog) and Zynq SoCs (U-Boot, device tree, Yocto Linux with SBOM)
 - Firmware: drivers, protocols, OTA updates, telemetry
 - Decentralised measurement & DAQ, monitoring/observability infrastructure

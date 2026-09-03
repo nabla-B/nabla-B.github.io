@@ -19,7 +19,7 @@ Languages: German (default, https://nabla-b.engineering/), English (https://nabl
 ## Services
 - Architecture & system design for embedded devices
 - PCB design (KiCad), design for manufacturing, supply chain incl. China
-- EMC / CE certification preparation and support (Germany and China)
+- EMC / CE, FCC and CCC certification preparation and support (Germany, China, USA)
 - Software bring-up for microcontrollers, FPGAs (VHDL/Verilog) and Zynq SoCs (U-Boot, device tree, Yocto Linux with SBOM)
 - Firmware: drivers, protocols, OTA updates, telemetry
 - Decentralised measurement & DAQ, monitoring/observability infrastructure
