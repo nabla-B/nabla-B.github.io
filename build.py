@@ -455,7 +455,7 @@ def content(lang):
         ("6. Dezentrale Messtechnik & DAQ",["Messknoten statt Messrechner: Zeitstempel an der Quelle","Analog-Frontends, Sensorik, PoE-Messnetze","Von Excel-Inseln zu einer gemeinsamen Zeitbasis"]),
         ("7. Monitoring & Observability",["Telemetrie-Pipelines vom Gerät bis ins Dashboard","Condition Monitoring, Predictive Maintenance","Betrieb, Alarmierung, Langzeitarchivierung"]),
         ("8. Beratung",["Machbarkeitsstudien und Second Opinion","Architektur-Reviews bestehender Geräte","Toolchain-Rettung: reproduzierbar statt fragil"]),
-        ("9. Schulung",["Digitale Messtechnik und Datenerfassung für Ingenieure","Embedded-Linux, FPGA und KiCad in der Praxis","Inhouse-Workshops oder online"]),
+        ("9. Schulung",["Offizieller Schulungspartner der IHK (WIS-gelistet)","Digitale Messtechnik und Datenerfassung für Ingenieure","Embedded-Linux, FPGA und KiCad in der Praxis","Inhouse-Workshops oder online"]),
       ],"en":[
         ("1. Architecture & system design",["Requirements, feasibility, block diagram","Selection of SoC, MCU, FPGA, sensors and interfaces","Bus and network concepts: Ethernet/PoE, CAN, RS-485, LoRaWAN, USB","Security and update concept from day one"]),
         ("2. PCB design",["Schematic and layout in KiCad","Mixed-signal, analog front-ends, power","Design for manufacturing, supply chain (incl. China)","Mechanical integration, enclosureless designs"]),
@@ -465,7 +465,7 @@ def content(lang):
         ("6. Decentralised measurement & DAQ",["Measurement nodes instead of measurement PCs: timestamps at the source","Analog front-ends, sensors, PoE measurement networks","From Excel islands to a shared time base"]),
         ("7. Monitoring & observability",["Telemetry pipelines from device to dashboard","Condition monitoring, predictive maintenance","Operations, alerting, long-term archiving"]),
         ("8. Consulting",["Feasibility studies and second opinion","Architecture reviews of existing devices","Toolchain rescue: reproducible instead of fragile"]),
-        ("9. Training",["Digital measurement technology and DAQ for engineers","Embedded Linux, FPGA and KiCad in practice","In-house workshops or online"]),
+        ("9. Training",["Official IHK training partner (listed in WIS)","Digital measurement technology and DAQ for engineers","Embedded Linux, FPGA and KiCad in practice","In-house workshops or online"]),
       ],"zh":[
         ("1. 架构与系统设计",["需求分析、可行性、框图","SoC、MCU、FPGA、传感器与接口选型","总线与网络方案：Ethernet/PoE、CAN、RS-485、LoRaWAN、USB","从第一天起的安全与更新方案"]),
         ("2. PCB 设计",["KiCad 原理图与布局","混合信号、模拟前端、电源","可制造性设计、供应链（含中国）","机械集成、无外壳结构"]),
@@ -475,8 +475,11 @@ def content(lang):
         ("6. 分布式测量与数据采集",["用测量节点取代测量电脑：在数据源打时间戳","模拟前端、传感器、PoE 测量网络","从 Excel 孤岛到统一时基"]),
         ("7. 监测与可观测性",["从设备到仪表盘的遥测管线","状态监测、预测性维护","运维、告警、长期归档"]),
         ("8. 咨询",["可行性研究与第二意见","现有设备的架构评审","工具链救援：可复现而非脆弱"]),
-        ("9. 培训",["面向工程师的数字测量技术与数据采集","嵌入式 Linux、FPGA 与 KiCad 实践","企业内训或在线"]),
+        ("9. 培训",["IHK 官方培训合作伙伴（已收录于 WIS）","面向工程师的数字测量技术与数据采集","嵌入式 Linux、FPGA 与 KiCad 实践","企业内训或在线"]),
       ]}[L],
+      ihk={"de":'nabla B ist offizieller Schulungspartner der IHK und im <a href="https://wis.ihk.de/anbieter-wis/3512/nabla-b-ingenieurburo-dienstleistungs-ug" rel="noopener">Weiterbildungs-Informationssystem (WIS) der IHK-Organisation</a> als Anbieter gelistet. Stephan Bökelmann ist zudem Mitglied des Prüfungsausschusses für Fachinformatiker der IHK Mittleres Ruhrgebiet – unsere Schulungen orientieren sich an dem, was die IHK tatsächlich prüft.',
+           "en":'nabla B is an official IHK training partner, listed as a provider in <a href="https://wis.ihk.de/anbieter-wis/3512/nabla-b-ingenieurburo-dienstleistungs-ug" rel="noopener">WIS, the continuing-education directory of the German Chambers of Commerce and Industry (IHK)</a>. Stephan Bökelmann also serves on the IHK Mittleres Ruhrgebiet examination board for IT specialists (Fachinformatiker), so our training follows what the IHK actually examines.',
+           "zh":'nabla B 是德国工商会（IHK）的官方培训合作伙伴，已作为培训机构收录于 <a href="https://wis.ihk.de/anbieter-wis/3512/nabla-b-ingenieurburo-dienstleistungs-ug" rel="noopener">IHK 继续教育信息系统（WIS）</a>。Stephan Bökelmann 同时担任中鲁尔区工商会（IHK Mittleres Ruhrgebiet）信息技术专员（Fachinformatiker）考试委员会委员——我们的培训内容与 IHK 的考核标准保持一致。'}[L],
       pricing_h={"de":"Konditionen","en":"Terms","zh":"合作条款"}[L],
       pricing={"de":"Tagessatz ab 80 € netto, abhängig von Aufgabe und Laufzeit. Festpreise für klar umrissene Pakete (z. B. Machbarkeitsstudie, PCB-Layout, Schulungstag) auf Anfrage. Vertragspartner ist die nabla B UG; bei Bedarf holen wir Kapazität aus der AI-Gruppe dazu – Vertrag und Verantwortung bleiben bei nabla B.",
                "en":"Day rate from € 80 net, depending on task and duration. Fixed prices for clearly scoped packages (e.g. feasibility study, PCB layout, training day) on request. Your contracting party is nabla B UG; when a project needs it we add capacity from the AI-Gruppe — contract and responsibility stay with nabla B.",
@@ -790,7 +793,7 @@ def org_node():
       "brand": {"@id": AIGRUPPE_ID},
       "memberOf": [{"@type":"Organization","name":"IHK Mittleres Ruhrgebiet","url":"https://www.bochum.ihk.de/"}],
       "knowsAbout": ["embedded systems","PCB design","KiCad","FPGA","Zynq","Yocto Linux","microcontroller firmware","EMC certification","data acquisition","decentralised measurement","condition monitoring","observability"],
-      "sameAs": ["https://github.com/nabla-B","https://maxclerkwell.tech/imprint/","https://maxclerkwell.tech/about/","https://gruppe.ai/"],
+      "sameAs": ["https://github.com/nabla-B","https://maxclerkwell.tech/imprint/","https://maxclerkwell.tech/about/","https://gruppe.ai/","https://wis.ihk.de/anbieter-wis/3512/nabla-b-ingenieurburo-dienstleistungs-ug"],
       "priceRange": "Tagessatz ab 80 € netto",
       "makesOffer": [
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Embedded hardware development","serviceType":"PCB design, certification, bring-up"}},
@@ -824,6 +827,7 @@ def person_nodes(lang):
                       "subjectOf":[{"@type":"WebPage","url":"https://maxclerkwell.tech/talks/","name":"Talks & Conference Appearances"},
                                    {"@type":"WebPage","url":"https://maxclerkwell.tech/publications/","name":"Publications, Patents & Software"},
                                    {"@type":"WebPage","url":"https://edge-compute.skainet.io/team","name":"skAInet Edge-Compute team"}],
+                      "memberOf":[{"@type":"Organization","name":"Prüfungsausschuss Fachinformatiker, IHK Mittleres Ruhrgebiet","url":"https://www.bochum.ihk.de/","description":"Mitglied des IHK-Prüfungsausschusses für Fachinformatiker seit 2020"}],
                       "knowsAbout":[*p["knows"], {"@id":EDGE_PRODUCT_ID}]})
         if p["id"]=="tabea-boekelmann": n.update({"affiliation":{"@id":AUTOINTERN_ID},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="meihui-huang": n.update({"affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I – AG Hadronen und Kerne","url":"https://www.ep1.ruhr-uni-bochum.de/"},{"@type":"WebSite","@id":"https://maxclerkwell.tech/#website","name":"MaxClerkwell"}],"homeLocation":{"@type":"Place","name":"Witten, Germany"},"nationality":{"@type":"Country","name":"China"},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
@@ -977,7 +981,7 @@ def page_leistungen(lang,C):
     P=C["leistungen"]
     blocks="".join(f'<div class="card"><h3>{esc(h)}</h3><ul class="tri">{"".join(f"<li>{esc(i)}</li>" for i in items)}</ul></div>' for h,items in P["blocks"])
     return f"""
-<section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{esc(P["intro"])}</p><div class="grid grid-3" style="margin-top:28px">{blocks}</div></div></section>
+<section><div class="wrap"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div><p class="sec-intro">{esc(P["intro"])}</p><div class="grid grid-3" style="margin-top:28px">{blocks}</div><p class="sec-intro ihk-note" style="margin-top:24px">{P["ihk"]}</p></div></section>
 <section class="alt"><div class="wrap"><div class="sec-title"><h2>{esc(P["pricing_h"])}</h2></div><p class="sec-intro">{esc(P["pricing"])}</p><p><a class="btn dark" href="{cta_link(C["index"]["cta_mail_subject"])}">{esc(P["cta"])}</a></p></div></section>
 """
 
@@ -1082,9 +1086,10 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 - Firmware: drivers, protocols, OTA updates, telemetry
 - Decentralised measurement & DAQ, monitoring/observability infrastructure
 - Consulting (architecture reviews, toolchain rescue) and training for engineers
+- Official IHK training partner: listed as a provider in WIS, the continuing-education directory of the German Chambers of Commerce and Industry (https://wis.ihk.de/anbieter-wis/3512/nabla-b-ingenieurburo-dienstleistungs-ug)
 
 ## Team
-- Stephan Bökelmann (alias MaxClerkwell, 施泓杰) — Managing Director, engineer & physicist; B.Eng., M.Eng. (THGA Bochum), PhD candidate RUB. ID {PERSON_STEPHAN}. Profiles: https://maxclerkwell.tech/, https://www.linkedin.com/in/accelerator-stephan/, https://orcid.org/0000-0002-2119-0064, https://x.com/maxclerkwell, https://instagram.com/_maxclerkwell, https://www.researchgate.net/profile/Stephan-Boekelmann
+- Stephan Bökelmann (alias MaxClerkwell, 施泓杰) — Managing Director, engineer & physicist; B.Eng., M.Eng. (THGA Bochum), PhD candidate RUB; member of the IHK Mittleres Ruhrgebiet examination board for IT specialists (Fachinformatiker). ID {PERSON_STEPHAN}. Profiles: https://maxclerkwell.tech/, https://www.linkedin.com/in/accelerator-stephan/, https://orcid.org/0000-0002-2119-0064, https://x.com/maxclerkwell, https://instagram.com/_maxclerkwell, https://www.researchgate.net/profile/Stephan-Boekelmann
 - Tabea Bökelmann (also Tabea Viktoria Bökelmann / Boekelmann / Röthemeyer) — Senior Frontend Consultant, Angular & JavaScript; B.Sc. Physics (particle physics, DAQ), B.Sc. and M.Sc. Applied Computer Science (RISC-V, compilers, "Git with Features"), all Ruhr-Universität Bochum. ID {PERSON_TABEA}. Profiles: https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/, https://www.researchgate.net/profile/Tabea-Roethemeyer
 - Meihui Huang (黄美慧, Huang Mei Hui) — Physicist, working student for research and outreach; B.Sc. Physics Nankai University Tianjin (decay-chain analysis with ROOT), M.Sc. student RUB EP1 Hadrons and Nuclei group; social media executive for maxclerkwell.tech. ID {PERSON_MEIHUI}. Profiles: https://www.linkedin.com/in/meihui-huang/, https://www.researchgate.net/profile/Meihui-Huang
 - Vanessa Wilcken — Executive assistant, first point of contact (office@nabla-b.engineering, +49 234 58545811). ID {PERSON_VANESSA}. Profile: https://www.linkedin.com/in/vanessa-wilcken-1436b320a/
