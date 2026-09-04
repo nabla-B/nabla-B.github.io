@@ -24,6 +24,9 @@ TEL_HREF = "tel:+4923458545811"
 MOBILE = "+49 176 87850428"
 MOBILE_HREF = "tel:+4917687850428"
 MAIL = "office@nabla-b.engineering"
+BANK_NAME = "Sparkasse Bochum"
+IBAN = "DE96 4305 0001 0001 6414 48"
+PAYPAL = "office@nabla-b.engineering"
 
 LANGS = {"de": "", "en": "en/", "zh": "zh/"}
 PAGES = ["index", "leistungen", "referenzen", "team", "kontakt", "impressum", "datenschutz"]
@@ -626,6 +629,9 @@ def content(lang):
              "en":"Building B29 on the Herner Str. 299 site (former Constantin colliery), Bochum-Riemke. Parking on site; public transport: light rail U35, stop “Zeche Constantin”.",
              "zh":"位于 Herner Str. 299 园区（原 Constantin 煤矿）B29 楼，波鸿 Riemke 区。园区内可停车；公共交通：轻轨 U35，Zeche Constantin 站。"}[L],
       map_link="https://www.openstreetmap.org/search?query=Herner%20Str.%20299%2C%2044809%20Bochum",
+      bank_h={"de":"Bankverbindung","en":"Bank details","zh":"银行账户"}[L],
+      bank_l={"de":"Bank","en":"Bank","zh":"银行"}[L],
+      paypal_l="PayPal",
     )
     # ---- impressum
     C["impressum"] = dict(
@@ -644,6 +650,8 @@ def content(lang):
 <p>Eintragung im Handelsregister.<br>Registergericht: Amtsgericht Bochum<br>Registernummer: HRB 18817</p>
 <h2>Umsatzsteuer-ID</h2>
 <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE338747475</p>
+<h2>Bankverbindung</h2>
+<p>Bank: {BANK_NAME}<br>IBAN: {IBAN}<br>PayPal: <a href="mailto:{PAYPAL}">{PAYPAL}</a></p>
 <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
 <p>Stephan Bökelmann, Anschrift wie oben.</p>
 <h2>EU-Streitschlichtung</h2>
@@ -662,6 +670,8 @@ def content(lang):
 <p>Register court: Amtsgericht Bochum (local court)<br>Registration number: HRB 18817</p>
 <h2>VAT ID</h2>
 <p>VAT identification number pursuant to § 27a UStG: DE338747475</p>
+<h2>Bank details</h2>
+<p>Bank: {BANK_NAME}<br>IBAN: {IBAN}<br>PayPal: <a href="mailto:{PAYPAL}">{PAYPAL}</a></p>
 <h2>Responsible for content pursuant to § 18 (2) MStV</h2>
 <p>Stephan Bökelmann, address as above.</p>
 <h2>EU dispute resolution</h2>
@@ -681,6 +691,8 @@ def content(lang):
 <p>登记法院：波鸿地方法院（Amtsgericht Bochum）<br>登记号：HRB 18817</p>
 <h2>增值税识别号</h2>
 <p>依据德国《增值税法》第 27a 条：DE338747475</p>
+<h2>银行账户</h2>
+<p>银行：{BANK_NAME}<br>IBAN：{IBAN}<br>PayPal：<a href="mailto:{PAYPAL}">{PAYPAL}</a></p>
 <h2>内容责任人（§ 18 (2) MStV）</h2>
 <p>Stephan Bökelmann，地址同上。</p>
 <h2>欧盟争议解决</h2>
@@ -1013,6 +1025,7 @@ def page_kontakt(lang,C):
 <div class="card"><h3>{P["tel_h"]}</h3><p class="big"><a href="{TEL_HREF}">{TEL}</a></p><p><strong>{P["mobile_h"]}:</strong> <a href="{MOBILE_HREF}">{MOBILE}</a></p><p><strong>{P["hours_h"]}:</strong> {P["hours"].replace("<br>", ", ")}</p></div>
 <div class="card"><h3>{P["addr_h"]}</h3><p>{P["addr"]}</p></div>
 <div class="card"><h3>{P["map_h"]}</h3><p>{esc(P["map_p"])}</p><p><a href="{P["map_link"]}" rel="noopener">OpenStreetMap →</a></p></div>
+<div class="card"><h3>{P["bank_h"]}</h3><p><strong>{P["bank_l"]}:</strong> {BANK_NAME}<br><strong>IBAN:</strong> {IBAN}<br><strong>{P["paypal_l"]}:</strong> <a href="mailto:{PAYPAL}">{PAYPAL}</a></p></div>
 </div></div></section>
 """
 
