@@ -478,7 +478,7 @@ def content(lang):
         ("6. 分布式测量与数据采集",["用测量节点取代测量电脑：在数据源打时间戳","模拟前端、传感器、PoE 测量网络","从 Excel 孤岛到统一时基"]),
         ("7. 监测与可观测性",["从设备到仪表盘的遥测管线","状态监测、预测性维护","运维、告警、长期归档"]),
         ("8. 咨询",["可行性研究与第二意见","现有设备的架构评审","工具链救援：实现可复现而非脆弱的构建流程"]),
-        ("9. 培训",["IHK 官方培训合作伙伴（已收录于 WIS）","面向工程师的数字测量技术与数据采集","嵌入式 Linux、FPGA 与 KiCad 实践","企业内训或在线"]),
+        ("9. 培训",["IHK 官方培训合作伙伴（已收录于 WIS）","面向工程师的数字测量技术与数据采集","嵌入式 Linux、FPGA 与 KiCad 实践","企业内训或线上培训"]),
       ]}[L],
       ihk={"de":'nabla B ist offizieller Schulungspartner der IHK und im <a href="https://wis.ihk.de/anbieter-wis/3512/nabla-b-ingenieurburo-dienstleistungs-ug" rel="noopener">Weiterbildungs-Informationssystem (WIS) der IHK-Organisation</a> als Anbieter gelistet. Stephan Bökelmann ist zudem Mitglied des Prüfungsausschusses für Fachinformatiker der IHK Mittleres Ruhrgebiet – unsere Schulungen orientieren sich an dem, was die IHK tatsächlich prüft.',
            "en":'nabla B is an official IHK training partner, listed as a provider in <a href="https://wis.ihk.de/anbieter-wis/3512/nabla-b-ingenieurburo-dienstleistungs-ug" rel="noopener">WIS, the continuing-education directory of the German Chambers of Commerce and Industry (IHK)</a>. Stephan Bökelmann also serves on the IHK Mittleres Ruhrgebiet examination board for IT specialists (Fachinformatiker), so our training follows what the IHK actually examines.',
