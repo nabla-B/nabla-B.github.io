@@ -73,7 +73,7 @@ REFS = [
  dict(key="powersense", years="2020 – 2025", client="skAInet / DB Netz AG",
   de=("PowerSense – Monitoring kritischer Infrastruktur", "Stromsensorik und Analyse für Weichendiagnose und Zustandsüberwachung, u. a. im DIANA-System der Deutschen Bahn."),
   en=("PowerSense — critical infrastructure monitoring", "Current sensing and analytics for railway-switch diagnostics and condition monitoring, e.g. in Deutsche Bahn's DIANA system."),
-  zh=("PowerSense 关键基础设施监测", "用于道岔诊断与状态监测的电流传感与分析，应用于德国铁路 DIANA 系统等。"),
+  zh=("PowerSense 关键基础设施监测", "用于铁路道岔诊断与状态监测的电流传感与分析，应用于德国铁路 DIANA 系统等。"),
   links=[("10 Jahre PowerSense","https://maxclerkwell.tech/posts/skainet-powersense-jan-2026/")]),
  dict(key="vision", years="2026", client="NDA",
   de=("Embedded-Vision-System mit KI-Beschleunigung", "PCB-Design für ein eingebettetes Bildverarbeitungssystem mit KI-Beschleuniger. Kunde unter NDA."),
