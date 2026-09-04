@@ -78,7 +78,7 @@ REFS = [
  dict(key="vision", years="2026", client="NDA",
   de=("Embedded-Vision-System mit KI-Beschleunigung", "PCB-Design für ein eingebettetes Bildverarbeitungssystem mit KI-Beschleuniger. Kunde unter NDA."),
   en=("Embedded vision system with AI acceleration", "PCB design for an embedded vision system with an AI accelerator. Customer under NDA."),
-  zh=("带 AI 加速的嵌入式视觉系统", "为带 AI 加速器的嵌入式视觉系统进行 PCB 设计。客户受保密协议约束。"),
+  zh=("带 AI 加速的嵌入式视觉系统", "为带 AI 加速器的嵌入式视觉系统进行 PCB 设计。客户信息受保密协议保护。"),
   links=[]),
  dict(key="enclosure", years="2022", client="Patent angemeldet",
   de=("Gehäuselose Gehäuse", "Gehäuselose Bauform für Leiterplatten-Kavitäten – Mechanik, EMV und Fertigung in einem Konzept."),
