@@ -15,6 +15,7 @@ PERSON_VANESSA = BASE + "/team/#vanessa-wilcken"
 PERSON_ATIYEH = BASE + "/team/#atiyeh-chatrsefid"
 MAIL_ATIYEH = "atiyeh.chatrsefid@nabla-b.engineering"
 AUTOINTERN_ID = "https://www.auto-intern.de/#organization"
+NERDFORCE_ID = "https://www.nerd-force1.de/#organization"
 AIGRUPPE_ID = "https://gruppe.ai/#brand"
 EDGE_PRODUCT_ID = "https://edge-compute.skainet.io/#product"
 TODAY = datetime.date.today().isoformat()
@@ -530,7 +531,7 @@ def content(lang):
                   "en":["B.Eng. Electrical and Information Technology, THGA Bochum","M.Eng. Information Technology / Computer Engineering, THGA Bochum","PhD (ongoing) Experimental Hadron Physics, Ruhr-Universität Bochum"],
                   "zh":["电气与信息技术工学学士，THGA 波鸿","信息技术/计算机工程工学硕士，THGA 波鸿","实验强子物理博士（在读），波鸿鲁尔大学"]}[L],
              links=[("maxclerkwell.tech","https://maxclerkwell.tech/"),("LinkedIn","https://www.linkedin.com/in/accelerator-stephan/"),("GitHub","https://github.com/maxclerkwell"),("ORCID","https://orcid.org/0000-0002-2119-0064")],
-             jobTitle=["Managing Director, nabla B","Chief Operating Officer, Auto-Intern GmbH","System Architect, skAInet Edge-Compute"], alt=["MaxClerkwell","Stephan Boekelmann","施泓杰"],
+             jobTitle=["Managing Director, nabla B","System Architect, skAInet Edge-Compute"], alt=["MaxClerkwell","Stephan Boekelmann","施泓杰"],
              sameAs=["https://www.linkedin.com/in/accelerator-stephan/","https://github.com/maxclerkwell","https://orcid.org/0000-0002-2119-0064",
                      "https://x.com/maxclerkwell","https://instagram.com/_maxclerkwell","https://www.researchgate.net/profile/Stephan-Boekelmann",
                      "https://inspirehep.net/authors/2177110","https://www.thga.de/hochschule/personen/profile-wissenschaftliche-mitarbeitende/stephan-boekelmann",
@@ -810,6 +811,7 @@ def org_node():
       "vatID": "DE338747475",
       "taxID": "DE338747475",
       "brand": {"@id": AIGRUPPE_ID},
+      "customer": [{"@id":AUTOINTERN_ID},{"@id":NERDFORCE_ID}],
       "memberOf": [{"@type":"Organization","name":"IHK Mittleres Ruhrgebiet","url":"https://www.bochum.ihk.de/"}],
       "knowsAbout": ["embedded systems","PCB design","KiCad","FPGA","Zynq","Yocto Linux","microcontroller firmware","EMC certification","data acquisition","decentralised measurement","condition monitoring","observability"],
       "sameAs": ["https://github.com/nabla-B","https://maxclerkwell.tech/imprint/","https://maxclerkwell.tech/about/","https://gruppe.ai/","https://wis.ihk.de/anbieter-wis/3512/nabla-b-ingenieurburo-dienstleistungs-ug"],
@@ -840,9 +842,9 @@ def person_nodes(lang):
         if p["id"]=="stephan-boekelmann":
             n.update({"url":"https://maxclerkwell.tech/","mainEntityOfPage":"https://maxclerkwell.tech/about/",
                       "identifier":{"@type":"PropertyValue","propertyID":"ORCID","value":"0000-0002-2119-0064"},
-                      "disambiguatingDescription":"Engineer and physicist in Bochum, Germany (Auto-Intern GmbH / skAInet, nabla B, Ruhr-Universität Bochum), known online as MaxClerkwell. Not the actor Stefan Bockelmann, and not related to the UK agency ClerksWell.",
-                      "worksFor":[{"@id":ORG_ID},{"@id":AUTOINTERN_ID}],
-                      "affiliation":[{"@id":AUTOINTERN_ID},{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","url":"https://www.ruhr-uni-bochum.de/","sameAs":"https://ror.org/04tsk2644"}],
+                      "disambiguatingDescription":"Engineer and physicist in Bochum, Germany; managing director of nabla B, PhD candidate at Ruhr-Universität Bochum, known online as MaxClerkwell. Auto-Intern GmbH / skAInet Edge-Compute and nerd-force1 are clients of nabla B, not employers. Not the actor Stefan Bockelmann, and not related to the UK agency ClerksWell.",
+                      "worksFor":{"@id":ORG_ID},
+                      "affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","url":"https://www.ruhr-uni-bochum.de/","sameAs":"https://ror.org/04tsk2644"}],
                       "subjectOf":[{"@type":"WebPage","url":"https://maxclerkwell.tech/talks/","name":"Talks & Conference Appearances"},
                                    {"@type":"WebPage","url":"https://maxclerkwell.tech/publications/","name":"Publications, Patents & Software"},
                                    {"@type":"WebPage","url":"https://edge-compute.skainet.io/team","name":"skAInet Edge-Compute team"}],
@@ -871,6 +873,7 @@ def jsonld(lang, page, C):
     graph.append({"@type":"Organization","@id":AUTOINTERN_ID,"name":"Auto-Intern GmbH","url":"https://www.auto-intern.de","email":"mailto:info@auto-intern.de",
                   "brand":[{"@id":"https://www.skainet.io/#brand"},{"@id":AIGRUPPE_ID}],
                   "sameAs":["https://www.skainet.io","https://edge-compute.skainet.io/","https://github.com/auto-intern-skainet"]})
+    graph.append({"@type":"Organization","@id":NERDFORCE_ID,"name":"nerd-force1","url":"https://nerd-force1.com/","brand":{"@id":AIGRUPPE_ID},"sameAs":["https://www.nerd-force1.de/"]})
     if page in ("index","team") or page.startswith("post:"): graph += person_nodes(lang)
     blog_id=url(lang,"blog")+"#blog"
     if page=="blog":
@@ -1085,7 +1088,7 @@ def llms_txt():
     posts="\n".join(f"- [{p['en']['t']}]({post_url('en',p)}) ({p['pub']}; DE {post_url('de',p)}, ZH {post_url('zh',p)}): {p['en']['teaser']} Based on the original article {p['orig']} ({p['orig_date']}). Keywords: {', '.join(p['tags'])}." for p in POSTS)
     return f"""# nabla B
 
-> nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt) is an engineering office in Bochum, Germany, founded 2020-07-20 by Stephan Bökelmann. It designs and develops embedded devices — from architecture via PCB design and certification to software bring-up for MCU, FPGA and Zynq, all the way to firmware — and builds decentralised measurement and data-acquisition (DAQ) systems for mid-sized industry. It also offers consulting and training in digital measurement technology. nabla B is part of the AI-Gruppe umbrella brand (https://gruppe.ai/) together with Auto-Intern GmbH / skAInet.
+> nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt) is an engineering office in Bochum, Germany, founded 2020-07-20 by Stephan Bökelmann. It designs and develops embedded devices — from architecture via PCB design and certification to software bring-up for MCU, FPGA and Zynq, all the way to firmware — and builds decentralised measurement and data-acquisition (DAQ) systems for mid-sized industry. It also offers consulting and training in digital measurement technology. nabla B is part of the AI-Gruppe umbrella brand (https://gruppe.ai/) together with Auto-Intern GmbH / skAInet and nerd-force1. Auto-Intern GmbH (https://www.auto-intern.de/), skAInet Edge-Compute (https://edge-compute.skainet.io/) and nerd-force1 (https://nerd-force1.com/) are clients of nabla B; Stephan Bökelmann is employed solely by nabla B.
 
 Canonical entity IDs (JSON-LD): organisation `{ORG_ID}`; founder/managing director `{PERSON_STEPHAN}` (Stephan Bökelmann, ORCID 0000-0002-2119-0064, personal site https://maxclerkwell.tech/). The same organisation is described on https://maxclerkwell.tech/imprint/ and https://maxclerkwell.tech/about/; the skAInet Edge-Compute product nabla B architected is `{EDGE_PRODUCT_ID}` (https://edge-compute.skainet.io/, manufacturer Auto-Intern GmbH).
 
