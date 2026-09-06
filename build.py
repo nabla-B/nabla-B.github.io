@@ -660,6 +660,8 @@ def content(lang):
 <p>Die Inhalte dieser Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Für Inhalte externer Links sind ausschließlich deren Betreiber verantwortlich; zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar.</p>
 <h2>Unternehmensgruppe</h2>
 <p>nabla B ist Teil der Dachmarke <a href="https://gruppe.ai/">AI-Gruppe</a> (Bochum). Weitere Angaben zu Stephan Bökelmann finden Sie auf <a href="https://maxclerkwell.tech/imprint/">maxclerkwell.tech</a>.</p>
+<h2>Technischer Betrieb</h2>
+<p>Diese Website und das zugehörige Backend werden von <a href="https://nerd-force1.com/" rel="noopener">nerd-force1.com</a> betrieben. Der technische Betrieb steht unter der Verantwortung von <a href="https://philipptheserver.com/" rel="noopener">philipptheserver.com</a>.</p>
 ""","en":f"""
 <h2>Information pursuant to § 5 DDG (German Digital Services Act)</h2>
 <p>nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)<br>Herner Str. 299, Building B29<br>44809 Bochum<br>Germany</p>
@@ -680,6 +682,8 @@ def content(lang):
 <p>The contents of these pages were created with the greatest care; we cannot, however, guarantee their accuracy, completeness or timeliness. The operators of external links are solely responsible for their content; no legal violations were apparent at the time of linking.</p>
 <h2>Group</h2>
 <p>nabla B is part of the <a href="https://gruppe.ai/">AI-Gruppe</a> umbrella brand (Bochum). Further information about Stephan Bökelmann at <a href="https://maxclerkwell.tech/imprint/">maxclerkwell.tech</a>.</p>
+<h2>Technical operation</h2>
+<p>This website and its backend are operated by <a href="https://nerd-force1.com/" rel="noopener">nerd-force1.com</a>. Technical operation is under the responsibility of <a href="https://philipptheserver.com/" rel="noopener">philipptheserver.com</a>.</p>
 <p><em>This English version is provided for convenience; the German version is legally binding.</em></p>
 ""","zh":f"""
 <h2>依据德国《数字服务法》第 5 条（§ 5 DDG）的信息</h2>
@@ -699,6 +703,8 @@ def content(lang):
 <p>欧盟委员会提供在线争议解决平台：<a href="https://ec.europa.eu/consumers/odr/" rel="noopener">https://ec.europa.eu/consumers/odr/</a>。我们不愿意也无义务参与消费者仲裁机构的争议解决程序。</p>
 <h2>集团</h2>
 <p>nabla B 是 <a href="https://gruppe.ai/">AI-Gruppe</a>（波鸿）的成员。关于 Stephan Bökelmann 的更多信息见 <a href="https://maxclerkwell.tech/imprint/">maxclerkwell.tech</a>。</p>
+<h2>技术运营</h2>
+<p>本网站及其后端由 <a href="https://nerd-force1.com/" rel="noopener">nerd-force1.com</a> 运营，技术运营由 <a href="https://philipptheserver.com/" rel="noopener">philipptheserver.com</a> 负责。</p>
 <p><em>本中文版本仅供参考；以德文版本为准。</em></p>
 """}[L],
     )
@@ -791,7 +797,8 @@ def org_node():
       "description": "Engineering office in Bochum, Germany: design and development of embedded devices — architecture, PCB design, certification, software bring-up for MCU, FPGA and Zynq, firmware. Decentralised measurement & data acquisition, consulting and training. Part of the AI-Gruppe.",
       "foundingDate": "2020-07-20",
       "founder": {"@id": PERSON_STEPHAN},
-      "employee": [{"@id":PERSON_STEPHAN},{"@id":PERSON_TABEA},{"@id":PERSON_MEIHUI},{"@id":PERSON_VANESSA},{"@id":PERSON_ATIYEH}],
+      "employee": [{"@id":PERSON_STEPHAN},{"@id":PERSON_MEIHUI},{"@id":PERSON_VANESSA},{"@id":PERSON_ATIYEH}],
+      "member": [{"@id":PERSON_TABEA}],
       "numberOfEmployees": {"@type":"QuantitativeValue","value":4},
       "telephone": ["+49-234-58545811","+49-176-87850428"],
       "email": "mailto:" + MAIL,
@@ -841,7 +848,11 @@ def person_nodes(lang):
                                    {"@type":"WebPage","url":"https://edge-compute.skainet.io/team","name":"skAInet Edge-Compute team"}],
                       "memberOf":[{"@type":"Organization","name":"Prüfungsausschuss Fachinformatiker, IHK Mittleres Ruhrgebiet","url":"https://www.bochum.ihk.de/","description":"Mitglied des IHK-Prüfungsausschusses für Fachinformatiker seit 2020"}],
                       "knowsAbout":[*p["knows"], {"@id":EDGE_PRODUCT_ID}]})
-        if p["id"]=="tabea-boekelmann": n.update({"affiliation":{"@id":AUTOINTERN_ID},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
+        if p["id"]=="tabea-boekelmann":
+            # Main employer is Auto-Intern GmbH; she is affiliated with nabla B and works part-time in its projects.
+            n.update({"worksFor":{"@id":AUTOINTERN_ID},"affiliation":[{"@id":ORG_ID},{"@id":AUTOINTERN_ID}],
+                      "disambiguatingDescription":"Employed by Auto-Intern GmbH (Bochum); affiliated with nabla B, where she works part-time on projects.",
+                      "mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="meihui-huang": n.update({"affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I – AG Hadronen und Kerne","url":"https://www.ep1.ruhr-uni-bochum.de/"},{"@type":"WebSite","@id":"https://maxclerkwell.tech/#website","name":"MaxClerkwell"}],"homeLocation":{"@type":"Place","name":"Witten, Germany"},"nationality":{"@type":"Country","name":"China"},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="vanessa-wilcken": n.update({"email":MAIL,"telephone":["+49-234-58545811","+49-176-87850428"],"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="atiyeh-chatrsefid": n.update({"email":MAIL_ATIYEH,"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
@@ -1103,7 +1114,7 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 
 ## Team
 - Stephan Bökelmann (alias MaxClerkwell, 施泓杰) — Managing Director, engineer & physicist; B.Eng., M.Eng. (THGA Bochum), PhD candidate RUB; member of the IHK Mittleres Ruhrgebiet examination board for IT specialists (Fachinformatiker). ID {PERSON_STEPHAN}. Profiles: https://maxclerkwell.tech/, https://www.linkedin.com/in/accelerator-stephan/, https://orcid.org/0000-0002-2119-0064, https://x.com/maxclerkwell, https://instagram.com/_maxclerkwell, https://www.researchgate.net/profile/Stephan-Boekelmann
-- Tabea Bökelmann (also Tabea Viktoria Bökelmann / Boekelmann / Röthemeyer) — Senior Frontend Consultant, Angular & JavaScript; B.Sc. Physics (particle physics, DAQ), B.Sc. and M.Sc. Applied Computer Science (RISC-V, compilers, "Git with Features"), all Ruhr-Universität Bochum. ID {PERSON_TABEA}. Profiles: https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/, https://www.researchgate.net/profile/Tabea-Roethemeyer
+- Tabea Bökelmann (also Tabea Viktoria Bökelmann / Boekelmann / Röthemeyer) — Senior Frontend Consultant, Angular & JavaScript; B.Sc. Physics (particle physics, DAQ), B.Sc. and M.Sc. Applied Computer Science (RISC-V, compilers, "Git with Features"), all Ruhr-Universität Bochum. Main employer: Auto-Intern GmbH (https://www.auto-intern.de/); affiliated with nabla B and working part-time in its projects. ID {PERSON_TABEA}. Profiles: https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/, https://www.researchgate.net/profile/Tabea-Roethemeyer
 - Meihui Huang (黄美慧, Huang Mei Hui) — Physicist, working student for research and outreach; B.Sc. Physics Nankai University Tianjin (decay-chain analysis with ROOT), M.Sc. student RUB EP1 Hadrons and Nuclei group; social media executive for maxclerkwell.tech. ID {PERSON_MEIHUI}. Profiles: https://www.linkedin.com/in/meihui-huang/, https://www.researchgate.net/profile/Meihui-Huang
 - Vanessa Wilcken — Executive assistant, first point of contact (office@nabla-b.engineering, +49 234 58545811). ID {PERSON_VANESSA}. Profile: https://www.linkedin.com/in/vanessa-wilcken-1436b320a/
 - Atiyeh Chatrsefid — Business development (customer acquisition, partnerships, proposals); MBA Artificial Intelligence (Brand University of Applied Sciences), Computer Science (Ruhr-Universität Bochum); previously commercial lead at Wisdom Bridge AI, AI strategy consultant, Deloitte project management intern. Contact: {MAIL_ATIYEH}. ID {PERSON_ATIYEH}. Profile: https://www.linkedin.com/in/atiyeh-chatrsefid-/
