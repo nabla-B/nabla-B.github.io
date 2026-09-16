@@ -38,4 +38,4 @@ Do not edit those by hand.
 | `/datenschutz/` | `/en/privacy/` | `/zh/privacy/` |
 
 Entity IDs used in JSON-LD (keep stable, they are referenced from maxclerkwell.tech and edge-compute.skainet.io):
-`https://nabla-b.engineering/#organization`, `https://maxclerkwell.tech/#person`, `https://edge-compute.skainet.io/team#tabea-boekelmann`.
+`https://nabla-b.engineering/#organization`, `https://maxclerkwell.tech/#person`, `https://edge-compute.skainet.io/team#tabea-boekelmann`, `https://kathamatician.github.io/#person` (Meihui Huang, defined on kathamatician.com).

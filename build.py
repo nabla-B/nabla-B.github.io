@@ -10,7 +10,7 @@ BASE = "https://nabla-b.engineering"
 ORG_ID = BASE + "/#organization"
 PERSON_STEPHAN = "https://maxclerkwell.tech/#person"
 PERSON_TABEA = "https://edge-compute.skainet.io/team#tabea-boekelmann"
-PERSON_MEIHUI = BASE + "/team/#meihui-huang"
+PERSON_MEIHUI = "https://kathamatician.com/#person"  # canonical id, defined on kathamatician.com
 PERSON_VANESSA = BASE + "/team/#vanessa-wilcken"
 PERSON_ATIYEH = BASE + "/team/#atiyeh-chatrsefid"
 MAIL_ATIYEH = "atiyeh.chatrsefid@nabla-b.engineering"
@@ -569,9 +569,9 @@ def content(lang):
              edu={"de":["B.Sc. Physik – Teilchenphysik, Zerfallsketten-Analyse mit ROOT, Nankai-Universität Tianjin","M.Sc. Physik (laufend) – Experimentalphysik I, AG Hadronen und Kerne, Ruhr-Universität Bochum"],
                   "en":["B.Sc. Physics – particle physics, decay-chain analysis with ROOT, Nankai University, Tianjin","M.Sc. Physics (ongoing) – Experimental Physics I, Hadrons and Nuclei group, Ruhr-Universität Bochum"],
                   "zh":["物理学学士 – 粒子物理、ROOT 衰变链分析，南开大学（天津）","物理学硕士（在读）– 实验物理 I，强子与原子核研究组，波鸿鲁尔大学"]}[L],
-             links=[("LinkedIn","https://www.linkedin.com/in/meihui-huang/"),("ResearchGate","https://www.researchgate.net/profile/Meihui-Huang")],
-             jobTitle=["Physicist","Working Student – Research and Outreach"], alt=["Huang Meihui","Huang Mei Hui","黄美慧"],
-             sameAs=["https://www.linkedin.com/in/meihui-huang/","https://www.researchgate.net/profile/Meihui-Huang"],
+             links=[("kathamatician.com","https://kathamatician.com/"),("LinkedIn","https://www.linkedin.com/in/meihui-huang/"),("ResearchGate","https://www.researchgate.net/profile/Meihui-Huang"),("GitHub","https://github.com/kathamatician"),("ORCID","https://orcid.org/0009-0003-3477-9024")],
+             jobTitle=["Physicist","Working Student – Research and Outreach"], alt=["Huang Meihui","Huang Mei Hui","黄美慧","kathamatician"],
+             sameAs=["https://kathamatician.com/","https://kathamatician.github.io/","https://github.com/kathamatician","https://orcid.org/0009-0003-3477-9024","https://www.linkedin.com/in/meihui-huang/","https://www.researchgate.net/profile/Meihui-Huang"],
              knows=["particle physics","ROOT","decay chain analysis","detector testing","social media management"],
              creds=[("bachelor degree","B.Sc. Physics")],
              alumni=[("Nankai University","https://www.nankai.edu.cn/"),("Ruhr-Universität Bochum","https://www.ruhr-uni-bochum.de/")]),
@@ -849,13 +849,13 @@ def person_nodes(lang):
                                    {"@type":"WebPage","url":"https://maxclerkwell.tech/publications/","name":"Publications, Patents & Software"},
                                    {"@type":"WebPage","url":"https://edge-compute.skainet.io/team","name":"skAInet Edge-Compute team"}],
                       "memberOf":[{"@type":"Organization","name":"Prüfungsausschuss Fachinformatiker, IHK Mittleres Ruhrgebiet","url":"https://www.bochum.ihk.de/","description":"Mitglied des IHK-Prüfungsausschusses für Fachinformatiker seit 2020"}],
-                      "knowsAbout":[*p["knows"], {"@id":EDGE_PRODUCT_ID}]})
+                      "knowsAbout":[*p["knows"], {"@id":EDGE_PRODUCT_ID}],"colleague":{"@id":PERSON_MEIHUI}})
         if p["id"]=="tabea-boekelmann":
             # Main employer is Auto-Intern GmbH; she is affiliated with nabla B and works part-time in its projects.
             n.update({"worksFor":{"@id":AUTOINTERN_ID},"affiliation":[{"@id":ORG_ID},{"@id":AUTOINTERN_ID}],
                       "disambiguatingDescription":"Employed by Auto-Intern GmbH (Bochum); affiliated with nabla B, where she works part-time on projects.",
                       "mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
-        if p["id"]=="meihui-huang": n.update({"affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I – AG Hadronen und Kerne","url":"https://www.ep1.ruhr-uni-bochum.de/"},{"@type":"WebSite","@id":"https://maxclerkwell.tech/#website","name":"MaxClerkwell"}],"homeLocation":{"@type":"Place","name":"Witten, Germany"},"nationality":{"@type":"Country","name":"China"},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
+        if p["id"]=="meihui-huang": n.update({"url":"https://kathamatician.com/","identifier":{"@type":"PropertyValue","propertyID":"ORCID","value":"0009-0003-3477-9024"},"colleague":{"@id":PERSON_STEPHAN},"disambiguatingDescription":"Physicist from Tianjin, based in Witten, Germany; working student at nabla B and social media executive for maxclerkwell.tech. Not the same person as Stephan Bökelmann / MaxClerkwell.","affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I – AG Hadronen und Kerne","url":"https://www.ep1.ruhr-uni-bochum.de/"},{"@type":"WebSite","@id":"https://maxclerkwell.tech/#website","name":"MaxClerkwell"}],"homeLocation":{"@type":"Place","name":"Witten, Germany"},"nationality":{"@type":"Country","name":"China"},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="vanessa-wilcken": n.update({"email":MAIL,"telephone":["+49-234-58545811","+49-176-87850428"],"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="atiyeh-chatrsefid": n.update({"email":MAIL_ATIYEH,"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         out.append(n)
@@ -1118,7 +1118,7 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 ## Team
 - Stephan Bökelmann (alias MaxClerkwell, 施泓杰) — Managing Director, engineer & physicist; B.Eng., M.Eng. (THGA Bochum), PhD candidate RUB; member of the IHK Mittleres Ruhrgebiet examination board for IT specialists (Fachinformatiker). ID {PERSON_STEPHAN}. Profiles: https://maxclerkwell.tech/, https://www.linkedin.com/in/accelerator-stephan/, https://orcid.org/0000-0002-2119-0064, https://x.com/maxclerkwell, https://instagram.com/_maxclerkwell, https://www.researchgate.net/profile/Stephan-Boekelmann
 - Tabea Bökelmann (also Tabea Viktoria Bökelmann / Boekelmann / Röthemeyer) — Senior Frontend Consultant, Angular & JavaScript; B.Sc. Physics (particle physics, DAQ), B.Sc. and M.Sc. Applied Computer Science (RISC-V, compilers, "Git with Features"), all Ruhr-Universität Bochum. Main employer: Auto-Intern GmbH (https://www.auto-intern.de/); affiliated with nabla B and working part-time in its projects. ID {PERSON_TABEA}. Profiles: https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/, https://www.researchgate.net/profile/Tabea-Roethemeyer
-- Meihui Huang (黄美慧, Huang Mei Hui) — Physicist, working student for research and outreach; B.Sc. Physics Nankai University Tianjin (decay-chain analysis with ROOT), M.Sc. student RUB EP1 Hadrons and Nuclei group; social media executive for maxclerkwell.tech. ID {PERSON_MEIHUI}. Profiles: https://www.linkedin.com/in/meihui-huang/, https://www.researchgate.net/profile/Meihui-Huang
+- Meihui Huang (黄美慧, Huang Mei Hui) — Physicist, working student for research and outreach; B.Sc. Physics Nankai University Tianjin (decay-chain analysis with ROOT), M.Sc. student RUB EP1 Hadrons and Nuclei group; social media executive for maxclerkwell.tech. ID {PERSON_MEIHUI}. Profiles: https://kathamatician.com/, https://github.com/kathamatician, https://orcid.org/0009-0003-3477-9024, https://www.linkedin.com/in/meihui-huang/, https://www.researchgate.net/profile/Meihui-Huang
 - Vanessa Wilcken — Executive assistant, first point of contact (office@nabla-b.engineering, +49 234 58545811). ID {PERSON_VANESSA}. Profile: https://www.linkedin.com/in/vanessa-wilcken-1436b320a/
 - Atiyeh Chatrsefid — Business development (customer acquisition, partnerships, proposals); MBA Artificial Intelligence (Brand University of Applied Sciences), Computer Science (Ruhr-Universität Bochum); previously commercial lead at Wisdom Bridge AI, AI strategy consultant, Deloitte project management intern. Contact: {MAIL_ATIYEH}. ID {PERSON_ATIYEH}. Profile: https://www.linkedin.com/in/atiyeh-chatrsefid-/
 
