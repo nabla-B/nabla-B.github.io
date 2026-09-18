@@ -9,7 +9,7 @@ import json, os, html, datetime
 BASE = "https://nabla-b.engineering"
 ORG_ID = BASE + "/#organization"
 PERSON_STEPHAN = "https://maxclerkwell.tech/#person"
-PERSON_TABEA = "https://edge-compute.skainet.io/team#tabea-boekelmann"
+PERSON_TABEA = "https://tabeatheunicorn.space/#person"  # canonical id, defined on tabeatheunicorn.space
 PERSON_MEIHUI = "https://kathamatician.com/#person"  # canonical id, defined on kathamatician.com
 PERSON_VANESSA = BASE + "/team/#vanessa-wilcken"
 PERSON_ATIYEH = BASE + "/team/#atiyeh-chatrsefid"
@@ -551,9 +551,9 @@ def content(lang):
              edu={"de":["B.Sc. Physik – Teilchenphysik, Hadronenphysik, DAQ, Ruhr-Universität Bochum","B.Sc. Angewandte Informatik – eingebettete Systeme, RISC-V, Compiler, Ruhr-Universität Bochum","M.Sc. Angewandte Informatik – „Git with Features“, Software-Engineering, Ruhr-Universität Bochum"],
                   "en":["B.Sc. Physics – particle physics, hadron physics, DAQ, Ruhr-Universität Bochum","B.Sc. Applied Computer Science – embedded systems, RISC-V, compilers, Ruhr-Universität Bochum","M.Sc. Applied Computer Science – “Git with Features”, software engineering, Ruhr-Universität Bochum"],
                   "zh":["物理学学士 – 粒子物理、强子物理、数据采集，波鸿鲁尔大学","应用计算机科学学士 – 嵌入式系统、RISC-V、编译器，波鸿鲁尔大学","应用计算机科学硕士 – 《Git with Features》、软件工程，波鸿鲁尔大学"]}[L],
-             links=[("LinkedIn","https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/"),("ResearchGate","https://www.researchgate.net/profile/Tabea-Roethemeyer"),("YouTube","https://www.youtube.com/watch?v=DgHCycO6ohs")],
+             links=[("tabeatheunicorn.space","https://tabeatheunicorn.space/"),("LinkedIn","https://www.linkedin.com/in/tabea-r%C3%B6themeyer-0b9794198"),("GitHub","https://github.com/tabeatheunicorn"),("ORCID","https://orcid.org/0009-0003-3853-3814"),("ResearchGate","https://www.researchgate.net/profile/Tabea-Roethemeyer"),("YouTube","https://www.youtube.com/watch?v=DgHCycO6ohs")],
              jobTitle="Senior Frontend Consultant", alt=["Tabea Viktoria Bökelmann","Tabea Boekelmann","Tabea Böckelmann","Tabea Boeckelmann","Tabea Bockelmann","Tabea Röthemeyer"],
-             sameAs=["https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/","https://www.researchgate.net/profile/Tabea-Roethemeyer","https://www.youtube.com/watch?v=DgHCycO6ohs","https://edge-compute.skainet.io/team"],
+             sameAs=["https://tabeatheunicorn.space/","https://github.com/tabeatheunicorn","https://orcid.org/0009-0003-3853-3814","https://www.linkedin.com/in/tabea-r%C3%B6themeyer-0b9794198","https://www.researchgate.net/profile/Tabea-Roethemeyer"],
              knows=["Angular","JavaScript","TypeScript","frontend architecture","software engineering","Git","embedded systems","RISC-V","compiler construction","particle physics","data acquisition"],
              creds=[("bachelor degree","B.Sc. Physics"),("bachelor degree","B.Sc. Applied Computer Science"),("master degree","M.Sc. Applied Computer Science")],
              alumni=[("Ruhr-Universität Bochum","https://www.ruhr-uni-bochum.de/")]),
@@ -830,6 +830,7 @@ def person_nodes(lang):
     for p in T:
         n={"@type":"Person","@id":p["pid"],"name":p["name"],"givenName":p["name"].split()[0],"familyName":p["name"].split()[-1],
            "jobTitle":p["jobTitle"],"worksFor":{"@id":ORG_ID},"url": url(lang,"team")+"#"+p["id"],"description":p["bio"]}
+        team_page={"@type":"WebPage","url":url(lang,"team")+"#"+p["id"],"name":"nabla B team"}
         if p["img"]: n["image"]=BASE+p["img"]
         if p["sameAs"]: n["sameAs"]=p["sameAs"]
         if p["alt"]: n["alternateName"]=p["alt"]
@@ -847,15 +848,17 @@ def person_nodes(lang):
                       "affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","url":"https://www.ruhr-uni-bochum.de/","sameAs":"https://ror.org/04tsk2644"}],
                       "subjectOf":[{"@type":"WebPage","url":"https://maxclerkwell.tech/talks/","name":"Talks & Conference Appearances"},
                                    {"@type":"WebPage","url":"https://maxclerkwell.tech/publications/","name":"Publications, Patents & Software"},
-                                   {"@type":"WebPage","url":"https://edge-compute.skainet.io/team","name":"skAInet Edge-Compute team"}],
+                                   {"@type":"WebPage","url":"https://edge-compute.skainet.io/team","name":"skAInet Edge-Compute team"},team_page],
                       "memberOf":[{"@type":"Organization","name":"Prüfungsausschuss Fachinformatiker, IHK Mittleres Ruhrgebiet","url":"https://www.bochum.ihk.de/","description":"Mitglied des IHK-Prüfungsausschusses für Fachinformatiker seit 2020"}],
                       "knowsAbout":[*p["knows"], {"@id":EDGE_PRODUCT_ID}],"colleague":{"@id":PERSON_MEIHUI}})
         if p["id"]=="tabea-boekelmann":
             # Main employer is Auto-Intern GmbH; she is affiliated with nabla B and works part-time in its projects.
             n.update({"worksFor":{"@id":AUTOINTERN_ID},"affiliation":[{"@id":ORG_ID},{"@id":AUTOINTERN_ID}],
                       "disambiguatingDescription":"Employed by Auto-Intern GmbH (Bochum); affiliated with nabla B, where she works part-time on projects.",
-                      "mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
-        if p["id"]=="meihui-huang": n.update({"url":"https://kathamatician.com/","identifier":{"@type":"PropertyValue","propertyID":"ORCID","value":"0009-0003-3477-9024"},"colleague":{"@id":PERSON_STEPHAN},"disambiguatingDescription":"Physicist from Tianjin, based in Witten, Germany; working student at nabla B and social media executive for maxclerkwell.tech. Not the same person as Stephan Bökelmann / MaxClerkwell.","affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I – AG Hadronen und Kerne","url":"https://www.ep1.ruhr-uni-bochum.de/"},{"@type":"WebSite","@id":"https://maxclerkwell.tech/#website","name":"MaxClerkwell"}],"homeLocation":{"@type":"Place","name":"Witten, Germany"},"nationality":{"@type":"Country","name":"China"},"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
+                      "url":"https://tabeatheunicorn.space/","mainEntityOfPage":"https://tabeatheunicorn.space/",
+                      "identifier":{"@type":"PropertyValue","propertyID":"ORCID","value":"0009-0003-3853-3814"},
+                      "subjectOf":[team_page,{"@type":"WebPage","url":"https://edge-compute.skainet.io/team","name":"skAInet Edge-Compute team"}]})
+        if p["id"]=="meihui-huang": n.update({"url":"https://kathamatician.com/","mainEntityOfPage":"https://kathamatician.com/","subjectOf":[team_page],"identifier":{"@type":"PropertyValue","propertyID":"ORCID","value":"0009-0003-3477-9024"},"colleague":{"@id":PERSON_STEPHAN},"disambiguatingDescription":"Physicist from Tianjin, based in Witten, Germany; working student at nabla B and social media executive for maxclerkwell.tech. Not the same person as Stephan Bökelmann / MaxClerkwell.","affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I – AG Hadronen und Kerne","url":"https://www.ep1.ruhr-uni-bochum.de/"},{"@type":"WebSite","@id":"https://maxclerkwell.tech/#website","name":"MaxClerkwell"}],"homeLocation":{"@type":"Place","name":"Witten, Germany"},"nationality":{"@type":"Country","name":"China"}})
         if p["id"]=="vanessa-wilcken": n.update({"email":MAIL,"telephone":["+49-234-58545811","+49-176-87850428"],"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         if p["id"]=="atiyeh-chatrsefid": n.update({"email":MAIL_ATIYEH,"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
         out.append(n)
@@ -1117,7 +1120,7 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 
 ## Team
 - Stephan Bökelmann (alias MaxClerkwell, 施泓杰) — Managing Director, engineer & physicist; B.Eng., M.Eng. (THGA Bochum), PhD candidate RUB; member of the IHK Mittleres Ruhrgebiet examination board for IT specialists (Fachinformatiker). ID {PERSON_STEPHAN}. Profiles: https://maxclerkwell.tech/, https://www.linkedin.com/in/accelerator-stephan/, https://orcid.org/0000-0002-2119-0064, https://x.com/maxclerkwell, https://instagram.com/_maxclerkwell, https://www.researchgate.net/profile/Stephan-Boekelmann
-- Tabea Bökelmann (also Tabea Viktoria Bökelmann / Boekelmann / Röthemeyer) — Senior Frontend Consultant, Angular & JavaScript; B.Sc. Physics (particle physics, DAQ), B.Sc. and M.Sc. Applied Computer Science (RISC-V, compilers, "Git with Features"), all Ruhr-Universität Bochum. Main employer: Auto-Intern GmbH (https://www.auto-intern.de/); affiliated with nabla B and working part-time in its projects. ID {PERSON_TABEA}. Profiles: https://www.linkedin.com/in/tabea-b%C3%B6kelmann-0b9794198/, https://www.researchgate.net/profile/Tabea-Roethemeyer
+- Tabea Bökelmann (also Tabea Viktoria Bökelmann / Boekelmann / Röthemeyer) — Senior Frontend Consultant, Angular & JavaScript; B.Sc. Physics (particle physics, DAQ), B.Sc. and M.Sc. Applied Computer Science (RISC-V, compilers, "Git with Features"), all Ruhr-Universität Bochum. Main employer: Auto-Intern GmbH (https://www.auto-intern.de/); affiliated with nabla B and working part-time in its projects. ID {PERSON_TABEA} (canonical profile: https://tabeatheunicorn.space/). Profiles: https://www.linkedin.com/in/tabea-r%C3%B6themeyer-0b9794198, https://www.researchgate.net/profile/Tabea-Roethemeyer
 - Meihui Huang (黄美慧, Huang Mei Hui) — Physicist, working student for research and outreach; B.Sc. Physics Nankai University Tianjin (decay-chain analysis with ROOT), M.Sc. student RUB EP1 Hadrons and Nuclei group; social media executive for maxclerkwell.tech. ID {PERSON_MEIHUI}. Profiles: https://kathamatician.com/, https://github.com/kathamatician, https://orcid.org/0009-0003-3477-9024, https://www.linkedin.com/in/meihui-huang/, https://www.researchgate.net/profile/Meihui-Huang
 - Vanessa Wilcken — Executive assistant, first point of contact (office@nabla-b.engineering, +49 234 58545811). ID {PERSON_VANESSA}. Profile: https://www.linkedin.com/in/vanessa-wilcken-1436b320a/
 - Atiyeh Chatrsefid — Business development (customer acquisition, partnerships, proposals); MBA Artificial Intelligence (Brand University of Applied Sciences), Computer Science (Ruhr-Universität Bochum); previously commercial lead at Wisdom Bridge AI, AI strategy consultant, Deloitte project management intern. Contact: {MAIL_ATIYEH}. ID {PERSON_ATIYEH}. Profile: https://www.linkedin.com/in/atiyeh-chatrsefid-/
