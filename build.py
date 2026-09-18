@@ -100,7 +100,7 @@ REFS = [
   de=("Starkregen-Messnetz", "PoE-basiertes Mess- und Analysesystem zur Beobachtung und Vorhersage von Starkregenzellen. Patent angemeldet."),
   en=("Heavy-rain sensor network", "PoE-based measurement and analysis system for observing and predicting heavy-rain cells. Patent pending."),
   zh=("强降雨监测网络", "基于 PoE 的测量与分析系统，用于观测和预测强降雨单元。专利申请中。"),
-  links=[]),
+  links=[("Pressemitteilung 2020 (BMV)","https://www.bmv.de/SharedDocs/DE/Anlage/mFUND/25square-pressemitteilung.pdf?__blob=publicationFile"),("Archivkopie (PDF)",BASE+"/assets/25square-pressemitteilung-2020.pdf")]),
 ]
 
 # ---------------------------------------------------------------- ui strings
@@ -111,6 +111,7 @@ BLOG_URL = "https://maxclerkwell.tech/posts/"
 POSTS = [
  dict(slug="25square-regensensor", orig=BLOG_URL+"25square-capacitive-rain-sensing-september-2026/", orig_date="2026-09-02", pub="2026-09-03",
   tags=["DAQ","STM32","PoE","LoRa","MQTT","Sensorik"], service="leistungen",
+  sources=[("Pressemitteilung 2020 (BMV)","https://www.bmv.de/SharedDocs/DE/Anlage/mFUND/25square-pressemitteilung.pdf?__blob=publicationFile"),("Archivkopie (PDF)",BASE+"/assets/25square-pressemitteilung-2020.pdf")],
   de=dict(t="Starkregen messen, wo er fällt: der 25square-Sensor",
    teaser="Ein kapazitiver Regensensor pro Viertelquadratkilometer. Wir haben Hardware, Firmware und Datenpfad für das mFUND-Projekt 25square gebaut.",
    body=["Wettermodelle sind nur so gut wie ihre Bodenwahrheit. Für Starkregen-Nowcasting auf Straßenniveau gab es die 2020 nicht: Radar sieht Wolken von oben, ein oder zwei städtische Messstationen sehen eine Regenzelle über sechs Häuserblocks gar nicht. Das Forschungsprojekt 25square (mFUND, Bundesministerium für Verkehr) wollte das mit einem Sensor pro Viertelquadratkilometer ändern, für Bochum rund 580 Stück.",
@@ -1067,6 +1068,7 @@ def page_post(lang,C,p):
     B=p[lang]; T=C["blog"]
     body="".join(f"<p>{esc(x)}</p>" for x in B["body"])
     tags="".join(f'<span>{esc(t)}</span>' for t in p["tags"])
+    if p.get("sources"): body+="<p>"+" · ".join(f'<a href="{u}" rel="noopener">{esc(t)} →</a>' for t,u in p["sources"])+"</p>"
     svc=f'<p><a href="{path(lang,p["service"])}">{esc(T["service"][p["service"]])} →</a></p>' if p.get("service") else ""
     return f"""
 <section><div class="wrap article"><p class="crumbs"><a href="{path(lang,"blog")}">← {esc(T["all"])}</a></p><div class="sec-title"><h1>{esc(B["t"])}</h1></div>
