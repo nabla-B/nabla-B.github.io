@@ -506,12 +506,53 @@ def content(lang):
             "zh":"<strong>说明：</strong><a href=\"https://edge-compute.skainet.io/\">skAInet Edge-Compute</a> 是 Auto-Intern GmbH 的产品；nabla B 以系统架构师身份参与。更多业余与科研项目见 <a href=\"https://maxclerkwell.tech/\">maxclerkwell.tech</a>。"}[L],
     )
     # ---- digital business card (Stephan)
+    VC_BOXES = [
+      dict(id="research",
+        h={"de":"Forschung","en":"Research","zh":"科研"}[L],
+        p={"de":"Scientific Research Engineer an der GSI / FAIR (Facility for Antiproton and Ion Research), zuvor EP1 AG Hadronen und Kerne an der Ruhr-Universität Bochum und davor in der Geomonitoring Research Group am Forschungszentrum Nachbergbau.",
+           "en":"Scientific Research Engineer at GSI / FAIR (Facility for Antiproton and Ion Research), formerly EP1 Hadrons and Nuclei group at Ruhr-Universität Bochum and, before that, the Geomonitoring Research Group at the Forschungszentrum Nachbergbau.",
+           "zh":"现任 GSI / FAIR（反质子与离子研究装置）科研工程师；此前在波鸿鲁尔大学 EP1 强子与原子核研究组，更早在后采矿研究中心（Forschungszentrum Nachbergbau）地质监测研究组工作。"}[L],
+        links=[("FAIR","https://fair-center.eu"),("PANDA","https://panda.gsi.de/"),("EP1 RUB","https://www.ep1.ruhr-uni-bochum.de/"),("ORCID","https://orcid.org/0000-0002-2119-0064"),("INSPIRE","https://inspirehep.net/authors/2177110")]),
+      dict(id="freelance",
+        h={"de":"Freelance über nabla B","en":"Freelance via nabla B","zh":"通过 nabla B 承接项目"}[L],
+        p={"de":"Über mein Ingenieurbüro nabla B übernehme ich Projekte entlang der gesamten Diagnostik-Kette, vom Sensor bis zur API.",
+           "en":"Through my engineering office nabla B I take on projects along the whole diagnostics chain, from sensor to API.",
+           "zh":"我通过自己的工程事务所 nabla B 承接项目，覆盖从传感器到 API 的整条诊断链。"}[L],
+        links=[({"de":"Leistungen","en":"Services","zh":"服务"}[L],path(L,"leistungen")),({"de":"Referenzen","en":"References","zh":"项目案例"}[L],path(L,"referenzen")),({"de":"Kontakt","en":"Contact","zh":"联系"}[L],path(L,"kontakt"))]),
+      dict(id="teaching",
+        h={"de":"Lehre","en":"Teaching","zh":"教学"}[L],
+        p={"de":"Ich bin Dozent (unbefristet) an der THGA Bochum und unterrichte Programmierung, objektorientiertes Design und Datenbanken.",
+           "en":"I am a permanent lecturer at THGA Bochum (University of Applied Sciences Georg Agricola), teaching programming, object-oriented design and databases.",
+           "zh":"我是波鸿 THGA（格奥尔格·阿格里科拉应用科学大学）的常任讲师，讲授编程、面向对象设计与数据库。"}[L],
+        links=[("THGA","https://www.thga.de/"),("maxclerkwell.tech","https://maxclerkwell.tech/")]),
+      dict(id="companies",
+        h={"de":"Unternehmensbeteiligungen","en":"Company affiliations","zh":"所属公司"}[L],
+        p={"de":"Ich bin an mehreren Unternehmen aus dem Umfeld der AI-Gruppe beteiligt oder mit ihnen verbunden:",
+           "en":"I am involved with, or affiliated to, several companies around the AI-Gruppe:",
+           "zh":"我参与了 AI-Gruppe 周边的多家公司，或与其有联系："}[L],
+        items=[("skAInet",{"de":"Startup in Gründung, derzeit im CDL Doha Accelerator.","en":"startup in formation, currently in the CDL Doha Accelerator.","zh":"筹建中的初创公司，目前在 CDL Doha Accelerator 孵化。"}[L],"https://www.skainet.io"),
+               ("IteraVex AI","",None),
+               ("Auto-Intern GmbH",{"de":"übernahm 2014 meine Firma Kfz-Technik Bökelmann.","en":"acquired my company Kfz-Technik Bökelmann in 2014.","zh":"于 2014 年收购了我的公司 Kfz-Technik Bökelmann。"}[L],"https://www.auto-intern.de"),
+               ("CCD Car Diagnostics","",None),
+               ("nerd_force1","","https://nerd-force1.com/")],
+        links=[("AI-Gruppe","https://gruppe.ai/")]),
+      dict(id="nonprofit",
+        h={"de":"Gemeinnützige Arbeit","en":"Non-profit work","zh":"公益工作"}[L],
+        p={"de":"Gemeinnützig engagiere ich mich im open skunkforce e.V. für offene Hardware und Open-Source-Messtechnik.",
+           "en":"I do non-profit work through open skunkforce e.V., for open hardware and open-source measurement tools.",
+           "zh":"我通过 open skunkforce e.V. 参与公益工作，推动开源硬件与开源测量技术。"}[L],
+        links=[("skunkforce","https://skunkforce.org/"),("GitHub","https://github.com/skunkforce")]),
+    ]
     C["visitenkarte"] = dict(
       title={"de":"Visitenkarte – Stephan Bökelmann – nabla B","en":"Business card – Stephan Bökelmann – nabla B","zh":"名片 – Stephan Bökelmann – nabla B"}[L],
-      desc={"de":"Digitale Visitenkarte von Stephan Bökelmann, Geschäftsführer von nabla B in Bochum: Kontakt, Links und vCard zum Speichern.",
-            "en":"Digital business card of Stephan Bökelmann, managing director of nabla B in Bochum: contact, links and a vCard to save.",
-            "zh":"波鸿 nabla B 总经理 Stephan Bökelmann 的数字名片：联系方式、链接与可保存的 vCard。"}[L],
+      desc={"de":"Stephan Bökelmann, Experte für Observability und Diagnostics: vom physikalischen Messprinzip über ASIC, PCB, FPGA, Edge und Storage bis zur API. Digitale Visitenkarte mit vCard.",
+            "en":"Stephan Bökelmann, expert in observability and diagnostics: from the physical measurement principle via ASIC, PCB, FPGA, edge and storage to the API. Digital business card with vCard.",
+            "zh":"Stephan Bökelmann，可观测性与诊断专家：从物理测量原理，经 ASIC、PCB、FPGA、边缘与存储，直至 API。含 vCard 的数字名片。"}[L],
       h1={"de":"Visitenkarte","en":"Business card","zh":"名片"}[L],
+      intro={"de":"Ich bin Stephan Bökelmann, Ingenieur und Physiker, und mache physikalische Systeme beobachtbar: als Experte für Observability und Diagnostics begleite ich die ganze Kette vom Messprinzip über ASIC-, PCB- und Bussystem-Entwurf und FPGA-Readout, Netzwerk, Edge und Storage-Cluster, Training und Deployment von Modellen bis zur API.",
+             "en":"I am Stephan Bökelmann, an engineer and physicist who makes physical systems observable: as an expert in observability and diagnostics I cover the whole chain, from the measurement principle and ASIC, PCB and bus-system design, through FPGA readout, network, edge and storage clusters, to model training, deployment and the API.",
+             "zh":"我是 Stephan Bökelmann，工程师兼物理学家，致力于让物理系统可被观测：作为可观测性与诊断专家，我覆盖整条链路——从测量原理、ASIC、PCB 与总线系统设计、FPGA 读出，到网络、边缘与存储集群，再到模型训练与部署，直至 API。"}[L],
+      boxes=VC_BOXES,
       save={"de":"Kontakt speichern (vCard)","en":"Save contact (vCard)","zh":"保存联系人（vCard）"}[L],
       mail_l={"de":"E-Mail","en":"Email","zh":"邮箱"}[L],
       tel_l={"de":"Telefon","en":"Phone","zh":"电话"}[L],
@@ -1112,22 +1153,32 @@ def page_visitenkarte(lang,C):
     P=C["visitenkarte"]
     me=next(p for p in C["team"]["people"] if p["id"]=="stephan-boekelmann")
     flags="".join(
-        f'<a href="{path(l,"visitenkarte")}" hreflang="{HTMLLANG[l]}" lang="{HTMLLANG[l]}"{" aria-current=\"true\"" if l==lang else ""}><span class="flag">{LANGNAME[l][0]}</span><span class="fl">{LANGNAME[l][2]}</span></a>'
+        f'<a href="{path(l,"visitenkarte")}" hreflang="{HTMLLANG[l]}" lang="{HTMLLANG[l]}"{" aria-current=true" if l==lang else ""}><span class="flag">{LANGNAME[l][0]}</span><span class="fl">{LANGNAME[l][2]}</span></a>'
         for l in LANGS)
-    links="".join(f'<a href="{u}" rel="noopener">{esc(t)}</a>' for t,u in me["links"])
+    boxes=""
+    for bx in P["boxes"]:
+        items=""
+        if bx.get("items"):
+            li=""
+            for name,txt,u in bx["items"]:
+                nm=f'<a href="{u}" rel="noopener">{esc(name)}</a>' if u else f'<strong>{esc(name)}</strong>'
+                li+=f'<li>{nm}{(" – "+esc(txt)) if txt else ""}</li>'
+            items=f'<ul class="bc-list">{li}</ul>'
+        links="".join(f'<a href="{u}"{"" if u.startswith("/") else " rel=noopener"}>{esc(t)} →</a>' for t,u in bx["links"])
+        boxes+=f'<details class="bc-box" id="{bx["id"]}"><summary>{esc(bx["h"])}</summary><div class="bc-body"><p>{esc(bx["p"])}</p>{items}<div class="links">{links}</div></div></details>'
     return f"""
 <section class="bcard-sec"><div class="wrap">
 <nav class="flags" aria-label="{esc(P["lang_l"])}">{flags}</nav>
 <article class="bcard" id="stephan-boekelmann">
 <div class="bc-head"><img class="pic" src="{me["img"]}" alt="{esc(me["name"])}" width="140" height="140">
 <div><h1>{esc(me["name"])}</h1><div class="role">{esc(me["role"])}</div><div class="org">nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)</div></div></div>
-<p class="bc-short">{esc(me["short"])}</p>
+<p class="bc-intro">{esc(P["intro"])}</p>
+<div class="bc-boxes">{boxes}</div>
 <dl class="bc-contact">
 <dt>{P["mail_l"]}</dt><dd><a href="mailto:{MAIL}">{MAIL}</a></dd>
 <dt>{P["tel_l"]}</dt><dd><a href="{TEL_HREF}">{TEL}</a></dd>
 <dt>{P["web_l"]}</dt><dd><a href="https://maxclerkwell.tech/">maxclerkwell.tech</a> · <a href="{path(lang,"index")}">nabla-b.engineering</a></dd>
 </dl>
-<div class="links bc-links">{links}</div>
 <div class="bc-actions"><a class="btn dark" href="{VCARD_PATH}" download>{esc(P["save"])}</a>
 <figure class="qr"><img src="/assets/img/qr-businesscard-{lang}.svg" alt="QR code: {url(lang,"visitenkarte")}" width="160" height="160"><figcaption>{esc(P["scan"])}</figcaption></figure></div>
 </article>
