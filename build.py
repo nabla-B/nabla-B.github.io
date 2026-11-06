@@ -30,11 +30,11 @@ IBAN = "DE96 4305 0001 0001 6414 48"
 PAYPAL = "office@nabla-b.engineering"
 
 LANGS = {"de": "", "en": "en/", "zh": "zh/"}
-PAGES = ["index", "leistungen", "referenzen", "team", "kontakt", "impressum", "datenschutz"]
+PAGES = ["index", "leistungen", "referenzen", "team", "kontakt", "impressum", "datenschutz", "visitenkarte"]
 SLUGS = {  # slug per language
-    "de": {"index": "", "leistungen": "leistungen/", "referenzen": "referenzen/", "team": "team/", "kontakt": "kontakt/", "impressum": "impressum/", "datenschutz": "datenschutz/"},
-    "en": {"index": "", "leistungen": "services/", "referenzen": "references/", "team": "team/", "kontakt": "contact/", "impressum": "imprint/", "datenschutz": "privacy/"},
-    "zh": {"index": "", "leistungen": "services/", "referenzen": "references/", "team": "team/", "kontakt": "contact/", "impressum": "imprint/", "datenschutz": "privacy/"},
+    "de": {"index": "", "leistungen": "leistungen/", "referenzen": "referenzen/", "team": "team/", "kontakt": "kontakt/", "impressum": "impressum/", "datenschutz": "datenschutz/", "visitenkarte": "visitenkarte/"},
+    "en": {"index": "", "leistungen": "services/", "referenzen": "references/", "team": "team/", "kontakt": "contact/", "impressum": "imprint/", "datenschutz": "privacy/", "visitenkarte": "business-card/"},
+    "zh": {"index": "", "leistungen": "services/", "referenzen": "references/", "team": "team/", "kontakt": "contact/", "impressum": "imprint/", "datenschutz": "privacy/", "visitenkarte": "business-card/"},
 }
 def url(lang, page): return BASE + "/" + LANGS[lang] + SLUGS[lang][page]
 def path(lang, page): return "/" + LANGS[lang] + SLUGS[lang][page]
@@ -505,6 +505,20 @@ def content(lang):
             "en":"<strong>Note:</strong> The <a href=\"https://edge-compute.skainet.io/\">skAInet Edge-Compute</a> is a product of Auto-Intern GmbH; nabla B contributes as system architect. More on our hobby and research projects at <a href=\"https://maxclerkwell.tech/\">maxclerkwell.tech</a>.",
             "zh":"<strong>说明：</strong><a href=\"https://edge-compute.skainet.io/\">skAInet Edge-Compute</a> 是 Auto-Intern GmbH 的产品；nabla B 以系统架构师身份参与。更多业余与科研项目见 <a href=\"https://maxclerkwell.tech/\">maxclerkwell.tech</a>。"}[L],
     )
+    # ---- digital business card (Stephan)
+    C["visitenkarte"] = dict(
+      title={"de":"Visitenkarte – Stephan Bökelmann – nabla B","en":"Business card – Stephan Bökelmann – nabla B","zh":"名片 – Stephan Bökelmann – nabla B"}[L],
+      desc={"de":"Digitale Visitenkarte von Stephan Bökelmann, Geschäftsführer von nabla B in Bochum: Kontakt, Links und vCard zum Speichern.",
+            "en":"Digital business card of Stephan Bökelmann, managing director of nabla B in Bochum: contact, links and a vCard to save.",
+            "zh":"波鸿 nabla B 总经理 Stephan Bökelmann 的数字名片：联系方式、链接与可保存的 vCard。"}[L],
+      h1={"de":"Visitenkarte","en":"Business card","zh":"名片"}[L],
+      save={"de":"Kontakt speichern (vCard)","en":"Save contact (vCard)","zh":"保存联系人（vCard）"}[L],
+      mail_l={"de":"E-Mail","en":"Email","zh":"邮箱"}[L],
+      tel_l={"de":"Telefon","en":"Phone","zh":"电话"}[L],
+      web_l={"de":"Web","en":"Web","zh":"网站"}[L],
+      scan={"de":"Scannen, um diese Karte auf dem Handy zu öffnen","en":"Scan to open this card on your phone","zh":"扫码在手机上打开此名片"}[L],
+      lang_l={"de":"Sprache wählen","en":"Choose language","zh":"选择语言"}[L],
+    )
     # ---- team
     C["team"] = dict(
       title={"de":"Team – nabla B","en":"Team – nabla B","zh":"团队 – nabla B"}[L],
@@ -868,7 +882,7 @@ def person_nodes(lang):
 def jsonld(lang, page, C):
     P=C[page]
     website={"@type":"WebSite","@id":BASE+"/#website","url":BASE+"/","name":"nabla B","publisher":{"@id":ORG_ID},"inLanguage":["de","en","zh-Hans"]}
-    types={"index":"WebPage","leistungen":"CollectionPage","referenzen":"CollectionPage","blog":"CollectionPage","team":"AboutPage","kontakt":"ContactPage","impressum":"WebPage","datenschutz":"WebPage"}
+    types={"index":"WebPage","leistungen":"CollectionPage","referenzen":"CollectionPage","blog":"CollectionPage","team":"AboutPage","kontakt":"ContactPage","visitenkarte":"ProfilePage","impressum":"WebPage","datenschutz":"WebPage"}
     webpage={"@type":types.get(page,"WebPage"),"@id":url(lang,page)+"#webpage","url":url(lang,page),"name":P["title"],"description":P["desc"],"inLanguage":HTMLLANG[lang],"isPartOf":{"@id":BASE+"/#website"},"about":{"@id":ORG_ID},"dateModified":TODAY}
     graph=[org_node(),website,webpage]
     # cross-site entities referenced (thin stubs with canonical @ids)
@@ -878,7 +892,8 @@ def jsonld(lang, page, C):
                   "brand":[{"@id":"https://www.skainet.io/#brand"},{"@id":AIGRUPPE_ID}],
                   "sameAs":["https://www.skainet.io","https://edge-compute.skainet.io/","https://github.com/auto-intern-skainet"]})
     graph.append({"@type":"Organization","@id":NERDFORCE_ID,"name":"nerd-force1","url":"https://nerd-force1.com/","brand":{"@id":AIGRUPPE_ID},"sameAs":["https://www.nerd-force1.de/"]})
-    if page in ("index","team") or page.startswith("post:"): graph += person_nodes(lang)
+    if page in ("index","team","visitenkarte") or page.startswith("post:"): graph += person_nodes(lang)
+    if page=="visitenkarte": webpage["mainEntity"]={"@id":PERSON_STEPHAN}
     blog_id=url(lang,"blog")+"#blog"
     if page=="blog":
         graph.append({"@type":"Blog","@id":blog_id,"url":url(lang,"blog"),"name":"nabla B Blog","description":C["blog"]["desc"],"inLanguage":HTMLLANG[lang],"publisher":{"@id":ORG_ID},"author":{"@id":PERSON_STEPHAN},
@@ -1080,12 +1095,51 @@ def page_post(lang,C,p):
 </div></section>
 """
 
+VCARD_PATH = "/assets/vcard/stephan-boekelmann.vcf"
+
+def vcard_stephan():
+    lines = ["BEGIN:VCARD", "VERSION:3.0", "N:Bökelmann;Stephan;;;", "FN:Stephan Bökelmann",
+             "ORG:nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)",
+             "TITLE:Managing Director", f"EMAIL;TYPE=WORK:{MAIL}", f"TEL;TYPE=WORK,VOICE:{TEL.replace(' ', '')}",
+             "ADR;TYPE=WORK:;;Herner Str. 299\\, Gebäude B29;Bochum;;44809;Germany",
+             f"URL:{BASE}/", "URL:https://maxclerkwell.tech/",
+             "X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/stephan-boekelmann-bochum/",
+             "X-SOCIALPROFILE;TYPE=github:https://github.com/maxclerkwell",
+             "END:VCARD"]
+    return "\r\n".join(lines) + "\r\n"
+
+def page_visitenkarte(lang,C):
+    P=C["visitenkarte"]
+    me=next(p for p in C["team"]["people"] if p["id"]=="stephan-boekelmann")
+    flags="".join(
+        f'<a href="{path(l,"visitenkarte")}" hreflang="{HTMLLANG[l]}" lang="{HTMLLANG[l]}"{" aria-current=\"true\"" if l==lang else ""}><span class="flag">{LANGNAME[l][0]}</span><span class="fl">{LANGNAME[l][2]}</span></a>'
+        for l in LANGS)
+    links="".join(f'<a href="{u}" rel="noopener">{esc(t)}</a>' for t,u in me["links"])
+    return f"""
+<section class="bcard-sec"><div class="wrap">
+<nav class="flags" aria-label="{esc(P["lang_l"])}">{flags}</nav>
+<article class="bcard" id="stephan-boekelmann">
+<div class="bc-head"><img class="pic" src="{me["img"]}" alt="{esc(me["name"])}" width="140" height="140">
+<div><h1>{esc(me["name"])}</h1><div class="role">{esc(me["role"])}</div><div class="org">nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)</div></div></div>
+<p class="bc-short">{esc(me["short"])}</p>
+<dl class="bc-contact">
+<dt>{P["mail_l"]}</dt><dd><a href="mailto:{MAIL}">{MAIL}</a></dd>
+<dt>{P["tel_l"]}</dt><dd><a href="{TEL_HREF}">{TEL}</a></dd>
+<dt>{P["web_l"]}</dt><dd><a href="https://maxclerkwell.tech/">maxclerkwell.tech</a> · <a href="{path(lang,"index")}">nabla-b.engineering</a></dd>
+</dl>
+<div class="links bc-links">{links}</div>
+<div class="bc-actions"><a class="btn dark" href="{VCARD_PATH}" download>{esc(P["save"])}</a>
+<figure class="qr"><img src="/assets/img/qr-businesscard-{lang}.svg" alt="QR code: {url(lang,"visitenkarte")}" width="160" height="160"><figcaption>{esc(P["scan"])}</figcaption></figure></div>
+</article>
+</div></section>
+"""
+
 def page_prose(lang,C,page):
     P=C[page]
     return f"""<section><div class="wrap prose"><div class="sec-title"><h1>{esc(P["h1"])}</h1></div>{P["body"]}</div></section>"""
 
 RENDER={"index":page_index,"leistungen":page_leistungen,"referenzen":page_referenzen,"blog":page_blog,"team":page_team,"kontakt":page_kontakt,
-        "impressum":lambda l,C:page_prose(l,C,"impressum"),"datenschutz":lambda l,C:page_prose(l,C,"datenschutz")}
+        "impressum":lambda l,C:page_prose(l,C,"impressum"),"datenschutz":lambda l,C:page_prose(l,C,"datenschutz"),"visitenkarte":page_visitenkarte}
 
 # ---------------------------------------------------------------- aux files
 def llms_txt():
@@ -1178,6 +1232,7 @@ def main():
         for p in POSTS:
             out=os.path.join(root, LANGS[lang], "blog", p["slug"], "index.html")
             write(out, layout(lang,post_key(p),C,page_post(lang,C,p)))
+    write(os.path.join(root,"assets","vcard","stephan-boekelmann.vcf"), vcard_stephan())
     write(os.path.join(root,"llms.txt"), llms_txt())
     write(os.path.join(root,"sitemap.xml"), sitemap())
     write(os.path.join(root,"robots.txt"), f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")

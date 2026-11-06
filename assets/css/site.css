@@ -169,3 +169,30 @@ dl.kv dd{margin:0}
 .article .orig h2{font-size:1.15rem;margin:0 0 .4em}
 .article .orig p{margin-bottom:.5em;color:var(--ink-80)}
 .article .orig p:last-child{margin-bottom:0}
+
+/* digital business card */
+.bcard-sec{padding:28px 0 56px}
+.flags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:0 0 28px}
+.flags a{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:112px;padding:14px 18px;border:2px solid var(--ink-20);border-radius:4px;text-decoration:none;background:var(--paper)}
+.flags a:hover{border-color:var(--ink-60)}
+.flags a[aria-current=true]{border-color:var(--ink);background:var(--ink);color:#fff}
+.flags .flag{font-size:3rem;line-height:1}
+.flags .fl{font-size:1rem;font-weight:600}
+.bcard{max-width:640px;margin:0 auto;border:1px solid var(--ink-20);border-top:6px solid var(--ink);border-radius:2px;padding:28px;background:var(--paper)}
+.bc-head{display:flex;gap:22px;align-items:center;margin-bottom:18px}
+.bc-head .pic{width:140px;height:140px;flex:0 0 140px;border-radius:50%;object-fit:cover;background:var(--ink-10)}
+.bc-head h1{font-size:clamp(1.8rem,5vw,2.4rem);margin-bottom:.15em}
+.bc-head .role{color:var(--ink-80);font-weight:600}
+.bc-head .org{color:var(--ink-60);font-size:.9rem;margin-top:.3em}
+.bc-short{color:var(--ink-80)}
+.bc-contact{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:0 0 16px}
+.bc-contact dt{color:var(--ink-60)}
+.bc-contact dd{margin:0}
+.bc-links a{margin-right:12px}
+.bc-actions{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px solid var(--ink-20)}
+.qr{margin:0;text-align:center;font-size:.8rem;color:var(--ink-60);max-width:170px}
+.qr img{display:block;margin:0 auto 4px}
+@media(max-width:520px){.bc-head{flex-direction:column;align-items:flex-start}.bc-actions{justify-content:center}}
+.bc-links{display:flex;flex-wrap:wrap;gap:4px 12px}
+.bc-links a{margin-right:0}
+@media(max-width:520px){.flags{flex-wrap:nowrap;gap:8px}.flags a{min-width:0;flex:1 1 0;padding:12px 6px}.flags .flag{font-size:2.4rem}}

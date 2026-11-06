@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Bökelmann;Stephan;;;
+FN:Stephan Bökelmann
+ORG:nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)
+TITLE:Managing Director
+EMAIL;TYPE=WORK:office@nabla-b.engineering
+TEL;TYPE=WORK,VOICE:+4923458545811
+ADR;TYPE=WORK:;;Herner Str. 299\, Gebäude B29;Bochum;;44809;Germany
+URL:https://nabla-b.engineering/
+URL:https://maxclerkwell.tech/
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/stephan-boekelmann-bochum/
+X-SOCIALPROFILE;TYPE=github:https://github.com/maxclerkwell
+END:VCARD
