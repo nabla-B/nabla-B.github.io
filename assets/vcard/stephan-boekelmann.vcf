@@ -1,14 +1,51 @@
 BEGIN:VCARD
 VERSION:3.0
+PRODID:-//nabla B//business card//EN
 N:Bökelmann;Stephan;;;
 FN:Stephan Bökelmann
+NICKNAME:MaxClerkwell,施泓杰
 ORG:nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)
 TITLE:Managing Director
-EMAIL;TYPE=WORK:office@nabla-b.engineering
+ROLE:Engineer & Physicist · System Architect\, skAInet Edge-Compute
+PHOTO;VALUE=uri:https://nabla-b.engineering/assets/img/stephan-boekelmann.jpg
+EMAIL;TYPE=WORK,INTERNET:office@nabla-b.engineering
+item1.EMAIL;TYPE=INTERNET:collaboration@maxclerkwell.tech
+item1.X-ABLabel:Collaborations
 TEL;TYPE=WORK,VOICE:+4923458545811
 ADR;TYPE=WORK:;;Herner Str. 299\, Gebäude B29;Bochum;;44809;Germany
-URL:https://nabla-b.engineering/
-URL:https://maxclerkwell.tech/
+item2.URL:https://nabla-b.engineering/
+item2.X-ABLabel:nabla B
+item3.URL:https://maxclerkwell.tech/
+item3.X-ABLabel:maxclerkwell.tech
+item4.URL:https://maxclerkwell.tech/hire/
+item4.X-ABLabel:Hire
+item5.URL:https://orcid.org/0000-0002-2119-0064
+item5.X-ABLabel:ORCID
+item6.URL:https://arxiv.org/a/0000-0002-2119-0064.html
+item6.X-ABLabel:arXiv
+item7.URL:https://inspirehep.net/authors/2177110
+item7.X-ABLabel:INSPIRE-HEP
+item8.URL:https://www.researchgate.net/profile/Stephan-Boekelmann
+item8.X-ABLabel:ResearchGate
+item9.URL:https://www.youtube.com/@MaxClerkwell
+item9.X-ABLabel:YouTube
+item10.URL:https://b23.tv/XRF5tln
+item10.X-ABLabel:Bilibili
+item11.URL:https://www.douyin.com/user/MaxClerkwell
+item11.X-ABLabel:Douyin
+item12.URL:https://xhslink.com/m/1yYXP9BiAAo
+item12.X-ABLabel:Xiaohongshu
+item13.URL:https://discord.gg/2BXuUY6hrX
+item13.X-ABLabel:Discord
+item14.URL:https://buymeacoffee.com/MaxClerkwell
+item14.X-ABLabel:Buy Me a Coffee
 X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/stephan-boekelmann-bochum/
 X-SOCIALPROFILE;TYPE=github:https://github.com/maxclerkwell
+X-SOCIALPROFILE;TYPE=twitter:https://x.com/maxclerkwell
+X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/_maxclerkwell/
+X-SOCIALPROFILE;TYPE=tiktok:https://tiktok.com/@_maxclerkwell
+IMPP;X-SERVICE-TYPE=WeChat:wechat:MaxClerkwell
+NOTE:Observability & Diagnostics – vom Messprinzip über ASIC\, PCB\, FPGA\, Edge und Storage bis zur API. WeChat: MaxClerkwell. Sprachen: de\, en\, zh.
+CATEGORIES:nabla B,Embedded,FPGA,Observability
+REV:2026-11-07T00:00:00Z
 END:VCARD

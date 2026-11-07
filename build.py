@@ -1177,14 +1177,42 @@ def page_post(lang,C,p):
 VCARD_PATH = "/assets/vcard/stephan-boekelmann.vcf"
 
 def vcard_stephan():
-    lines = ["BEGIN:VCARD", "VERSION:3.0", "N:Bökelmann;Stephan;;;", "FN:Stephan Bökelmann",
+    import datetime
+    urls=[("nabla B",f"{BASE}/"),("maxclerkwell.tech","https://maxclerkwell.tech/"),
+          ("Hire","https://maxclerkwell.tech/hire/"),
+          ("ORCID","https://orcid.org/0000-0002-2119-0064"),
+          ("arXiv","https://arxiv.org/a/0000-0002-2119-0064.html"),
+          ("INSPIRE-HEP","https://inspirehep.net/authors/2177110"),
+          ("ResearchGate","https://www.researchgate.net/profile/Stephan-Boekelmann"),
+          ("YouTube","https://www.youtube.com/@MaxClerkwell"),
+          ("Bilibili","https://b23.tv/XRF5tln"),
+          ("Douyin","https://www.douyin.com/user/MaxClerkwell"),
+          ("Xiaohongshu","https://xhslink.com/m/1yYXP9BiAAo"),
+          ("Discord","https://discord.gg/2BXuUY6hrX"),
+          ("Buy Me a Coffee","https://buymeacoffee.com/MaxClerkwell")]
+    lines = ["BEGIN:VCARD", "VERSION:3.0", "PRODID:-//nabla B//business card//EN",
+             "N:Bökelmann;Stephan;;;", "FN:Stephan Bökelmann",
+             "NICKNAME:MaxClerkwell,施泓杰",
              "ORG:nabla B Ingenieurbüro und Dienstleistungs-UG (haftungsbeschränkt)",
-             "TITLE:Managing Director", f"EMAIL;TYPE=WORK:{MAIL}", f"TEL;TYPE=WORK,VOICE:{TEL.replace(' ', '')}",
-             "ADR;TYPE=WORK:;;Herner Str. 299\\, Gebäude B29;Bochum;;44809;Germany",
-             f"URL:{BASE}/", "URL:https://maxclerkwell.tech/",
-             "X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/stephan-boekelmann-bochum/",
-             "X-SOCIALPROFILE;TYPE=github:https://github.com/maxclerkwell",
-             "END:VCARD"]
+             "TITLE:Managing Director",
+             "ROLE:Engineer & Physicist · System Architect\\, skAInet Edge-Compute",
+             f"PHOTO;VALUE=uri:{BASE}/assets/img/stephan-boekelmann.jpg",
+             f"EMAIL;TYPE=WORK,INTERNET:{MAIL}",
+             "item1.EMAIL;TYPE=INTERNET:collaboration@maxclerkwell.tech", "item1.X-ABLabel:Collaborations",
+             f"TEL;TYPE=WORK,VOICE:{TEL.replace(' ', '')}",
+             "ADR;TYPE=WORK:;;Herner Str. 299\\, Gebäude B29;Bochum;;44809;Germany"]
+    for i,(label,u) in enumerate(urls, start=2):
+        lines += [f"item{i}.URL:{u}", f"item{i}.X-ABLabel:{label}"]
+    lines += ["X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/stephan-boekelmann-bochum/",
+              "X-SOCIALPROFILE;TYPE=github:https://github.com/maxclerkwell",
+              "X-SOCIALPROFILE;TYPE=twitter:https://x.com/maxclerkwell",
+              "X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/_maxclerkwell/",
+              "X-SOCIALPROFILE;TYPE=tiktok:https://tiktok.com/@_maxclerkwell",
+              "IMPP;X-SERVICE-TYPE=WeChat:wechat:MaxClerkwell",
+              "NOTE:Observability & Diagnostics – vom Messprinzip über ASIC\\, PCB\\, FPGA\\, Edge und Storage bis zur API. WeChat: MaxClerkwell. Sprachen: de\\, en\\, zh.",
+              "CATEGORIES:nabla B,Embedded,FPGA,Observability",
+              f"REV:{datetime.date.today().isoformat()}T00:00:00Z",
+              "END:VCARD"]
     return "\r\n".join(lines) + "\r\n"
 
 def page_visitenkarte(lang,C):
