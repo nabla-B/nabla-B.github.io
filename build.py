@@ -628,6 +628,7 @@ def content(lang):
              jobTitle=["Managing Director, nabla B","System Architect, skAInet Edge-Compute"], alt=["MaxClerkwell","Stephan Boekelmann","施泓杰"],
              sameAs=["https://www.linkedin.com/in/stephan-boekelmann-bochum/","https://github.com/maxclerkwell","https://orcid.org/0000-0002-2119-0064",
                      "https://x.com/maxclerkwell","https://instagram.com/_maxclerkwell","https://www.researchgate.net/profile/Stephan-Boekelmann",
+                     "https://arxiv.org/a/0000-0002-2119-0064.html","https://www.youtube.com/@MaxClerkwell","https://tiktok.com/@_maxclerkwell","https://b23.tv/XRF5tln","https://www.douyin.com/user/MaxClerkwell","https://xhslink.com/m/1yYXP9BiAAo",
                      "https://inspirehep.net/authors/2177110","https://www.thga.de/hochschule/personen/profile-wissenschaftliche-mitarbeitende/stephan-boekelmann",
                      "https://edge-compute.skainet.io/team#stephan-boekelmann"],
              knows=["embedded systems","FPGA","Zynq","PCB design","KiCad","data acquisition","Yocto Linux","experimental hadron physics"],
@@ -1293,6 +1294,11 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 - Decentralised measurement & DAQ, monitoring/observability infrastructure
 - Consulting (architecture reviews, toolchain rescue) and training for engineers
 - Official IHK training partner: listed as a provider in WIS, the continuing-education directory of the German Chambers of Commerce and Industry (https://wis.ihk.de/anbieter-wis/3512/nabla-b-ingenieurburo-dienstleistungs-ug)
+
+## Digital business card (Stephan Bökelmann)
+- German {BASE}/visitenkarte/ · English {BASE}/en/business-card/ · Chinese {BASE}/zh/business-card/ (JSON-LD ProfilePage, mainEntity `{PERSON_STEPHAN}`)
+- vCard: {BASE}{VCARD_PATH}
+- Sections: research, hire via nabla B, teaching, recent talks (KiCon Asia 2026, Shenzhen), social media & collaborations, professional networks & code, academic profiles, video & social media (YouTube, Instagram, X, TikTok, Bilibili, Douyin, Xiaohongshu, WeChat ID MaxClerkwell), community & support (Discord), company affiliations, non-profit work
 
 ## Team
 - Stephan Bökelmann (alias MaxClerkwell, 施泓杰) — Managing Director, engineer & physicist; B.Eng., M.Eng. (THGA Bochum), PhD candidate RUB; member of the IHK Mittleres Ruhrgebiet examination board for IT specialists (Fachinformatiker). ID {PERSON_STEPHAN}. Profiles: https://maxclerkwell.tech/, https://www.linkedin.com/in/stephan-boekelmann-bochum/, https://orcid.org/0000-0002-2119-0064, https://x.com/maxclerkwell, https://instagram.com/_maxclerkwell, https://www.researchgate.net/profile/Stephan-Boekelmann
