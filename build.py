@@ -530,7 +530,7 @@ def content(lang):
         p={"de":"Zuletzt gehaltene Vorträge:",
            "en":"Talks I gave recently:",
            "zh":"近期的演讲："}[L],
-        items=[("KiCon Asia 2026, Shenzhen","","https://github.com/MaxClerkwell/cob-to-kicad-talk/releases")],
+        items=[("KiCon Asia 2026, Shenzhen",{"de":"5.–7. November 2026, Huaqiang Plaza Hotel, organisiert von Huaqiu (华秋) / NextPCB.","en":"5–7 November 2026, Huaqiang Plaza Hotel, organised by Huaqiu (华秋) / NextPCB.","zh":"2026 年 11 月 5–7 日，华强广场酒店，由华秋 / NextPCB 主办。"}[L],"https://github.com/MaxClerkwell/cob-to-kicad-talk/releases")],
         links=[]),
       dict(id="social",
         h={"de":"Social Media & Kooperationen","en":"Social media & collaborations","zh":"社交媒体与合作"}[L],
@@ -974,6 +974,14 @@ def jsonld(lang, page, C):
     graph.append({"@type":"Organization","@id":NERDFORCE_ID,"name":"nerd-force1","url":"https://nerd-force1.com/","brand":{"@id":AIGRUPPE_ID},"sameAs":["https://www.nerd-force1.de/"]})
     if page in ("index","team","visitenkarte") or page.startswith("post:"): graph += person_nodes(lang)
     if page=="visitenkarte": webpage["mainEntity"]={"@id":PERSON_STEPHAN}
+    if page=="visitenkarte":
+        graph.append({"@type":"Event","@id":url(lang,"visitenkarte")+"#kicon-asia-2026","name":"KiCon Asia 2026",
+          "url":"https://kicon.kicad.org/asia2026/en/","startDate":"2026-11-05","endDate":"2026-11-07",
+          "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled",
+          "location":{"@type":"Place","name":"Huaqiang Plaza Hotel","address":{"@type":"PostalAddress","streetAddress":"No. 1019 Huaqiang North Road, Futian District","addressLocality":"Shenzhen","addressRegion":"Guangdong","addressCountry":"CN"}},
+          "organizer":{"@type":"Organization","name":"Shenzhen Huaqiu Electronics Co., Ltd. (NextPCB)","alternateName":["华秋","NextPCB"],"url":"https://www.nextpcb.com/"},
+          "performer":{"@id":PERSON_STEPHAN},
+          "subjectOf":{"@type":"CreativeWork","name":"cob-to-kicad-talk","url":"https://github.com/MaxClerkwell/cob-to-kicad-talk/releases"}})
     blog_id=url(lang,"blog")+"#blog"
     if page=="blog":
         graph.append({"@type":"Blog","@id":blog_id,"url":url(lang,"blog"),"name":"nabla B Blog","description":C["blog"]["desc"],"inLanguage":HTMLLANG[lang],"publisher":{"@id":ORG_ID},"author":{"@id":PERSON_STEPHAN},
