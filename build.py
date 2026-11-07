@@ -525,12 +525,44 @@ def content(lang):
            "en":"I am a permanent lecturer at THGA Bochum (University of Applied Sciences Georg Agricola), teaching programming, object-oriented design and databases.",
            "zh":"我是波鸿 THGA（格奥尔格·阿格里科拉应用科学大学）的常任讲师，讲授编程、面向对象设计与数据库。"}[L],
         links=[("THGA","https://www.thga.de/"),("maxclerkwell.tech","https://maxclerkwell.tech/")]),
+      dict(id="talks",
+        h={"de":"Aktuelle Vorträge","en":"Recent talks","zh":"近期演讲"}[L],
+        p={"de":"Zuletzt gehaltene Vorträge:",
+           "en":"Talks I gave recently:",
+           "zh":"近期的演讲："}[L],
+        items=[("KiCon Asia 2026, Shenzhen","","https://github.com/MaxClerkwell/cob-to-kicad-talk/releases")],
+        links=[]),
       dict(id="social",
         h={"de":"Social Media & Kooperationen","en":"Social media & collaborations","zh":"社交媒体与合作"}[L],
         p={"de":"Unter der Marke MaxClerkwell schreibe ich den technischen Blog maxclerkwell.tech und betreibe Social Media mit Konferenzberichten; bezahlte Kooperationen zu Boards, Tools, Videos und Artikeln sind möglich, erreichbar unter collaboration@maxclerkwell.tech.",
            "en":"Under the MaxClerkwell brand I write the technical blog maxclerkwell.tech and run social media with conference coverage; I also do paid collaborations on boards, tools, videos and articles, reachable at collaboration@maxclerkwell.tech.",
            "zh":"我以 MaxClerkwell 品牌撰写技术博客 maxclerkwell.tech 并运营社交媒体，包括会议报道；同时承接开发板、工具、视频与文章方面的付费合作，请联系 collaboration@maxclerkwell.tech。"}[L],
         links=[("maxclerkwell.tech","https://maxclerkwell.tech/"),("X","https://x.com/maxclerkwell"),("Instagram","https://instagram.com/_maxclerkwell"),({"de":"Bezahlte Kooperation anfragen","en":"Request a paid collaboration","zh":"咨询付费合作"}[L],"mailto:collaboration@maxclerkwell.tech")]),
+      dict(id="networks",
+        h={"de":"Professionelle Netzwerke & Code","en":"Professional networks & code","zh":"职业网络与代码"}[L],
+        p={"de":"Für berufliche Kontakte und offenen Code erreichen Sie mich hier:",
+           "en":"For professional contact and open code, find me here:",
+           "zh":"职业联系与开源代码，可通过以下渠道找到我："}[L],
+        links=[("LinkedIn","https://www.linkedin.com/in/stephan-boekelmann-bochum/"),("GitHub","https://github.com/maxclerkwell"),("The Things Network","https://www.thethingsnetwork.org/u/MaxClerkwell")]),
+      dict(id="academic",
+        h={"de":"Wissenschaftliche Profile","en":"Academic profiles","zh":"学术主页"}[L],
+        p={"de":"Publikationen und Forschungsprofile:",
+           "en":"Publications and research profiles:",
+           "zh":"论文与科研主页："}[L],
+        links=[("ORCID","https://orcid.org/0000-0002-2119-0064"),("arXiv","https://arxiv.org/a/0000-0002-2119-0064.html"),("INSPIRE-HEP","https://inspirehep.net/authors/2177110"),("ResearchGate","https://www.researchgate.net/profile/Stephan-Boekelmann")]),
+      dict(id="video",
+        h={"de":"Video & Social Media","en":"Video & social media","zh":"视频与社交媒体"}[L],
+        p={"de":"Videos, Konferenzberichte und Updates aus dem Labor, auch auf den chinesischen Plattformen:",
+           "en":"Videos, conference reports and updates from the lab, including the Chinese platforms:",
+           "zh":"视频、会议报道与实验室动态，也包括中文平台："}[L],
+        links=[("YouTube","https://www.youtube.com/@MaxClerkwell"),("Instagram","https://www.instagram.com/_maxclerkwell/"),("X","https://x.com/maxclerkwell"),("TikTok","https://tiktok.com/@_maxclerkwell"),("Bilibili","https://b23.tv/XRF5tln"),("Douyin","https://www.douyin.com/user/MaxClerkwell"),("Xiaohongshu","https://xhslink.com/m/1yYXP9BiAAo")],
+        img=("/assets/img/wechat-qr.png",{"de":"WeChat-QR-Code von Stephan Bökelmann","en":"WeChat QR code of Stephan Bökelmann","zh":"Stephan Bökelmann 的微信二维码"}[L],{"de":"WeChat: scannen, um mich hinzuzufügen","en":"WeChat: scan to add me","zh":"微信：扫码添加我"}[L])),
+      dict(id="community",
+        h={"de":"Community & Unterstützung","en":"Community & support","zh":"社区与支持"}[L],
+        p={"de":"Austausch mit der Community und die Möglichkeit, die Arbeit zu unterstützen:",
+           "en":"Talk to the community and support the work:",
+           "zh":"加入社区交流，或支持我的创作："}[L],
+        links=[("Discord","https://discord.gg/2BXuUY6hrX"),("Buy Me a Coffee","https://buymeacoffee.com/MaxClerkwell")]),
       dict(id="companies",
         h={"de":"Unternehmensbeteiligungen","en":"Company affiliations","zh":"所属公司"}[L],
         p={"de":"Ich bin an mehreren Unternehmen aus dem Umfeld der AI-Gruppe beteiligt oder mit ihnen verbunden:",
@@ -1171,6 +1203,9 @@ def page_visitenkarte(lang,C):
                 li+=f'<li>{nm}{(" – "+esc(txt)) if txt else ""}</li>'
             items=f'<ul class="bc-list">{li}</ul>'
         links="".join(f'<a href="{u}"{"" if u.startswith("/") else " rel=noopener"}>{esc(t)} →</a>' for t,u in bx["links"])
+        if bx.get("img"):
+            isrc,ialt,icap=bx["img"]
+            items+=f'<figure class="bc-qr"><img src="{isrc}" alt="{esc(ialt)}" width="160" height="160" loading="lazy"><figcaption>{esc(icap)}</figcaption></figure>'
         boxes+=f'<details class="bc-box" id="{bx["id"]}"><summary>{esc(bx["h"])}</summary><div class="bc-body"><p>{esc(bx["p"])}</p>{items}<div class="links">{links}</div></div></details>'
     return f"""
 <section class="bcard-sec"><div class="wrap">

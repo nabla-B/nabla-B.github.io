@@ -209,4 +209,6 @@ dl.kv dd{margin:0}
 .bc-body p{margin-bottom:.6em}
 .bc-list{margin:0 0 .6em;padding-left:1.1em}
 .bc-list li{margin:.2em 0}
+.bc-qr{margin:.6em 0;text-align:left;font-size:.8rem;color:var(--ink-60);max-width:170px}
+.bc-qr img{display:block;margin:0 0 4px;height:auto}
 .bc-body .links a{margin-right:14px;font-size:.95rem}
