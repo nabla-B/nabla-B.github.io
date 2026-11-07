@@ -1233,7 +1233,7 @@ def page_visitenkarte(lang,C):
         links="".join(f'<a href="{u}"{"" if u.startswith("/") else " rel=noopener"}>{esc(t)} →</a>' for t,u in bx["links"])
         if bx.get("img"):
             isrc,ialt,icap=bx["img"]
-            items+=f'<figure class="bc-qr"><img src="{isrc}" alt="{esc(ialt)}" width="160" height="160" loading="lazy"><figcaption>{esc(icap)}</figcaption></figure>'
+            items+=f'<figure class="bc-qr"><img src="{isrc}" alt="{esc(ialt)}" width="160" height="160" loading="lazy"><figcaption>{esc(icap)}<br>ID: <strong>MaxClerkwell</strong></figcaption></figure>'
         boxes+=f'<details class="bc-box" id="{bx["id"]}"><summary>{esc(bx["h"])}</summary><div class="bc-body"><p>{esc(bx["p"])}</p>{items}<div class="links">{links}</div></div></details>'
     return f"""
 <section class="bcard-sec"><div class="wrap">
