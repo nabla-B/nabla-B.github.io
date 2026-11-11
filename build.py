@@ -530,7 +530,8 @@ def content(lang):
         p={"de":"Zuletzt gehaltene Vorträge:",
            "en":"Talks I gave recently:",
            "zh":"近期的演讲："}[L],
-        items=[("KiCon Asia 2026, Shenzhen",{"de":"5.–7. November 2026, Huaqiang Plaza Hotel, organisiert von Huaqiu (华秋) / NextPCB.","en":"5–7 November 2026, Huaqiang Plaza Hotel, organised by Huaqiu (华秋) / NextPCB.","zh":"2026 年 11 月 5–7 日，华强广场酒店，由华秋 / NextPCB 主办。"}[L],"https://github.com/MaxClerkwell/cob-to-kicad-talk/releases")],
+        items=[("Wirebonding for the SZOSS, Shenzhen",{"de":"11. November 2026, Makespace Shenzhen, Vanke Design Commune B622, Shenzhen Open Source Silicon (SZOSS).","en":"11 November 2026, Makespace Shenzhen, Vanke Design Commune B622, Shenzhen Open Source Silicon (SZOSS).","zh":"2026 年 11 月 11 日，深圳 Makespace，万科设计公社 B622，深圳开源芯片（SZOSS）。"}[L],"https://github.com/MaxClerkwell/wirebonding-for-the-szoss/releases"),
+               ("KiCon Asia 2026, Shenzhen",{"de":"5.–7. November 2026, Huaqiang Plaza Hotel, organisiert von Huaqiu (华秋) / NextPCB.","en":"5–7 November 2026, Huaqiang Plaza Hotel, organised by Huaqiu (华秋) / NextPCB.","zh":"2026 年 11 月 5–7 日，华强广场酒店，由华秋 / NextPCB 主办。"}[L],"https://github.com/MaxClerkwell/cob-to-kicad-talk/releases")],
         links=[]),
       dict(id="social",
         h={"de":"Social Media & Kooperationen","en":"Social media & collaborations","zh":"社交媒体与合作"}[L],
@@ -982,6 +983,14 @@ def jsonld(lang, page, C):
           "organizer":{"@type":"Organization","name":"Shenzhen Huaqiu Electronics Co., Ltd. (NextPCB)","alternateName":["华秋","NextPCB"],"url":"https://www.nextpcb.com/"},
           "performer":{"@id":PERSON_STEPHAN},
           "subjectOf":{"@type":"CreativeWork","name":"cob-to-kicad-talk","url":"https://github.com/MaxClerkwell/cob-to-kicad-talk/releases"}})
+    if page=="visitenkarte":
+        graph.append({"@type":"Event","@id":url(lang,"visitenkarte")+"#szoss-2026","name":"Wirebonding for the SZOSS",
+          "startDate":"2026-11-11",
+          "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled",
+          "location":{"@type":"Place","name":"Makespace Shenzhen, Vanke Design Commune B622","address":{"@type":"PostalAddress","addressLocality":"Shenzhen","addressRegion":"Guangdong","addressCountry":"CN"}},
+          "organizer":{"@type":"Organization","name":"SZOSS – Shenzhen Open Source Silicon"},
+          "performer":{"@id":PERSON_STEPHAN},
+          "subjectOf":{"@type":"CreativeWork","name":"wirebonding-for-the-szoss","url":"https://github.com/MaxClerkwell/wirebonding-for-the-szoss/releases"}})
     blog_id=url(lang,"blog")+"#blog"
     if page=="blog":
         graph.append({"@type":"Blog","@id":blog_id,"url":url(lang,"blog"),"name":"nabla B Blog","description":C["blog"]["desc"],"inLanguage":HTMLLANG[lang],"publisher":{"@id":ORG_ID},"author":{"@id":PERSON_STEPHAN},
@@ -1306,7 +1315,7 @@ Languages: German (default, {BASE}/), English ({BASE}/en/), Simplified Chinese (
 ## Digital business card (Stephan Bökelmann)
 - German {BASE}/visitenkarte/ · English {BASE}/en/business-card/ · Chinese {BASE}/zh/business-card/ (JSON-LD ProfilePage, mainEntity `{PERSON_STEPHAN}`)
 - vCard: {BASE}{VCARD_PATH}
-- Sections: research, hire via nabla B, teaching, recent talks (KiCon Asia 2026, Shenzhen), social media & collaborations, professional networks & code, academic profiles, video & social media (YouTube, Instagram, X, TikTok, Bilibili, Douyin, Xiaohongshu, WeChat ID MaxClerkwell), community & support (Discord), company affiliations, non-profit work
+- Sections: research, hire via nabla B, teaching, recent talks (Wirebonding for the SZOSS, Shenzhen, 2026-11-11; KiCon Asia 2026, Shenzhen), social media & collaborations, professional networks & code, academic profiles, video & social media (YouTube, Instagram, X, TikTok, Bilibili, Douyin, Xiaohongshu, WeChat ID MaxClerkwell), community & support (Discord), company affiliations, non-profit work
 
 ## Team
 - Stephan Bökelmann (alias MaxClerkwell, 施泓杰) — Managing Director, engineer & physicist; B.Eng., M.Eng. (THGA Bochum), PhD candidate RUB; member of the IHK Mittleres Ruhrgebiet examination board for IT specialists (Fachinformatiker). ID {PERSON_STEPHAN}. Profiles: https://maxclerkwell.tech/, https://www.linkedin.com/in/stephan-boekelmann-bochum/, https://orcid.org/0000-0002-2119-0064, https://x.com/maxclerkwell, https://instagram.com/_maxclerkwell, https://www.researchgate.net/profile/Stephan-Boekelmann
