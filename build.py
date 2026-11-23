@@ -18,6 +18,7 @@ AUTOINTERN_ID = "https://www.auto-intern.de/#organization"
 NERDFORCE_ID = "https://www.nerd-force1.de/#organization"
 AIGRUPPE_ID = "https://gruppe.ai/#brand"
 EDGE_PRODUCT_ID = "https://edge-compute.skainet.io/#product"
+SKAINET_ID = "https://skainet.io/#brand"  # independent brand, defined on skainet.io
 TODAY = datetime.date.today().isoformat()
 
 TEL = "+49 234 58545811"
@@ -569,7 +570,7 @@ def content(lang):
         p={"de":"Ich bin an mehreren Unternehmen aus dem Umfeld der AI-Gruppe beteiligt oder mit ihnen verbunden:",
            "en":"I am involved with, or affiliated to, several companies around the AI-Gruppe:",
            "zh":"我参与了 AI-Gruppe 周边的多家公司，或与其有联系："}[L],
-        items=[("skAInet",{"de":"Startup in Gründung, derzeit im CDL Doha Accelerator.","en":"startup in formation, currently in the CDL Doha Accelerator.","zh":"筹建中的初创公司，目前在 CDL Doha Accelerator 孵化。"}[L],"https://www.skainet.io"),
+        items=[("skAInet",{"de":"Startup in Gründung, derzeit im CDL Doha Accelerator.","en":"startup in formation, currently in the CDL Doha Accelerator.","zh":"筹建中的初创公司，目前在 CDL Doha Accelerator 孵化。"}[L],"https://skainet.io/"),
                ("IteraVex AI","",None),
                ("Auto-Intern GmbH",{"de":"übernahm 2014 meine Firma Kfz-Technik Bökelmann.","en":"acquired my company Kfz-Technik Bökelmann in 2014.","zh":"于 2014 年收购了我的公司 Kfz-Technik Bökelmann。"}[L],"https://www.auto-intern.de"),
                ("CCD Car Diagnostics","",None),
@@ -946,7 +947,9 @@ def person_nodes(lang):
                                    {"@type":"WebPage","url":"https://maxclerkwell.tech/publications/","name":"Publications, Patents & Software"},
                                    {"@type":"WebPage","url":"https://edge-compute.skainet.io/team","name":"skAInet Edge-Compute team"},team_page],
                       "memberOf":[{"@type":"Organization","name":"Prüfungsausschuss Fachinformatiker, IHK Mittleres Ruhrgebiet","url":"https://www.bochum.ihk.de/","description":"Mitglied des IHK-Prüfungsausschusses für Fachinformatiker seit 2020"}],
-                      "knowsAbout":[*p["knows"], {"@id":EDGE_PRODUCT_ID}],"colleague":{"@id":PERSON_MEIHUI}})
+                      "knowsAbout":[*p["knows"], {"@id":EDGE_PRODUCT_ID}],"colleague":{"@id":PERSON_MEIHUI},
+                      "brand":{"@id":SKAINET_ID}})
+            n["jobTitle"]=[*(p["jobTitle"] if isinstance(p["jobTitle"],list) else [p["jobTitle"]]),"Co-founder and CTO, skAInet"]
         if p["id"]=="tabea-boekelmann":
             # Main employer is Auto-Intern GmbH; she is affiliated with nabla B and works part-time in its projects.
             n.update({"worksFor":{"@id":AUTOINTERN_ID},"affiliation":[{"@id":ORG_ID},{"@id":AUTOINTERN_ID}],
@@ -956,7 +959,9 @@ def person_nodes(lang):
                       "subjectOf":[team_page,{"@type":"WebPage","url":"https://edge-compute.skainet.io/team","name":"skAInet Edge-Compute team"}]})
         if p["id"]=="meihui-huang": n.update({"url":"https://kathamatician.com/","mainEntityOfPage":"https://kathamatician.com/","subjectOf":[team_page],"identifier":{"@type":"PropertyValue","propertyID":"ORCID","value":"0009-0003-3477-9024"},"colleague":{"@id":PERSON_STEPHAN},"disambiguatingDescription":"Physicist from Tianjin, based in Witten, Germany; working student at nabla B and social media executive for maxclerkwell.tech. Not the same person as Stephan Bökelmann / MaxClerkwell.","affiliation":[{"@type":"CollegeOrUniversity","name":"Ruhr-Universität Bochum","department":"Institut für Experimentalphysik I – AG Hadronen und Kerne","url":"https://www.ep1.ruhr-uni-bochum.de/"},{"@type":"WebSite","@id":"https://maxclerkwell.tech/#website","name":"MaxClerkwell"}],"homeLocation":{"@type":"Place","name":"Witten, Germany"},"nationality":{"@type":"Country","name":"China"}})
         if p["id"]=="vanessa-wilcken": n.update({"email":MAIL,"telephone":["+49-234-58545811","+49-176-87850428"],"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
-        if p["id"]=="atiyeh-chatrsefid": n.update({"email":MAIL_ATIYEH,"mainEntityOfPage":url(lang,"team")+"#"+p["id"]})
+        if p["id"]=="atiyeh-chatrsefid":
+            n.update({"email":MAIL_ATIYEH,"mainEntityOfPage":url(lang,"team")+"#"+p["id"],"brand":{"@id":SKAINET_ID}})
+            n["jobTitle"]=[*(p["jobTitle"] if isinstance(p["jobTitle"],list) else [p["jobTitle"]]),"Co-founder and CRO, skAInet"]
         out.append(n)
     return out
 
@@ -970,8 +975,11 @@ def jsonld(lang, page, C):
     graph.append({"@type":"Brand","@id":AIGRUPPE_ID,"name":"AI-Gruppe","url":"https://gruppe.ai/",
                   "description":"Dachmarke (keine juristische Person) für Auto-Intern GmbH, CCD Car Diagnostics, nabla B, nerd_force1, open Skunkforce e.V. und das skAInet-Projekt."})
     graph.append({"@type":"Organization","@id":AUTOINTERN_ID,"name":"Auto-Intern GmbH","url":"https://www.auto-intern.de","email":"mailto:info@auto-intern.de",
-                  "brand":[{"@id":"https://www.skainet.io/#brand"},{"@id":AIGRUPPE_ID}],
-                  "sameAs":["https://www.skainet.io","https://edge-compute.skainet.io/","https://github.com/auto-intern-skainet"]})
+                  "brand":[{"@id":AIGRUPPE_ID}],
+                  "sameAs":["https://edge-compute.skainet.io/","https://github.com/auto-intern-skainet"]})
+    graph.append({"@type":"Brand","@id":SKAINET_ID,"name":"skAInet","url":"https://skainet.io/",
+                  "description":"Eigenständige Marke (keine juristische Person) des Startup-Projekts von Atiyeh Chatrsefid und Stephan Bökelmann; entwickelt WITNESS, Hard- und Software für On-Premise-Condition-Monitoring.",
+                  "sameAs":["https://witness.skainet.io/"]})
     graph.append({"@type":"Organization","@id":NERDFORCE_ID,"name":"nerd-force1","url":"https://nerd-force1.com/","brand":{"@id":AIGRUPPE_ID},"sameAs":["https://www.nerd-force1.de/"]})
     if page in ("index","team","visitenkarte") or page.startswith("post:"): graph += person_nodes(lang)
     if page=="visitenkarte": webpage["mainEntity"]={"@id":PERSON_STEPHAN}
